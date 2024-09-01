@@ -1,5 +1,5 @@
 ---
-cover: https://gitbookio.github.io/onboarding-template-images/header.png
+cover: .gitbook/assets/Screenshot 2024-08-30 at 7.53.30 AM.png
 coverY: 0
 layout:
   cover:
@@ -17,11 +17,11 @@ layout:
     visible: true
 ---
 
-# Welcome
+# CsvPath
 
-Welcome to the GitBook Starter Template! Here you'll get an overview of all the amazing features GitBook offers to help you build beautiful, interactive documentation.
+## **A path to data validation for the files that need it most!**
 
-You'll see some of the best parts of GitBook in action — and find help on how you can turn this template into your own.
+CsvPath is a declarative validation tool that verifies that CSV files meet expectations. The CsvPath language is simple, easy to integrate, and flexible enough to handle the unexpected quirks CSV data often contains. Inspired by [Schematron](https://schematron.com/), CsvPath brings rules-based data validation to less structured data.
 
 ### Jump right in
 
