@@ -60,3 +60,27 @@ too_long(#lastname, 30)
 
 That's much better!
 
+## Rule three: first header
+
+Our validation csvpath wants the first column to be called `firstname`. That seems like an easy rule to satisify, right? Just type it that way.&#x20;
+
+We will of course do that. But consider if your csvpath is going to be validating files from a nightly batch job. Since we don't want to rock the keyboard at 3 a.m., we need a rule to check for us, even if it is just a simple rule.
+
+Add this below the max length rule:
+
+```
+header_name_mismatch(0, "firstname")
+```
+
+This rule says that the 0th header must be the `firstname` header. Headers can be accessed by their numeric position -- their index. The index is 0-based, like a Python list. That means the first header is `#0`. In our rule, the function looks up the name of the header indicated by `0`. If it doesn't equal "firstname" we match the line.
+
+This gets us to an interesting point. CsvPath applies a csvpath to a CSV file line by line. It collects each line that matches its rules. The `column()` function will be called on every line, not just the header line. That means that if the first header is not `firstname`, our rule would collect every line in the file. That would indicate that all the lines were bad. In reality, in that case, we would consider the file as a whole invalid, not the individual lines.
+
+What to do? Easy! Change the line you just added so that the rule looks like:
+
+```
+header_name_mismatch.nocontrib(0, "firstname") -> fail()
+```
+
+Now the rule doesn't determine if lines match match
+
