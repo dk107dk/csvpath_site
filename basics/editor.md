@@ -26,7 +26,7 @@ Another approach to rule writing is to worry less about AND vs. OR and instead c
 
 When/do rules look like:
 
-```
+```clike
 function() -> function()
 ```
 
@@ -38,7 +38,7 @@ The right-hand side of your do/when expressions will be a side-effect. The main 
 
 The most clear-cut way to separate your match components is to move them into separate csvpaths. When you break down your validation rules into small groups of like rules or single rules you gain clarity and testability.  You lose nothing. It's if anything easier to craft individual rules and run them together. CsvPaths makes it simple to set up. The best approach is to drop all your csvpaths in a single file like this:&#x20;
 
-```
+```clike
 ~ name: rule one ~
 $[*][ headers("firstname") ]
 
