@@ -19,6 +19,8 @@ The four types of data are pretty simple.&#x20;
 * `csvpath` is either runtime data about the current csvpath or it is post-run data about another csvpath the reference is pointing to
 * `metadata` is descriptive data about the csvpath the reference is pointing to
 
+### The csvpath runtime properties
+
 The `csvpath` fields include:&#x20;
 
 * Delimiter
@@ -27,6 +29,8 @@ The `csvpath` fields include:&#x20;
 * The counts of lines, total lines, matches, and scans
 * The validation failed and run stopped properties
 * Some timing information, including cumulative matching time
+
+### The metadata fields
 
 The `metadata` fields come from the comments around a csvpath and from the CsvPaths files, paths, and results managers.&#x20;
 
