@@ -28,7 +28,18 @@ The `csvpath` fields include:&#x20;
 * The validation failed and run stopped properties
 * Some timing information, including cumulative matching time
 
-The `metadata` fields come from the comments around a csvpath. Comments can have keyed metadata values. Keys take the form of a word with a colon at the end. For example:
+The `metadata` fields come from the comments around a csvpath and from the CsvPaths files, paths, and results managers.&#x20;
+
+The metadata coming from the managers includes:&#x20;
+
+* The named-paths name
+* The named-file name
+* The number of data lines (meaning the count of lines that had any data)
+* How many csvpaths were (to be) applied&#x20;
+* How many csvpaths were completed at the time of the request for metadata
+* Is the file considered valid according to the paths applied?&#x20;
+
+Csvpath comments can provide keyed-metadata values. Keys take the form of a word with a colon at the end. For example:
 
 ```clike
 ~ name: Order Batch File Valdiations
