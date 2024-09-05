@@ -12,7 +12,7 @@
 
 * [Validation Strategies](basics/editor.md)
 * [References](basics/markdown.md)
-* [Images & media](basics/images-and-media.md)
+* [Named Files and Paths](basics/images-and-media.md)
 * [Interactive blocks](basics/interactive-blocks.md)
 * [OpenAPI](basics/openapi.md)
 * [Integrations](basics/integrations.md)
