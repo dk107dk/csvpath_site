@@ -4,7 +4,15 @@ CsvPath came out of many years of software development and DataOps experience th
 
 Here are some use cases for CsvPath to get you thinking. There are many more. They have a ton of overlap, but each also has its own unique concerns. There are, of course, no cases that couldn't be handled by multiple tools. There's always more than one way to do it. CsvPath simply gives you another option—one that is purpose-built to task.
 
-### Content Ingestion
+* [Ingestion](interactive-blocks.md#ingestion)
+* [Inbound Batch Processing](interactive-blocks.md#batch-processing-inbound)
+* [Outbound Batch Processing](interactive-blocks.md#batch-processing-outbound)
+* [Monitoring](interactive-blocks.md#monitoring)
+* [Sampling](interactive-blocks.md#sampling)
+* [Statistical Process Control](interactive-blocks.md#statistical-process-control)
+* [Data Transformation](interactive-blocks.md#data-transformation)
+
+### Content Ingestion <a href="#ingestion" id="ingestion"></a>
 
 Information services companies take in and generate a lot of data. As aggregators, they often ingest very large and/or wide files. And their need for conformance checking and normalization is different than that of simpler transactional flows.&#x20;
 
