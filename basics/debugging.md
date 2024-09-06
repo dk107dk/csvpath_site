@@ -10,12 +10,7 @@ Here are some ideas.
 * [Emit JSON](debugging.md#emit-json)&#x20;
 * [Stop Early](debugging.md#stop-early)
 * [Create a simple test csvpath](debugging.md#create-a-simple-test-csvpath)&#x20;
-* Advice
-  * print() is your friend
-  * Use the $.csvpaths.headers field
-  * push() line-by-line indicators
-  * Check counts vs. numbers
-  * Were the variables frozen?
+* [More Advice](debugging.md#more-advice)
 * Value Producers, Match Deciders and Side-effects
 * Access the variables and metadata programmatically
 * Parser’s AST in debug logging
@@ -81,13 +76,24 @@ Sometimes that's the simplifying condition that helps you see what's going on.  
 
 This may seem like obvious advice. CsvPath provides good options for breaking down sizable validation into smaller steps with good separation but still runnable as a unit. When you hit a hard problem, try to isolate it in its own csvpath. You can run it with other csvpaths in CsvPaths or you can import() it into another csvpath like a component. Running in CsvPaths has the added benefit of allowing you to easily separate out the problem csvpath's print statements and errors.
 
-Advice
+## More Advice
 
 * `print()` is your friend — if you've been leaning on debuggers rather than print statements lately you may feel like the debugger is the way to go. Try print as well. It is simpler than learning the CsvPath internals and provides access to [a large amount of metadata](the\_reference\_data\_types.md).&#x20;
 * Use the $.csvpaths.headers field — headers change mid-file because CSV. You can dump the current headers using the headers reference in a print statement. You can dump the line to compare to the headers using the `print_line()` function.
 * `push()` line-by-line indicators — consider using `push()` to push indicators, variables, headers, etc., into a stack variable, line by line. This can be a handy way of seeing how state progresses over a run.
 * Check counts vs. numbers — one of the CSV file things you wouldn't think would be hard turns out to be harder than expected: counts vs. references. When you refer to a line or a header you are pointing to an item in a 0-based list. When you count something you are indicating how many times you've seen it, a 1-based counter. When we talk about match counts and line numbers, or even line counts and line numbers, we are talking about different kinds of things. Then there's the distinction between "physical" lines and "data" lines. The former are essentially a count of line feed characters in a series of bytes. The latter is a series of line feeds plus the content between them. And finally there is the problem of lines that have whitespace but no delimiters, as well as lines with too few or too many delimiters. Lines with a single space look blank to us. Technically they are a single header line containing whitespace. CsvPath takes pity on us and treats those as blanks, meaning non-data lines. You can inspect all these numbers in the line monitor. Do: `print(f"{csvpath.line_montor}")` &#x20;
-* Were the variables frozen? CsvPath always calls any `last()` functions on the last line scanned or the end of the file. However, if the csvpath is not activated for that line because the line is empty and would usually be skipped, the `last()` functions still run, but in a restricted context. Their variables are frozen, including stacks and tracking values.&#x20;
+* Were the variables frozen? CsvPath always calls any `last()` functions on the last line scanned or the end of the file. However, if the csvpath is not activated for that line because the line is empty and would usually be skipped, the `last()` functions still run, but in a restricted context. Their variables are frozen, including stacks and tracking values. That is usually not a problem — `last()` not running would be a much bigger issue — but it has the potential to be mysterious in some corner cases.
+* Value Producers, Match Deciders and Side-effects — remember that different match components have different focuses. This primarily goes for functions. A function can be a producer, a decider, or a side-effect. Where this becomes interesting is when producers match or deciders give values. Typically the behavior is what you would expect. E.g. a match decider producing a value will return True or False. However, you could run into one of two gotchas. A match decider that is being assigned provides its value, which may be different from the match result.&#x20;
 
-Remember that matches and producing values are different and not transitive
+{% hint style="danger" %}
+An example recently seen:&#x20;
+
+An `any()` with `onmatch` was being assigned to a variable. `any()` is a match decider. But an assignment always receives the value of the component, not its matching contribution. Usually these are the same.
+
+Because the `any()` was contributing only `onmatch`, its value was `None` on lines that didn't match. On those same lines, as a non-contributor, its match defaults to `True`.&#x20;
+
+Then that same `any()` was wrapped in a `not().` This was the second gotcha: assignment is not transitive. Meaning that the `any(),` now `not(any.onmatch()),` was no longer being assigned. The `not()` was. That meant that the `any()` reverted to its more typical result, its match value.&#x20;
+
+These should be rare gotchas!  But of course people will see them. Once you know the logic, the behavior makes sense. &#x20;
+{% endhint %}
 
