@@ -1,4 +1,4 @@
-# References
+# The Reference Data Type
 
 CsvPath uses a namespace-like path to point to data in various places. These are called references. References are integrated into the match components, print output, and the structure of a csvpath. If you want to do lookups from one csvpath to the results or metadata of another, you use a reference. When you need to print data from the `print()` function, you need references.
 
@@ -32,12 +32,25 @@ The four types of data are pretty simple.&#x20;
 
 The `csvpath` fields include:&#x20;
 
-* Delimiter
-* Quotechar
-* The scan and match parts of the csvpath as the original text strings
+* `stopped` — `True` if the csvpath stopped the CsvPath from processing using the stop() function. Stopping a CsvPath that is run by a CsvPaths instance does not affect any other CsvPath instances that the parent CsvPaths is also running.
+* `failed` — True if the csvpath failed the CSV file using the `fail()` function. A CsvPath instance that enters the failed state continues to process lines until the end of the CSV file or until the csvpath stops the run by calling the `stop()` function.
+* `delimiter` — the CSV file delimiter. By default a ","
+* `quotechar` — the CSV file character used to quote header names and values
+* The parts of the csvpath as their original text strings:
+  * `scan_part` — something like `$myfile[1-10+20-30]`
+  * `match_part` — something like `[concat("validation", "is", "good")]`
 * The counts of lines, total lines, matches, and scans
+  * `count_matches` — the 1-based count (all counts are 1-based) of the matches that have happened so far in the scan
+  * `count_lines` — the 1-based count of the number of lines seen. This is also referred to as data lines because by default CsvPath skips blanks. You may also see references to "physical" lines. Physical lines means the number of line feeds in the file, regardless of if they create blank lines.
+  * `count_scans` — the 1-based count of lines seen by the scan so far. If the scan is for 1+3+5 and CsvPaths is at line 3 the count will be 2.
+  * `total_lines` — the 0-based count of all the physical lines in the file. This number was found before the first line is scanned.
 * The validation failed and run stopped properties
-* Some timing information, including cumulative matching time
+* Basic timing:
+  * `line_time` — the cumulative time processing lines so far
+  * `last_line_time` — the time spent processing the line before the current line
+* `headers` — a string created from the currently set headers. This is largely for debugging. Keep in mind that the headers can be reset on demand using the `reset_headers()` function. Resetting headers is fairly common due to the irregular way CSV files are often constructed.
+
+
 
 ## The Metadata Fields
 

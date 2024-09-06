@@ -11,7 +11,7 @@
 ## Basics
 
 * [Validation Strategies](basics/editor.md)
-* [References](basics/markdown.md)
+* [The Reference Data Type](basics/markdown.md)
 * [Named Files and Paths](basics/images-and-media.md)
 * [Use Cases](basics/interactive-blocks.md)
 * [OpenAPI](basics/openapi.md)
