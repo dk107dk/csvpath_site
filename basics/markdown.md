@@ -32,8 +32,8 @@ The four types of data are pretty simple.&#x20;
 
 The `csvpath` fields include:&#x20;
 
-* `stopped` — `True` if the csvpath stopped the CsvPath from processing using the stop() function. Stopping a CsvPath that is run by a CsvPaths instance does not affect any other CsvPath instances that the parent CsvPaths is also running.
-* `failed` — True if the csvpath failed the CSV file using the `fail()` function. A CsvPath instance that enters the failed state continues to process lines until the end of the CSV file or until the csvpath stops the run by calling the `stop()` function.
+* `stopped` — `True` if the csvpath stopped the CsvPath from processing using the `stop()` function. Stopping a CsvPath that is run by a CsvPaths instance does not affect any other CsvPath instances that the parent CsvPaths is also running.
+* `failed` — `True` if the csvpath failed the CSV file using the `fail()` function. A CsvPath instance that enters the failed state continues to process lines until the end of the CSV file or until the csvpath stops the run by calling the `stop()` function.
 * `delimiter` — the CSV file delimiter. By default a ","
 * `quotechar` — the CSV file character used to quote header names and values
 * The parts of the csvpath as their original text strings:
@@ -50,22 +50,20 @@ The `csvpath` fields include:&#x20;
   * `last_line_time` — the time spent processing the line before the current line
 * `headers` — a string created from the currently set headers. This is largely for debugging. Keep in mind that the headers can be reset on demand using the `reset_headers()` function. Resetting headers is fairly common due to the irregular way CSV files are often constructed.
 
-
-
 ## The Metadata Fields
 
 The `metadata` fields come from the comments around a csvpath and from the CsvPath files, paths, and results managers.&#x20;
 
 The metadata coming from the managers includes:&#x20;
 
-* The named-paths name
-* The named-file name
-* The number of data lines (meaning the count of lines that had any data)
-* How many csvpaths were (to be) applied&#x20;
-* How many csvpaths were completed at the time of the request for metadata
-* Is the file considered valid according to the paths applied?&#x20;
+* `paths_name` — the named-paths name
+* `file_name` — the named-file name
+* `data_lines` — the count of total data lines. This is a 1-based count of all lines with data. It is set before the first line.
+* `csvpaths_applied` — the number of csvpaths that will be applied to the CSV file, all keyed under paths\_name&#x20;
+* `csvpaths_completed` — the number of csvpaths completed to that point. This number is static after a run is complete. At that point csvpaths\_completed may not equal csvpaths\_applied if there are csvpaths that were stopped by the csvpath itself using the `stop()` function.
+* `valid` — tells us if the file is considered valid according to all the paths applied so far.&#x20;
 
-Csvpath comments can provide keyed-metadata values. Keys take the form of a word with a colon at the end. For example:
+Much of the information above is available less conveniently from other sources. Perhaps more importantly, csvpath comments can provide keyed-metadata values. Using metadata fields in your comments can be a huge win for the long-term maintainability of large csvpath collections. Keys take the form of a word with a colon at the end. For example:
 
 ```clike
 ~ name: Order Batch File Valdiations
