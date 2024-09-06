@@ -6,7 +6,6 @@ Here are some ideas.
 
 * [Logging Levels](debugging.md#logging-levels)&#x20;
 * [Error Policy](debugging.md#error-policy)
-  * Check the error collector
 * [Emit JSON](debugging.md#emit-json)&#x20;
 * [Stop Early](debugging.md#stop-early)
 * [Create a Simple Test Csvpath](debugging.md#create-a-simple-test-csvpath)&#x20;
