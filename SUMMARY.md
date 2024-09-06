@@ -10,9 +10,9 @@
 
 ## Basics
 
-* [Validation Strategies](basics/editor.md)
-* [The Reference Data Type](basics/markdown.md)
-* [Named Files and Paths](basics/images-and-media.md)
-* [Use Cases](basics/interactive-blocks.md)
-* [OpenAPI](basics/openapi.md)
+* [CsvPath Use Cases](basics/csvpath\_use\_cases.md)
+* [The Reference Data Types](basics/the\_reference\_data\_types.md)
+* [Validation Strategies](basics/validation\_strategies.md)
+* [Named Files and Paths](basics/named\_files\_and\_paths.md)
+* [Debugging Your CsvPaths](basics/debugging.md)
 * [Integrations](basics/integrations.md)

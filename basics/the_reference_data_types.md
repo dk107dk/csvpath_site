@@ -1,11 +1,11 @@
-# The Reference Data Type
+# The Reference Data Types
 
 CsvPath uses a namespace-like path to point to data in various places. These are called references. References are integrated into the match components, print output, and the structure of a csvpath. If you want to do lookups from one csvpath to the results or metadata of another, you use a reference. When you need to print data from the `print()` function, you need references.
 
-* [The Parts Of a Reference](markdown.md#the-parts-of-a-reference)
-* [Four Types Of Data](markdown.md#four-types-of-data)
-* [The Csvpath Runtime Fields](markdown.md#the-csvpath-runtime-fields)
-* [The Metadata Fields](markdown.md#the-metadata-fields)
+* [The Parts Of a Reference](the\_reference\_data\_types.md#the-parts-of-a-reference)
+* [Four Types Of Data](the\_reference\_data\_types.md#four-types-of-data)
+* [The Csvpath Runtime Fields](the\_reference\_data\_types.md#the-csvpath-runtime-fields)
+* [The Metadata Fields](the\_reference\_data\_types.md#the-metadata-fields)
 
 ## The Parts Of a Reference
 

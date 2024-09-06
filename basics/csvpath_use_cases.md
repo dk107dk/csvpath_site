@@ -1,16 +1,16 @@
-# Use Cases
+# CsvPath Use Cases
 
 CsvPath came out of many years of software development and DataOps experience that often involved a lot of CSV files. A couple of companies had mainframes or Access databases, yeah... that stuff. But more were SaaS companies creating data API products, RAG and vertical search engines, and Cloud PaaS IaC platforms. CSV is inescapable! You go where the data is.
 
 Here are some use cases for CsvPath to get you thinking. There are many more. They have a ton of overlap, but each also has its own unique concerns. There are, of course, no cases that couldn't be handled by multiple tools. There's always more than one way to do it. CsvPath simply gives you another option—one that is purpose-built to task.
 
-* [Ingestion](interactive-blocks.md#ingestion)
-* [Inbound Batch Processing](interactive-blocks.md#batch-processing-inbound)
-* [Outbound Batch Processing](interactive-blocks.md#batch-processing-outbound)
-* [Monitoring](interactive-blocks.md#monitoring)
-* [Sampling](interactive-blocks.md#sampling)
-* [Statistical Process Control](interactive-blocks.md#statistical-process-control)
-* [Data Transformation](interactive-blocks.md#data-transformation)
+* [Ingestion](csvpath\_use\_cases.md#ingestion)
+* [Inbound Batch Processing](csvpath\_use\_cases.md#batch-processing-inbound)
+* [Outbound Batch Processing](csvpath\_use\_cases.md#batch-processing-outbound)
+* [Monitoring](csvpath\_use\_cases.md#monitoring)
+* [Sampling](csvpath\_use\_cases.md#sampling)
+* [Statistical Process Control](csvpath\_use\_cases.md#statistical-process-control)
+* [Data Transformation](csvpath\_use\_cases.md#data-transformation)
 
 ### Content Ingestion <a href="#ingestion" id="ingestion"></a>
 
