@@ -2,6 +2,13 @@
 
 CsvPath uses a namespace-like path to point to data in various places. These are called references. References are integrated into the match components, print output, and the structure of a csvpath. If you want to do lookups from one csvpath to the results or metadata of another, you use a reference. When you need to print data from the `print()` function, you need references.
 
+* [The Parts Of a Reference](markdown.md#the-parts-of-a-reference)
+* [Four Types Of Data](markdown.md#four-types-of-data)
+* [The Csvpath Runtime Fields](markdown.md#the-csvpath-runtime-fields)
+* [The Metadata Fields](markdown.md#the-metadata-fields)
+
+## The Parts Of a Reference
+
 A reference has this structure:&#x20;
 
 ```perl
@@ -12,6 +19,8 @@ Let's break this down a bit more.&#x20;
 
 <table><thead><tr><th width="137">Part</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>$</td><td>The root of the csvpath </td><td></td></tr><tr><td>name-of-path</td><td><p>This is either: </p><ul><li>a filename, when in the structure of a csvpath</li><li>the name of the csvpath(s) that generated the data the reference is pointing to</li><li>when blank, the currently running csvpath itself </li></ul></td><td><ul><li>$test.csv[*][yes()]</li><li>$mypaths.variables.my_variable</li><li>$.variables.my_variable</li></ul></td></tr><tr><td>type-of-data</td><td><ul><li>variables</li><li>headers</li><li>csvpath</li><li>metadata</li></ul></td><td>$mypaths.metadata.description</td></tr><tr><td>name-of-datum</td><td>Any alphanum (along with '_') name. In the case of headers the name can be quoted or can be the index of the header</td><td><ul><li>$mypaths.headers."my header"</li><li>$mypaths.headers.0</li></ul></td></tr><tr><td>child-of-datum</td><td>This is called a tracking value. Tracking values are keys in <code>dict</code> variables. In the case of references they can also be an index into a stack variable.</td><td><ul><li>$mypaths.variables.cities.Boston</li></ul></td></tr></tbody></table>
 
+## Four Types Of Data
+
 The four types of data are pretty simple.&#x20;
 
 * `variables` are variables. Variables from completed runs are available from the CsvPath that the reference points to. We only lose the variables when the Python instance shuts down.
@@ -19,7 +28,7 @@ The four types of data are pretty simple.&#x20;
 * `csvpath` is either runtime data about the current csvpath or it is post-run data about another csvpath the reference is pointing to
 * `metadata` is descriptive data about the csvpath the reference is pointing to
 
-### The csvpath runtime properties
+## The Csvpath Runtime Fields
 
 The `csvpath` fields include:&#x20;
 
@@ -30,9 +39,9 @@ The `csvpath` fields include:&#x20;
 * The validation failed and run stopped properties
 * Some timing information, including cumulative matching time
 
-### The metadata fields
+## The Metadata Fields
 
-The `metadata` fields come from the comments around a csvpath and from the CsvPaths files, paths, and results managers.&#x20;
+The `metadata` fields come from the comments around a csvpath and from the CsvPath files, paths, and results managers.&#x20;
 
 The metadata coming from the managers includes:&#x20;
 
