@@ -6,9 +6,9 @@ This page gives you all the information you need to get started. Happily, it's n
 If you need help getting started with Python, try [Python.org's intros](https://www.python.org/about/gettingstarted/). Starting with a project tool like [Poetry](https://python-poetry.org/docs/basic-usage/) or [Jupyter Notebooks](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/) can also help.
 {% endhint %}
 
-### Pypy and Github
+### PyPI and Github
 
-The CsvPath library is available through [Pypi](https://pypi.org/project/csvpath/) as "csvpath". At this stage, pre 1.0, the project changes frequently. You should pin the version you use and update it methodically.&#x20;
+The CsvPath library is available through [Py](https://pypi.org/project/csvpath/)PI as "csvpath". At this stage, pre 1.0, the project changes frequently. You should pin the version you use and update it methodically.&#x20;
 
 You can check under the hood on [Github](https://github.com/dk107dk/csvpath). There are detailed docs that you can read in parallel or in addition to this site.
 
