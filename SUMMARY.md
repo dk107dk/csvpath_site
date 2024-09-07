@@ -8,11 +8,11 @@
 * [Your First Validation](getting-started/your-first-validation.md)
 * [Path To Production](getting-started/path-to-production.md)
 
-## Basics
+## Topics
 
-* [CsvPath Use Cases](basics/csvpath\_use\_cases.md)
-* [The Reference Data Types](basics/the\_reference\_data\_types.md)
-* [Validation Strategies](basics/validation\_strategies.md)
-* [Named Files and Paths](basics/named\_files\_and\_paths.md)
-* [Debugging Your CsvPaths](basics/debugging.md)
-* [Integrations](basics/integrations.md)
+* [Language Basics](topics/language.md)
+* [CsvPath Use Cases](topics/csvpath\_use\_cases.md)
+* [The Reference Data Types](topics/the\_reference\_data\_types.md)
+* [Validation Strategies](topics/validation\_strategies.md)
+* [Named Files and Paths](topics/named\_files\_and\_paths.md)
+* [Debugging Your CsvPaths](topics/debugging.md)
