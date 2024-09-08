@@ -3,6 +3,17 @@ description: >-
   Some CSV files have documentation or other ancillary data at the top, above
   the main data lines. This  want to skip that noise. Our goal is to validate
   just the regular rows below the line of headers.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # Another Example
