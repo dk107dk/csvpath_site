@@ -2,6 +2,8 @@
 
 In this second part of the orders data file example we are going to modify our csvpath and its Python runner to be more automation and management friendly. &#x20;
 
+## Requirements
+
 First let's call out the requirements. What are we trying to achieve?
 
 * Separate the code from the csvpath
@@ -33,4 +35,11 @@ Likewise with error handling. We'll test our csvpath, of course! But at runtime 
 
 Finally, our csvpath doesn't currently refer to outside data, but it could. And, given what the data is, there is a strong possibility that in a real scenario we would want to check UPCs or company names, or other things against known-good values. To do that we need our references to be able to find other data sets. The way our script is currently set up, we can't do that.
 
-&#x20;&#x20;
+## The Solution
+
+We're going to set our validation up using a CsvPaths instance. CsvPaths is the manager of CSV files, csvpaths, and run results. It instantiates a CsvPath instance for each csvpath it runs. And it has its own managers to find files, sets of csvpaths to run, and capture the results of runs. &#x20;
+
+As you may already know from other pages, the main difference in setting up CsvPaths is that you need to point its managers to your files. Second, you pull your results from the Results Manager using the same name as you used to run your paths. That's about it. Easy!
+
+
+
