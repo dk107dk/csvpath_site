@@ -6,6 +6,7 @@
 
 * [Quickstart](getting-started/quickstart.md)
 * [Your First Validation](getting-started/your-first-validation.md)
+* [Another Example](getting-started/another-example.md)
 * [Path To Production](getting-started/path-to-production.md)
 
 ## Topics
