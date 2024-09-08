@@ -197,5 +197,60 @@ Step-by-step:
 
 For this simple example that's enough. But in a production setting you might imagine sending an email, updating a database, moving the file to a good or not good directory, or the like.
 
+Assemble the Csvpath
+
+Above, we said what the rules would be, but we didn't actually create a csvpath. Let's do that now.
+
+```
+ORDER_RULES = """
+
+~ description: process order, and handling obvious
+  comments, collecting metadata fields, if found ~
+
+$orders.csv[*][
+    starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+    starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+    skip( starts_with(#0, "#"))
+    skip( gt(count_headers_in_line(), 9) )
+
+    ~ Warn when the number of headers changes ~
+    @hc = mismatch("signed")
+    gt(@hc, 9) ->
+          reset_headers(
+            print("Resetting headers to:
+              $.csvpath.headers.."))
+
+    print.onchange(
+        "Number of headers changed by $.variables.hc.",
+            print("See line $.csvpath.line_number.", skip()))
+
+    ~ Check correct category ~
+    not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
+        print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail())
+
+    ~ Correct price format? ~
+    not( exact( end(), /\$?(\d*\.\d{0,2})/ ) ) ->
+       print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail())
+
+    ~ Missing product identifiers ~
+    not( #SKU ) -> print("No SKU at line $.csvpath.count_lines", fail())
+    not( #UPC ) -> print("No UPC at line $.csvpath.count_lines", fail())
+
+    ~ Too few lines ~
+    below(total_lines(), 27)
+    last.onmatch() ->
+         print("File has too few lines: $.csvpath.count_lines.
+            Contact $orders.variables.userid about this batch:
+            $orders.variables.runid at $.csvpath.file_name.", fail())
+]
+"""
+```
+
+That's a lot. But it's well organized, commented, and pretty self-documenting. Longer validation rulesets are easy to find.
+
+Still, we have to ask, is there a better way?  Something more manageable over the long term? An approach that might be easier to develop and debug?
+
+Yes, absolutely!
+
 
 
