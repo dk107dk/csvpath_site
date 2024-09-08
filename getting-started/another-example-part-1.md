@@ -78,7 +78,7 @@ The variable `@runid.notnone` will take the value of the regular expression only
 
 ## Rule 2: Find the Headers
 
-We know there is one header row. It comes after the top-matter. And we know we have >= 10 headers. That's easy to spot.
+We know there is one header row. It comes after the top-matter. And we know we have >= 10 headers. That's easy to spot. One way to do it might be:&#x20;
 
 ```
 skip( lt(count_headers_in_line(), 9) )
@@ -87,13 +87,13 @@ gt(count_headers_in_line(), 9) -> reset_headers()
 
 These two match components handle those requirements. The first one skips a line if it doesn't have enough headers. Those are probably comment lines and we already took care of the comments. This is an illustration of how order matters in CsvPath. Match components are activated from left to right, top to bottom. What I do in match component A may affect match component B. Or, in this case, we're just skipping B altogether.&#x20;
 
-When we see the number of line values jump to 10 or more we can safely assume we hit the header row and act accordingly.
+When we see the number of line values jump to 10 or more we can safely assume we hit the header row and act accordingly. Here is a more complete approach:
 
 ```
 @header_change = mismatch("signed")
 gt( @header_change, 9) ->
       reset_headers(
-        print("Resetting headers to: $.csvpath.headers."))
+        print("Resetting headers to: $.csvpath.headers.."))
 
 print.onchange(
     "Number of headers changed by $.variables.header_change..",
@@ -105,6 +105,8 @@ The three match components here:&#x20;
 * Create a `header_change` variable with the difference in the number of line values vs. headers expected. The `mismatch()` function gets this count. We pass it `"signed"` so that it will give us a negative or positive number, not just the absolute difference.&#x20;
 * If `@header_change` is more than `9`, we do `reset_headers()`. Resetting headers changes the header row to the current row and sets the expectation for the values that will be found in subsequent lines. We have `reset_headers()` activate `print()` to give a visual output of what our csvpath is doing.&#x20;
 * We then do another `print()` to provide more information. In both `print()`s we use [references](../topics/the\_reference\_data\_types.md) to include metadata about the headers and the line number where we made the change.
+
+Note the double periods in the print statements. When you want to put a period right at the end of a reference you need to escape it by doubling it.
 
 ## Rule 3: Product Category
 
