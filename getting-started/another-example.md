@@ -20,6 +20,17 @@ layout:
 
 Some CSV files have documentation or ancillary data at the top, above the main data lines. When that happens, it complicates recognizing and handling headers correctly and validation difficult in other ways. Let's take a look at an example.&#x20;
 
+In this example you will see more functions, headers, qualifiers, and references. To learn more about these topics please take a look at:&#x20;
+
+* [Functions](https://github.com/dk107dk/csvpath/blob/main/docs/functions.md), including the list of all built-in functions
+* [Qualifiers](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md)
+* [Headers](https://github.com/dk107dk/csvpath/blob/main/docs/headers.md)
+* [References](https://github.com/dk107dk/csvpath/blob/main/docs/references.md) and [the reference data types](../topics/the\_reference\_data\_types.md)
+
+And start here for [a general overview of match components](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components).
+
+
+
 <figure><img src="../.gitbook/assets/data-before.png" alt=""><figcaption></figcaption></figure>
 
 There are so many things to validate here. Types of products, IDs, prices. Just sticking with simple checks we could come up with many rules. We'll create a csvpath that applies six rules while dealing with the complicating top-matter.
