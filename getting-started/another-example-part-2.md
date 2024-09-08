@@ -41,5 +41,46 @@ We're going to set our validation up using a CsvPaths instance. CsvPaths is the 
 
 As you may already know from other pages, the main difference in setting up CsvPaths is that you need to point its managers to your files. Second, you pull your results from the Results Manager using the same name as you used to run your paths. That's about it. Easy!
 
+In this second part of the example, we're going to change the csvpath more than the Python code. At the same time, we need the Python runtime context to motivate our changes to the csvpath. So let's look at the Python first.
+
+```python
+import csvpath
+
+paths = CsvPaths(print_default=False)
+LogUtility.logger(path, "warn")
+
+paths.files_manager.add_named_files_from_dir("examples/complex_headers/csvs/")
+paths.paths_manager.add_named_paths_from_dir("examples/complex_headers/csvpaths")
+paths.fast_forward_paths(pathsname="orders", filename="March-2024")
+
+results = paths.results_manager.get_named_results("orders")
+for r in results:
+
+    print(f"""\n\t Description: {r.csvpath.metadata["description"]}""")
+    print(f"\t valid: {r.is_valid()}")
+    print(f"\t errors: {len( r.errors)}")
+
+```
+
+First we import the CsvPath library and create an instance of `CsvPaths`. We create it with `print_default=False`. This prevent the `CsvPath` instances that run your csvpaths from printing to the default standard out `Printer`. Your print statements will be captured and available with your results from the `ResultsManager`. By default both things would happen: you would see results on standard out and you would be able to get print statements with your results.&#x20;
+
+Next we do another completely optional thing, set the logging level. This is here just so you know how to do it. Out of the box, CsvPath is already set to warn by default. You can [read more about setting up logging and error handling policies here](../topics/debugging.md).
+
+After that, we set up the named files and named paths. Named-files are just short names that point to full filesystem paths. They are convenient. Named-paths are more interesting. They are sets of csvpaths that can be run as a group. You set them up by one of:
+
+* Creating a dict in Python
+* Pointing to a directory full of csvpath files
+* Pointing to a file that has multiple csvpaths in it
+
+When we're done we're going to have the last one. You can [read more about names here](../topics/named\_files\_and\_paths.md).
+
+After we set up the named files and named paths we have CsvPaths do `fast_forward_paths()`. This is similar to the `fast_forward()` method we called on our `CsvPath` instance in the first part of the example. The difference is that CsvPaths runs all the csvpaths in the named-paths you are using. It runs them serially. There is an equally simple but different fast forward method to run the csvpaths breadth-first, but that's a topic for another time.
+
+At the bottom of the Python we pull the results from the ResultsManager using the same name as our named-path name. We store them under the same name because the results are the result of running those csvpaths.
+
+
+
+
+
 
 
