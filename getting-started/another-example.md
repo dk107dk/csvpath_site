@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -65,7 +65,9 @@ starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
 starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
 ```
 
-These two [match components ](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components)look at comment lines and capture data. The variable `@runid.notnone` will take the value of the regular expression only when the value is not `None`. None is the Python way of saying null. Because we have the `notnone` [qualifier](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md), it doesn't matter if this match component is activated for every line in the file. Regardless, we only pick up run IDs from comment lines and we never overwrite a good run ID with a None. The same is true for the `@userid` variable.&#x20;
+These two [match components ](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components)look at comment lines and capture data. Notice that the starts\_with() function looks at the 0th header, `#0`, which looks a lot like our CSV file's comments, but is completely different. We use `#0` because there is no proper header line at the top of the file so we don't know what the name of the 0th header is. All we know is we need the first chunk of data in the line.
+
+The variable `@runid.notnone` will take the value of the regular expression only when the value is not `None`. None is the Python way of saying null. Because we have the `notnone` [qualifier](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md), it doesn't matter if this match component is activated for every line in the file. Regardless, we only pick up run IDs from comment lines and we never overwrite a good run ID with a `None`. The same is true for the `@userid` variable.&#x20;
 
 ## Rule 2: Find the Headers
 
@@ -76,7 +78,7 @@ skip( lt(count_headers_in_line(), 9) )
 gt(count_headers_in_line(), 9) -> reset_headers()
 ```
 
-These two match components handle those requirements. The first one skips a line if it doesn't have enough headers. Those are probably comment lines and we already took care of the comments. This is an illustration of how order matters in csvpath. Match components are activated from left to right, top to bottom. What I do in match component A may affect match component B. Or, in this case, we're just skipping B.&#x20;
+These two match components handle those requirements. The first one skips a line if it doesn't have enough headers. Those are probably comment lines and we already took care of the comments. This is an illustration of how order matters in CsvPath. Match components are activated from left to right, top to bottom. What I do in match component A may affect match component B. Or, in this case, we're just skipping B altogether.&#x20;
 
 When we see the number of line values jump to 10 or more we can safely assume we hit the header row and act accordingly.
 
@@ -93,9 +95,9 @@ print.onchange(
 
 The three match components here:&#x20;
 
-* Create a header\_change variable with the difference in the number of line values vs. headers expected. The mismatch function gets this count. We pass it "signed" so that it will give us a negative or positive number, not just the absolute difference.&#x20;
-* If @header\_change is more than 9, we do reset\_headers(). Resetting headers changes the header row to the current row and sets the expectation for the values that will be found in subsiquent lines. We have reset\_headers() activate print() to give a visual output of what the csvpath is doing.&#x20;
-* We then do another print() to provide more information. In both print()s we use references to include metadata about the headers and the line number where we made the change.
+* Create a `header_change` variable with the difference in the number of line values vs. headers expected. The `mismatch()` function gets this count. We pass it `"signed"` so that it will give us a negative or positive number, not just the absolute difference.&#x20;
+* If `@header_change` is more than `9`, we do `reset_headers()`. Resetting headers changes the header row to the current row and sets the expectation for the values that will be found in subsequent lines. We have `reset_headers()` activate `print()` to give a visual output of what our csvpath is doing.&#x20;
+* We then do another `print()` to provide more information. In both `print()`s we use [references](../topics/the\_reference\_data\_types.md) to include metadata about the headers and the line number where we made the change.
 
 ## Rule 3: Product Category
 
@@ -106,9 +108,11 @@ not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
         print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail()) ]
 ```
 
-Following the same pattern, we are going to identify a problem row and print a validation message. The in() function looks at the value of the #category header and checks if it is in a delimited string. We could also ask in() to check against one or more other match components. Or, we could even use a reference to point in() towards a list of values created by a different csvpath. But for now we're keeping it simple with the delimited list.
+Following the same pattern, we are going to identify a problem row and print a validation message. The `in()` function is looking at the value of the `#category` header and checks if it is in a delimited string.&#x20;
 
-Notice that we asked print() to activate a fail() function. fail() sets the is\_valid property of the csvpath to False. We are saying that the CSV file is invalid. If needed, we could use this information programmatically, in print messages, or take action in other match components using the failed() or valid() functions.
+We could equally well ask `in()` to check against the values of one or more other match components. Or, we could even use a reference to point `in()` towards a list of values created by a different csvpath. But for now we're keeping it simple with the delimited list.
+
+Notice that we asked `print()` to activate a `fail()` function, as well as printing a message. `fail()` sets the `is_valid` property of a csvpath to `False`. We are saying that the CSV file is invalid. If we needed to, we could use this information programmatically in Python, in CsvPath `print()` messages, or to take action in other match components using the `failed()` or `valid()` functions as triggers.
 
 ## Rule 4: Price Format
 
@@ -119,19 +123,19 @@ not( exact( end(), /\$?(\d*\.\d{0,2})/ ) ) ->
        print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail()) ]
 ```
 
-Again we use the same rule pattern. This time we use regular expressions again to check that a price:
+Again we use the same rule pattern. In this case, we tap regular expressions again to check that a price:
 
-* Must have a price value in the last header
-* May but doesn't have to start with a $
-* Must be numbers
-* May have a decimal point
-* Must have at most two numbers byond the decimal point
+* Exists in the last header
+* Starts with a $, optionally
+* Is made of numbers
+* Has a decimal point, optionally
+* Has at most two numbers byond the decimal point
 
-The new thing here is end(). The end() function is a pointer to the last column. If we're not certain what the last column name or index is we can use end() to refer to it. Our options are:&#x20;
+The new thing here is `end()`. The `end()` function is a pointer to the last header. If we're not certain what the last header name or index is we can use `end()` to refer to it. Our options are:&#x20;
 
-* Use a name like #"a price"
-* Use an index like #14
-* Use end(), possibly with an offset
+* Use a header name like `#"a price"`
+* Use an index like `#14`
+* Use `end()`, possibly with an offset integer like `end(-2)`
 
 In this case, let's say we know price is always the last column.&#x20;
 
@@ -144,7 +148,7 @@ not( #SKU ) -> print("No SKU at line $.csvpath.count_lines", fail())
 not( #UPC ) -> print("No UPC at line $.csvpath.count_lines", fail())
 ```
 
-&#x20;These two match components should start to look familar. We're testing the #SKU and #UPC headers to see if they have data. If not, we complain and fail the file. Simple!
+These two match components should start to look familiar. We're testing the `#SKU` and `#UPC` headers to see if they have data. If not, we complain and fail the file. Simple!
 
 ## Rule 6: Total Expected Lines
 
@@ -159,7 +163,7 @@ last.onmatch() ->
 
 ```
 
-We could do this a few ways. This is one reasonable approach. The first match component, below(), matches when a file has fewer than 10 lines. The second line activates print() on the last line of the file, but only if the line matches. Since a short line will match, we will see the printed statement.
+We could do this a few ways. This is one reasonable approach. The first match component, `below()`, matches when a file has fewer than 10 lines. The second line activates `print()` on the last line of the file, but only if the line matches. Since a short line will match, we will see the printed statement.
 
-As I said, there are other ways to handle this. And some may be more robust or have a better operational impact. For example, if our orders files were hundreds of megabytes and the rule was that that the line count had to be between 10 and 1 million, we might want to fail the file and stop processing earlier in the csvpath since  on line 10 we know if this rule passes. &#x20;
+As I said, there are other ways to handle this. And some may be more robust or have a better operational impact. For example, if our orders files were hundreds of megabytes and the rule was that that the line count had to be between 10 and 1 million, we might want to fail the file and stop processing earlier in the csvpath, since  on line 10 we know if this 10-to-1-million rule passes. &#x20;
 
