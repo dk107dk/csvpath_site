@@ -17,7 +17,7 @@ Let's say more.
 
 Separating the code from the csvpath is straightforward. We don't want to colocate the csvpath in a Python variable. That constrains our formatting choices, complicates updates and the code, and makes the solution single use. We don't want to keep that physical file reference built into the csvpath, either. Our ideal root for our path is this:
 
-```bash
+```xquery
 $[*]
 ```
 
@@ -96,7 +96,7 @@ We're going to do this by creating six csvpaths. When we're done we'll have the 
 
 There's only one real challenge with breaking down our big csvpath into multiple little ones. That is the top-matter that precedes the data in our CSV file. Each csvpath will have to handle that. We're talking about this part:&#x20;
 
-```bash
+```xquery
 starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
 starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
 skip( starts_with(#0, "#"))
@@ -118,7 +118,7 @@ Since this part came first in our csvpath and shielded all the remaining match c
 
 The answer is to use the `import()` function. We can import this fragment into our other csvpaths to get the same effect without cut-and-paste. For example, our second rule becomes its own csvpath that looks like this:&#x20;
 
-```bash
+```xquery
 
 ~ description: Check correct category ~
 $[*][
@@ -151,7 +151,7 @@ Instead let's put the csvpaths in one `orders.csvpath` file in the `examples/com
 
 `orders.csvpath` should look like this:&#x20;
 
-```bash
+```xquery
 ---- CSVPATH ----
 
 ~ description: Check correct category ~
@@ -194,7 +194,7 @@ $[*][
 
 And `skip_top_matter.csvpaths` should look like this:&#x20;
 
-```bash
+```xquery
 
 starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
 starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
