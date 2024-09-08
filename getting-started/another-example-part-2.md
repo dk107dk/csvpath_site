@@ -17,7 +17,7 @@ Let's say more.
 
 Separating the code from the csvpath is straightforward. We don't want to colocate the csvpath in a Python variable. That constrains our formatting choices, complicates updates and the code, and makes the solution single use. We don't want to keep that physical file reference built into the csvpath, either. Our ideal root for our path is this:
 
-```
+```bash
 $[*]
 ```
 
@@ -96,7 +96,7 @@ We're going to do this by creating six csvpaths. When we're done we'll have the 
 
 There's only one real challenge with breaking down our big csvpath into multiple little ones. That is the top-matter that precedes the data in our CSV file. Each csvpath will have to handle that. We're talking about this part:&#x20;
 
-```
+```bash
 starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
 starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
 skip( starts_with(#0, "#"))
@@ -118,7 +118,7 @@ Since this part came first in our csvpath and shielded all the remaining match c
 
 The answer is to use the `import()` function. We can import this fragment into our other csvpaths to get the same effect without cut-and-paste. For example, our second rule becomes its own csvpath that looks like this:&#x20;
 
-```
+```bash
 
 ~ description: Check correct category ~
 $[*][
@@ -132,7 +132,99 @@ $[*][
 We added a couple of things:&#x20;
 
 * A bit more documentation at the top. In this case we're capturing the description so it will be findable in the CsvPath metadata or by reference in a print statement.
-* The import() that brings in the top-matter handling match components we looked at above.
-* The root is now a "local" reference. $\[\*] refers to all lines in the current csvpath, but it doesn't say what csvpath it refers to. We leave that to CsvPaths and our named-paths setup.
+* The `import()` that brings in the top-matter handling match components we looked at above.
+* The root is now a "local" reference. `$[*]` refers to all lines in the current csvpath, but it doesn't say what csvpath it refers to. We leave that to CsvPaths and our named-paths setup.
 
-We can run this csvpath independently to make sure it does exactly what we want. And we can do it using small known-good test files and version control it on its own. That's a good way to work. &#x20;
+We should say again, if we had a more or less reliable file format we could just skip the prolog using the scanning part instructions.
+
+Regardless, now we can run this csvpath independently to make sure it does exactly what we want. And we can do it using small known-good test files and its own version control. That's a good way to work. &#x20;
+
+## One File Or One Directory
+
+Take the same approach with the other match component rules. The change is simple. Once you have them working we have one more question.
+
+That question is, do we want all the working csvpaths in one file or one directory?  (Technically it is straightforward to create JSON  that points to the csvpaths wherever they are, but one file or one directory is the norm).&#x20;
+
+Having six files with one csvpath each is obvious and easy to do without an example. A more important consideration, though, is that loading a named-path as a directory of separate files has a drawback. The drawback is that order is not deterministic. Order matters in CsvPath, including, sometimes, the order of executing multiple csvpaths. That's not always the case, and it isn't the case here. The order within our csvpaths matters because the top-matter handling match components need to come first. However, because we import the match components that handle the top-matter we don't have to worry about that. Still, it is a good thing to keep in mind.
+
+Instead let's put the csvpaths in one `orders.csvpath` file in the `examples/complex_headers/csvpaths` directory we used above. And, actually, while we could use just one file, in order to facilitate our `import()`, let's make it two files.
+
+`orders.csvpath` should look like this:&#x20;
+
+```bash
+---- CSVPATH ----
+
+~ description: Check correct category ~
+$[*][
+    import("skip_top_matter")
+
+    not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
+        print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail()) ]
+
+---- CSVPATH ----
+
+~ description: Correct price format? ~
+$[*][
+    import("skip_top_matter")
+
+    not( exact( end(), /\$?(\d*\.\d{0,2})/ ) ) ->
+       print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail()) ]
+
+---- CSVPATH ----
+
+~ description: Missing product identifiers ~
+$[*][
+    import("skip_top_matter")
+
+    not( #SKU ) -> print("No SKU at line $.csvpath.count_lines", fail())
+    not( #UPC ) -> print("No UPC at line $.csvpath.count_lines", fail()) ]
+
+---- CSVPATH ----
+
+~ description: Too few lines
+~
+$[*][
+      below(total_lines(), 27)
+      last.onmatch() ->
+            print("File has too few lines: $.csvpath.count_lines.
+                Contact $orders.variables.userid about this batch:
+                $orders.variables.runid at $.csvpath.file_name..", fail()) ]
+
+```
+
+And `skip_top_matter.csvpaths` should look like this:&#x20;
+
+```bash
+
+starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+skip( starts_with(#0, "#"))
+skip( lt(count_headers_in_line(), 9) )
+
+~ Warn when the number of headers changes ~
+@hc = mismatch("signed")
+gt(@hc, 9) ->
+    reset_headers(
+        print("Resetting headers to: $.csvpath.headers.."))
+
+    print.onchange(
+        "Number of headers changed by $.variables.hc.",
+            print("See line $.csvpath.line_number..", skip()))
+
+```
+
+Put them both in that same directory. Both will be imported by CsvPaths's PathsManager when we pass it the directory path. As I'm sure you guessed, if you didn't already know, the csvpath separator is `---- CSVPATH ----`.
+
+Now, assuming our orders file is where we're expecting it, `examples/complex_headers/csvs/March-2024.csv`, these two lines provide the lightning.&#x20;
+
+```python
+paths.fast_forward_paths(pathsname="orders", filename="March-2024")
+
+results = paths.results_manager.get_named_results("orders")
+```
+
+Notice that we are running just the `orders` named-paths, not our top-matter csvpath. The latter is executed once per each of the five `orders` csvpaths.
+
+The rest is just pulling the results from the ResultsManager and iterating them to see the print lines and do whatever else we need to do. Or if we just need the indicator of if the file is valid for all the csvpaths, the results manager can give us that go/no-go too.&#x20;
+
+And that's it. An automation-friendly rule set using a pattern that will scale to any size operation.
