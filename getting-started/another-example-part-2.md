@@ -41,7 +41,7 @@ We're going to set our validation up using a CsvPaths instance. CsvPaths is the 
 
 As you may already know from other pages, the main difference in setting up CsvPaths is that you need to point its managers to your files. Second, you pull your results from the Results Manager using the same name as you used to run your paths. That's about it. Easy!
 
-In this second part of the example, we're going to change the csvpath more than the Python code. At the same time, we need the Python runtime context to motivate our changes to the csvpath. So let's look at the Python first.
+In this second part of the example, we're going to change our csvpath more than the Python code. At the same time, we need the Python runtime context to motivate our changes to the csvpath. So let's start with the Python.
 
 ```python
 import csvpath
@@ -62,9 +62,13 @@ for r in results:
 
 ```
 
-First we import the CsvPath library and create an instance of `CsvPaths`. We create it with `print_default=False`. This prevent the `CsvPath` instances that run your csvpaths from printing to the default standard out `Printer`. Your print statements will be captured and available with your results from the `ResultsManager`. By default both things would happen: you would see results on standard out and you would be able to get print statements with your results.&#x20;
+#### Printing and logging
+
+First we import the CsvPath library and create an instance of `CsvPaths`. We create it with `print_default=False`. This prevents the `CsvPath` instances that run your csvpaths from printing to the default `Printer`. Your print statements will still be captured and available with your results from the `ResultsManager`. By default both things would happen: you would see results on standard out and you would be able to get print statements with your results.&#x20;
 
 Next we do another completely optional thing, set the logging level. This is here just so you know how to do it. Out of the box, CsvPath is already set to warn by default. You can [read more about setting up logging and error handling policies here](../topics/debugging.md).
+
+#### Named-files, named-paths, named-results
 
 After that, we set up the named files and named paths. Named-files are just short names that point to full filesystem paths. They are convenient. Named-paths are more interesting. They are sets of csvpaths that can be run as a group. You set them up by one of:
 
@@ -78,9 +82,37 @@ After we set up the named files and named paths we have CsvPaths do `fast_forwar
 
 At the bottom of the Python we pull the results from the ResultsManager using the same name as our named-path name. We store them under the same name because the results are the result of running those csvpaths.
 
+## Improving Our Csvpath
 
+The cool part is over in the csvpath.
 
+We want to achieve a few things.&#x20;
 
+* Easy development of independent rules
+* Separated results, printouts, and error handling&#x20;
+* Overall better flexibility
+
+We're going to do this by creating six csvpaths. When we're done we'll have the option of putting them all in one file or in multiple files in one directory.&#x20;
+
+There's only one real challenge with breaking down our big csvpath into multiple little ones. That is the top-matter that precedes the data in our CSV file. Each csvpath will have to handle that. We're talking about this part:&#x20;
+
+```
+starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+skip( starts_with(#0, "#"))
+skip( lt(count_headers_in_line(), 9) )
+
+~ Warn when the number of headers changes ~
+@hc = mismatch("signed")
+gt(@hc, 9) ->
+    reset_headers(
+        print("Resetting headers to: $.csvpath.headers.."))
+
+    print.onchange(
+        "Number of headers changed by $.variables.hc.",
+            print("See line $.csvpath.line_number..", skip()))
+
+```
 
 
 
