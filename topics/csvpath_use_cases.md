@@ -1,6 +1,6 @@
 # CsvPath Use Cases
 
-CsvPath came out of many years of software development and DataOps experience that often involved a lot of CSV files. A couple of companies had mainframes or Access databases, yeah... that stuff. But more were SaaS companies creating data API products, RAG and vertical search engines, and Cloud PaaS IaC platforms. CSV is inescapable! You go where the data is.
+CsvPath came out of many years of software development and DataOps experience that often involved a lot of CSV files. A couple of companies had mainframes and Access databases, yeah... that stuff. But more of them were SaaS companies creating data API products, RAG and vertical search engines, and Cloud PaaS IaC platforms. My point is, CSV is inescapable! You go where the data is.
 
 Here are some use cases for CsvPath to get you thinking. There are many more. They have a ton of overlap, but each also has its own unique concerns. There are, of course, no cases that couldn't be handled by multiple tools. There's always more than one way to do it. CsvPath simply gives you another option—one that is purpose-built to task.
 
@@ -40,7 +40,7 @@ Quality control needs to happen at every stage of every pipeline. For quality co
 
 ### Monitoring
 
-How often have you looked at your logging tool and found only the haystack? There must be a needle in there somewhere! Many systems can fire data at a webhook or dump to a log file. Instead of shipping raw data, in some cases you can use CsvPath to apply rules to data dumps and CSV format logs. Doing that can give more actionable information, and potentially a lower cost due to sending the log system fewer bytes. A double win.
+How often have you looked at your logging tool and found only the haystack? There must be a needle in there somewhere! Many systems can fire data at a webhook or dump to a log file. Instead of shipping raw data, in some cases you can use CsvPath to apply rules to data dumps and CSV format logs. Doing that can give more actionable information and potentially a lower cost due to sending the log system fewer bytes. A double win.
 
 ### Sampling
 
@@ -49,11 +49,12 @@ Sampling is core to analytics and AI. It can be hard. Not only because file size
 * Random samples
 * Rules-based sampling and repeatable samples
 * Distribution checking
-* Raw data samples prior to processing
+* Raw data set capture prior to processing
+* Data munging and deidentification
 
 ### Statistical Process Control
 
-Statistical Process Control is the use of assembly-line-like production monitoring using assessment techniques that compare data to its longitudinal self and to external expectations. Lean, Six Sigma, and the Toyota Production System are the headline applications of SPC. Any data processing group with the ability to gather statistical indicators of their data can apply statistical methods straightforwardly. With SPC monitoring a team can methodically improve the data's conformance with expectations over time.
+Statistical Process Control is the use of assembly-line-like production monitoring. It uses assessment techniques that compare data to its longitudinal self and to external expectations. Lean, Six Sigma, and the [Toyota Production System](https://en.wikipedia.org/wiki/Toyota\_Production\_System) are the headline applications of SPC. Any data processing group with the ability to gather statistical indicators of their data can apply statistical methods straightforwardly. With SPC monitoring a team can methodically improve their data's conformance with expectations over time.
 
 * Gather run and control chart inputs
 * Capture and compare quintiles, standard deviation, mean, mode, etc.
