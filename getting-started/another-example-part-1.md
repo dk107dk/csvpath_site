@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Another Example
+# Another Example, Part 1
 
 Some CSV files have documentation or ancillary data at the top, above the main data lines. While the additional data is useful, it complicates recognizing and handling headers correctly. Validation becomes more difficult. Let's take a look at an example.&#x20;
 
@@ -197,7 +197,7 @@ Step-by-step:
 
 For this simple example that's enough. But in a production setting you might imagine sending an email, updating a database, moving the file to a good or not good directory, or the like.
 
-Assemble the Csvpath
+## Assemble the Csvpath
 
 Above, we said what the rules would be, but we didn't actually create a csvpath. Let's do that now.
 
