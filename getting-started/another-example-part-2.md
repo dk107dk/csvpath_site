@@ -114,5 +114,25 @@ gt(@hc, 9) ->
 
 ```
 
+Since this part came first in our csvpath and shielded all the remaining match components below it, we need a way to give that same shielding to our match components in their individual csvpaths. And we don't want to repeat this code six times.&#x20;
 
+The answer is to use the `import()` function. We can import this fragment into our other csvpaths to get the same effect without cut-and-paste. For example, our second rule becomes its own csvpath that looks like this:&#x20;
 
+```
+
+~ description: Check correct category ~
+$[*][
+    import("skip_top_matter")
+
+    not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
+        print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail()) ]
+
+```
+
+We added a couple of things:&#x20;
+
+* A bit more documentation at the top. In this case we're capturing the description so it will be findable in the CsvPath metadata or by reference in a print statement.
+* The import() that brings in the top-matter handling match components we looked at above.
+* The root is now a "local" reference. $\[\*] refers to all lines in the current csvpath, but it doesn't say what csvpath it refers to. We leave that to CsvPaths and our named-paths setup.
+
+We can run this csvpath independently to make sure it does exactly what we want. And we can do it using small known-good test files and version control it on its own. That's a good way to work. &#x20;
