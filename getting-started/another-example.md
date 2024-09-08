@@ -1,8 +1,4 @@
 ---
-description: >-
-  Some CSV files have documentation or other ancillary data at the top, above
-  the main data lines. This  want to skip that noise. Our goal is to validate
-  just the regular rows below the line of headers.
 layout:
   title:
     visible: true
@@ -18,7 +14,7 @@ layout:
 
 # Another Example
 
-Some CSV files have documentation or ancillary data at the top, above the main data lines. When that happens, it complicates recognizing and handling headers correctly and validation difficult in other ways. Let's take a look at an example.&#x20;
+Some CSV files have documentation or ancillary data at the top, above the main data lines. While the additional data is useful, it complicates recognizing and handling headers correctly. Validation becomes more difficult. Let's take a look at an example.&#x20;
 
 In this example you will see more functions, headers, qualifiers, and references. To learn more about these topics please take a look at:&#x20;
 
@@ -29,27 +25,27 @@ In this example you will see more functions, headers, qualifiers, and references
 
 And start here for [a general overview of match components](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components).
 
-
+This is a file of orders for goods from retail stores. It is a monthly report delivered automatically.
 
 <figure><img src="../.gitbook/assets/data-before.png" alt=""><figcaption></figcaption></figure>
 
-There are so many things to validate here. Types of products, IDs, prices. Just sticking with simple checks we could come up with many rules. We'll create a csvpath that applies six rules while dealing with the complicating top-matter.
+There are so many things to possibly validate here. Types of products, IDs, prices. Just sticking with simple checks we could come up with many rules. We'll create a csvpath that applies six rules while dealing with the complicating top-matter.
 
-When our csvpath sees this prolog it has some challenges. It needs to:
+As far as that top-matter, our csvpath has some requirements. It needs to:
 
 * Recognize that the header line is line 9 (0-based)
-* Discard the lines that are comments, unless
-* We want to capture some of that information
+* Discard the lines that are comments — unless
+* There is information we want to capture in that line, specifically: user and run ID
 
 Doable? Absolutely!
 
-Let's try doing it without just skipping the top 7 lines. Skipping the lines would obviously be trivial. Just create the scanning part of the csvpath like:
+And let's try doing it without just skipping the top 7 lines. Skipping the lines would obviously be trivial. Just create the scanning part of the csvpath like:
 
 ```
 $[8*][ ... ]
 ```
 
-But let's say we don't trust that those lines will always be there and/or there always be a consistent number to skip. Or maybe we want to grab the info in those lines. Let's capture the date and run ID from the comment.
+But let's say we don't trust that those lines will always be there or a consistent number to skip. And, anyway, we want that user and run ID metadata.
 
 As well as the comments, say that the orders files will always:&#x20;
 
@@ -177,4 +173,29 @@ last.onmatch() ->
 We could do this a few ways. This is one reasonable approach. The first match component, `below()`, matches when a file has fewer than 10 lines. The second line activates `print()` on the last line of the file, but only if the line matches. Since a short line will match, we will see the printed statement.
 
 As I said, there are other ways to handle this. And some may be more robust or have a better operational impact. For example, if our orders files were hundreds of megabytes and the rule was that that the line count had to be between 10 and 1 million, we might want to fail the file and stop processing earlier in the csvpath, since  on line 10 we know if this 10-to-1-million rule passes. &#x20;
+
+## A Simple Python CsvPath Runner
+
+As we saw in the first two examples, the Python side of CsvPath is easy.
+
+```python
+import csvpath
+
+path = CsvPath()
+path.parse( ORDER_RULES )
+path.fast_forward()
+print(f"\nThe file is {'valid' if path.is_valid else 'invalid'}")
+
+```
+
+Step-by-step:
+
+* We import CsvPath and create an instance that will run our csvpath
+* Assuming we drop our csvpath into the ORDER\_RULES variable, we parse our csvpath to prepare it to run
+* With path.fast\_forward() we are asking CsvPath to run through our csvpath without stopping or returning any data to us. We do that because our validations all print their gotchas in a validation report.
+* Last, we print out our csvpath's verdict: is the CSV file goood, or not
+
+For this simple example that's enough. But in a production setting you might imagine sending an email, updating a database, moving the file to a good or not good directory, or the like.
+
+
 
