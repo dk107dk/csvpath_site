@@ -41,7 +41,7 @@ Doable? Absolutely!
 
 And let's try doing it without just skipping the top 7 lines. Skipping the lines would obviously be trivial. Just create the scanning part of the csvpath like:
 
-```
+```xquery
 $[8*][ ... ]
 ```
 
@@ -67,7 +67,7 @@ We'll step through the strategies for each of the bullets. Then see them togethe
 
 You can capture the metadata using regular expressions. Our comment lines are prefixed with a `#` character. We can use that and a regex to grab the values we want and put them in variables.
 
-```
+```xquery
 starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
 starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
 ```
@@ -80,7 +80,7 @@ The variable `@runid.notnone` will take the value of the regular expression only
 
 We know there is one header row. It comes after the top-matter. And we know we have >= 10 headers. That's easy to spot. One way to do it might be:&#x20;
 
-```
+```xquery
 skip( lt(count_headers_in_line(), 9) )
 gt(count_headers_in_line(), 9) -> reset_headers()
 ```
@@ -89,7 +89,7 @@ These two match components handle those requirements. The first one skips a line
 
 When we see the number of line values jump to 10 or more we can safely assume we hit the header row and act accordingly. Here is a more complete approach:
 
-```
+```xquery
 @header_change = mismatch("signed")
 gt( @header_change, 9) ->
       reset_headers(
@@ -112,7 +112,7 @@ Note the double periods in the print statements. When you want to put a period r
 
 Next we'll check if the product category is correct. This is a pretty straightforward rule.
 
-```
+```xquery
 not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
         print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail()) ]
 ```
@@ -127,7 +127,7 @@ Notice that we asked `print()` to activate a `fail()` function, as well as print
 
 Moving right along, the next rule is that prices must exist and be in the correct format.
 
-```
+```xquery
 not( exact( end(), /\$?(\d*\.\d{0,2})/ ) ) ->
        print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail()) ]
 ```
@@ -152,7 +152,7 @@ In this case, let's say we know price is always the last column.&#x20;
 
 Retailers, distributors, and manufacturers use Universal Product Codes to identify products. Retailers use Stock Keeping Units to identify products in inventory. Both are very important numbers to the business. If they were missing the orders file would be for sure invalid.
 
-```
+```xquery
 not( #SKU ) -> print("No SKU at line $.csvpath.count_lines", fail())
 not( #UPC ) -> print("No UPC at line $.csvpath.count_lines", fail())
 ```
@@ -163,7 +163,7 @@ These two match components should start to look familiar. We're testing the `#SK
 
 We are expecting a file that is greater than 10 lines. That gives room for the comments at the top and at least a one or two orders. If we don't see at least 10 lines we want to fail the file.
 
-```
+```xquery
 below(total_lines(), 10)
 last.onmatch() ->
       print("File has too few lines: $.csvpath.count_lines.
@@ -203,7 +203,7 @@ For this simple example that's enough. But in a production setting you might ima
 
 Above, we said what the rules would be, but we didn't actually create a csvpath. Let's do that now.
 
-```
+```xquery
 ORDER_RULES = """
 
 ~ description: process order, and handling obvious
