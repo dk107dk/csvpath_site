@@ -13,6 +13,7 @@
 ## Topics
 
 * [Language Basics](topics/language.md)
+* [Why CsvPath?](topics/why-csvpath.md)
 * [CsvPath Use Cases](topics/csvpath\_use\_cases.md)
 * [The Reference Data Types](topics/the\_reference\_data\_types.md)
 * [Validation Strategies](topics/validation\_strategies.md)
