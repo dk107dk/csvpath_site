@@ -32,9 +32,15 @@ Create a test CSV file. Save it as trivial.csv or whatever name you like.
 
 <figure><img src="../.gitbook/assets/csv.png" alt="" width="359"><figcaption></figcaption></figure>
 
+{% file src="../.gitbook/assets/trivial.csv" %}
+
 Make a csvpath. Also a trivial one, just to keep it simple.
 
 <figure><img src="../.gitbook/assets/trivial-csvpath.png" alt="" width="375"><figcaption></figcaption></figure>
+
+```python
+csvpath = """$trivial.csv[*][yes()]"""
+```
 
 This path says: open trivial.csv, scan all the lines, match every one of them.
 
