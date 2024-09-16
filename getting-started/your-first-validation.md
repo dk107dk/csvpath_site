@@ -18,7 +18,9 @@ Our strategy is to collect any lines that break these rules. The validity of the
 
 <figure><img src="../.gitbook/assets/judges-scores.png" alt=""><figcaption></figcaption></figure>
 
-Open _getting\_started.py_ (or whatever you named your Quickstart script). Paste this rule into the CsvPath instance's parse method after the scanning part. The scanning part of a csvpath looks like this: `[1*][`
+Open your Quickstart script.&#x20;
+
+Paste this rule into the csvpath string. It goes in the matching part, after the scanning part. The scanning part of a csvpath is at the beginning. It looks like this: `[1*][`
 
 `~ Apply three rules to check if a CSV file meets expectations ~`
 
@@ -26,25 +28,72 @@ Your file should now look something like:&#x20;
 
 <figure><img src="../.gitbook/assets/three-rules-1.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Csvpaths can include line breaks, so you can format your csvpath any way that works for you.
+Csvpaths can include line breaks, so you can format your csvpath any way you like.
 
-What did we just do? We added a comment saying what our csvpath will achieve. That's all. Comments are completely optional, but they are useful. Let's continue.
+What did we just do? We added a comment saying what our csvpath does. That's all. Comments are completely optional, but they are useful.&#x20;
+
+Here is the file so far.
+
+{% file src="../.gitbook/assets/example2.py" %}
+
+Let's continue.
 
 ## Rule one: no blanks
 
 Our csvpath's first rule is that valid files have data under every header. CsvPath looks at the 0th line to determine the file's headers. Of course, some files don't include headers. We'll see how to handle that later.
 
-Add this line below the comment. Make it replace the `yes()` function:
+Add a test for blanks below the comment. Make it replace the `yes()` function:
 
 ```clike
-not(all(header()))        
+
+            ~ Apply three rules to check if a CSV file meets expectations ~
+              not(all(headers()))
+ 
 ```
 
 What does this statement do?&#x20;
 
-As we iterate through the CSV file line by line, the `all()` looks at values and returns `True` if all of them have data. We pass `all()` a `header()` function to direct it to look in all the headers. We want to collect the offenders so we use `not()` to match any line that has any blanks.
+As we iterate through the CSV file line by line, the `all()` looks at values and returns `True` if all of them have data. We pass `all()` a `header()` function to direct it to look in all the headers.&#x20;
+
+In our last script we used the `fast_forward()` method to run though the CSV file without interacting with  it. This time, let's collect the offending lines. To do that, we need to use `not()` to match any line that has blanks. We also have to switch from `fast_forward()` to `collect()`.
+
+And one more change. Rather than using is\_valid, let's say that the count of invalid lines determines if our file is valid. `collect()` returns the lines. Let's just print out how many.&#x20;
+
+When you've made these changes, your script should look like:&#x20;
+
+```python
+from csvpath import CsvPath
+
+csvpath = """$trivial.csv[*][
+            ~ Apply three rules to check if a CSV file meets expectations ~
+              missing(headers())
+          ]"""
+
+path = CsvPath()
+path.parse(csvpath)
+lines = path.collect()
+
+print(f"Found {len(lines)} invalid lines")
+
+```
+
+Try it out. You should see that our file is still valid. Here's our CSV file again.
+
+{% file src="../.gitbook/assets/trivial.csv" %}
+
+To see that the script works, edit the CSV file to make a blank. Take Sam Cat's lastname out.
+
+<figure><img src="../.gitbook/assets/csv-edited.png" alt="" width="375"><figcaption></figcaption></figure>
+
+This time your script should tell you that there is one invalid line.
+
+<figure><img src="../.gitbook/assets/1-invalid-line.png" alt="" width="348"><figcaption></figcaption></figure>
 
 ## Rule two: no long lastnames
+
+Next let's create our rule about long lastnames. Our requirements said that lastnames cannot be longer than 30 characters.&#x20;
+
+Add this line to your csvpath below the line about blanks.
 
 ```clike
 above(length(#lastname), 30)
@@ -52,13 +101,75 @@ above(length(#lastname), 30)
 
 This line uses functions to check a particular header's length. We're saying that values under the `lastname` header must be less than 30 characters long. Csvpaths use `#` to indicate a header.
 
-No wait! There's a better simpler way. There seems to always be a better, simpler way with csvpaths, if you look for it. Swap out the line above for:
+Your csvpath should now look like:&#x20;
+
+<figure><img src="../.gitbook/assets/2nd-rule.png" alt=""><figcaption></figcaption></figure>
+
+```python
+csvpath = """$trivial.csv[*][
+            ~ Apply three rules to check if a CSV file meets expectations ~
+              missing(headers())
+              above(length(#lastname), 30)
+          ]"""
+```
+
+Pretty straightforward, right? But wait! We can do better. Swap out the line you just added for:
 
 ```
 too_long(#lastname, 30)
 ```
 
-That's much better!
+That's much better! Here's what your file should be like now.
+
+```python
+from csvpath import CsvPath
+
+csvpath = """$trivial.csv[*][
+            ~ Apply three rules to check if a CSV file is invalid ~
+                missing(headers())
+                too_long(#lastname, 30)
+          ]"""
+
+path = CsvPath()
+path.parse(csvpath)
+lines = path.collect()
+
+print(f"Found {len(lines)} invalid lines")
+
+```
+
+Now, we have a problem. The problem is that we are ANDing these two rules together. What's the problem? When we are ANDing, by default, we match a line if all the rules are true. In this case, though, we are expecting lines to match if only one of the two rules is true.&#x20;
+
+What we need is an OR operation. That's easy! Just add this line right below where you created your CsvPath instance.&#x20;
+
+```python
+path.OR = True
+```
+
+&#x20;This change will make CsvPath match lines where any one or more rules are true. This way, we can call out the possible problems with the file and collect lines that match those problems without the rules interfering with each other.
+
+Your script should now look like:&#x20;
+
+```python
+from csvpath import CsvPath
+
+csvpath = """$trivial.csv[*][
+            ~ Apply three rules to check if a CSV file is invalid ~
+                missing(headers())
+                too_long(#lastname, 30)
+          ]"""
+
+path = CsvPath()
+path.OR = True
+path.parse(csvpath)
+lines = path.collect()
+
+print(f"Found {len(lines)} invalid lines")
+```
+
+Try running it. You should still see that there is one invalid line. After you confirm that, try creating a very long lastname for Sam the Cat and no lastname for Fred the Dog. CsvPath should collect the two invalid lines.
+
+<figure><img src="../.gitbook/assets/2-invalid-lines.png" alt="" width="359"><figcaption></figcaption></figure>
 
 ## Rule three: first header
 
@@ -68,11 +179,11 @@ We will of course do that. But consider if your csvpath is going to be validatin
 
 Add this below the max length rule:
 
-```
+```python
 header_name_mismatch(0, "firstname")
 ```
 
-This rule says that the 0th header must be the `firstname` header. Headers can be accessed by their numeric position — their index. The index is 0-based, like a Python list. That means the first header is `#0`. In our rule, the function looks up the name of the header indicated by `0`. If it doesn't equal `"firstname"` we match the line.
+This rule says that the 0th header must be the `firstname` header. Headers can be accessed by their numeric position — their index. The index is 0-based, like a Python list. That means the first header is `#0`. In our rule, the function looks up the name of the header indicated by `0`. If it doesn't equal `"firstname"` we collect the invalid line.
 
 Let's pause on an interesting point.
 
