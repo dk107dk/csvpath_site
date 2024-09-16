@@ -72,9 +72,9 @@ What does this script do?
 * Line 1 imports CsvPath so we can use it
 * Line 3 is our csvpath that we'll use to validate our test file, trivial.csv
 * Line 5 creates a CsvPath instance that will do the validation
-* Line 6 is where CsvPath reads the csvpath string and understands how we describe valid lines. In this case _yes()_ means each line matches our csvpath. For the purposes of this trivial example, that's enough.&#x20;
-* Line 7 fast forwards though the lines. We could also step through them one by one.&#x20;
-* Line 10 checks if we consider the file valid. If our rules said that the file didn't meet expectations our csvpath would have declared the file invalid using the _fail()_ function. If that were to happen the if statement in line 10 would be _False_.
+* Line 6 is where CsvPath reads our csvpath string to see how we describe valid lines. In this case, _yes()_ means that each line matches our csvpath.&#x20;
+* Line 7 fast-forwards though the lines. We could also step through them one by one.&#x20;
+* Line 10 checks if we consider the file valid. If the file didn't meet expectations our csvpath would have declared the file invalid using the _fail()_ function.&#x20;
 
 When you run your script you should see something close to this:
 
