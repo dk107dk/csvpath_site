@@ -82,6 +82,6 @@ What does this script do?
 
 When you run your script you should see something close to this:
 
-<figure><img src="../.gitbook/assets/result.png" alt="" width="486"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/result.png" alt="" width="324"><figcaption></figcaption></figure>
 
-Now, I know that is truly unimpressive! Still, go with it. Small steps! You are now ready to dig in and see what CsvPath can really do.&#x20;
+No question that is far from impressive! Still, go with it. Small increments are good! You are now ready to dig in and see what CsvPath can really do.&#x20;
