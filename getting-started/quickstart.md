@@ -28,6 +28,10 @@ Create a script file and do the import:&#x20;
 
 <figure><img src="../.gitbook/assets/import.png" alt="" width="375"><figcaption><p>Add CsvPath to your requirements.txt or dependency manger first, of course!</p></figcaption></figure>
 
+```python
+from csvpath import CsvPath
+```
+
 Create a test CSV file. Save it as trivial.csv or whatever name you like.
 
 <figure><img src="../.gitbook/assets/csv.png" alt="" width="359"><figcaption></figcaption></figure>
@@ -36,7 +40,7 @@ Create a test CSV file. Save it as trivial.csv or whatever name you like.
 
 Make a csvpath. Also a trivial one, just to keep it simple.
 
-<figure><img src="../.gitbook/assets/trivial-csvpath.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/trivial-csvpath.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ```python
 csvpath = """$trivial.csv[*][yes()]"""
@@ -46,7 +50,7 @@ This path says: open trivial.csv, scan all the lines, match every one of them.
 
 Next, run the csvpath against our CSV file.
 
-<figure><img src="../.gitbook/assets/first_script.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/first_script (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 {% code lineNumbers="true" %}
 ```python
@@ -56,10 +60,10 @@ csvpath = """$trivial.csv[*][yes()]"""
 
 path = CsvPath()
 path.parse(csvpath)
-path.fast_forward():
+path.fast_forward()
 
 print("Is this file valid?")
-if path.is_value:
+if path.is_valid:
     print("Yes! All good.")
 else:
     print("No. Something is wrong with it.")
@@ -78,6 +82,6 @@ What does this script do?
 
 When you run your script you should see something close to this:
 
-<figure><img src="../.gitbook/assets/getting-started-script-run.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/result.png" alt="" width="486"><figcaption></figcaption></figure>
 
 Now, I know that is truly unimpressive! Still, go with it. Small steps! You are now ready to dig in and see what CsvPath can really do.&#x20;
