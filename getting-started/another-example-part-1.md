@@ -14,18 +14,24 @@ layout:
 
 # Another Example, Part 1
 
-Some CSV files have documentation or ancillary data at the top, above the main data lines. While the additional data is useful, it complicates recognizing and handling headers correctly. Validation becomes more difficult. Let's take a look at an example.&#x20;
+In the first example we created validation rules for a straightforward file. In this next example we'll take on a harder format, handle more rules, and set ourselves up for production use. Let's dive in!
 
-In this example you will see more functions, headers, qualifiers, and references. To learn more about these topics please take a look at:&#x20;
+### Dealing with top matter
+
+Some CSV files have documentation or ancillary data at the top, above the main data lines. While the additional data is useful, it complicates recognizing and handling headers correctly. Validation becomes more difficult. We're going to validate an example like some we've seen in the wild.&#x20;
+
+In this example, you will see more functions, headers, qualifiers, and references. We'll explain them as we go. Afterwards, to learn more about these topics you can take a look at:&#x20;
 
 * [Functions](https://github.com/dk107dk/csvpath/blob/main/docs/functions.md), including the list of all built-in functions
 * [Qualifiers](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md)
 * [Headers](https://github.com/dk107dk/csvpath/blob/main/docs/headers.md)
 * [References](https://github.com/dk107dk/csvpath/blob/main/docs/references.md) and [the reference data types](../topics/the\_reference\_data\_types.md)
 
-And start here for [a general overview of match components](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components).
+And, for a general overview of the match components, [start here](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components).
 
-This is a file of orders for goods from retail stores. It is a monthly report delivered automatically.
+### The file
+
+This is a simplified order for goods from retail stores. It is a monthly report delivered automatically.
 
 <figure><img src="../.gitbook/assets/data-before.png" alt=""><figcaption></figcaption></figure>
 
@@ -47,7 +53,14 @@ $[8*][ ... ]
 
 But let's say we don't trust that those lines will always be there or a consistent number to skip. And, anyway, we want that user and run ID metadata.
 
-As well as the comments, say that the orders files will always:&#x20;
+### Requirements
+
+We need to pull two fields from the comments:&#x20;
+
+* The username of the person to contact about the file
+* The run ID of the process that generated the file
+
+As well, say that the orders files will always:&#x20;
 
 * Be more than 10 headers wide
 * Have just 1 header row per file
