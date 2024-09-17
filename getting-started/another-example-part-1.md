@@ -173,14 +173,20 @@ lines = path.collect()
 
 ## Rule 2: Find the Headers
 
-We know there is one header row. It comes after the top-matter. And our requirements said there are >= 10 headers. That's easy to spot. One way to do it might be:&#x20;
+Moving on from the comments at the top of the file, we know there is one header row. Our requirements said there are >= 10 headers. That's easy to spot. One way to do it might be:&#x20;
 
 ```xquery
 skip( lt(count_headers_in_line(), 9) )
 gt(count_headers_in_line(), 9) -> reset_headers()
 ```
 
-These two match components handle those requirements. The first one skips a line if it doesn't have enough headers. Those are probably comment lines and we already took care of the comments. This is an illustration of how order matters in CsvPath. Match components are activated from left to right, top to bottom. What I do in match component A may affect match component B. Or, in this case, we're just skipping B altogether.&#x20;
+These two [match components](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components) handle those requirements.&#x20;
+
+The first one skips a line if the line doesn't have enough headers. At the top of the file, those are probably comment lines and we already took care of the comments. This is an illustration of how order matters in CsvPath.&#x20;
+
+Match components are activated from left to right, top to bottom. What I do in match component A may affect match component B. Or, in this case, we're just skipping B, C, D, etc. altogether.&#x20;
+
+`count_headers_in_line()` explains itself pretty clearly. The `reset_headers()` function updates the CsvPath instance's understanding of what the file's headers are. When we use `reset_headers()` we are saying take the current line as being the header row. That resets the names of the headers to be the values in the current row.
 
 When we see the number of line values jump to 10 or more we can safely assume we hit the header row and act accordingly. Here is a more complete approach:
 
