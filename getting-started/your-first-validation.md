@@ -119,7 +119,9 @@ Pretty straightforward, right? But wait! We can do better. Swap out the line you
 too_long(#lastname, 30)
 ```
 
-That's much better! Here's what your file should be like now.
+That's much better! There are more than 75 built-in functions so there is often a simpler way to do things. The [list of functions is on the Github repo](https://github.com/dk107dk/csvpath/blob/main/docs/functions.md).&#x20;
+
+Here's what your file should be like now.
 
 ```python
 from csvpath import CsvPath
@@ -180,7 +182,7 @@ We will of course do that. But consider if your csvpath is going to be validatin
 Add this below the max length rule:
 
 ```python
-header_name_mismatch(0, "firstname")
+header_name(0, "firstname")
 ```
 
 This rule says that the 0th header must be the `firstname` header. Headers can be accessed by their numeric position — their index. The index is 0-based, like a Python list. That means the first header is `#0`. In our rule, the function looks up the name of the header indicated by `0`. If it doesn't equal `"firstname"` we collect the invalid line.
@@ -189,15 +191,52 @@ Let's pause on an interesting point.
 
 ### Validation rule strategies&#x20;
 
-CsvPath applies a csvpath to a CSV file line by line. It can collect each line that matches its rules, though by default it doesn't capture lines. Wether you are doing validation or some other data inspection or extraction task with CsvPath how you do your work has to do with matching lines.
+CsvPath applies a csvpath to a CSV file line by line. It can collect each line that matches its rules. CsvPath is all about matching lines.
 
 In our rule, the `column()` function will be called on every line, not just the header line. That means that if the first header is not `firstname`, our rule would collect every line in the file. For our purposes, that would indicate that all the lines were bad. In reality, in that case, we would consider the file as a whole invalid, not the individual lines.
 
 What to do? Easy! Change the line you just added so that the rule looks like:
 
 ```
-header_name_mismatch.nocontrib(0, "firstname") -> fail()
+header_name.nocontrib(0, "firstname") -> fail()
 ```
 
-Now the rule doesn't determine if lines match match
+Now the rule doesn't determine if individual lines match match the header name requirement. Instead it marks the file as invalid. This allows you to collect the lines with problems and also know if the file has problems that cut across the lines.&#x20;
+
+Your script should now look something like:&#x20;
+
+```python
+from csvpath import CsvPath
+
+csvpath = """$trivial.csv[*][
+            ~ Apply three rules to check if a CSV file is invalid ~
+                missing(headers())
+                too_long(#lastname, 30)
+                header_name(0, "firstname") -> fail()
+                
+          ]"""
+
+path = CsvPath()
+path.OR = True
+path.parse(csvpath)
+lines = path.collect()
+
+print(f"Found {len(lines)} invalid lines")
+
+```
+
+&#x20;There are a couple of new things here. First there is a qualifier, `nocontrib`, on the `header_name()` function. Qualifiers modify the behavior of functions and other match components. You can [read all about qualifiers here](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md).
+
+The `nocontrib` qualifier says that the function it is on should not determine if the line matches. It does not contribute. Again, we need this because every line will match on the header name problem.
+
+The second new thing is the when/do. That's the `->` operator. When/do says that when the left hand side is True the right hand side happens. In this case, when there is a header name mismatch we fail the file using the fail(). If you are concerned that this when/do could be executed many times, you are right. But in this case that doesn't matter because calling fail() is cheap in performance terms and always has the same effect.
+
+Now when you run your script you will see... nothing new. Let's add a print statement to let us know if the file overall is valid. Put this at the bottom of your script.
+
+```python
+if not path.is_valid:
+    print(f"The file as a whole is invalid. Check the headers.")
+```
+
+Now you should see something like:&#x20;
 
