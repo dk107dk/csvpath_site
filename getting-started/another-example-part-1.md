@@ -197,28 +197,93 @@ Match components are activated from left to right, top to bottom. What I do in m
 
 `count_headers_in_line()` explains itself pretty clearly. The `reset_headers()` function updates the CsvPath instance's understanding of what the file's headers are. When we use `reset_headers()` we are saying take the current line as being the header row. That resets the names of the headers to be the values in the current row.
 
-When we see the number of line values jump to 10 or more we can safely assume we hit the header row and act accordingly. Here is a more complete approach:
+When we see the number of line values jump to 10 or more we can safely assume we hit the header row and act accordingly.&#x20;
+
+Here is a more complete approach that includes a few nice-to-have things:
 
 ```xquery
-skip( lt(count_headers_in_line(), 9) )
+skip( lt(count_headers_in_line(), 10) )
 
 @header_change = mismatch("signed")
 gt( @header_change, 9) ->
       reset_headers(
-        print("Resetting headers to: $.csvpath.headers.."))
+        print("Resetting headers to: $.csvpath.headers"))
 
-print.onchange(
-    "Number of headers changed by $.variables.header_change..",
-        print("See line $.csvpath.line_number.", skip())) 
+print.onchange.once(
+    "Number of headers changed by $.variables.header_change",
+        print("See line $.csvpath.line_number", skip())) 
 ```
 
-The three match components here:&#x20;
+The three parts are:&#x20;
 
-* Create a `header_change` variable with the difference in the number of line values vs. headers expected. The `mismatch()` function gets this count. We pass it `"signed"` so that it will give us a negative or positive number, not just the absolute difference.&#x20;
-* If `@header_change` is more than `9`, we do `reset_headers()`. Resetting headers changes the header row to the current row and sets the expectation for the values that will be found in subsequent lines. We have `reset_headers()` activate `print()` to give a visual output of what our csvpath is doing.&#x20;
-* We then do another `print()` to provide more information. In both `print()`s we use [references](../topics/the\_reference\_data\_types.md) to include metadata about the headers and the line number where we made the change.
+* We skip any line with less than 10 headers
+* Then we reset the headers if they jump to 10 or more
+* When we see the headers reset the first time we print an alert
 
-Note the double periods in the print statements. When you want to put a period right at the end of a reference you need to escape it by doubling it.
+### Skipping
+
+The `skip()` function is a way to jump ahead to the next line from anywhere in a csvpath. Again, order is important in csvpaths. When we use `skip()` we are saying skip ahead to the next line without doing anything else. In this case, we use the `lt()`, or less than, function to tell `skip()` if it should act. &#x20;
+
+In the next block, we use the `mismatch()` function. `mismatch()` tells us the difference between how many header values we see in a line versus the number of headers for the file. Imagine if a SQL database table had four columns, but in one row there were only three columns. That could not happen in a SQL database, but in a CSV file, it happens frequently.&#x20;
+
+### Spotting the mismatch
+
+We use the string `"signed"` to tell mismatch() that it should give us a positive or negative number, not just the absolute value.  Without `"signed"` when there are four headers in the file but only three in a row mismatch reports `1`. With "signed" mismatch() reports `-1`. In our case, we only care if we suddenly have many more headers, so we need to see a positive number.&#x20;
+
+### Printing an alert
+
+The last of the three parts has a lot going on. Here's the match component by itself:&#x20;
+
+```xquery
+print.onchange.once(
+    "Number of headers changed by $.variables.header_change",
+        print("See line $.csvpath.line_number", skip()))
+```
+
+This is our first use of the print() function. Unlike most general purpose langages, in CsvPath printing is a big deal. The reason is that the act of validating a file means using rules to find unexpected things and communicating that information to the user. Schematron is the schema language most like CsvPath and its to point to problems and communicate with the user in plain English. (Or your humans language of choice). XSD, JSON Schema, etc. all have the dual purpose of defining data structures and communicating when data doesn't match.&#x20;
+
+CsvPath has some nice printing tricks up its sleeve. We're using a couple of them.
+
+First, the qualifiers. Qualifiers are awesome. They can do so many neat things to make match components more powerful. In this case we are using both `onchange` and `once`. Both do exactly what they sound like:&#x20;
+
+* `print()` with `onchange` only prints when the print string is different. That is useful when you are printing variables that may not change in some lines. With `onchange` you only see the `print()` when it has something new to say.
+* `print()` with `once` simply prints just one time. That's it, one line and done.
+* `print()` with both `onchange` and `once` is even more interesting. It means that `print()` takes its first chance to print. The first printout is considered a change. But then `once` prevents any more printouts. This is good because `mismatch()` will report 0 as the number of headers that are unexpectedly found or missing. That 0 would be considered a change by `print()`. We don't need to be told that nothing happened.
+
+As you can see, `print()` can take a second argument that is executed only if `print()` itself runs. We use this to nest a second print line and a `skip()` that jumps us to the next line. As with most things in CsvPath, we could have done this other ways, but this is a good approach.
+
+Your script should now look like:&#x20;
+
+```python
+csvpath = """$March-2024.csv[*][
+
+            ~ Capture metadata from comments ~
+                starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+                starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+
+                skip( lt(count_headers_in_line(), 9) )
+
+                @header_change = mismatch("signed")
+                gt( @header_change, 9) ->
+                      reset_headers(
+                        print("Resetting headers to: $.csvpath.headers"))
+
+                print.onchange.once(
+                    "Number of headers changed by $.variables.header_change",
+                        print("See line $.csvpath.line_number", skip()))
+          ]"""
+
+path = CsvPath()
+path.OR = True
+path.parse(csvpath)
+lines = path.collect()
+```
+
+Running your script should look like:&#x20;
+
+<figure><img src="../.gitbook/assets/top-matter-complete.png" alt=""><figcaption></figcaption></figure>
+
+Congrats! You are done with the hard part. The rest of the validations are simple business rules.
 
 ## Rule 3: Product Category
 
