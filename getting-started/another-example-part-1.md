@@ -247,7 +247,7 @@ CsvPath has some nice printing tricks up its sleeve. We're using a couple of the
 First, the qualifiers. Qualifiers are awesome. They can do so many neat things to make match components more powerful. In this case we are using both `onchange` and `once`. Both do exactly what they sound like:&#x20;
 
 * `print()` with `onchange` only prints when the print string is different. That is useful when you are printing variables that may not change in some lines. With `onchange` you only see the `print()` when it has something new to say.
-* `print()` with `once` simply prints just one time. That's it, one line and done.
+* `print()` with `once` simply prints just one time. That's it, one and done.
 * `print()` with both `onchange` and `once` is even more interesting. It means that `print()` takes its first chance to print. The first printout is considered a change. But then `once` prevents any more printouts. This is good because `mismatch()` will report 0 as the number of headers that are unexpectedly found or missing. That 0 would be considered a change by `print()`. We don't need to be told that nothing happened.
 
 As you can see, `print()` can take a second argument that is executed only if `print()` itself runs. We use this to nest a second print line and a `skip()` that jumps us to the next line. As with most things in CsvPath, we could have done this other ways, but this is a good approach.
@@ -279,7 +279,7 @@ path.parse(csvpath)
 lines = path.collect()
 ```
 
-Running your script should look like:&#x20;
+Running your script should look like what you would expect:&#x20;
 
 <figure><img src="../.gitbook/assets/top-matter-complete.png" alt=""><figcaption></figcaption></figure>
 
@@ -291,14 +291,56 @@ Next we'll check if the product category is correct. This is a pretty straightfo
 
 ```xquery
 not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
-        print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail()) ]
+        print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail())
 ```
 
-Following the same pattern, we are going to identify a problem row and print a validation message. The `in()` function is looking at the value of the `#category` header and checks if it is in a delimited string.&#x20;
+Following the same pattern we saw in the last example, we are going to identify a problem row and print a validation message. The `in()` function looks at the value of the `#category` header and checks if it is in a delimited string.&#x20;
 
 We could equally well ask `in()` to check against the values of one or more other match components. Or, we could even use a reference to point `in()` towards a list of values created by a different csvpath. But for now we're keeping it simple with the delimited list.
 
 Notice that we asked `print()` to activate a `fail()` function, as well as printing a message. `fail()` sets the `is_valid` property of a csvpath to `False`. We are saying that the CSV file is invalid. If we needed to, we could use this information programmatically in Python, in CsvPath `print()` messages, or to take action in other match components using the `failed()` or `valid()` functions as triggers.
+
+When you run your script now, you see nothing changed. That's because all our categories are correct. To make sure your rule works change line twelve's category from OFFICE to OPERA.&#x20;
+
+<figure><img src="../.gitbook/assets/opera.png" alt="" width="375"><figcaption></figcaption></figure>
+
+Now you assuming your script looks like this:&#x20;
+
+```python
+from csvpath import CsvPath
+
+csvpath = """$March-2024.csv[*][
+
+            ~ Capture metadata from comments ~
+                starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+                starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+
+                skip( lt(count_headers_in_line(), 9) )
+
+                @header_change = mismatch("signed")
+                gt( @header_change, 9) ->
+                      reset_headers(
+                        print("Resetting headers to: $.csvpath.headers"))
+
+
+                print.onchange.once(
+                    "Number of headers changed by $.variables.header_change",
+                        print("See line $.csvpath.line_number", skip()))
+
+                not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
+                    print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail())
+
+          ]"""
+
+path = CsvPath()
+path.OR = True
+path.parse(csvpath)
+lines = path.collect()
+```
+
+When you run it you should see something like this:
+
+<figure><img src="../.gitbook/assets/category-rule.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Rule 4: Price Format
 
@@ -306,7 +348,7 @@ Moving right along, the next rule is that prices must exist and be in the correc
 
 ```xquery
 not( exact( end(), /\$?(\d*\.\d{0,2})/ ) ) ->
-       print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail()) ]
+       print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail())
 ```
 
 Again we use the same rule pattern. In this case, we tap regular expressions again to check that a price:
@@ -314,16 +356,71 @@ Again we use the same rule pattern. In this case, we tap regular expressions aga
 * Exists in the last header
 * Starts with a $, optionally
 * Is made of numbers
-* Has a decimal point, optionally
+* Has a decimal point
 * Has at most two numbers byond the decimal point
 
-The new thing here is `end()`. The `end()` function is a pointer to the last header. If we're not certain what the last header name or index is we can use `end()` to refer to it. Our options are:&#x20;
+This probably isn't the perfect price field description, but it is pretty good.&#x20;
 
-* Use a header name like `#"a price"`
+The new thing here is `end()` function. `end()` is a pointer to the last header. If we're not certain what the last header name or index is we can use `end()` to refer to it. Our options are:&#x20;
+
+* Use a header name, possibly quoted, like `#"a price"`
 * Use an index like `#14`
-* Use `end()`, possibly with an offset integer like `end(-2)`
+* Use `end()`, possibly with an offset integer like like `end(-2)`
 
 In this case, let's say we know price is always the last column.&#x20;
+
+Drop this rule in your script and run it. If your file follow how we've been creating the example, you will hear some complaints from Python. It is unhappy about invalid escapes. Ah, validity. Easy to fix. Change your line to:&#x20;
+
+```xquery
+not( exact( end(), /\\$?(\\d*\\.\\d{0,2})/ ) ) ->
+                    print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail())
+```
+
+The additional \ chars escape the regular expression escapes for Python. This is normal regular expression fun. You give up some amount of your sanity for accessing the power of regexes.
+
+Your script should now look like:&#x20;
+
+```python
+from csvpath import CsvPath
+
+csvpath = """$March-2024.csv[*][
+
+            ~ Capture metadata from comments ~
+                starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+                starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+
+                skip( lt(count_headers_in_line(), 9) )
+
+                @header_change = mismatch("signed")
+                gt( @header_change, 9) ->
+                      reset_headers(
+                        print("Resetting headers to: $.csvpath.headers"))
+
+
+                print.onchange.once(
+                    "Number of headers changed by $.variables.header_change",
+                        print("See line $.csvpath.line_number", skip()))
+
+                not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
+                    print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail())
+
+
+                not( exact( end(), /\\$?(\\d*\\.\\d{0,2})/ ) ) ->
+                    print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail())
+
+          ]"""
+
+path = CsvPath()
+path.OR = True
+path.parse(csvpath)
+lines = path.collect()
+```
+
+It is definitely getting long. But we're getting close to complete. And in Part 2 of this example we'll see how to make the validation csvpath much simpler and more managable.
+
+Run your script and you should see output like this:&#x20;
+
+<figure><img src="../.gitbook/assets/price-checks.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Rule 5: UPCs and SKUs
 
