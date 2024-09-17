@@ -16,7 +16,7 @@ layout:
 
 In the first example we created validation rules for a straightforward file. In this next example we'll take on a harder format, handle more rules, and set ourselves up for production use. Let's dive in!
 
-### Dealing with top matter
+## Dealing with top matter
 
 Some CSV files have documentation or ancillary data at the top, above the main data lines. While the additional data is useful, it complicates recognizing and handling headers correctly. Validation becomes more difficult. We're going to validate an example like some we've seen in the wild.&#x20;
 
@@ -29,13 +29,13 @@ In this example, you will see more functions, headers, qualifiers, and reference
 
 And, for a general overview of the match components, [start here](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components).
 
-### The file
+## The file
 
 This is a simplified order for goods from retail stores. It is a monthly report delivered automatically.
 
 <figure><img src="../.gitbook/assets/data-before.png" alt=""><figcaption></figcaption></figure>
 
-Here is the file. It is shortended, but it is enough for this example.
+Here is the file. It is shortened, but it is enough for this example.
 
 {% file src="../.gitbook/assets/March-2024.csv" %}
 
@@ -57,7 +57,7 @@ $[8*][ ... ]
 
 But let's say we don't trust that those lines will always be there or a consistent number to skip. And, anyway, we want that user and run ID metadata.
 
-### Requirements
+## Validation requirements
 
 We need to pull two fields from the comments:&#x20;
 
@@ -80,11 +80,11 @@ If this were an actual order file in a real-world situation we could imaging col
 
 We'll step through the strategies for each of the bullets. Then see them together in one file with a trivial Python script that runs the csvpath. Then we'll switch to CsvPaths to create a more long-term management friendly version. That will show you the advantages of small modular csvpaths working together.
 
-## Rule 1: Capture the Metadata
+## Rule 1: capture the metadata
 
 You can capture the metadata using regular expressions. The comment lines are prefixed with a `#` character. We can use that and a regex to grab the values we want and put them in variables.
 
-Variables are new; we haven't seen them in the examples before now. Everytime you run a csvpath your CsvPath instance collects several things:&#x20;
+Variables are new; we haven't seen them in the previous examples. Everytime you run a csvpath your CsvPath instance collects several things:&#x20;
 
 * Metadata
 * Runtime stats
@@ -96,15 +96,15 @@ You can [read about these types of data here](../topics/the\_reference\_data\_ty
 * Dictionaries of named "tracking values"
 * Stacks of strings or numbers
 
-We'll see each of these types. The run variables are reachable in:
+We'll see each of these types. The variables are available in:
 
-* The CsvPath instance at `path.variables` (assuming your CsvPath is called "path")
+* Your CsvPath instance at `path.variables` (assuming your CsvPath is called "path")
 * In your csvpath strings using `@varname`
-* Within csvpath string `print()` statements at `$.variables.varname`
+* Within any csvpath string `print()` statements at `$.variables.varname`
 
 Again, we'll see each of these uses of variables as we go.
 
-So, then, let's capture that metadata! Take your last example and replace the rules with these two lines. You can also remove the validty check at the bottom.
+So, then, let's capture that metadata! Take your last example and replace the rules with these two lines. You can also remove the validity check at the bottom, update the comment, etc.
 
 ```xquery
 starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
@@ -113,11 +113,36 @@ starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
 
 Your file will look something like:&#x20;
 
+```python
+from csvpath import CsvPath
+
+csvpath = """$March-2024.csv[*][
+            ~ Capture metadata from comments ~
+                starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+                starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+          ]"""
+
+path = CsvPath()
+path.OR = True
+path.parse(csvpath)
+lines = path.collect()
+```
+
+These two [match components ](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components)look at comment lines and capture data. Notice that the starts\_with() function looks at the 0th header, `#0`. We used the `#` character to indicate headers in our last example. This is the same thing, except this time we're pointing to the headers using their 0-based index number.  `#0` is the first header. We use `#0` because there is no proper header line at the top of the file so we don't have a name of the 0th header.
+
+\#0 looks a lot like the CSV file's comments. But we know comments in CsvPath use the `~` character. This CSV file just happens to use `#` as its comment character.&#x20;
+
+Next we have a when/do expression. When the left-hand side of `->` is True, we do what is on the right-hand side.
+
+The variable `@runid` will capture the ID of the run if it is found in the comments. It has the `notnone` qualifier. Qualifiers are explained [on this page](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md).&#x20;
+
+The `notnone` qualifier does what it sounds like. It prevents the variable from capturing the `None` value.
 
 
-These two [match components ](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components)look at comment lines and capture data. Notice that the starts\_with() function looks at the 0th header, `#0`, which looks a lot like our CSV file's comments, but is completely different. We use `#0` because there is no proper header line at the top of the file so we don't know what the name of the 0th header is. All we know is we need the first chunk of data in the line.
 
-The variable `@runid.notnone` will take the value of the regular expression only when the value is not `None`. None is the Python way of saying null. Because we have the `notnone` [qualifier](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md), it doesn't matter if this match component is activated for every line in the file. Regardless, we only pick up run IDs from comment lines and we never overwrite a good run ID with a `None`. The same is true for the `@userid` variable.&#x20;
+will take the value of the regular expression only when the value is not `None`. None is the Python way of saying null.&#x20;
+
+Because we have the `notnone` [qualifier](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md), it doesn't matter if this match component is activated for every line in the file. Regardless, we only pick up run IDs from comment lines and we never overwrite a good run ID with a `None`. The same is true for the `@userid` variable.&#x20;
 
 ## Rule 2: Find the Headers
 
