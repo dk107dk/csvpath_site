@@ -169,7 +169,16 @@ path = CsvPath()
 path.OR = True
 path.parse(csvpath)
 lines = path.collect()
+
+print(f"path.variables: {path.variables}")
+
 ```
+
+When you run it you will see something like:&#x20;
+
+<figure><img src="../.gitbook/assets/first-run.png" alt="" width="563"><figcaption></figcaption></figure>
+
+Notice that because this is the first time I ran this script in a new project CsvPath created a default config file and a logs directory. But more importantly, we got our two metadata values in the CsvPath instance's variables. Perfect!
 
 ## Rule 2: Find the Headers
 
@@ -191,6 +200,8 @@ Match components are activated from left to right, top to bottom. What I do in m
 When we see the number of line values jump to 10 or more we can safely assume we hit the header row and act accordingly. Here is a more complete approach:
 
 ```xquery
+skip( lt(count_headers_in_line(), 9) )
+
 @header_change = mismatch("signed")
 gt( @header_change, 9) ->
       reset_headers(
@@ -198,7 +209,7 @@ gt( @header_change, 9) ->
 
 print.onchange(
     "Number of headers changed by $.variables.header_change..",
-        print("See line $.csvpath.line_number.", skip())) ]
+        print("See line $.csvpath.line_number.", skip())) 
 ```
 
 The three match components here:&#x20;
