@@ -128,25 +128,52 @@ path.parse(csvpath)
 lines = path.collect()
 ```
 
-These two [match components ](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components)look at comment lines and capture data. Notice that the starts\_with() function looks at the 0th header, `#0`. We used the `#` character to indicate headers in our last example. This is the same thing, except this time we're pointing to the headers using their 0-based index number.  `#0` is the first header. We use `#0` because there is no proper header line at the top of the file so we don't have a name of the 0th header.
+These two [match components ](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components)look at comment lines and capture data.&#x20;
+
+### Starts\_with()
+
+Notice that the `starts_with()` function looks at the 0th header, `#0`. We used the `#` character to indicate headers in our last example. This is the same thing, except this time we're pointing to the headers using their 0-based index number.  `#0` is the first header. We use `#0` because there is no proper header line at the top of the file so we don't have a name of the 0th header.
 
 \#0 looks a lot like the CSV file's comments. But we know comments in CsvPath use the `~` character. This CSV file just happens to use `#` as its comment character.&#x20;
 
+The `starts_with()` function is much like similarly named functions in Python, SQL, etc. It returns `True` if a variable starts with a certain string.
+
+### When/do and notnone
+
 Next we have a when/do expression. When the left-hand side of `->` is True, we do what is on the right-hand side.
 
-The variable `@runid` will capture the ID of the run if it is found in the comments. It has the `notnone` qualifier. Qualifiers are explained [on this page](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md).&#x20;
+The variable `@runid` will capture the ID of the run if it is found in the comments. It has the `notnone` qualifier. Qualifiers are explained [on this page](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md). The `notnone` qualifier does what it sounds like. It prevents the variable from capturing the `None` value. `None` is the Python way of saying null.&#x20;
 
-The `notnone` qualifier does what it sounds like. It prevents the variable from capturing the `None` value.
+Regular expressions
 
+Regular expressions, or regexes, match substrings. They are powerful, inscrutable, incredibly useful in virtually every language and many tools, and even sometimes fun. Regardless, they are a deep topic on their own. We won't dissect these expressions here. You can learn more about regexes from many tutorials, including [this one](https://www.geeksforgeeks.org/write-regular-expressions/). This [regex debugger ](https://www.debuggex.com/)may also be a help. The page on [CsvPath's regex tools is here](https://github.com/dk107dk/csvpath/blob/main/docs/functions/regex.md).
 
+In brief, we're saying capture a value from a line that has the substring `Run ID:` in the 0th header.
 
-will take the value of the regular expression only when the value is not `None`. None is the Python way of saying null.&#x20;
+```xquery
+regex( /Run ID: ([0-9]*)/, #0, 1 )
+```
 
-Because we have the `notnone` [qualifier](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md), it doesn't matter if this match component is activated for every line in the file. Regardless, we only pick up run IDs from comment lines and we never overwrite a good run ID with a `None`. The same is true for the `@userid` variable.&#x20;
+To recap, now that we have our metadata fields captured from the CSV file's comments your script should look like this:&#x20;
+
+```python
+from csvpath import CsvPath
+
+csvpath = """$March-2024.csv[*][
+            ~ Capture metadata from comments ~
+                starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+                starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+          ]"""
+
+path = CsvPath()
+path.OR = True
+path.parse(csvpath)
+lines = path.collect()
+```
 
 ## Rule 2: Find the Headers
 
-We know there is one header row. It comes after the top-matter. And we know we have >= 10 headers. That's easy to spot. One way to do it might be:&#x20;
+We know there is one header row. It comes after the top-matter. And our requirements said there are >= 10 headers. That's easy to spot. One way to do it might be:&#x20;
 
 ```xquery
 skip( lt(count_headers_in_line(), 9) )
