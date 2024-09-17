@@ -35,6 +35,10 @@ This is a simplified order for goods from retail stores. It is a monthly report 
 
 <figure><img src="../.gitbook/assets/data-before.png" alt=""><figcaption></figcaption></figure>
 
+Here is the file. It is shortended, but it is enough for this example.
+
+{% file src="../.gitbook/assets/March-2024.csv" %}
+
 There are so many things to possibly validate here. Types of products, IDs, prices. Just sticking with simple checks we could come up with many rules. We'll create a csvpath that applies six rules while dealing with the complicating top-matter.
 
 As far as that top-matter, our csvpath has some requirements. It needs to:
@@ -78,12 +82,38 @@ We'll step through the strategies for each of the bullets. Then see them togethe
 
 ## Rule 1: Capture the Metadata
 
-You can capture the metadata using regular expressions. Our comment lines are prefixed with a `#` character. We can use that and a regex to grab the values we want and put them in variables.
+You can capture the metadata using regular expressions. The comment lines are prefixed with a `#` character. We can use that and a regex to grab the values we want and put them in variables.
+
+Variables are new; we haven't seen them in the examples before now. Everytime you run a csvpath your CsvPath instance collects several things:&#x20;
+
+* Metadata
+* Runtime stats
+* Variables
+
+You can [read about these types of data here](../topics/the\_reference\_data\_types.md). Variables are like session variables in web development. They come in three flavors:&#x20;
+
+* Strings or numbers
+* Dictionaries of named "tracking values"
+* Stacks of strings or numbers
+
+We'll see each of these types. The run variables are reachable in:
+
+* The CsvPath instance at `path.variables` (assuming your CsvPath is called "path")
+* In your csvpath strings using `@varname`
+* Within csvpath string `print()` statements at `$.variables.varname`
+
+Again, we'll see each of these uses of variables as we go.
+
+So, then, let's capture that metadata! Take your last example and replace the rules with these two lines. You can also remove the validty check at the bottom.
 
 ```xquery
 starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
 starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
 ```
+
+Your file will look something like:&#x20;
+
+
 
 These two [match components ](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components)look at comment lines and capture data. Notice that the starts\_with() function looks at the 0th header, `#0`, which looks a lot like our CSV file's comments, but is completely different. We use `#0` because there is no proper header line at the top of the file so we don't know what the name of the 0th header is. All we know is we need the first chunk of data in the line.
 
