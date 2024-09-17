@@ -2,7 +2,7 @@
 description: Super simple rules to demonstrate how validation works
 ---
 
-# Your First Validation
+# Example: Your First Validation
 
 As you saw in the Quickstart, CsvPath is easy to set up. But what value does it add?
 
@@ -26,7 +26,7 @@ Paste this rule into the csvpath string. It goes in the matching part, after the
 
 Your file should now look something like:&#x20;
 
-<figure><img src="../.gitbook/assets/three-rules-1.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/three-rules-1.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Csvpaths can include line breaks, so you can format your csvpath any way you like.
 
@@ -212,7 +212,7 @@ csvpath = """$trivial.csv[*][
             ~ Apply three rules to check if a CSV file is invalid ~
                 missing(headers())
                 too_long(#lastname, 30)
-                header_name(0, "firstname") -> fail()
+                header_name.nocontrib(0, "firstname") -> fail()
                 
           ]"""
 
