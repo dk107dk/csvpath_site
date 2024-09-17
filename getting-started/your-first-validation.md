@@ -240,3 +240,29 @@ if not path.is_valid:
 
 Now you should see something like:&#x20;
 
+<figure><img src="../.gitbook/assets/invalid-file-msg.png" alt="" width="563"><figcaption></figcaption></figure>
+
+Now our validation script is giving us complete and actionable information about our file. There's much more we could do, of course—we're just scratching the surface! We'll explore some of those options and improvements in the next example.
+
+Here is the final state of the script to compare against your own.
+
+```python
+from csvpath import CsvPath
+
+csvpath = """$trivial.csv[*][
+            ~ Apply three rules to check if a CSV file is invalid ~
+                missing(headers())
+                too_long(#lastname, 30)
+                header_name.nocontrib(0, "firstname") -> fail()
+
+          ]"""
+
+path = CsvPath()
+path.OR = True
+path.parse(csvpath)
+lines = path.collect()
+
+print(f"Found {len(lines)} invalid lines")
+if not path.is_valid:
+    print(f"The file as a whole is invalid. Check the headers.")
+```
