@@ -242,6 +242,20 @@ Now you should see something like:&#x20;
 
 <figure><img src="../.gitbook/assets/invalid-file-msg.png" alt="" width="563"><figcaption></figcaption></figure>
 
+You might wonder if we should really be saying that the file as a whole is invalid only if we find a problem with the headers. Isn't it a problem that two lines are invalid, as well? That is a very reasonable opinion. CsvPath cannot make assumption about if you are collecting invalid lines or valid ones. That is a decision about [your validation strategy](your-first-validation.md#validation-rule-strategies)—as we have said, there are always multiple ways to do things. &#x20;
+
+However, we can easily mark the file invalid when we have lines failing. Just add this to the bottom of your csvpath string:&#x20;
+
+```xquery
+has_matches.nocontrib() -> fail()
+```
+
+And for consistency's sake, modify your error message:&#x20;
+
+```python
+print(f"The file is invalid")
+```
+
 Now our validation script is giving us complete and actionable information about our file. There's much more we could do, of course—we're just scratching the surface! We'll explore some of those options and improvements in the next example.
 
 Here is the final state of the script to compare against your own.
@@ -254,7 +268,7 @@ csvpath = """$trivial.csv[*][
                 missing(headers())
                 too_long(#lastname, 30)
                 not.nocontrib( header_name(0, "firstname") ) -> fail()
-
+                has_matches.nocontrib() -> fail()
           ]"""
 
 path = CsvPath()
@@ -264,5 +278,5 @@ lines = path.collect()
 
 print(f"Found {len(lines)} invalid lines")
 if not path.is_valid:
-    print(f"The file as a whole is invalid. Check the headers.")
+    print(f"The file is invalid")
 ```
