@@ -441,24 +441,113 @@ Run your script again. You should see something close to:&#x20;
 
 <figure><img src="../.gitbook/assets/bad-sku.png" alt="" width="563"><figcaption></figcaption></figure>
 
+If that works correctly your script looks like this:&#x20;
+
+```python
+from csvpath import CsvPath
+
+csvpath = """$March-2024.csv[*][
+
+            ~ Capture metadata from comments ~
+                starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+                starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+
+                skip( lt(count_headers_in_line(), 9) )
+
+                @header_change = mismatch("signed")
+                gt( @header_change, 9) ->
+                      reset_headers(
+                        print("Resetting headers to: $.csvpath.headers"))
+
+                print.onchange.once(
+                    "Line $.csvpath.count_lines: number of headers changed by $.variables.header_change",
+                        skip())
+
+                not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
+                    print( "Line $.csvpath.count_lines: Bad category $.headers.category ", fail())
+
+                not( exact( end(), /\\$?(\\d*\\.\\d{0,2})/ ) ) ->
+                    print("Line $.csvpath.count_lines: bad price $.headers.'a price' ", fail())
+
+                not( #SKU ) -> print("Line $.csvpath.count_lines: No SKU", fail())
+                not( #UPC ) -> print("Line $.csvpath.count_lines: No UPC", fail())
+
+          ]"""
+
+path = CsvPath()
+path.OR = True
+path.parse(csvpath)
+lines = path.collect()
+
+```
+
 We're getting there! One more rule to go.
 
 ## Rule 6: Total Expected Lines
 
-We are expecting a file that is greater than 10 lines. That gives room for the comments at the top and at least a one or two orders. If we don't see at least 10 lines we want to fail the file.
+Our requirements say we are expecting a file that is greater than 10 lines. That gives room for the comments at the top and at least a one or two orders. If we don't see at least 10 lines we fail the file.
+
+Let's use this match component:
 
 ```xquery
-below(total_lines(), 10)
-last.onmatch() ->
-      print("File has too few lines: $.csvpath.count_lines.
-      Contact $orders.variables.userid about this batch:
-      $orders.variables.runid at $.csvpath.file_name.", fail())
-
+below(total_lines(), 11) ->
+                      print.once("File has too few lines: $.csvpath.count_lines..
+Contact $.variables.userid about this batch:
+$.variables.runid at $.csvpath.file_name..", fail())
 ```
 
-We could do this a few ways. This is one reasonable approach. The first match component, `below()`, matches when a file has fewer than 10 lines. The second line activates `print()` on the last line of the file, but only if the line matches. Since a short line will match, we will see the printed statement.
+We'll use print()'s once qualifier to make sure we don't generate a lot of noise. &#x20;
 
-As I said, there are other ways to handle this. And some may be more robust or have a better operational impact. For example, if our orders files were hundreds of megabytes and the rule was that that the line count had to be between 10 and 1 million, we might want to fail the file and stop processing earlier in the csvpath, since  on line 10 we know if this 10-to-1-million rule passes. &#x20;
+With all our requirements met let's take a moment to clean up a bit. We don't need to display the updated headers, now that we know that is working. And we can put the last total\_lines() check first in the list of concerns. Also, a few more comments wouldn't be a bad idea. Here's how your script will look with those changes:&#x20;
+
+```python
+from csvpath import CsvPath
+
+csvpath = """$March-2024.csv[*][
+
+            ~ Capture metadata from comments ~
+
+                starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+                starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+
+                skip( lt(count_headers_in_line(), 9) )
+
+            ~ Check the file length ~
+                below(total_lines(), 27) ->
+                      print.once("File has too few lines: $.csvpath.count_lines..
+Contact $.variables.userid about this batch:
+$.variables.runid at $.csvpath.file_name..", fail())
+
+            ~ Reset the headers when we see the full set ~
+                @header_change = mismatch("signed")
+                gt( @header_change, 9) -> reset_headers()
+
+            ~ Print the line number of the header reset in case we need to check ~
+                print.onchange.once(
+                    "Line $.csvpath.count_lines: number of headers changed by $.variables.header_change",
+                        skip())
+
+            ~ Check the categories ~
+                not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
+                    print( "Line $.csvpath.count_lines: Bad category $.headers.category ", fail())
+
+            ~ Check the chenck the prices ~
+                not( exact( end(), /\\$?(\\d*\\.\\d{0,2})/ ) ) ->
+                    print("Line $.csvpath.count_lines: bad price $.headers.'a price' ", fail())
+
+            ~ Check for SKUs and UPCs ~
+                not( #SKU ) -> print("Line $.csvpath.count_lines: No SKU", fail())
+                not( #UPC ) -> print("Line $.csvpath.count_lines: No UPC", fail())
+
+          ]"""
+
+path = CsvPath()
+path.OR = True
+path.parse(csvpath)
+lines = path.collect()
+```
+
+
 
 ## A Simple Python CsvPath Runner
 
