@@ -491,12 +491,12 @@ Let's use this match component:
 
 ```xquery
 below(total_lines(), 11) ->
-                      print.once("File has too few lines: $.csvpath.count_lines..
+                      print.once("File has too few data lines: $.csvpath.total_lines..
 Contact $.variables.userid about this batch:
 $.variables.runid at $.csvpath.file_name..", fail())
 ```
 
-We'll use print()'s once qualifier to make sure we don't generate a lot of noise. &#x20;
+We'll use `print()`'s `once` qualifier to make sure we don't generate a lot of noise.  Also note that we use a double period in two places. Doubling up periods is an escape for when you want to put a period directly at the end of a reference in a `print()`. That is the only place it is needed.
 
 With all our requirements met let's take a moment to clean up a bit. We don't need to display the updated headers, now that we know that is working. And we can put the last total\_lines() check first in the list of concerns. Also, a few more comments wouldn't be a bad idea. Here's how your script will look with those changes:&#x20;
 
@@ -514,7 +514,7 @@ csvpath = """$March-2024.csv[*][
 
             ~ Check the file length ~
                 below(total_lines(), 27) ->
-                      print.once("File has too few lines: $.csvpath.count_lines..
+                      print.once("File has too few data lines: $.csvpath.total_lines..
 Contact $.variables.userid about this batch:
 $.variables.runid at $.csvpath.file_name..", fail())
 
@@ -547,7 +547,11 @@ path.parse(csvpath)
 lines = path.collect()
 ```
 
+I bumped up the number of lines requirement so that we could see the rule's effect. When you run this final version of your script you should see something like:&#x20;
 
+<figure><img src="../.gitbook/assets/final-run (1).png" alt="" width="563"><figcaption></figcaption></figure>
+
+Congrats! You have a very functional csvpath to check your CSV files with.&#x20;
 
 ## A Simple Python CsvPath Runner
 
@@ -567,65 +571,16 @@ Step-by-step:
 
 * We import CsvPath and create an instance that will run our csvpath
 * Assuming we drop our csvpath into the ORDER\_RULES variable, we parse our csvpath to prepare it to run
-* With path.fast\_forward() we are asking CsvPath to run through our csvpath without stopping or returning any data to us. We do that because our validations all print their gotchas in a validation report.
+* Since we aren't actually using the matched lines programmatically let's switch to the `fast_forward()` method. With `path.fast_forward()` we are asking CsvPath to run the CSV file through our csvpath without stopping or returning any data to us. We do that because our validations all print their gotchas report-style.
 * Last, we print out our csvpath's verdict: is the CSV file goood, or not
 
 For this simple example that's enough. But in a production setting you might imagine sending an email, updating a database, moving the file to a good or not good directory, or the like.
 
-## Assemble the Csvpath
+## And you're done!
 
-Above, we said what the rules would be, but we didn't actually create a csvpath. Let's do that now.
-
-```xquery
-ORDER_RULES = """
-
-~ description: process order, and handling obvious
-  comments, collecting metadata fields, if found ~
-
-$orders.csv[*][
-    starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
-    starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
-    skip( starts_with(#0, "#"))
-    skip( gt(count_headers_in_line(), 9) )
-
-    ~ Warn when the number of headers changes ~
-    @hc = mismatch("signed")
-    gt(@hc, 9) ->
-          reset_headers(
-            print("Resetting headers to:
-              $.csvpath.headers.."))
-
-    print.onchange(
-        "Number of headers changed by $.variables.hc.",
-            print("See line $.csvpath.line_number.", skip()))
-
-    ~ Check correct category ~
-    not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
-        print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail())
-
-    ~ Correct price format? ~
-    not( exact( end(), /\$?(\d*\.\d{0,2})/ ) ) ->
-       print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail())
-
-    ~ Missing product identifiers ~
-    not( #SKU ) -> print("No SKU at line $.csvpath.count_lines", fail())
-    not( #UPC ) -> print("No UPC at line $.csvpath.count_lines", fail())
-
-    ~ Too few lines ~
-    below(total_lines(), 27)
-    last.onmatch() ->
-         print("File has too few lines: $.csvpath.count_lines.
-            Contact $orders.variables.userid about this batch:
-            $orders.variables.runid at $.csvpath.file_name.", fail())
-]
-"""
-```
-
-That's a lot. But it's well organized, commented, and pretty self-documenting. Longer validation rulesets are easy to find.
+That's a lot. But the result is well organized, commented, and self-documenting. Of course, longer validation rulesets are easy to find, but this one isn't trivial.
 
 Still, we have to ask, is there a better way?  Something more manageable over the long term? An approach that might be easier to develop and debug?
 
-Yes, absolutely!
-
-
+Yes, absolutely! We'll take all that on in Part 2 of this example.
 
