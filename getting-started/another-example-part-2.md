@@ -49,36 +49,47 @@ That's about it. Easy!
 
 In this second part of the example, we're going to change our csvpath string more than the Python code. But the Python motivates our changes to the csvpath. So let's start with the Python.
 
+Create a new directory and make a Python file with the contents below. Also create a `cvspaths` directory and a `csvs` directory.
+
 ```python
 from csvpath import CsvPaths
+
+paths = CsvPaths()
+paths.files_manager.add_named_files_from_dir("csvs")
+paths.paths_manager.add_named_paths_from_dir(directory="csvpaths")
 
 paths = CsvPaths(print_default=False)
 LogUtility.logger(paths, "warn")
 
-paths.files_manager.add_named_files_from_dir("csvs")
-paths.paths_manager.add_named_paths_from_dir("csvpaths")
-paths.fast_forward_paths(pathsname="orders", filename="March-2024")
+name = "metadata"
+#name = "reset"
+#name = "file_length"
+#name = "categories"
+#name = "prices"
+#name = "sku_upc"
+lines = paths.fast_forward_paths(filename="March-2024", pathsname=name)
 
-results = paths.results_manager.get_named_results("orders")
-for r in results:
-    print(f"""\n\t Description: {r.csvpath.metadata["description"]}""")
-    print(f"\t valid: {r.is_valid()}")
-    print(f"\t errors: {len( r.errors)}")
+print(f"lines: {lines}")
+
+valid = paths.results_manager.is_valid(name)
+print(f"is valid: {valid}")
 ```
 
-None of this is complacated stuff. Let's go through it.
+None of this is complicated stuff. Let's go through it.
 
 ### Printing and logging
 
-First we import the CsvPath library and create an instance of `CsvPaths`. We create it with `print_default=False`. This prevents the `CsvPath` instances that run your csvpaths from printing to the default command line `Printer`. Your print statements will still be captured and available with your results from the `ResultsManager`. By default both things would happen: you would see results on the command line and you would also get print statements with your results.&#x20;
+First we import the CsvPath library and create an instance of `CsvPaths`. We create it with `print_default=False`.
 
-Next we do another completely optional thing, set the logging level.  Out of the box, CsvPath is already set to warn by default.
+`print_default=False` prevents the `CsvPath` instances that run your csvpaths from printing to the default command line `Printer`. Your print statements will still be captured and available with your results from the `ResultsManager`. By default both things would happen: you would see results on the command line and you would also get print statements with your results.&#x20;
 
-Both of these two optional configurations are here just so you know how to do them. You can [read more about setting up logging and error handling policies here](../topics/debugging.md).
+Now that you've seen  `print_default=False`, go ahead and delete it. We'll want to see the output in the terminal, at least at first.
+
+Next, we do another completely optional thing: set the logging level. We're just seeing how to do it, for future reference. Out of the box, CsvPath is already set to `warn` by default. You can [read more about setting up logging and error handling policies here](../topics/debugging.md).
 
 ### Named-files, named-paths, named-results
 
-Next, we set up the named files and named paths. Named-files are just short names that point to full filesystem paths. They are convenient and help you keep your CSV files organized.&#x20;
+On to more important things. First, we set up the named files and named paths. Named-files are just short names that point to full filesystem paths. They are convenient and help you keep your CSV files organized.&#x20;
 
 Named-paths are more interesting. These are sets of csvpaths strings that can be run as a group. You set them up by one of:
 
@@ -86,7 +97,7 @@ Named-paths are more interesting. These are sets of csvpaths strings that can be
 * Pointing to a directory full of csvpath files
 * Pointing to a file that contains multiple csvpaths strings
 
-When we're done with Part 2 of our orders file example, we're going to have the last one—multiple csvpaths in a single file. You can [read more about names here](../topics/named\_files\_and\_paths.md).
+When we're done with Part 2 of our orders file example, we're going to have the last one—multiple csvpaths in a single file. You can [read more about names here](../topics/named\_files\_and\_paths.md). But we'll start with separate files.
 
 ### The fast\_forward\_paths() method
 
@@ -105,7 +116,7 @@ At the bottom of the Python we pull the results from the results manager using t
 
 ## Improving Our Csvpath
 
-The cool part is over in the csvpath.
+The cool part happens over in the csvpath.
 
 We want to achieve a few things.&#x20;
 
@@ -113,31 +124,47 @@ We want to achieve a few things.&#x20;
 * Separated results, printouts, and error handling&#x20;
 * Overall better flexibility
 
-We're going to do this by creating six csvpaths. When we're done we'll have the option of putting them all in one file or in multiple files in one directory.&#x20;
+We're going to do this by creating six csvpaths, in place of the one we have now. When we're done we'll have the option of putting them all in one file or in multiple files in one directory.&#x20;
 
-There's only one real challenge with breaking down our big csvpath into multiple little ones. That is the top-matter that precedes the data in our CSV file. Each csvpath will have to handle that. We're talking about this part:&#x20;
+There's only one real challenge with breaking down our big csvpath into multiple little ones. It is a challenge that is specific to this example. The challenge is the top-matter that precedes the data in our CSV file.&#x20;
+
+Each csvpath has to handle the top matter. It definitely complicates things. That why we used it as the example! We're talking about this part:&#x20;
 
 ```xquery
-starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
-starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
-skip( starts_with(#0, "#"))
-skip( lt(count_headers_in_line(), 9) )
+~ Capture metadata from comments ~
+    starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+    starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
 
-~ Warn when the number of headers changes ~
-@hc = mismatch("signed")
-gt(@hc, 9) ->
-    reset_headers(
-        print("Resetting headers to: $.csvpath.headers.."))
+    skip( lt(count_headers_in_line(), 9) )
 
-    print.onchange(
-        "Number of headers changed by $.variables.hc.",
-            print("See line $.csvpath.line_number..", skip()))
+~ Reset the headers when we see the full set ~
+    @header_change = mismatch("signed")
+    gt( @header_change, 9) -> reset_headers()
 
+~ Print the line number of the header reset in case we need to check ~
+    print.onchange.once(
+        "Line $.csvpath.count_lines: number of headers changed by $.variables.header_change", skip())
 ```
 
 Since this part came first in our csvpath and shielded all the remaining match components below it, we need a way to give that same shielding to our match components in their individual csvpaths. And we don't want to repeat this code six times.&#x20;
 
-The answer is to use the `import()` function. We can import this fragment into our other csvpaths to get the same effect without cut-and-paste. For example, our second rule becomes its own csvpath that looks like this:&#x20;
+The answer is to use the `import()` function. We can import this fragment into our other csvpaths to get the same effect without cut-and-paste. Creating an importable csvpath is simple because its just a  csvpath. Create a file named `top_matter_import.csvpath`. Copy in this csvpath and you're done:&#x20;
+
+```xquery
+~ reset headers when they go up and 
+  otherwise if there aren't enough headers 
+  just skip ~
+
+$[*][
+    @header_change = mismatch("signed")
+    gt( @header_change, 9) -> reset_headers()
+    lt(count_headers(), 9) -> skip()
+]
+```
+
+We're going to create six more csvpaths files. They will all import this one.
+
+&#x20;
 
 ```xquery
 
