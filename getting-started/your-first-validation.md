@@ -225,11 +225,11 @@ print(f"Found {len(lines)} invalid lines")
 
 ```
 
-&#x20;There are a couple of new things here. First there is a qualifier, `nocontrib`, on the `header_name()` function. Qualifiers modify the behavior of functions and other match components. You can [read all about qualifiers here](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md).
+&#x20;There are a couple of new things here. First there is a qualifier, `nocontrib`, on the `not()` that wraps the `header_name()` function. Qualifiers modify the behavior of functions and other match components. You can [read all about qualifiers here](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md).
 
 The `nocontrib` qualifier says that the function it is on should not determine if the line matches. It does not contribute. Again, we need this because every line will match on the header name problem.
 
-The second new thing is the when/do. That's the `->` operator. When/do says that when the left hand side is True the right hand side happens. In this case, when there is a header name mismatch we fail the file using the fail(). If you are concerned that this when/do could be executed many times, you are right. But in this case that doesn't matter because calling fail() is cheap in performance terms and always has the same effect.
+The second new thing is the when/do. That's the `->` operator. When/do says that when the left hand side is `True` the right hand side happens. In this case, when there is a header name mismatch we fail the file using the `fail()`. If you are concerned that this when/do could be executed many times, you are right. But in this case that doesn't matter because calling `fail()` is cheap in performance terms and always has the same effect.
 
 Now when you run your script you will see... nothing new. Let's add a print statement to let us know if the file overall is valid. Put this at the bottom of your script.
 
