@@ -210,8 +210,8 @@ gt( @header_change, 9) ->
         print("Resetting headers to: $.csvpath.headers"))
 
 print.onchange.once(
-    "Number of headers changed by $.variables.header_change",
-        print("See line $.csvpath.line_number", skip())) 
+    "Line $.csvpath.count_lines: number of headers changed by $.variables.header_change",
+     skip())
 ```
 
 The three parts are:&#x20;
@@ -236,11 +236,11 @@ The last of the three parts has a lot going on. Here's the match component by it
 
 ```xquery
 print.onchange.once(
-    "Number of headers changed by $.variables.header_change",
-        print("See line $.csvpath.line_number", skip()))
+   "Line $.csvpath.count_lines: number of headers changed by $.variables.header_change", 
+    skip())
 ```
 
-This is our first use of the print() function. Unlike most general purpose langages, in CsvPath printing is a big deal. The reason is that the act of validating a file means using rules to find unexpected things and communicating that information to the user. Schematron is the schema language most like CsvPath and its to point to problems and communicate with the user in plain English. (Or your humans language of choice). XSD, JSON Schema, etc. all have the dual purpose of defining data structures and communicating when data doesn't match.&#x20;
+This is our first use of the `print()` function. Unlike most general purpose langages, in CsvPath printing is a big deal. The reason is that the act of validating a file means using rules to find unexpected things and communicating that information to the user. Schematron is the schema language most like CsvPath. It points to problems and communicate with the user in plain English. (Or your humans language of choice). XSD, JSON Schema, etc. all have the dual purpose of defining data structures and communicating when data doesn't match.&#x20;
 
 CsvPath has some nice printing tricks up its sleeve. We're using a couple of them.
 
@@ -248,9 +248,9 @@ First, the qualifiers. Qualifiers are awesome. They can do so many neat things t
 
 * `print()` with `onchange` only prints when the print string is different. That is useful when you are printing variables that may not change in some lines. With `onchange` you only see the `print()` when it has something new to say.
 * `print()` with `once` simply prints just one time. That's it, one and done.
-* `print()` with both `onchange` and `once` is even more interesting. It means that `print()` takes its first chance to print. The first printout is considered a change. But then `once` prevents any more printouts. This is good because `mismatch()` will report 0 as the number of headers that are unexpectedly found or missing. That 0 would be considered a change by `print()`. We don't need to be told that nothing happened.
+* `print()` with both `onchange` and `once` is even more interesting. It means that `print()` takes its first chance to print. The first printout is considered a change. But then `once` prevents any more printouts. This is good because `mismatch()` will report `0` as the number of headers that are unexpectedly found or missing. That `0` would be considered a change by `print()`. We don't need to be told that nothing happened.
 
-As you can see, `print()` can take a second argument that is executed only if `print()` itself runs. We use this to nest a second print line and a `skip()` that jumps us to the next line. As with most things in CsvPath, we could have done this other ways, but this is a good approach.
+As you can see, `print()` can take a second argument that is executed only if `print()` itself runs. We use this to nest a `skip()` that jumps us to the next line. As with most things in CsvPath, we could have done this other ways, but this is a good approach.
 
 Your script should now look like:&#x20;
 
@@ -269,8 +269,9 @@ csvpath = """$March-2024.csv[*][
                         print("Resetting headers to: $.csvpath.headers"))
 
                 print.onchange.once(
-                    "Number of headers changed by $.variables.header_change",
-                        print("See line $.csvpath.line_number", skip()))
+                     "Line $.csvpath.count_lines: number of headers changed by $.variables.header_change",
+                        skip())
+
           ]"""
 
 path = CsvPath()
@@ -281,7 +282,7 @@ lines = path.collect()
 
 Running your script should look like what you would expect:&#x20;
 
-<figure><img src="../.gitbook/assets/top-matter-complete.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/reset-headers-msg.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Congrats! You are done with the hard part. The rest of the validations are simple business rules.
 
@@ -291,7 +292,7 @@ Next we'll check if the product category is correct. This is a pretty straightfo
 
 ```xquery
 not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
-        print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail())
+                    print( "Line $.csvpath.count_lines: Bad category $.headers.category ", fail())
 ```
 
 Following the same pattern we saw in the last example, we are going to identify a problem row and print a validation message. The `in()` function looks at the value of the `#category` header and checks if it is in a delimited string.&#x20;
@@ -328,8 +329,7 @@ csvpath = """$March-2024.csv[*][
                         print("See line $.csvpath.line_number", skip()))
 
                 not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
-                    print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail())
-
+                     print( "Line $.csvpath.count_lines: Bad category $.headers.category ", fail())
           ]"""
 
 path = CsvPath()
@@ -340,7 +340,7 @@ lines = path.collect()
 
 When you run it you should see something like this:
 
-<figure><img src="../.gitbook/assets/category-rule.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/bad-category.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Rule 4: Price Format
 
@@ -348,7 +348,7 @@ Moving right along, the next rule is that prices must exist and be in the correc
 
 ```xquery
 not( exact( end(), /\$?(\d*\.\d{0,2})/ ) ) ->
-       print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail())
+       print("Line $.csvpath.count_lines: bad price $.headers.'a price' ", fail())
 ```
 
 Again we use the same rule pattern. In this case, we tap regular expressions again to check that a price:
@@ -369,19 +369,18 @@ The new thing here is `end()` function. `end()` is a pointer to the last header.
 
 In this case, let's say we know price is always the last column.&#x20;
 
-Drop this rule in your script and run it. If your file follow how we've been creating the example, you will hear some complaints from Python. It is unhappy about invalid escapes. Ah, validity. Easy to fix. Change your line to:&#x20;
+Drop this rule in your script and run it. If your file follows how we've been creating the example, you will hear some complaints from Python. It is unhappy about invalid escapes. Ah, validity. Easy to fix. Change your line to:&#x20;
 
 ```xquery
 not( exact( end(), /\\$?(\\d*\\.\\d{0,2})/ ) ) ->
                     print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail())
 ```
 
-The additional \ chars escape the regular expression escapes for Python. This is normal regular expression fun. You give up some amount of your sanity for accessing the power of regexes.
+The additional `\` chars escape the regular expression escapes for Python. This is normal regular expression fun. We all give up some amount of our sanity for accessing the power of regexes.
 
 Your script should now look like:&#x20;
 
-```python
-from csvpath import CsvPath
+<pre class="language-python"><code class="lang-python">from csvpath import CsvPath
 
 csvpath = """$March-2024.csv[*][
 
@@ -405,22 +404,21 @@ csvpath = """$March-2024.csv[*][
                     print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail())
 
 
-                not( exact( end(), /\\$?(\\d*\\.\\d{0,2})/ ) ) ->
-                    print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail())
-
+<strong>                not( exact( end(), /\\$?(\\d*\\.\\d{0,2})/ ) ) ->
+</strong>                    print("Line $.csvpath.count_lines: bad price $.headers.'a price' ", fail())
           ]"""
 
 path = CsvPath()
 path.OR = True
 path.parse(csvpath)
 lines = path.collect()
-```
+</code></pre>
 
-It is definitely getting long. But we're getting close to complete. And in Part 2 of this example we'll see how to make the validation csvpath much simpler and more managable.
+It is definitely getting long. But we're getting close to complete. And in Part 2 of this example we'll see how to make the validation csvpath much simpler and more manageable.
 
 Run your script and you should see output like this:&#x20;
 
-<figure><img src="../.gitbook/assets/price-checks.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/bad-prices.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Rule 5: UPCs and SKUs
 
@@ -431,15 +429,19 @@ For all that, though, checking that they are present is easy. By now you should 
 Paste or type in these two lines at the bottom of the csvpath string in your script.
 
 ```xquery
-not( #SKU ) -> print("No SKU at line $.csvpath.count_lines", fail())
-not( #UPC ) -> print("No UPC at line $.csvpath.count_lines", fail())
+not( #SKU ) -> print("Line $.csvpath.count_lines: No SKU", fail())
+not( #UPC ) -> print("Line $.csvpath.count_lines: No UPC", fail())
 ```
 
 When you run your script you again see no additional issues. So let's make one. In line 11 remove the value in the SKU field, the fourth header from the end: `9933757492`. It should look like this:&#x20;
 
 <figure><img src="../.gitbook/assets/remove-sku.png" alt="" width="563"><figcaption></figcaption></figure>
 
+Run your script again. You should see something close to:&#x20;
 
+<figure><img src="../.gitbook/assets/bad-sku.png" alt="" width="563"><figcaption></figcaption></figure>
+
+We're getting there! One more rule to go.
 
 ## Rule 6: Total Expected Lines
 
