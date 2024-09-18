@@ -27,7 +27,7 @@ Secondly, having our six validation concerns in one file makes us work harder in
 
 #### Capture print statements and errors
 
-Third, printing validation messages is an excellent way to do data validation. This kind of reporting may seem simple, but simple is good. That said, could we wish for more control over the output? Sure. We might want to craft an email or some other kind of report. It would be nice to be able to do that without scraping the command line system out.&#x20;
+Third, printing validation messages is an excellent way to do data validation. This kind of reporting may seem simple, but simple is good. That said, could we wish for more control over the output? Sure. We might want to craft an email or some other kind of report. It would be nice to be able to do that without scraping the command line.&#x20;
 
 Likewise with error handling. We'll test our csvpath, of course! But at runtime things happen. And keep in mind that the data may change—we don't control that. So we'd like error handling that is robust with outputs that are inspectable.&#x20;
 
@@ -37,50 +37,71 @@ Finally, our csvpath doesn't currently refer to outside data, but it could. And,
 
 ## The Solution
 
-We're going to set our validation up using a CsvPaths instance. CsvPaths is the manager of CSV files, csvpaths, and run results. It instantiates a CsvPath instance for each csvpath it runs. And it has its own managers to find files, sets of csvpaths to run, and capture the results of runs. &#x20;
+We're going to use a CsvPaths instance. CsvPaths is a manager class. It organizes CSV files, csvpath strings, and CsvPaths instances and their run results.&#x20;
 
-As you may already know from other pages, the main difference in setting up CsvPaths is that you need to point its managers to your files. Second, you pull your results from the Results Manager using the same name as you used to run your paths. That's about it. Easy!
+A CsvPaths instance creates an instance of CsvPath for each csvpath it runs. It has managers to find files, sets of csvpaths to run, and capture the results of runs. And it gives you options that let you decide the best way to run multiple csvpaths for your situtation. &#x20;
 
-In this second part of the example, we're going to change our csvpath more than the Python code. At the same time, we need the Python runtime context to motivate our changes to the csvpath. So let's start with the Python.
+As you may already know from other pages, the main difference in setting up a CsvPaths instance is that you need to point its managers to your files. Your results live in the Results Manager. You access them using the same name as you used for the paths that created the results.&#x20;
+
+That's about it. Easy!
+
+## The Python
+
+In this second part of the example, we're going to change our csvpath string more than the Python code. But the Python motivates our changes to the csvpath. So let's start with the Python.
 
 ```python
-import csvpath
+from csvpath import CsvPaths
 
 paths = CsvPaths(print_default=False)
-LogUtility.logger(path, "warn")
+LogUtility.logger(paths, "warn")
 
-paths.files_manager.add_named_files_from_dir("examples/complex_headers/csvs/")
-paths.paths_manager.add_named_paths_from_dir("examples/complex_headers/csvpaths")
+paths.files_manager.add_named_files_from_dir("csvs")
+paths.paths_manager.add_named_paths_from_dir("csvpaths")
 paths.fast_forward_paths(pathsname="orders", filename="March-2024")
 
 results = paths.results_manager.get_named_results("orders")
 for r in results:
-
     print(f"""\n\t Description: {r.csvpath.metadata["description"]}""")
     print(f"\t valid: {r.is_valid()}")
     print(f"\t errors: {len( r.errors)}")
-
 ```
 
-#### Printing and logging
+None of this is complacated stuff. Let's go through it.
 
-First we import the CsvPath library and create an instance of `CsvPaths`. We create it with `print_default=False`. This prevents the `CsvPath` instances that run your csvpaths from printing to the default `Printer`. Your print statements will still be captured and available with your results from the `ResultsManager`. By default both things would happen: you would see results on standard out and you would be able to get print statements with your results.&#x20;
+### Printing and logging
 
-Next we do another completely optional thing, set the logging level. This is here just so you know how to do it. Out of the box, CsvPath is already set to warn by default. You can [read more about setting up logging and error handling policies here](../topics/debugging.md).
+First we import the CsvPath library and create an instance of `CsvPaths`. We create it with `print_default=False`. This prevents the `CsvPath` instances that run your csvpaths from printing to the default command line `Printer`. Your print statements will still be captured and available with your results from the `ResultsManager`. By default both things would happen: you would see results on the command line and you would also get print statements with your results.&#x20;
 
-#### Named-files, named-paths, named-results
+Next we do another completely optional thing, set the logging level.  Out of the box, CsvPath is already set to warn by default.
 
-After that, we set up the named files and named paths. Named-files are just short names that point to full filesystem paths. They are convenient. Named-paths are more interesting. They are sets of csvpaths that can be run as a group. You set them up by one of:
+Both of these two optional configurations are here just so you know how to do them. You can [read more about setting up logging and error handling policies here](../topics/debugging.md).
+
+### Named-files, named-paths, named-results
+
+Next, we set up the named files and named paths. Named-files are just short names that point to full filesystem paths. They are convenient and help you keep your CSV files organized.&#x20;
+
+Named-paths are more interesting. These are sets of csvpaths strings that can be run as a group. You set them up by one of:
 
 * Creating a dict in Python
 * Pointing to a directory full of csvpath files
-* Pointing to a file that has multiple csvpaths in it
+* Pointing to a file that contains multiple csvpaths strings
 
-When we're done we're going to have the last one. You can [read more about names here](../topics/named\_files\_and\_paths.md).
+When we're done with Part 2 of our orders file example, we're going to have the last one—multiple csvpaths in a single file. You can [read more about names here](../topics/named\_files\_and\_paths.md).
 
-After we set up the named files and named paths we have CsvPaths do `fast_forward_paths()`. This is similar to the `fast_forward()` method we called on our `CsvPath` instance in the first part of the example. The difference is that CsvPaths runs all the csvpaths in the named-paths you are using. It runs them serially. There is an equally simple but different fast forward method to run the csvpaths breadth-first, but that's a topic for another time.
+### The fast\_forward\_paths() method
 
-At the bottom of the Python we pull the results from the ResultsManager using the same name as our named-path name. We store them under the same name because the results are the result of running those csvpaths.
+After we set up the named files and named paths we have CsvPaths do `fast_forward_paths()`. This is similar to the `fast_forward()` method we called on our `CsvPath` instance in the first part of the example. The difference is that CsvPaths runs all the csvpaths in the named-paths you are using. That's CsvPaths's job: running multiple csvpaths and CSV files.
+
+With `fast_forward_paths()` CsvPaths runs your csvpaths serially. That means a few things:&#x20;
+
+* Order is guaranteed&#x20;
+* Results of earlier csvpaths are available for later csvpaths to use
+* Every row is seen before the next csvpath is run, making side-effects like `print()` simpler
+* Every csvpath has to iterate on the same CSV file, which is not the most efficient way
+
+There is an equally simple to use fast forward method that run the csvpaths breadth-first: `fast_forward_by_line()`. That method solves the efficiency problem. But let's leave it as a topic for another time.
+
+At the bottom of the Python we pull the results from the results manager using the same name as our named-paths name. We store them under the same name because the results are the result of running those csvpaths.
 
 ## Improving Our Csvpath
 
