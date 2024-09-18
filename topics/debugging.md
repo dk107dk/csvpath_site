@@ -26,6 +26,20 @@ The logging is, today, heavily focused on matching. That's where most of the com
 
 <figure><img src="../.gitbook/assets/log-example.png" alt=""><figcaption></figcaption></figure>
 
+### debug()
+
+You may also want to try the `debug()` function. As a csvpath function you can use it within your csvpath to control how much logging happens at any particular point. It isn't a precision tool. Your use of `debug()` is only effective at the line level, meaning you can't adjust the log level match component by match component. Still, `debug()` helps you cut down the log noise considerably so you can focus on the logging that is most important to you.
+
+### vote\_stack()
+
+The vote\_stack() function is another potentially helpful debugging match component. Its job is to tell you how the match components voted on a given line. The best way to use vote\_stack() is to push it:
+
+```xquery
+push("votes", vote_stack())
+```
+
+This will populate your `votes` variable with a list of `True` / `False` votes for each of the match components. That can help you understand why a match happened, or didn't, in more complex csvpaths.
+
 ## Error Policy
 
 CsvPaths and CsvPath have a multi-setting error policy. If you need more information, or more or less run protection, you should have a look. The options are:&#x20;
