@@ -424,14 +424,22 @@ Run your script and you should see output like this:&#x20;
 
 ## Rule 5: UPCs and SKUs
 
-Retailers, distributors, and manufacturers use Universal Product Codes to identify products. Retailers use Stock Keeping Units to identify products in inventory. Both are very important numbers to the business. If they were missing the orders file would be for sure invalid.
+Retailers, distributors, and manufacturers use Universal Product Codes to identify products. Retailers use Stock Keeping Units to identify and count products in inventory. Both are very important numbers to the business. If they were missing the orders file would be for sure invalid.
+
+For all that, though, checking that they are present is easy. By now you should expect the pattern we are following: when/do. We're checking the #SKU and #UPC headers. Remember that CsvPath is case sensitive.
+
+Paste or type in these two lines at the bottom of the csvpath string in your script.
 
 ```xquery
 not( #SKU ) -> print("No SKU at line $.csvpath.count_lines", fail())
 not( #UPC ) -> print("No UPC at line $.csvpath.count_lines", fail())
 ```
 
-These two match components should start to look familiar. We're testing the `#SKU` and `#UPC` headers to see if they have data. If not, we complain and fail the file. Simple!
+When you run your script you again see no additional issues. So let's make one. In line 11 remove the value in the SKU field, the fourth header from the end: `9933757492`. It should look like this:&#x20;
+
+<figure><img src="../.gitbook/assets/remove-sku.png" alt="" width="563"><figcaption></figcaption></figure>
+
+
 
 ## Rule 6: Total Expected Lines
 
