@@ -182,7 +182,7 @@ We will of course do that. But consider if your csvpath is going to be validatin
 Add this below the max length rule:
 
 ```python
-header_name(0, "firstname")
+not( header_name(0, "firstname") )
 ```
 
 This rule says that the 0th header must be the `firstname` header. Headers can be accessed by their numeric position — their index. The index is 0-based, like a Python list. That means the first header is `#0`. In our rule, the function looks up the name of the header indicated by `0`. If it doesn't equal `"firstname"` we collect the invalid line.
@@ -198,7 +198,7 @@ In our rule, the `column()` function will be called on every line, not just the 
 What to do? Easy! Change the line you just added so that the rule looks like:
 
 ```
-header_name.nocontrib(0, "firstname") -> fail()
+not.nocontrib( header_name(0, "firstname") ) -> fail()
 ```
 
 Now the rule doesn't determine if individual lines match match the header name requirement. Instead it marks the file as invalid. This allows you to collect the lines with problems and also know if the file has problems that cut across the lines.&#x20;
@@ -212,7 +212,7 @@ csvpath = """$trivial.csv[*][
             ~ Apply three rules to check if a CSV file is invalid ~
                 missing(headers())
                 too_long(#lastname, 30)
-                header_name.nocontrib(0, "firstname") -> fail()
+                not.nocontrib( header_name(0, "firstname") ) -> fail()
                 
           ]"""
 
@@ -253,7 +253,7 @@ csvpath = """$trivial.csv[*][
             ~ Apply three rules to check if a CSV file is invalid ~
                 missing(headers())
                 too_long(#lastname, 30)
-                header_name.nocontrib(0, "firstname") -> fail()
+                not.nocontrib( header_name(0, "firstname") ) -> fail()
 
           ]"""
 
