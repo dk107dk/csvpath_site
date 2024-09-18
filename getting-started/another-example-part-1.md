@@ -123,7 +123,6 @@ csvpath = """$March-2024.csv[*][
           ]"""
 
 path = CsvPath()
-path.OR = True
 path.parse(csvpath)
 lines = path.collect()
 ```
@@ -166,7 +165,6 @@ csvpath = """$March-2024.csv[*][
           ]"""
 
 path = CsvPath()
-path.OR = True
 path.parse(csvpath)
 lines = path.collect()
 
@@ -275,7 +273,6 @@ csvpath = """$March-2024.csv[*][
           ]"""
 
 path = CsvPath()
-path.OR = True
 path.parse(csvpath)
 lines = path.collect()
 ```
@@ -333,7 +330,6 @@ csvpath = """$March-2024.csv[*][
           ]"""
 
 path = CsvPath()
-path.OR = True
 path.parse(csvpath)
 lines = path.collect()
 ```
@@ -409,7 +405,6 @@ csvpath = """$March-2024.csv[*][
           ]"""
 
 path = CsvPath()
-path.OR = True
 path.parse(csvpath)
 lines = path.collect()
 </code></pre>
@@ -475,7 +470,6 @@ csvpath = """$March-2024.csv[*][
           ]"""
 
 path = CsvPath()
-path.OR = True
 path.parse(csvpath)
 lines = path.collect()
 
@@ -542,7 +536,6 @@ $.variables.runid at $.csvpath.file_name..", fail())
           ]"""
 
 path = CsvPath()
-path.OR = True
 path.parse(csvpath)
 lines = path.collect()
 ```
