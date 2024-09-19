@@ -128,7 +128,7 @@ We're going to do this by creating six csvpaths, in place of the one we have now
 
 There's only one real challenge with breaking down our big csvpath into multiple little ones. It is a challenge that is specific to this example. The challenge is the top-matter that precedes the data in our CSV file.&#x20;
 
-Each csvpath has to handle the top matter. It definitely complicates things. That why we used it as the example! We're talking about this part:&#x20;
+Each csvpath has to handle the top matter. It definitely complicates things. That exactly why we used it as the example! We're talking about this part:&#x20;
 
 ```xquery
 ~ Capture metadata from comments ~
@@ -157,7 +157,7 @@ The answer is to use the `import()` function. We can import this fragment into o
 
 $[*][
     @header_change = mismatch("signed")
-    gt( @header_change, 9) -> reset_headers()
+    gt( @header_change, 9) -> reset_headers(skip())
     lt(count_headers(), 9) -> skip()
 ]
 ```
@@ -169,6 +169,7 @@ We're going to create six more csvpaths files. Most will import this one. No rea
 ```xquery
 ---- CSVPATH ----
 
+~ collect metadata fields from comments ~
 $[*][
 
     starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
@@ -178,7 +179,6 @@ $[*][
 
     and( @runid, @userid ) ->
         print(" Contact: $.variables.userid for batch ID: $.variables.runid", stop())
-
 ]
 ```
 
@@ -190,8 +190,8 @@ Wait, what's that `---- CSVPATH ----` block? I'm glad you asked. It is a separat
 
 ```xquery
 ---- CSVPATH ----
-~ print the line number when we reset headers ~
 
+~ print the line number when we reset headers ~
 $[*][
     import("top_matter_import")
 
@@ -202,7 +202,7 @@ $[*][
 
 {% file src="../.gitbook/assets/reset.csvpath" %}
 
-You may have noticed that these csvpath files have more comments outside the csvpath itself. These comments are important. While we're not doing anything with them at the moment, we could add metadata fields that describe the csvpath. If you add an `ID` or a `name` field you can use it to reference the individual csvpath, even if it is bundled with others under the same named-paths name. We'll look at how to do that another time.
+You may have noticed that these csvpath files have comments outside the csvpath itself. These comments are important. While we're not doing anything with them at the moment, we could add metadata fields that describe the csvpath. If you add an `ID` or a `name` metadata field to a comment, you can use it to reference the individual csvpath, even when it is bundled with others under the same named-paths name. Important, for sure, but we'll look at how to do that another time.
 
 ```xquery
 ---- CSVPATH ----
@@ -213,7 +213,6 @@ $[*][
 
     below(total_lines(), 27) ->
       print.once("File has too few data lines: $.csvpath.total_lines", fail_and_stop())
-
 ]
 ```
 
@@ -223,8 +222,8 @@ $[*][
 
 ```xquery
 ---- CSVPATH ----
-~ Check the categories ~
 
+~ Check the categories ~
 $[*][
     import("top_matter_import")
 
@@ -269,7 +268,7 @@ There, that's all of them. You should now have seven .csvpath files in your csvp
 
 <figure><img src="../.gitbook/assets/all-csvpaths.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Back to your modified script. Here's where we left it. From this you can run any of the csvpaths files you just created. Each file will be named in the named-paths manager by its name (minus the extension). Just uncomment each name in the script to run that file's csvpath by itself.
+Back to your modified script. Here's where we left it. From this you can run any of the csvpaths files you just created. Each file will be named in the named-paths manager by its name (minus the extension).&#x20;
 
 ```python
 from csvpath import CsvPaths
@@ -278,13 +277,11 @@ paths = CsvPaths()
 paths.files_manager.add_named_files_from_dir("csvs")
 paths.paths_manager.add_named_paths_from_dir(directory="csvpaths")
 
-name = "metadata"
-#name = "reset"
-#name = "file_length"
-#name = "categories"
-#name = "prices"
-#name = "sku_upc"
-paths.fast_forward_paths(filename="March-2024", pathsname=name)
+names = [ "metadata", "reset", "file_length", "categories", "prices", "sku_upc" ]
+for name in names:
+    paths.fast_forward_paths(filename="March-2024", pathsname=name)
+    valid = paths.results_manager.is_valid(name)
+    print(f"is valid: {valid}")
 
 valid = paths.results_manager.is_valid(name)
 print(f"is valid: {valid}")
@@ -292,25 +289,25 @@ print(f"is valid: {valid}")
 
 The results should be completely unsurprising. These are just the same csvpath steps we created in Part 1. They are just pulled apart for easier development management. But take a look back at the results of Part 1. That script is far more complex than these small, mostly independent csvpaths. The change is a win for both rapid development and long term maintainability.
 
-## One File Or One Directory
+## Deployment Choices
 
-We're not quite done, though. Assuming we want to run all of the csvpaths as a single unit, there is one more step: bringing them all together in a one-run package.
+We're not quite done, though. Assuming we want to run all of the csvpaths as a single unit, we can loop over them, as we just did. But we can do better. Let's take one more step: bringing them all together in a neat package.
 
-This need raises the big question: do we want all the working csvpaths in one file or one directory or to create a JSON file to describe groups of csvpaths that are used together? So many options! Luckily all easy to do.
+This need raises the big question: do we want all the working csvpaths in one file or one directory, or do we want to create a JSON file that identifies the groups of csvpaths that are used together? So many options! Luckily all are easy to do.
 
 
 
-| Approach           | As one | Run apart | Run in order | Reuse parts | Easy   |
-| ------------------ | ------ | --------- | ------------ | ----------- | ------ |
-| Named by directory | Yes    | Yes       | No           | Yes         | Most   |
-| Multi-csvpath file | Yes    | No        | Yes          | No          | Least  |
-| JSON file          | Yes    | Yes       | Yes          | Yes         | Medium |
+| Approach           | As one | Run apart | Run in order | Reuse parts | Easy   | Locations             |
+| ------------------ | ------ | --------- | ------------ | ----------- | ------ | --------------------- |
+| Named by directory | Yes    | Yes       | No           | Yes         | Most   | Single dir            |
+| Multi-csvpath file | Yes    | No        | Yes          | No          | Least  | Single file           |
+| JSON file          | Yes    | Yes       | Yes          | Yes         | Medium | Files can be anywhere |
 
-The JSON option has a lot going for it. Let's add that it can also include files that live in different directories. Why is that not in the table? Space on the page!  But it's a good point.
+All are good approaches. But the JSON option sure has a lot going for it. Let's look at that option first.&#x20;
 
 ### The JSON option
 
-Let's look at the JSON option. Using a JSON file to define the group of csvpaths is not hard. Create a JSON file that looks like this:&#x20;
+Using a JSON file to define the group of csvpaths is not hard. Create a JSON file that looks like this:&#x20;
 
 ```json
 {
@@ -322,7 +319,7 @@ Let's look at the JSON option. Using a JSON file to define the group of csvpaths
         "csvpaths/prices.csvpath",
         "csvpaths/sku_upc.csvpath",
     ],
-    "top_matter", [
+    "top_matter_import", [
         "csvpaths/top_matter_import.csvpath"
     ]
 }
@@ -468,6 +465,6 @@ print(f"is valid: {valid}")
 
 As you can see, this approach has the fewest files. It is definitely a bit less flexible than the other options. But its conciseness allows you to manage few assets, version control and view all the csvpaths together, and run them in the most deterministic way.&#x20;
 
-Options are good! You can pick whichever deployment option is best for your requirements and know you are getting the same result.
+Options are good! You can pick whichever deployment option is best for your requirements and work style. Regardless of the choice, you know you are getting the same result.
 
-And that's it. Congrats on a job well done! You now have an automation-friendly rule set using a pattern that will scale to any size operation. And you have three options for how to package and deploy it.
+And that's it. Congrats on a job well done! You now have an automation-friendly rule set using a pattern that will scale to any size DataOps operation. And you have three options for how to package and deploy your CsvPath files.
