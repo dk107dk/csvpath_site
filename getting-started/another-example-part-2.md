@@ -174,6 +174,8 @@ $[*][
     starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
     starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
 
+    skip( lt(count_headers_in_line(), 9) )
+
     and( @runid, @userid ) ->
         print(" Contact: $.variables.userid for batch ID: $.variables.runid", stop())
 
@@ -267,7 +269,7 @@ There, that's all of them. You should now have seven .csvpath files in your csvp
 
 <figure><img src="../.gitbook/assets/all-csvpaths.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Back to your modified script. Here's where we left it. From this you can run any of the csvpaths files you just created. Each file will be named (minus its extension) in the named-paths manager. Just uncomment each name to run that file's csvpath by itself.
+Back to your modified script. Here's where we left it. From this you can run any of the csvpaths files you just created. Each file will be named in the named-paths manager by its name (minus the extension). Just uncomment each name in the script to run that file's csvpath by itself.
 
 ```python
 from csvpath import CsvPaths
@@ -288,18 +290,27 @@ valid = paths.results_manager.is_valid(name)
 print(f"is valid: {valid}")
 ```
 
-The results should be completely unsurprising. These are just the same csvpath steps we created in Part 1. They are just pulled apart for easier development management.&#x20;
+The results should be completely unsurprising. These are just the same csvpath steps we created in Part 1. They are just pulled apart for easier development management. But take a look back at the results of Part 1. That script is far more complex than these small, mostly independent csvpaths. The change is a win for both rapid development and long term maintainability.
 
 ## One File Or One Directory
 
-Now the big question: do we want all the working csvpaths in one file or one directory or to create a JSON file to describe groups of csvpaths that are used together? So many options! In fact there are four. For clarity:&#x20;
+We're not quite done, though. Assuming we want to run all of the csvpaths as a single unit, there is one more step: bringing them all together in a one-run package.
 
-* Single files that contain a mix of Python and CsvPath—kind of like mixing SQL and Python
-* A single csvpath containing a group of csvpaths separated by `---- CSVPATH ----` markers
-* A directory of csvpath files imported under their own names (minus extension) or a single name provided by the user
-* A JSON file containing a dictionary of named lists, where each item in the list is the path to a csvpath
+This need raises the big question: do we want all the working csvpaths in one file or one directory or to create a JSON file to describe groups of csvpaths that are used together? So many options! Luckily all easy to do.
 
-Before we go into this, let's look at the JSON option.   &#x20;
+
+
+| Approach           | As one | Run apart | Run in order | Reuse parts | Easy   |
+| ------------------ | ------ | --------- | ------------ | ----------- | ------ |
+| Named by directory | Yes    | Yes       | No           | Yes         | Most   |
+| Multi-csvpath file | Yes    | No        | Yes          | No          | Least  |
+| JSON file          | Yes    | Yes       | Yes          | Yes         | Medium |
+
+The JSON option has a lot going for it. Let's add that it can also include files that live in different directories. Why is that not in the table? Space on the page!  But it's a good point.
+
+### The JSON option
+
+Let's look at the JSON option. Using a JSON file to define the group of csvpaths is not hard. Create a JSON file that looks like this:&#x20;
 
 ```json
 {
@@ -317,92 +328,146 @@ Before we go into this, let's look at the JSON option.   &#x20;
 }
 ```
 
-You would run our orders csvpaths using Python like this:&#x20;
+This creates a "named-paths" group named `orders`. We need a second named-paths group for the top matter csvpath. It has to be separate so that it can be imported.&#x20;
 
-
-
-
-
-Having six files with one csvpath each is obvious and easy to do without an example. A more important consideration, though, is that loading a named-path as a directory of separate files has a drawback. The drawback is that order is not deterministic. Order matters in CsvPath, including, sometimes, the order of executing multiple csvpaths. That's not always the case, and it isn't the case here. The order within our csvpaths matters because the top-matter handling match components need to come first. However, because we import the match components that handle the top-matter we don't have to worry about that. Still, it is a good thing to keep in mind.
-
-Instead let's put the csvpaths in one `orders.csvpath` file in the `examples/complex_headers/csvpaths` directory we used above. And, actually, while we could use just one file, in order to facilitate our `import()`, let's make it two files.
-
-`orders.csvpath` should look like this:&#x20;
-
-```xquery
----- CSVPATH ----
-
-~ description: Check correct category ~
-$[*][
-    import("skip_top_matter")
-
-    not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
-        print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail()) ]
-
----- CSVPATH ----
-
-~ description: Correct price format? ~
-$[*][
-    import("skip_top_matter")
-
-    not( exact( end(), /\$?(\d*\.\d{0,2})/ ) ) ->
-       print("Bad price $.headers.'a price' at line  $.csvpath.count_lines", fail()) ]
-
----- CSVPATH ----
-
-~ description: Missing product identifiers ~
-$[*][
-    import("skip_top_matter")
-
-    not( #SKU ) -> print("No SKU at line $.csvpath.count_lines", fail())
-    not( #UPC ) -> print("No UPC at line $.csvpath.count_lines", fail()) ]
-
----- CSVPATH ----
-
-~ description: Too few lines
-~
-$[*][
-      below(total_lines(), 27)
-      last.onmatch() ->
-            print("File has too few lines: $.csvpath.count_lines.
-                Contact $orders.variables.userid about this batch:
-                $orders.variables.runid at $.csvpath.file_name..", fail()) ]
-
-```
-
-And `skip_top_matter.csvpaths` should look like this:&#x20;
-
-```xquery
-
-starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
-starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
-skip( starts_with(#0, "#"))
-skip( lt(count_headers_in_line(), 9) )
-
-~ Warn when the number of headers changes ~
-@hc = mismatch("signed")
-gt(@hc, 9) ->
-    reset_headers(
-        print("Resetting headers to: $.csvpath.headers.."))
-
-    print.onchange(
-        "Number of headers changed by $.variables.hc.",
-            print("See line $.csvpath.line_number..", skip()))
-
-```
-
-Put them both in that same directory. Both will be imported by CsvPaths's PathsManager when we pass it the directory path. As I'm sure you guessed, if you didn't already know, the csvpath separator is `---- CSVPATH ----`.
-
-Now, assuming our orders file is where we're expecting it, `examples/complex_headers/csvs/March-2024.csv`, these two lines provide the lightning.&#x20;
+You would run orders csvpaths using Python like this:&#x20;
 
 ```python
-paths.fast_forward_paths(pathsname="orders", filename="March-2024")
+paths = CsvPaths()
+paths.files_manager.add_named_files_from_dir("csvs")
+paths.paths_manager.add_named_paths_from_json("orders.json")
 
-results = paths.results_manager.get_named_results("orders")
+paths.fast_forward_paths(filename="March-2024", pathsname="orders")
 ```
 
-Notice that we are running just the `orders` named-paths, not our top-matter csvpath. The latter is executed once per each of the five `orders` csvpaths.
+That's easy. At the cost of creating one more file, you get all the benefits with very little work.
 
-The rest is just pulling the results from the ResultsManager and iterating them to see the print lines and do whatever else we need to do. Or if we just need the indicator of if the file is valid for all the csvpaths, the results manager can give us that go/no-go too.&#x20;
+### The directory option
 
-And that's it. An automation-friendly rule set using a pattern that will scale to any size operation.
+Now the directory option. Oh, wait, we already did that. Just make two minor changes in the Python:&#x20;
+
+```python
+paths.paths_manager.add_named_paths_from_dir(directory="csvpaths/orders", name="orders")
+paths.paths_manager.add_named_paths_from_dir(directory="csvpaths/top_matter_import", name="top_matter_import")
+```
+
+We still need two named-paths groups, so we have to create a directory for each. Call the directories orders and top\_matter\_import, though the names don't matter. Copy the csvpaths files into their directory. Then we just import the directories, giving each a name. Last time we used `add_named_paths_from_dir` we did not specify a name, resulting in each file being in its own named-paths group.
+
+### The one file option
+
+The last option, putting all your csvpaths in one file, takes the most work. It's not hard, but it takes a minute, unlike the other two options.&#x20;
+
+Create a file called `csvpaths/orders.csvpath`. Open the file. We're going to fill it with the six csvpaths we created in the six files. They will be separated by the `---- CSVPATH ----` separator. That's four dashes, a space, the word `CSVPATH` in uppercase, another space, and four more dashes.
+
+Paste in the paths between the separators. Use the order we named them in our Python script:&#x20;
+
+* metadata
+* reset
+* file\_length
+* categories
+* prices
+* sku\_upc
+
+We're leaving aside our top matter csvpath. It needs to be imported so it needs to be its own named-paths group.
+
+Now `orders.csvpath` should look like this:&#x20;
+
+```xquery
+---- CSVPATH ----
+
+~ collect metadata fields from comments ~
+$[*][
+    starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+    starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+
+    and( @runid, @userid ) ->
+        print(" Contact: $.variables.userid for batch ID: $.variables.runid", stop())
+]
+
+---- CSVPATH ----
+
+~ print the line number when we reset headers ~
+$[*][
+    import("top_matter_import")
+
+    print.onchange.once(
+        "Line $.csvpath.count_lines: number of headers changed by $.variables.header_change", stop())
+]
+
+---- CSVPATH ----
+
+~ check the file length ~
+$[*][
+    import("top_matter_import")
+
+    below(total_lines(), 27) ->
+      print.once("File has too few data lines: $.csvpath.total_lines", fail_and_stop())
+]
+
+---- CSVPATH ----
+
+~ check the categories ~
+$[*][
+    import("top_matter_import")
+
+    not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
+        print( "Line $.csvpath.count_lines: Bad category $.headers.category ", fail())
+]
+
+---- CSVPATH ----
+
+~ check the prices ~
+$[*][
+    import("top_matter_import")
+
+    not( exact( end(), /\$?(\d*\.\d{0,2})/ ) ) ->
+        print("Line $.csvpath.count_lines: bad price $.headers.'a price' ", fail())
+]
+
+---- CSVPATH ----
+
+~ check for SKUs and UPCs ~
+$[*][
+    import("top_matter_import")
+
+    not( #SKU ) -> print("Line $.csvpath.count_lines: No SKU", fail())
+    not( #UPC ) -> print("Line $.csvpath.count_lines: No UPC", fail())
+]
+
+```
+
+And `top_matter_import.csvpath` should look like this:&#x20;
+
+```xquery
+---- CSVPATH ----
+
+~ reset headers when they go up and otherwise, if there 
+  aren't enough headers, just skip ~
+
+$[*][
+    @header_change = mismatch("signed")
+    gt( @header_change, 9) -> reset_headers()
+    lt(count_headers(), 9) -> skip()
+]
+```
+
+Now, with our orders file still in the csvs directory, those same two lines of Python provide the lightning. Your script should look like: &#x20;
+
+```python
+from csvpath import CsvPaths
+
+paths = CsvPaths()
+paths.files_manager.add_named_paths_from_file(name="top_matter_import", file_path="csvs/top_matter_import.csvpaths")
+paths.paths_manager.add_named_paths_from_file(name="orders", file_path="csvpaths/orders.csvpaths")
+
+paths.fast_forward_paths(filename="March-2024", pathsname="orders")
+
+valid = paths.results_manager.is_valid("orders")
+print(f"is valid: {valid}")
+```
+
+As you can see, this approach has the fewest files. It is definitely a bit less flexible than the other options. But its conciseness allows you to manage few assets, version control and view all the csvpaths together, and run them in the most deterministic way.&#x20;
+
+Options are good! You can pick whichever deployment option is best for your requirements and know you are getting the same result.
+
+And that's it. Congrats on a job well done! You now have an automation-friendly rule set using a pattern that will scale to any size operation. And you have three options for how to package and deploy it.
