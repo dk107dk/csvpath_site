@@ -19,3 +19,4 @@
 * [Validation Strategies](topics/validation\_strategies.md)
 * [Named Files and Paths](topics/named\_files\_and\_paths.md)
 * [Debugging Your CsvPaths](topics/debugging.md)
+* [Config Setup](topics/config-setup.md)
