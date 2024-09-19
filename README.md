@@ -21,7 +21,7 @@ layout:
 
 ## **A path to data validation for the files that need it most!**
 
-CsvPath is a declarative validation tool that verifies that CSV and other delimited files meet expectations.&#x20;
+[CsvPath](https://github.com/dk107dk/csvpath/tree/main) is a declarative validation language to verify that CSV and other delimited files meet expectations.&#x20;
 
 The CsvPath language is simple, easy to integrate, and flexible enough to handle the unexpected quirks CSV data often contains. Inspired by [Schematron](https://schematron.com/) and [XPath](https://www.w3.org/TR/xpath-31/), CsvPath brings rules-based data validation to less structured data.
 
@@ -29,4 +29,4 @@ The CsvPath language is simple, easy to integrate, and flexible enough to handle
 
 Think about it. If even 1 in 30 companies depends heavily on CSV-housed data, the _lack of good CSV validation is a trillion-dollar problem_. In our experience, 1 in 30 is low. CsvPath isn't the silver bullet to reams of messy delimited data, but it can help build confidence that your data governance doesn't turn a blind eye to your most unruly data.&#x20;
 
-Take a look through these pages and cruise over to [the documentation on the CsvPath Github](https://github.com/dk107dk/csvpath/tree/main) to see if CSV data validation should be part of your dataops toolkit.
+Take a look through these pages and cruise over to the [detailed docs](https://github.com/dk107dk/csvpath/tree/main) on the [CsvPath Github](https://github.com/dk107dk/csvpath/tree/main) to see if CSV data validation should be part of your dataops toolkit.
