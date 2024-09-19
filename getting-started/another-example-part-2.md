@@ -93,11 +93,13 @@ On to more important things. First, we set up the named files and named paths. N
 
 Named-paths are more interesting. These are sets of csvpaths strings that can be run as a group. You set them up by one of:
 
-* Creating a dict in Python
+* Creating a `dict` in Python or using a JSON file
 * Pointing to a directory full of csvpath files
 * Pointing to a file that contains multiple csvpaths strings
 
-When we're done with Part 2 of our orders file example, we're going to have the last one—multiple csvpaths in a single file. You can [read more about names here](../topics/named\_files\_and\_paths.md). But we'll start with separate files.
+We'll try each. When we're done with Part 2 of our orders file example, we're even going to have the last one—multiple csvpaths in a single file—but this time in a more DataOps-friendly way than in Part 1.&#x20;
+
+For more background, you can [read more about named-paths and named-files here](../topics/named\_files\_and\_paths.md).&#x20;
 
 ### The fast\_forward\_paths() method
 
@@ -148,6 +150,8 @@ Each csvpath has to handle the top matter. It definitely complicates things. Tha
 
 Since this part came first in our csvpath and shielded all the remaining match components below it, we need a way to give that same shielding to our match components in their individual csvpaths. And we don't want to repeat this code six times.&#x20;
 
+### top\_matter\_import.csvpath
+
 The answer is to use the `import()` function. We can import this fragment into our other csvpaths to get the same effect without cut-and-paste. Creating an importable csvpath is simple because its just a  csvpath. Create a file named `top_matter_import.csvpath`. Copy in this csvpath and you're done:&#x20;
 
 ```xquery
@@ -165,6 +169,8 @@ $[*][
 {% file src="../.gitbook/assets/top_matter_import.csvpath" %}
 
 We're going to create six more csvpaths files. Most will import this one. No reason to go slow since you've already created these once in a single file, so here we go.
+
+### metadata.csvpath
 
 ```xquery
 ---- CSVPATH ----
@@ -188,6 +194,10 @@ $[*][
 
 Wait, what's that `---- CSVPATH ----` block? I'm glad you asked. It is a separator between csvpaths that live in the same file.  It is of course completely optional at this stage because we're using multiple files with one csvpath in each. Doesn't hurt to have it there, though.
 
+### reset.csvpath
+
+In this file you'll see our `top_matter_import` for the first time.
+
 ```xquery
 ---- CSVPATH ----
 
@@ -203,6 +213,8 @@ $[*][
 {% file src="../.gitbook/assets/reset.csvpath" %}
 
 You may have noticed that these csvpath files have comments outside the csvpath itself. These comments are important. While we're not doing anything with them at the moment, we could add metadata fields that describe the csvpath. If you add an `ID` or a `name` metadata field to a comment, you can use it to reference the individual csvpath, even when it is bundled with others under the same named-paths name. Important, for sure, but we'll look at how to do that another time.
+
+### file\_length.csvpath
 
 ```xquery
 ---- CSVPATH ----
@@ -220,6 +232,8 @@ $[*][
 
 {% file src="../.gitbook/assets/file_length.csvpath" %}
 
+### categories.csvpath
+
 ```xquery
 ---- CSVPATH ----
 
@@ -236,6 +250,8 @@ $[*][
 
 Two more csvpaths to go!
 
+### prices.csvpath
+
 ```xquery
 ---- CSVPATH ----
 
@@ -249,6 +265,8 @@ $[*][
 ```
 
 {% file src="../.gitbook/assets/prices.csvpath" %}
+
+### sku\_upc.csvpath
 
 ```xquery
 ---- CSVPATH ----
@@ -264,11 +282,11 @@ $[*][
 
 {% file src="../.gitbook/assets/sku_upc.csvpath" %}
 
-There, that's all of them. You should now have seven .csvpath files in your csvpaths dir.
+There, that's all of them. You should now have seven .csvpath files in your csvpaths dir. It's worth pointing out, you don't have to use the .csvpath extension. We use it because it makes it clear what is contained in the file. But whatever works for you is fine. If you choose to use another file extension take a quick look in `config/config.ini` to make sure to let CsvPath know what your extension is.
 
 <figure><img src="../.gitbook/assets/all-csvpaths.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Back to your modified script. Here's where we left it. From this you can run any of the csvpaths files you just created. Each file will be named in the named-paths manager by its name (minus the extension).&#x20;
+Back to your modified script. Here's where we left it. From this you can run any of the csvpath files you just created. Each file will be named in the named-paths manager by its name (minus the extension).&#x20;
 
 ```python
 from csvpath import CsvPaths
