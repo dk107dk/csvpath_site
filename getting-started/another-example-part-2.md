@@ -335,9 +335,9 @@ Using a JSON file to define the group of csvpaths is not hard. Create a JSON fil
         "csvpaths/reset.csvpath",
         "csvpaths/categories.csvpath",
         "csvpaths/prices.csvpath",
-        "csvpaths/sku_upc.csvpath",
+        "csvpaths/sku_upc.csvpath"
     ],
-    "top_matter_import", [
+    "top_matter_import": [
         "csvpaths/top_matter_import.csvpath"
     ]
 }
@@ -348,11 +348,16 @@ This creates a "named-paths" group named `orders`. We need a second named-paths 
 You would run orders csvpaths using Python like this:&#x20;
 
 ```python
+from csvpath import CsvPaths
+
 paths = CsvPaths()
 paths.files_manager.add_named_files_from_dir("csvs")
 paths.paths_manager.add_named_paths_from_json("orders.json")
 
 paths.fast_forward_paths(filename="March-2024", pathsname="orders")
+
+valid = paths.results_manager.is_valid("orders")
+print(f"is valid: {valid}")
 ```
 
 That's easy. At the cost of creating one more file, you get all the benefits with very little work.
@@ -362,8 +367,17 @@ That's easy. At the cost of creating one more file, you get all the benefits wit
 Now the directory option. Oh, wait, we already did that. Just make two minor changes in the Python:&#x20;
 
 ```python
+from csvpath import CsvPaths
+
+paths = CsvPaths()
+paths.files_manager.add_named_files_from_dir("csvs")
 paths.paths_manager.add_named_paths_from_dir(directory="csvpaths/orders", name="orders")
-paths.paths_manager.add_named_paths_from_dir(directory="csvpaths/top_matter_import", name="top_matter_import")
+paths.paths_manager.add_named_paths_from_dir(directory="csvpaths/top_matter", name="top_matter_import")
+
+paths.fast_forward_paths(filename="March-2024", pathsname="orders")
+
+valid = paths.results_manager.is_valid("orders")
+print(f"is valid: {valid}")
 ```
 
 We still need two named-paths groups, so we have to create a directory for each. Call the directories orders and top\_matter\_import, though the names don't matter. Copy the csvpaths files into their directory. Then we just import the directories, giving each a name. Last time we used `add_named_paths_from_dir` we did not specify a name, resulting in each file being in its own named-paths group.
@@ -472,8 +486,9 @@ Now, with our orders file still in the csvs directory, those same two lines of P
 from csvpath import CsvPaths
 
 paths = CsvPaths()
-paths.files_manager.add_named_paths_from_file(name="top_matter_import", file_path="csvs/top_matter_import.csvpaths")
-paths.paths_manager.add_named_paths_from_file(name="orders", file_path="csvpaths/orders.csvpaths")
+paths.files_manager.add_named_files_from_dir("csvs")
+paths.paths_manager.add_named_paths_from_file(name="top_matter_import", file_path="csvpaths/top_matter_import.csvpath")
+paths.paths_manager.add_named_paths_from_file(name="orders", file_path="csvpaths/orders.csvpath")
 
 paths.fast_forward_paths(filename="March-2024", pathsname="orders")
 
@@ -485,4 +500,4 @@ As you can see, this approach has the fewest files. It is definitely a bit less 
 
 Options are good! You can pick whichever deployment option is best for your requirements and work style. Regardless of the choice, you know you are getting the same result.
 
-And that's it. Congrats on a job well done! You now have an automation-friendly rule set using a pattern that will scale to any size DataOps operation. And you have three options for how to package and deploy your CsvPath files.
+And that's it. Congrats on a job well done! You now have an automation-friendly rule set using a pattern that will scale to any size DataOps operation. And you have three options for how to package and deploy your CsvPath files. Way to go!
