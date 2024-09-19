@@ -162,36 +162,166 @@ $[*][
 ]
 ```
 
-We're going to create six more csvpaths files. They will all import this one.
+{% file src="../.gitbook/assets/top_matter_import.csvpath" %}
+
+We're going to create six more csvpaths files. Most will import this one. No reason to go slow since you've already created these once in a single file, so here we go.
+
+```xquery
+---- CSVPATH ----
+
+$[*][
+
+    starts_with(#0, "#") -> @runid.notnone = regex( /Run ID: ([0-9]*)/, #0, 1 )
+    starts_with(#0, "#") -> @userid.notnone = regex( /User: ([a-zA-Z0-9]*)/, #0, 1 )
+
+    and( @runid, @userid ) ->
+        print(" Contact: $.variables.userid for batch ID: $.variables.runid", stop())
+
+]
+```
 
 &#x20;
 
+{% file src="../.gitbook/assets/metadata.csvpath" %}
+
+Wait, what's that `---- CSVPATH ----` block? I'm glad you asked. It is a separator between csvpaths that live in the same file.  It is of course completely optional at this stage because we're using multiple files with one csvpath in each. Doesn't hurt to have it there, though.
+
 ```xquery
+---- CSVPATH ----
+~ print the line number when we reset headers ~
 
-~ description: Check correct category ~
 $[*][
-    import("skip_top_matter")
+    import("top_matter_import")
 
-    not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
-        print( "Bad category $.headers.category at line $.csvpath.count_lines ", fail()) ]
-
+    print.onchange.once(
+        "Line $.csvpath.count_lines: number of headers changed by $.variables.header_change", stop())
+]
 ```
 
-We added a couple of things:&#x20;
+{% file src="../.gitbook/assets/reset.csvpath" %}
 
-* A bit more documentation at the top. In this case we're capturing the description so it will be findable in the CsvPath metadata or by reference in a print statement.
-* The `import()` that brings in the top-matter handling match components we looked at above.
-* The root is now a "local" reference. `$[*]` refers to all lines in the current csvpath, but it doesn't say what csvpath it refers to. We leave that to CsvPaths and our named-paths setup.
+You may have noticed that these csvpath files have more comments outside the csvpath itself. These comments are important. While we're not doing anything with them at the moment, we could add metadata fields that describe the csvpath. If you add an `ID` or a `name` field you can use it to reference the individual csvpath, even if it is bundled with others under the same named-paths name. We'll look at how to do that another time.
 
-We should say again, if we had a more or less reliable file format we could just skip the prolog using the scanning part instructions.
+```xquery
+---- CSVPATH ----
 
-Regardless, now we can run this csvpath independently to make sure it does exactly what we want. And we can do it using small known-good test files and its own version control. That's a good way to work. &#x20;
+~ Check the file length ~
+$[*][
+    import("top_matter_import")
+
+    below(total_lines(), 27) ->
+      print.once("File has too few data lines: $.csvpath.total_lines", fail_and_stop())
+
+]
+```
+
+
+
+{% file src="../.gitbook/assets/file_length.csvpath" %}
+
+```xquery
+---- CSVPATH ----
+~ Check the categories ~
+
+$[*][
+    import("top_matter_import")
+
+    not( in( #category, "OFFICE|COMPUTING|FURNITURE|PRINT|FOOD|OTHER" ) ) ->
+        print( "Line $.csvpath.count_lines: Bad category $.headers.category ", fail())
+]
+```
+
+{% file src="../.gitbook/assets/categories.csvpath" %}
+
+Two more csvpaths to go!
+
+```xquery
+---- CSVPATH ----
+
+~ Check the prices ~
+$[*][
+    import("top_matter_import")
+
+    not( exact( end(), /\$?(\d*\.\d{0,2})/ ) ) ->
+        print("Line $.csvpath.count_lines: bad price $.headers.'a price' ", fail())
+]
+```
+
+{% file src="../.gitbook/assets/prices.csvpath" %}
+
+```xquery
+---- CSVPATH ----
+
+~ Check for SKUs and UPCs ~
+$[*][
+    import("top_matter_import")
+
+    not( #SKU ) -> print("Line $.csvpath.count_lines: No SKU", fail())
+    not( #UPC ) -> print("Line $.csvpath.count_lines: No UPC", fail())
+]
+```
+
+{% file src="../.gitbook/assets/sku_upc.csvpath" %}
+
+There, that's all of them. You should now have seven .csvpath files in your csvpaths dir.
+
+<figure><img src="../.gitbook/assets/all-csvpaths.png" alt="" width="375"><figcaption></figcaption></figure>
+
+Back to your modified script. Here's where we left it. From this you can run any of the csvpaths files you just created. Each file will be named (minus its extension) in the named-paths manager. Just uncomment each name to run that file's csvpath by itself.
+
+```python
+from csvpath import CsvPaths
+
+paths = CsvPaths()
+paths.files_manager.add_named_files_from_dir("csvs")
+paths.paths_manager.add_named_paths_from_dir(directory="csvpaths")
+
+name = "metadata"
+#name = "reset"
+#name = "file_length"
+#name = "categories"
+#name = "prices"
+#name = "sku_upc"
+paths.fast_forward_paths(filename="March-2024", pathsname=name)
+
+valid = paths.results_manager.is_valid(name)
+print(f"is valid: {valid}")
+```
+
+The results should be completely unsurprising. These are just the same csvpath steps we created in Part 1. They are just pulled apart for easier development management.&#x20;
 
 ## One File Or One Directory
 
-Take the same approach with the other match component rules. The change is simple. Once you have them working we have one more question.
+Now the big question: do we want all the working csvpaths in one file or one directory or to create a JSON file to describe groups of csvpaths that are used together? So many options! In fact there are four. For clarity:&#x20;
 
-That question is, do we want all the working csvpaths in one file or one directory?  (Technically it is straightforward to create JSON  that points to the csvpaths wherever they are, but one file or one directory is the norm).&#x20;
+* Single files that contain a mix of Python and CsvPath—kind of like mixing SQL and Python
+* A single csvpath containing a group of csvpaths separated by `---- CSVPATH ----` markers
+* A directory of csvpath files imported under their own names (minus extension) or a single name provided by the user
+* A JSON file containing a dictionary of named lists, where each item in the list is the path to a csvpath
+
+Before we go into this, let's look at the JSON option.   &#x20;
+
+```json
+{
+    "orders": [
+        "csvpaths/metadata.csvpath",
+        "csvpaths/file_length.csvpath",
+        "csvpaths/reset.csvpath",
+        "csvpaths/categories.csvpath",
+        "csvpaths/prices.csvpath",
+        "csvpaths/sku_upc.csvpath",
+    ],
+    "top_matter", [
+        "csvpaths/top_matter_import.csvpath"
+    ]
+}
+```
+
+You would run our orders csvpaths using Python like this:&#x20;
+
+
+
+
 
 Having six files with one csvpath each is obvious and easy to do without an example. A more important consideration, though, is that loading a named-path as a directory of separate files has a drawback. The drawback is that order is not deterministic. Order matters in CsvPath, including, sometimes, the order of executing multiple csvpaths. That's not always the case, and it isn't the case here. The order within our csvpaths matters because the top-matter handling match components need to come first. However, because we import the match components that handle the top-matter we don't have to worry about that. Still, it is a good thing to keep in mind.
 
