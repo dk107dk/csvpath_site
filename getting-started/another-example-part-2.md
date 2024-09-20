@@ -23,7 +23,7 @@ $[*]
 
 #### Componentize the csvpath rules
 
-Secondly, having our six validation concerns in one file makes us work harder in development. With six rules you have to take all of them into account when you test your csvpath. Writing and testing one rule at a time, sepaately, is simpler. Our solution, ideally, should let us have six csvpaths that we can run and manage as a group.&#x20;
+Secondly, having our six validation concerns in one file makes us work harder in development. With six rules you have to take all of them into account when you test your csvpath. Writing and testing one rule at a time, separately, is simpler. Our solution, ideally, should let us have six csvpaths that we can run and manage as a group.&#x20;
 
 #### Capture print statements and errors
 
