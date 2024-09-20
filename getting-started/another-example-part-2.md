@@ -37,11 +37,11 @@ Finally, our csvpath doesn't currently refer to outside data, but it could. And,
 
 ## The Solution
 
-We're going to use a CsvPaths instance. CsvPaths is a manager class. It organizes CSV files, csvpath strings, and CsvPaths instances and their run results.&#x20;
+We're going to use a CsvPaths instance. CsvPaths is a manager class. It organizes CSV files, csvpath strings, and CsvPath instances and their run results.&#x20;
 
 A CsvPaths instance creates an instance of CsvPath for each csvpath it runs. It has managers to find files, sets of csvpaths to run, and capture the results of runs. And it gives you options that let you decide the best way to run multiple csvpaths for your situtation. &#x20;
 
-As you may already know from other pages, the main difference in setting up a CsvPaths instance is that you need to point its managers to your files. Your results live in the Results Manager. You access them using the same name as you used for the paths that created the results.&#x20;
+As you may already know from other pages, the main difference in setting up a CsvPaths instance is that you need to point its managers to your files. Your results live in the results manager. You access them using the same name as you used for the paths that created the results.&#x20;
 
 That's about it. Easy!
 
@@ -89,7 +89,7 @@ Next, we do another completely optional thing: set the logging level. We're just
 
 ### Named-files, named-paths, named-results
 
-On to more important things. First, we set up the named files and named paths. Named-files are just short names that point to full filesystem paths. They are convenient and help you keep your CSV files organized.&#x20;
+On to more important things. First, we set up the named-files and named-paths. Named-files are just short names that point to full filesystem paths. They are convenient and help you keep your CSV files organized.&#x20;
 
 Named-paths are more interesting. These are sets of csvpaths strings that can be run as a group. You set them up by one of:
 
@@ -97,13 +97,13 @@ Named-paths are more interesting. These are sets of csvpaths strings that can be
 * Pointing to a directory full of csvpath files
 * Pointing to a file that contains multiple csvpaths strings
 
-We'll try each. When we're done with Part 2 of our orders file example, we're even going to have the last one—multiple csvpaths in a single file—but this time in a more DataOps-friendly way than in Part 1.&#x20;
+We'll try each. When we're done with Part 2 of our orders file example, we're going to have the last one—multiple csvpaths in a single file—but this time in a more DataOps-friendly way than in Part 1.&#x20;
 
 For more background, you can [read more about named-paths and named-files here](../topics/named\_files\_and\_paths.md).&#x20;
 
 ### The fast\_forward\_paths() method
 
-After we set up the named files and named paths we have CsvPaths do `fast_forward_paths()`. This is similar to the `fast_forward()` method we called on our `CsvPath` instance in the first part of the example. The difference is that CsvPaths runs all the csvpaths in the named-paths you are using. That's CsvPaths's job: running multiple csvpaths and CSV files.
+After we set up the named files and named paths we have CsvPaths do `fast_forward_paths()`. This is similar to the `fast_forward()` method we called on our `CsvPath` instance in the first part of the example. The difference is that CsvPaths runs all the csvpaths in the named-paths you are using. That's CsvPaths's job: running multiple csvpaths against CSV files.
 
 With `fast_forward_paths()` CsvPaths runs your csvpaths serially. That means a few things:&#x20;
 
@@ -214,6 +214,8 @@ $[*][
 
 You may have noticed that these csvpath files have comments outside the csvpath itself. These comments are important. While we're not doing anything with them at the moment, we could add metadata fields that describe the csvpath. If you add an `ID` or a `name` metadata field to a comment, you can use it to reference the individual csvpath, even when it is bundled with others under the same named-paths name. Important, for sure, but we'll look at how to do that another time.
 
+Also notice that we call `stop()`. This ends processing for this csvpath. It does not affect the other csvpaths that our `CsvPaths` instance is also running as part of this batch. CsvPaths will count the number of `stops()` and if all csvpaths in the batch are stopped it will stop the run early. Since we're running our csvpaths serially, when CsvPaths gets the `stop()` it just skips on to the next csvpath.
+
 ### file\_length.csvpath
 
 ```xquery
@@ -282,11 +284,13 @@ $[*][
 
 {% file src="../.gitbook/assets/sku_upc.csvpath" %}
 
-There, that's all of them. You should now have seven .csvpath files in your csvpaths dir. It's worth pointing out, you don't have to use the .csvpath extension. We use it because it makes it clear what is contained in the file. But whatever works for you is fine. If you choose to use another file extension take a quick look in `config/config.ini` to make sure to let CsvPath know what your extension is.
+There, that's all of them.&#x20;
+
+You should now have seven .csvpath files in your csvpaths dir. It's worth pointing out, you don't have to use the .csvpath extension. We use it because it makes it clear what is contained in the file. But whatever works for you is fine. If you choose to use another file extension take a quick look in `config/config.ini` to make sure to let CsvPath know what your extension of choice is.
 
 <figure><img src="../.gitbook/assets/all-csvpaths.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Back to your modified script. Here's where we left it. From this you can run any of the csvpath files you just created. Each file will be named in the named-paths manager by its name (minus the extension).&#x20;
+Back to your modified script. Here's where we left it. From this you can run any of the csvpath files you just created. Each file will be named in the named-paths manager by its name (minus the extension). Or you could iterate over your csvpaths by name. Ultimately, this isn't the way we want to run them, but it is a good test.
 
 ```python
 from csvpath import CsvPaths
@@ -305,21 +309,21 @@ valid = paths.results_manager.is_valid(name)
 print(f"is valid: {valid}")
 ```
 
-The results should be completely unsurprising. These are just the same csvpath steps we created in Part 1. They are just pulled apart for easier development management. But take a look back at the results of Part 1. That script is far more complex than these small, mostly independent csvpaths. The change is a win for both rapid development and long term maintainability.
+The results should be completely unsurprising. These are just the same csvpath steps we created in Part 1. They are just pulled apart for easier development and management. But take a look back at the results of Part 1. That script is far more complex than these small, mostly independent csvpaths. The change is a win for both rapid development and long term maintainability.
 
 ## Deployment Choices
 
-We're not quite done, though. Assuming we want to run all of the csvpaths as a single unit, we can loop over them, as we just did. But we can do better. Let's take one more step: bringing them all together in a neat package.
+We're not quite done, though. We want to run all of the csvpaths as a single unit. Sure, we can loop over them, as we just did. But we can do better! Let's take one more step: bringing them all together in a neat package.
 
 This need raises the big question: do we want all the working csvpaths in one file or one directory, or do we want to create a JSON file that identifies the groups of csvpaths that are used together? So many options! Luckily all are easy to do.
 
 
 
-| Approach           | As one | Run apart | Run in order | Reuse parts | Easy   | Locations             |
-| ------------------ | ------ | --------- | ------------ | ----------- | ------ | --------------------- |
-| Named by directory | Yes    | Yes       | No           | Yes         | Most   | Single dir            |
-| Multi-csvpath file | Yes    | No        | Yes          | No          | Least  | Single file           |
-| JSON file          | Yes    | Yes       | Yes          | Yes         | Medium | Files can be anywhere |
+| Approach           | As one | Run apart | Run in order | Reuse parts | Easy            | Locations             |
+| ------------------ | ------ | --------- | ------------ | ----------- | --------------- | --------------------- |
+| Named by directory | Yes    | Yes       | No           | Yes         | Super easy!     | Single dir            |
+| Multi-csvpath file | Yes    | No        | Yes          | No          | Most work       | Single file           |
+| JSON file          | Yes    | Yes       | Yes          | Yes         | Not hard at all | Files can be anywhere |
 
 All are good approaches. But the JSON option sure has a lot going for it. Let's look at that option first.&#x20;
 
@@ -380,7 +384,9 @@ valid = paths.results_manager.is_valid("orders")
 print(f"is valid: {valid}")
 ```
 
-We still need two named-paths groups, so we have to create a directory for each. Call the directories orders and top\_matter\_import, though the names don't matter. Copy the csvpaths files into their directory. Then we just import the directories, giving each a name. Last time we used `add_named_paths_from_dir` we did not specify a name, resulting in each file being in its own named-paths group.
+We still need two named-paths groups, so we have to create a directory for each. Call the directories orders and top\_matter\_import, though the names don't matter. Copy the csvpaths files into their directory.&#x20;
+
+Then we just import the directories, giving each a name. Last time we used `add_named_paths_from_dir` we did not specify a name, resulting in each file being its own named-paths group.
 
 ### The one file option
 
@@ -396,6 +402,8 @@ Paste in the paths between the separators. Use the order we named them in our Py
 * categories
 * prices
 * sku\_upc
+
+The order is not super important to this example. But order is important in CsvPaths in general, so it's good to get used to being aware of it.
 
 We're leaving aside our top matter csvpath. It needs to be imported so it needs to be its own named-paths group.
 
@@ -496,7 +504,7 @@ valid = paths.results_manager.is_valid("orders")
 print(f"is valid: {valid}")
 ```
 
-As you can see, this approach has the fewest files. It is definitely a bit less flexible than the other options. But its conciseness allows you to manage few assets, version control and view all the csvpaths together, and run them in the most deterministic way.&#x20;
+As you can see, this approach has the fewest files. It is definitely a bit less flexible than the other options. But its conciseness allows you to manage few assets, version control and view all the csvpaths together, and run them in the most obviously deterministic way. (Emphasis on the word _"obviously"_; the JSON option is also completely deterministic).
 
 Options are good! You can pick whichever deployment option is best for your requirements and work style. Regardless of the choice, you know you are getting the same result.
 
