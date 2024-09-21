@@ -12,6 +12,7 @@
 
 ## Topics
 
+* [In Serial Or Breadth-first?](topics/in-serial-or-breadth-first.md)
 * [Language Basics](topics/language.md)
 * [Why CsvPath?](topics/why-csvpath.md)
 * [CsvPath Use Cases](topics/csvpath\_use\_cases.md)
