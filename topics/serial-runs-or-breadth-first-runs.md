@@ -1,4 +1,4 @@
-# In Serial Or Breadth-first?
+# Serial Runs Or Breadth-first Runs?
 
 Using CsvPaths, you have a choice to run multiple csvpaths against a file serially or line-by-line. What is the difference? Why would we choose one over the other?
 

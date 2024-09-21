@@ -12,10 +12,10 @@
 
 ## Topics
 
-* [In Serial Or Breadth-first?](topics/in-serial-or-breadth-first.md)
 * [Language Basics](topics/language.md)
 * [Why CsvPath?](topics/why-csvpath.md)
 * [CsvPath Use Cases](topics/csvpath\_use\_cases.md)
+* [Serial Runs Or Breadth-first Runs?](topics/serial-runs-or-breadth-first-runs.md)
 * [The Reference Data Types](topics/the\_reference\_data\_types.md)
 * [Validation Strategies](topics/validation\_strategies.md)
 * [Named Files and Paths](topics/named\_files\_and\_paths.md)
