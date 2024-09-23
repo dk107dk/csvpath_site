@@ -49,15 +49,17 @@ When/do rules look like:
 function() -> function()
 ```
 
-You can, of course, also use headers and variables in a do/when. This structure gives separation by letting you think in ORs while defining an AND. The main thing to remember is that your left-hand sides of do/when expressions either have to return True or you have to add the `nocontrib` qualifier to force the result on the left to be positive. In this approach, the positive returned by the `nocontrib` is essentially saying _ignore me_.
+You can, of course, also use headers and variables in a do/when.&#x20;
 
-The right-hand side of your do/when expressions will be a side-effect. The main effect of a match component is its bool match value. A side-effect is anything more it does. The most important side effect is to simply print the problem and its location in the file. That is a very effective way to do validation!  Other side effects might be declaring the file invalid using `fail()` or using `push()` to push a problem line number on a variable stack for later inspection.&#x20;
+This structure gives separation. It lets you think in ORs while working in AND. The main thing to remember is that your left-hand sides of do/when expressions either have to return `True` or you have to add the `nocontrib` qualifier to force the result on the left to be positive. In this approach, the positive returned by the `nocontrib` is essentially saying _ignore me_.
+
+The right-hand side of your do/when expressions will be a side-effect. The main result of a match component is its `bool` match value, `True` or `False`. A side-effect is anything more it does. The most important side effect is to simply print the problem and its location in the file. That is a very effective way to do validation!  Other side effects might be declaring the file invalid using `fail()` or using `push()` to push a problem line number on a variable stack for later inspection.&#x20;
 
 ### Separate AND equal
 
 The most clear-cut way to separate your match components is to move them into separate csvpaths. When you break down your validation rules into small groups of like rules or single rules you gain clarity and testability.  You lose nothing. If anything, it's easier to craft individual rules and run them together.&#x20;
 
-CsvPaths makes it simple to set up runs with multiple csvpaths. There are several approaches that are shown in [Another Example, Part 2](../getting-started/another-example-part-2.md). The approach that is closest to a single csvpath validation is to simply drop all your single-rule csvpaths in a single file like this:&#x20;
+CsvPaths makes runs with multiple csvpaths simple. [Another Example, Part 2](../getting-started/another-example-part-2.md) shows several ways to do it. The closest approach to a single csvpath validation is to simply drop all your single-rule csvpaths into one file like this:&#x20;
 
 ```clike
 ~ name: rule one ~
@@ -70,13 +72,17 @@ $[*][ max_length(#firstname, 20) ]
 
 ```
 
-These two rules are a good illustration. The first addresses the file as a whole. Does it have a "firstname" header?  The second rule speaks to each individual line. Is the value in `#firstname` less than  21 characters? These two rules would conflict, to some degree. The first would say that all lines are wrong, which is only technically correct—the file as a whole is wrong, the lines are just following the structure they exist in. More importantly, the first rule would obscure the results of the second rule, which might only pick out a few of a large number of lines. Keeping these rules separate can help each be more effective.
+These two rules are a good illustration. The first addresses the file as a whole. Does it have a "firstname" header?  The second rule speaks to each individual line. Is the value in the  `#firstname`  header less than  21 characters? The rules conflict, to some degree.&#x20;
 
-If you use print() to communicate your validation results, there is no difference from what you would see using a single csvpath in a CsvPath instance. That said, using CsvPaths has the added benefit of capturing results, print lines, metadata, etc. that CsvPath on its own doesn't offer.
+The first rule says if there is such a header, all lines are wrong. That is only technically correct—the file as a whole is wrong, the lines are just following the structure they exist within. More importantly, the first rule could obscure the results of the second rule, which might only pick out a few of a large number of lines. Keeping these rules separate can help each be more effective.
+
+If you use print() to communicate your validation results, using multiple csvpaths shows no difference from what you would see using a single csvpath.&#x20;
 
 ### What to keep?
 
-A last consideration we called out above is whether we keep the good rows or the bad ones—or none. By default, CsvPath returns the rows your csvpath matches. However, if you set CsvPath's collect\_when\_not\_matched property to True it will return the unmatched lines. That may help, regardless of if you are thinking in ANDs or ORs. And it may not matter much if you're using do/when to print your validation results, or using CsvPath's `is_valid` property or the variables, or some other programmatic approach.&#x20;
+We called out the question of keeping the good rows or the bad ones—or none. By default, CsvPath returns the rows your csvpath matches. However, if you set CsvPath's collect\_when\_not\_matched property to True it will return the unmatched lines. That may help, regardless of if you are thinking in ANDs or ORs. And it may not matter much if you're using do/when to print your validation results, or using CsvPath's `is_valid` property or the variables, or some other programmatic approach.&#x20;
 
-All good options. If your validation use case is complex take a minute to think about the options up front.
+
+
+These are all good options for straightforward considerations. If your validation use case is complex take a minute to think about the options up front. As your project grows, you'll be happy you did.
 
