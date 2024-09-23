@@ -12,7 +12,7 @@ from csvpath import CsvPath
 path = CsvPath()
 ```
 
-CsvPath will create a config directory and a logs directory. Logs will be empty until you run CsvPath. The config directory will have the default config.ini file. The default config file has sensible defaults.&#x20;
+CsvPath will create a config directory. The config directory will have the default config.ini file. The default config file has sensible defaults.&#x20;
 
 If you want to move your config to another location, simply add the other location to the default config file as path.
 
@@ -24,3 +24,12 @@ When you start CsvPath it will check to see if it should load your config from a
 
 <figure><img src="../.gitbook/assets/config.png" alt=""><figcaption></figcaption></figure>
 
+## The Defaults
+
+When you start a new CsvPath project in an empty directory, the first time you run a `CsvPaths` or `CsvPath` instance `Config` will create default assets for you:
+
+* The config directory and a default config.ini
+* An empty log directory
+* An empty cache directory
+
+The log directory will be empty until your first run. The cache directory will be empty until your first `CsvPaths` instance run. `CsvPath` does not cache.&#x20;
