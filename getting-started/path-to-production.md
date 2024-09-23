@@ -31,10 +31,10 @@ And we can repurpose the multi-csvpath file from [Another Example, Part 2](anoth
 
 <figure><img src="../.gitbook/assets/inbound_validation_csvpaths.png" alt=""><figcaption></figcaption></figure>
 
-Adding a simple email giving validation results using SES is an easy add-on. The Web is lttered with SES email examples.&#x20;
+Adding a simple email giving validation results using SES is an easy add-on. The Web is littered with SES email examples.&#x20;
 
 <figure><img src="../.gitbook/assets/ses-example.png" alt=""><figcaption></figcaption></figure>
 
 Likewise, pushing metadata or lines from the Results object into a database would be a straightforward database insert—at least if we're sticking with the [simplest-thing-that-could-possibly-work ethic](https://ronjeffries.com/xprog/articles/practices/pracsimplest/).
 
-And that's pretty much all of it. Obviously, some assembly required. As they say, an exercise for the reader.
+And that's pretty much all of it. Obviously, some assembly required. As they say, an exercise for the reader.&#x20;
