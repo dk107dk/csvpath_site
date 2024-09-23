@@ -55,7 +55,7 @@ Create a new directory and make a Python file with the contents below. Also crea
 from csvpath import CsvPaths
 
 paths = CsvPaths()
-paths.files_manager.add_named_files_from_dir("csvs")
+paths.file_manager.add_named_files_from_dir("csvs")
 paths.paths_manager.add_named_paths_from_dir(directory="csvpaths")
 
 paths = CsvPaths(print_default=False)
@@ -296,7 +296,7 @@ Back to your modified script. Here's where we left it. From this you can run any
 from csvpath import CsvPaths
 
 paths = CsvPaths()
-paths.files_manager.add_named_files_from_dir("csvs")
+paths.file_manager.add_named_files_from_dir("csvs")
 paths.paths_manager.add_named_paths_from_dir(directory="csvpaths")
 
 names = [ "metadata", "reset", "file_length", "categories", "prices", "sku_upc" ]
@@ -355,7 +355,7 @@ You would run orders csvpaths using Python like this:&#x20;
 from csvpath import CsvPaths
 
 paths = CsvPaths()
-paths.files_manager.add_named_files_from_dir("csvs")
+paths.file_manager.add_named_files_from_dir("csvs")
 paths.paths_manager.add_named_paths_from_json("orders.json")
 
 paths.fast_forward_paths(filename="March-2024", pathsname="orders")
@@ -374,7 +374,7 @@ Now the directory option. Oh, wait, we already did that. Just make two minor cha
 from csvpath import CsvPaths
 
 paths = CsvPaths()
-paths.files_manager.add_named_files_from_dir("csvs")
+paths.file_manager.add_named_files_from_dir("csvs")
 paths.paths_manager.add_named_paths_from_dir(directory="csvpaths/orders", name="orders")
 paths.paths_manager.add_named_paths_from_dir(directory="csvpaths/top_matter", name="top_matter_import")
 
@@ -494,7 +494,7 @@ Now, with our orders file still in the csvs directory, those same two lines of P
 from csvpath import CsvPaths
 
 paths = CsvPaths()
-paths.files_manager.add_named_files_from_dir("csvs")
+paths.file_manager.add_named_files_from_dir("csvs")
 paths.paths_manager.add_named_paths_from_file(name="top_matter_import", file_path="csvpaths/top_matter_import.csvpath")
 paths.paths_manager.add_named_paths_from_file(name="orders", file_path="csvpaths/orders.csvpath")
 
