@@ -4,7 +4,7 @@ Using CsvPaths, you have a choice to run multiple csvpaths against a file serial
 
 ## The methods
 
-On CsvPaths look for these lines for serial runs:&#x20;
+On CsvPaths look to these methods for serial runs:&#x20;
 
 * `collect_paths()`
 * `fast_forward_paths()`
