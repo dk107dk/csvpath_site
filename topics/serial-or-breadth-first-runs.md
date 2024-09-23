@@ -1,4 +1,4 @@
-# Serial Runs Or Breadth-first Runs?
+# Serial Or Breadth-first Runs?
 
 Using CsvPaths, you have a choice to run multiple csvpaths against a file serially or line-by-line. What is the difference? Why would we choose one over the other?
 
@@ -77,11 +77,11 @@ And the second, bottom csvpath:&#x20;
 $[10][ row_table(4, 6) ]
 ```
 
-The file is \~80 Mb but we're only looking at line 10 and the match components are simple so this is a quick test.  It prints out the tables in the screenshot above.&#x20;
+The file is >80 Mb but we're only looking at line 10 and the match components are simple so this is a quick test. And the file manager caches some metadata so that allow fast iterations. Together the csvpaths print out the tables in the screenshot above.&#x20;
 
-You can see that in lines 3 and 4 of the first csvpath we changed the city and street name headers by lower-casing and upper-casing them. In the serial execution that had no effect on the second csvpath. Whereas, in the breadth-first run you can see that what we did in property.csvpath had an impact on what property2.csvpath received.
+You can see that in lines 3 and 4 of the first csvpath we changed the city and street name headers by lower-casing and upper-casing them. In the serial execution that had no effect on the second csvpath. Whereas, in the breadth-first run you can see that what we did in `property.csvpath` had an impact on what `property2.csvpath` received.
 
 Here is a visual the highlights the main considerations of serial vs. parallel runs. There aren't many. However, when they become important, they are very important.
 
-<figure><img src="../.gitbook/assets/serial_or_parallel_reasons.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/serial_or_parallel.png" alt=""><figcaption></figcaption></figure>
 
