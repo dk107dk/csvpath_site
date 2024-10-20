@@ -43,7 +43,7 @@ This script, like the first, takes a file path as a command line argument. In th
 
 ## A Multi-csvpath Starter
 
-[CsvPath AutoGen](https://autogen.csvpath.org/) typically auto-generates multi-csvpath validations based on your example data. These require a CsvPaths instance. Setting up CsvPaths is not very different.
+[CsvPath AutoGen](https://autogen.csvpath.org/) typically auto-generates multi-csvpath validations based on your example data. These require a `CsvPaths` instance. Setting up CsvPaths is not very different.
 
 ```python
 from csvpath import CsvPaths
@@ -55,5 +55,5 @@ if __name__=="__main__":
     paths.fast_forward_paths(pathsname="autogen", filename="usage")
 ```
 
-In this case we are setting up a set of csvpath statements in a single file to run against a usage report csv. We do fast\_forward\_paths to run sequentially without collecting or iterating on the matched lines.
+In this case we are setting up a number of csvpath statements that live in a single file. They will run against a usage report CSV. We do `fast_forward_paths` to run the csvpaths sequentially without collecting or iterating on the matched lines.
 
