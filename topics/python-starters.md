@@ -57,3 +57,36 @@ if __name__=="__main__":
 
 In this case we are setting up a number of csvpath statements that live in a single file. They will run against a usage report CSV. We do `fast_forward_paths` to run the csvpaths sequentially without collecting or iterating on the matched lines.
 
+## An Airflow Stub
+
+```python
+from __future__ import annotations
+
+import json
+import pendulum
+from airflow.decorators import dag, task
+from csvpath import CsvPaths
+
+@dag(
+    schedule=None,
+    start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
+    catchup=False,
+    tags=["csvpaths validation"],
+)
+def validation_api():
+
+    @task(multiple_outputs=True)
+    def validate():
+        paths = CsvPaths()
+        paths.file_manager.add_named_files_from_dir("./example_2_part_2/csvs")
+        paths.paths_manager.add_named_paths_from_dir(directory="./example_2_part_2/csvpaths")
+        paths.collect_paths(filename="March-2024", pathsname="orders")
+        results = paths.results_manager.get_named_results("orders")
+        return {"valid":paths.results_manager.is_valid('orders'), "results_count":len(paths.results_manager.get_named_results('orders'))}
+
+    validate()
+
+validation_api()    
+```
+
+There's nothing notable about this Airflow stub. To, I'm sure, nobody's surprise, the CsvPath library fits well in an Airflow solution. This code is just a placeholder for the awesome Airflow things you will do.
