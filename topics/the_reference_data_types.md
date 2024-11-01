@@ -55,7 +55,15 @@ The `csvpath` data type's fields include:&#x20;
 
 The `metadata` fields come from the comments around a csvpath and from the CsvPath files, paths, and results managers.&#x20;
 
-Metadata's most important contribution is the identity of a csvpath. You set the identity of a csvpath by adding an ID or name field to a comment above or below the csvpath. The ID can be like: `id: my id` or `ID: my id` or `Id: my id`. All three forms will be recognized. If not found, the same forms of the metadata key `name` are looked for. The identity is used for importing csvpaths using `import()`. It is also used by header references and for traceability in validation printouts and logging.
+Metadata's most important contribution is the identity of a csvpath. You set the identity of a csvpath by adding an ID or name field to a comment above or below the csvpath. The ID can be like:
+
+`id: my id`&#x20;
+
+&#x20;`ID: my id`&#x20;
+
+&#x20;`Id: my id`
+
+All three forms will be recognized. If not found, the same forms of the metadata key `name` are looked for. The identity is used for importing csvpaths using `import()`. It is also used by header references and for traceability in validation printouts and logging.
 
 The other metadata coming from the managers includes:&#x20;
 

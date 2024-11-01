@@ -23,3 +23,4 @@
 * [Named Files and Paths](topics/named\_files\_and\_paths.md)
 * [Config Setup](topics/config-setup.md)
 * [Debugging Your CsvPaths](topics/debugging.md)
+* [Modes](topics/modes.md)
