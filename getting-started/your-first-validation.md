@@ -6,7 +6,7 @@ description: Super simple rules to demonstrate how validation works
 
 As you saw in the Quickstart, CsvPath is easy to set up. But what value does it add?
 
-The cool part, CsvPath's best value-add, is automated data quality checks for CSV files. Let's take a step in that direction by making the Quickstart files into something a little more realistic.
+CsvPath data quality checks for CSV and Excel files is a unique capability. Let's see how it work by making the Quickstart into something a little more realistic.
 
 Our mission is to write a three-rule csvpath that can keep some simple problems from getting loaded into our data management systems. The rules are:
 
