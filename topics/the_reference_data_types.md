@@ -90,4 +90,4 @@ This comment would result in two entries in the metadata collection. One for the
   more testing is needed ~   
 ```
 
-In that example there are two metadata fields: `name` and `description`. The additional comment, `more testing is needed`, is not captured in the metadata fields because the description was closed with the following comma and no new field was started. In this way, `name` and `description` are machine-readable, while `more testing is needed` is only for humans.
+In that example there are two metadata fields: `name` and `description`. The additional comment, `more testing is needed`, is not captured in the metadata fields because the `description` field was closed with a following colon and no new field was started. In this way, `name` and `description` are machine-readable, while `more testing is needed` is only for humans.
