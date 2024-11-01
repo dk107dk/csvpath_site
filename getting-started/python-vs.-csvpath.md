@@ -1,10 +1,17 @@
 # Python vs. CsvPath
 
-CsvPath is developed in Python. Python provides the basic CVS parsing plumbing. We love Python!
+CsvPath is developed in Python. Python provides the basic CVS parsing plumbing. We love Python! But — and you knew a _but_ was coming — Python is not the best tool for CSV and Excel validation in many cases.
 
-But — and you knew a _but_ was coming — Python is not the best tool for CSV validation in many cases. If you have a small number of CSVs, only an occasional need to validate, or just one format, you _might_ benefit from CsvPath, but you don't _need_ it.&#x20;
+There are some situations where CsvPath is not like to be the answer: &#x20;
 
-CsvPath was written for automated daily batch processing, large scale, and many or changing data formats. If you have those challenges, _need_ is the better word — you _need_ CsvPath. And if you find yourself or your colleagues checking the work of computers by hand, you definitely have that need! Sadly, we've seen that too often.
+* Only ad-hoc CSVs or Excel files
+* Low expectations for correctness or only an occasional need to validate
+* Just one format
+* Low volume
+
+In these cases, you _might_ benefit from CsvPath, but you don't _need_ it.&#x20;
+
+CsvPath was written for automated daily batch processing, large scale data collection, and many or changing data formats with high fidelity requirements. If you have those challenges, _need_ is the better word — you _need_ CsvPath. And if you find yourself or your colleagues checking the work of computers by hand, even more so! Sadly, we've seen that too often.
 
 * [So why not Python?](python-vs.-csvpath.md#so-why-not-python)
 * [Benefits of the CsvPath library](python-vs.-csvpath.md#benefits-of-the-csvpath-library)
