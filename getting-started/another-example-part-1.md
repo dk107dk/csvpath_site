@@ -18,7 +18,7 @@ In the first example we created validation rules for a straightforward file. In 
 
 ## Dealing with top matter
 
-Some CSV files have documentation or ancillary data at the top, above the main data lines. While the additional data is useful, it complicates recognizing and handling headers correctly. Validation becomes more difficult. We're going to validate an example like some we've seen in the wild.&#x20;
+Some CSV files have documentation or ancillary data at the top, above the main data lines. In Excel this is even more common. While the additional data is useful, it complicates recognizing and handling headers correctly. Validation becomes more difficult. We're going to validate an example like some we've seen in the wild.&#x20;
 
 In this example, you will see more functions, headers, qualifiers, and references. We'll explain them as we go. Afterwards, to learn more about these topics you can take a look at:&#x20;
 
