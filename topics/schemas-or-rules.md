@@ -63,7 +63,7 @@ table person (
 )
 ```
 
-Here there are some noticeable differences.  First off, SQL doesn't do wildcard columns, and rightly so! So we'll remove those. Second, there is no way to declare a min length in DDL. The third thing is subtle: we are making negative space. Given the CsvPath written so far we can imagine there is another entity  we're not yet calling out.&#x20;
+Here there are some noticeable differences.  First off, SQL doesn't do wildcard columns, and rightly so! So we'll remove those. Second, there is no way to declare a min length in DDL. The third thing is subtle: we are making negative space. Given the CsvPath written so far, we can imagine there is another entity that we're not yet calling out.&#x20;
 
 But first, let's update that SQL:
 
@@ -76,16 +76,17 @@ table person (
 select * from person where len(firstname) == 0 or len(lastname) < 2; 
 ```
 
-This gets us our first rule in the SQL world. (You can substitute your SQL implementation of choice's length function). On the CsvPath side, let's make our csvpath do some more interesting things:
+This gets us our first rule in the SQL world. (You can substitute in the length function of your SQL implementation of choice). On the CsvPath side, let's make our csvpath do some more interesting things:
 
 ```xquery
 $[*][
-  line.distinct.person( 
-      string.notnone("firstname", 25, 1), 
-      blank("middlename"),
-      string.notnone("lastname", 35, 2), 
-      wildcard(4)
+   line.distinct.person( 
+       string.notnone("firstname", 25, 1), 
+       blank("middlename"),
+       string.notnone("lastname", 35, 2), 
+       wildcard(4)
    ) 
+   
    line.address(
        wildcard(3),
        string.notnone("street"),
@@ -96,3 +97,4 @@ $[*][
 ]
 ```
 
+There are two things to notice. The `distinct` qualifier on the `person` `line()`. This requires that each combination of `firstname` and `lastname` is unique. Second, we now have two `line()`s. The second, address, neatly fits to the right of the name headers. That doesn't mean we are insisting that a `person` and an `address` will necessarily cohabitate a single file line. But that does look like the plan.
