@@ -98,3 +98,48 @@ $[*][
 ```
 
 There are two things to notice. The `distinct` qualifier on the `person` `line()`. This requires that each combination of `firstname` and `lastname` is unique. Second, we now have two `line()`s. The second, address, neatly fits to the right of the name headers. That doesn't mean we are insisting that a `person` and an `address` will necessarily cohabitate a single file line. But that does look like the plan.
+
+Since we're deviating from what SQL supports, let's specify a simple CSV.&#x20;
+
+```csv
+firstname,middlename,lastname,street,city,state,zip,height
+Jimmy,C.,Cat,23 Main St.,Beverly,MA,01010,5.11
+Anne,,Rat,9 High St.,Salem,MA,01001,6
+```
+
+A.k.a
+
+| firstname | middlename | lastname | street      | city    | state | zip   | height |
+| --------- | ---------- | -------- | ----------- | ------- | ----- | ----- | ------ |
+| Jimmy     | C.         | Cat      | 23 Main St. | Beverly | MA    | 01010 | 5.11   |
+| Anne      |            | Rat      | 9 High St.  | Salem   | MA    | 01001 | 6      |
+
+And lets make a couple minor additions to our schema to show more capabilities.
+
+```xquery
+$[*][
+   line.distinct.person( 
+       string.notnone("firstname", 25, 1), 
+       blank("middlename"),
+       string.notnone("lastname", 35, 2), 
+       wildcard(4)
+   ) 
+   
+   line.address(
+       wildcard(3),
+       string.notnone("street"),
+       string.notnone("city"),
+       string.notnone("state"),
+       integer.notnone("zip")
+   )
+   
+   line.height(
+       wildcard(),
+       decimal.notnone.strict("height",7.5)
+   )
+]
+```
+
+We added another line() group that clearly lives in thelast header position. It has a max value and cannot be none. It also has a strict qualifier. Strict on a decimal requires the number to have a '.' character. Without strict the match would fail. 1 is not equal to 1.0. With strict an exception is thrown that may stop processing, if CsvPath is configured to raise exceptions.
+
+There you go, a few structural validation capabilities. Hopefully, seeing this, you are convinced that both structural schemas and validation rules are both helpful tools.&#x20;
