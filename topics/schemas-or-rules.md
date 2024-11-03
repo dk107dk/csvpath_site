@@ -140,6 +140,8 @@ $[*][
 ]
 ```
 
-We added another `line()` group that clearly lives in the last header position. It has a max value and cannot be `None`. It also has a `strict` qualifier. `strict` on a decimal requires the number to have a `.` character. Without `strict` the match would fail because `1` is not equal to `1.0` in a stringified data format. With `strict` an exception will be thrown, if CsvPath is configured to raise exceptions.
+We added another `line()` group that clearly lives in the last header position. It has a max value and cannot be `None`.&#x20;
+
+Our decimal matches on a signed number in standard decimal notation that would be a `float` in Python.  E.g. `5.95` or `98.6.` We gave it the `strict` qualifier. `strict` on a decimal requires the number to have a `.` character. With `strict` the number `1` would not only fail to match, it would also throw an exception, which depending on the run's configuration might stop the run cold. This behavior is because `1` is not the same as `1.0` in a stringified data format. By the same token, adding the `weak` qualifier will allow a `.`-less number to match as a decimal. I.e., with `weak`, `1` is considered as much a decimal as `1.0`. And, finally, if we want numbers that cannot have decimal points ever, we use the `integer` type.
 
 There you go, a few structural validation capabilities. Hopefully, seeing this, you are convinced that both structural schemas and validation rules are both helpful tools.&#x20;
