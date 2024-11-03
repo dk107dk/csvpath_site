@@ -140,6 +140,6 @@ $[*][
 ]
 ```
 
-We added another line() group that clearly lives in thelast header position. It has a max value and cannot be none. It also has a strict qualifier. Strict on a decimal requires the number to have a '.' character. Without strict the match would fail. 1 is not equal to 1.0. With strict an exception is thrown that may stop processing, if CsvPath is configured to raise exceptions.
+We added another `line()` group that clearly lives in the last header position. It has a max value and cannot be `None`. It also has a `strict` qualifier. `strict` on a decimal requires the number to have a `.` character. Without `strict` the match would fail because `1` is not equal to `1.0` in a stringified data format. With `strict` an exception will be thrown, if CsvPath is configured to raise exceptions.
 
 There you go, a few structural validation capabilities. Hopefully, seeing this, you are convinced that both structural schemas and validation rules are both helpful tools.&#x20;
