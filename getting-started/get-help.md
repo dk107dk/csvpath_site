@@ -8,4 +8,4 @@ description: >-
 
 Reach out!
 
-{% @formspree/formspree %}
+{% @formspree/formspree fullWidth="false" %}
