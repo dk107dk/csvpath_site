@@ -10,6 +10,7 @@
 * [Another Example, Part 2](getting-started/another-example-part-2.md)
 * [Python vs. CsvPath](getting-started/python-vs.-csvpath.md)
 * [Path To Production](getting-started/path-to-production.md)
+* [Get Help](getting-started/get-help.md)
 
 ## Topics
 
