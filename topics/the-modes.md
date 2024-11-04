@@ -1,8 +1,8 @@
-# Modes
+# The Modes
 
-A CsvPath instance can run in several possible modes that allow you to configure its behavior without resorting to the global `config.ini` or applying settings programmatically. In particular, you can disable individual csvpaths or configure them differently than other csvpaths in the same named-paths group.&#x20;
+A `CsvPath` instance can run in several possible modes that allow you to configure its behavior without resorting to the global `config.ini` or applying settings programmatically. In particular, the modes help you configure groups of csvpaths more flexibly. You can easily disable individual csvpaths or configure them differently than other csvpaths in the same named-paths group.&#x20;
 
-The modes are:&#x20;
+Modes are set in your csvpath's comments. The modes are:&#x20;
 
 * `run-mode` \[`run` / `no-run`]
 * `validation-mode` _(any combination of)_
@@ -15,7 +15,7 @@ The modes are:&#x20;
 * `print-mode` \[`default` / `no-default`]
 * `explain-mode` \[`explain` / `no-explain`]
 
-Modes are set in external comments. External comments are comments that are outside the csvpath, above or below it. Comments can have other metadata and plain text mixed in with mode settings. When a setting is not explicitly made the default is:&#x20;
+Modes are set in _external_ comments. External comments are comments that are outside the csvpath, above or below it. Comments can have other metadata and plain text mixed in with mode settings. When a setting is not explicitly made the default is:&#x20;
 
 * `run-mode`: the csvpath is run
 * `validation-mode`: validation errors are printed (note that `config.ini` raises exceptions by default,  the default behavior remains to raise exceptions)

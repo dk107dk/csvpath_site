@@ -18,7 +18,7 @@
 * [CsvPath Use Cases](topics/csvpath\_use\_cases.md)
 * [Schemas Or Rules?](topics/schemas-or-rules.md)
 * [Python Starters](topics/python-starters.md)
-* [Modes](topics/modes.md)
+* [The Modes](topics/the-modes.md)
 * [Serial Or Breadth-first Runs?](topics/serial-or-breadth-first-runs.md)
 * [The Reference Data Types](topics/the\_reference\_data\_types.md)
 * [Validation Strategies](topics/validation\_strategies.md)
