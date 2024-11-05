@@ -28,8 +28,9 @@ When you start CsvPath it will check to see if it should load your config from a
 
 When you start a new CsvPath project in an empty directory, the first time you run a `CsvPaths` or `CsvPath` instance `Config` will create default assets for you:
 
-* The config directory and a default config.ini
-* An empty log directory
-* An empty cache directory
+* The `config` directory and a default `config.ini`
+* An empty `log` directory
+* An empty `cache` directory
+* And, when you use a `CsvPaths` instance, an `archive` directory to hold serialized results
 
-The log directory will be empty until your first run. The cache directory will be empty until your first `CsvPaths` instance run. `CsvPath` does not cache.&#x20;
+The `log` directory will be empty until your first run. The `cache` directory will be empty until your first `CsvPaths` instance run. `CsvPath` does not cache.&#x20;
