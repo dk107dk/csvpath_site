@@ -11,6 +11,7 @@
 * [Python vs. CsvPath](getting-started/python-vs.-csvpath.md)
 * [Path To Production](getting-started/path-to-production.md)
 * [Get Help](getting-started/get-help.md)
+* [Your First Validation, Simplified!](getting-started/your-first-validation-simplified.md)
 
 ## Topics
 
