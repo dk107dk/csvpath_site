@@ -6,12 +6,12 @@
 
 * [Quickstart](getting-started/quickstart.md)
 * [Example: Your First Validation](getting-started/your-first-validation.md)
+* [Your First Validation, Simplified!](getting-started/your-first-validation-simplified.md)
 * [Another Example, Part 1](getting-started/another-example-part-1.md)
 * [Another Example, Part 2](getting-started/another-example-part-2.md)
 * [Python vs. CsvPath](getting-started/python-vs.-csvpath.md)
 * [Path To Production](getting-started/path-to-production.md)
 * [Get Help](getting-started/get-help.md)
-* [Your First Validation, Simplified!](getting-started/your-first-validation-simplified.md)
 
 ## Topics
 
