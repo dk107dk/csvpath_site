@@ -15,6 +15,7 @@
 ## Topics
 
 * [Language Basics](topics/language.md)
+* [Where Do I Find Results?](topics/where-do-i-find-results.md)
 * [Why CsvPath?](topics/why-csvpath.md)
 * [CsvPath Use Cases](topics/csvpath\_use\_cases.md)
 * [Schemas Or Rules?](topics/schemas-or-rules.md)
@@ -26,4 +27,3 @@
 * [Named Files and Paths](topics/named\_files\_and\_paths.md)
 * [Config Setup](topics/config-setup.md)
 * [Debugging Your CsvPaths](topics/debugging.md)
-* [Where Do I Find Results?](topics/where-do-i-find-results.md)
