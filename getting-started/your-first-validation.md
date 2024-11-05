@@ -18,7 +18,17 @@ Our strategy is to collect any lines that break these rules. The validity of the
 
 <figure><img src="../.gitbook/assets/judges-scores.png" alt=""><figcaption></figcaption></figure>
 
-Open your Quickstart script.&#x20;
+## To raise or call
+
+By default, the CsvPath library config raises errors when it runs into problems. This can halt a run for a simple built-in validation error. For e.g. `add("five", 3)` does not equal `8` because "five" is not a number. Finding that error is good, but in some cases you might not want the validation run to stop with a big noisy error.&#x20;
+
+To have your `CsvPath` instance neatly print errors, but not raise exceptions, you can make a quick change to the `config.ini` file. By default the config file is in `./config/config.ini`. Make the change to this line:&#x20;
+
+<figure><img src="../.gitbook/assets/error-policy.png" alt="" width="375"><figcaption></figcaption></figure>
+
+As you can see, in my `config.ini` the `CsvPath` instance error policy is on line 8. Just remove the keyword `raise` from that line, save, and you're good to go. Now, for that incorrect addition above, you get a concise error message like this, rather than a big exception stack dump: `Line 3: Wrong value in match component 0: mismatch in add`
+
+## Continue your Quickstart script.&#x20;
 
 Paste this rule into the csvpath string. It goes in the matching part, after the scanning part. The scanning part of a csvpath is at the beginning. It looks like this: `[1*][`
 
