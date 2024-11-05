@@ -199,7 +199,7 @@ This rule says that the 0th header must be the `firstname` header. Headers can b
 
 Let's pause on an interesting point.
 
-### Validation rule strategies&#x20;
+## Validation rule strategies&#x20;
 
 CsvPath applies a csvpath to a CSV file line by line. It can collect each line that matches its rules. CsvPath is all about matching lines.
 
@@ -212,6 +212,8 @@ not.nocontrib( header_name(0, "firstname") ) -> fail()
 ```
 
 Now the rule doesn't determine if individual lines match match the header name requirement. Instead it marks the file as invalid. This allows you to collect the lines with problems and also know if the file has problems that cut across the lines.&#x20;
+
+## And you're done!
 
 Your script should now look something like:&#x20;
 
