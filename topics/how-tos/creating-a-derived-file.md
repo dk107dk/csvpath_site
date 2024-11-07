@@ -26,7 +26,7 @@ if __name__=="__main__":
 
 As usual, we create a `CsvPaths` instance and feed it a data file and a csvpath file. Then we call `collect_paths`, passing the named-file and named-paths we used.
 
-Here's a simple csvpath we could run on some Medicare data:
+Here's a simple csvpath we could run on some Medicare data. It limits the data collected, adds a column, replaces some text, and creates the new file. It's obviously not the absolute simplest example, but the extra feature-use gives a sense for the possibilities.
 
 {% code lineNumbers="true" %}
 ```xquery
@@ -36,10 +36,8 @@ Here's a simple csvpath we could run on some Medicare data:
                only the lines and headers we want. :
 ~
 $[1*][
-    #Topic
-    #Question
-    @now = now()
-    append("Day", @now )
+    #Question 
+    append("Day", now() )
     regex(/Acute Myocardial Infarction/, #Topic) -> replace("Topic", "AMI")
     collect("Topic", "Question", "Day")
 ]
@@ -50,15 +48,13 @@ Let's break this down. Line's 1-5 are just comments. There are two metadata fiel
 
 Line 6 says we are going to skip the header row. We will of course use the headers, we just don't want to treat them as data.
 
-Lines 7 and 8 are existence test for values in the headers we name.&#x20;
+Line 7 is an existence test for values in the header we name. Only lines that have values in `Question` will be collected. Remember that we're ANDing all the match components together to figure out which lines to collect.
 
-Line 9 creates a variable called `now` and sets it to the current date and time.
+On line 8 we append a new header that always has the `datetime` value given by `now()`. This line has no effect on matching.
 
-On line 10 we append a new header that always has the value held by `@now`.&#x20;
+Line 11 does a replacement in the `#Topic` header. It changes `Acute Myocardial Infarction` into `AMI`. We're using a when/do expression. The left-hand side of a when/do impacts matching, unless you explicitly say it shouldn't using a `nocontrib` qualifier. Since we didn't use `nocontrib`, line 11 limits our results to lines where the topic header includes the words `Acute Myocardial Infarction`.
 
-Line 11 does a replacement in the `#Topic` header. It makes `Acute Myocardial Infarction` into `AMI`.
-
-Finally line 12 collects the named headers in our output data file.
+Finally line 12 limits collection to only the named headers. Those will go into our output data file.
 
 This is what your project and results would look like:&#x20;
 
