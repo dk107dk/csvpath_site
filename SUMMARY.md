@@ -15,6 +15,7 @@
 
 ## Topics
 
+* [How-tos](topics/how-tos.md)
 * [Language Basics](topics/language.md)
 * [Where Do I Find Results?](topics/where-do-i-find-results.md)
 * [Python vs. CsvPath](topics/python-vs.-csvpath.md)
