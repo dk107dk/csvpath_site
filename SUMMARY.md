@@ -9,14 +9,15 @@
 * [Your First Validation, Simplified!](getting-started/your-first-validation-simplified.md)
 * [Another Example, Part 1](getting-started/another-example-part-1.md)
 * [Another Example, Part 2](getting-started/another-example-part-2.md)
-* [Python vs. CsvPath](getting-started/python-vs.-csvpath.md)
 * [Path To Production](getting-started/path-to-production.md)
+* [Solution Storming](getting-started/solution-storming.md)
 * [Get Help](getting-started/get-help.md)
 
 ## Topics
 
 * [Language Basics](topics/language.md)
 * [Where Do I Find Results?](topics/where-do-i-find-results.md)
+* [Python vs. CsvPath](topics/python-vs.-csvpath.md)
 * [Why CsvPath?](topics/why-csvpath.md)
 * [CsvPath Use Cases](topics/csvpath\_use\_cases.md)
 * [Schemas Or Rules?](topics/schemas-or-rules.md)
