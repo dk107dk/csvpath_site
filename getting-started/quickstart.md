@@ -62,36 +62,33 @@ Next, run the csvpath against our CSV file.
 
 <figure><img src="../.gitbook/assets/first_script (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
+Here's copy-and-paste Python:
+
 {% code lineNumbers="true" %}
 ```python
 from csvpath import CsvPath
 
-csvpath = """$trivial.csv[*][yes()]"""
+path = """$trivial.csv[*][yes()]"""
 
-path = CsvPath()
-path.parse(csvpath)
-path.fast_forward()
+cp = CsvPath()
+cp.fast_forward(path)
 
-print("Is this file valid?")
-if path.is_valid:
-    print("Yes! All good.")
+if cp.is_valid:
+    print("Totally valid!")
 else:
-    print("No. Something is wrong with it.")
-
+    print("Not valid.")    
 ```
 {% endcode %}
 
 What does this script do?
 
 * Line 1 imports CsvPath so we can use it
-* Line 3 is our csvpath that we'll use to validate our test file, trivial.csv
-* Line 5 creates a CsvPath instance that will do the validation
-* Line 6 is where CsvPath reads our csvpath string to see how we describe valid lines. In this case, _yes()_ means that each line matches our csvpath.&#x20;
-* Line 7 fast-forwards though the lines. We could also step through them one by one.&#x20;
-* Line 10 checks if we consider the file valid. If the file didn't meet expectations our csvpath would have declared the file invalid using the _fail()_ function.&#x20;
+* Line 3 is our csvpath that we'll use to validate our test file, `trivial.csv`
+* Line 6 fast-forwards though the CSV file's lines. We could also step through them one by one, if we wanted to.&#x20;
+* Line 8 checks if we consider the file valid. If the file didn't meet expectations our csvpath would have declared the file invalid using the `fail()` function.&#x20;
 
-When you run your script you should see something close to this:
+When you run your script you should see something like:
 
 <figure><img src="../.gitbook/assets/result.png" alt="" width="324"><figcaption></figcaption></figure>
 
-No question that is far from impressive! Still, go with it. Small increments are good! You are now ready to dig in and see what CsvPath can really do.&#x20;
+No question, that is far from impressive! Still, go with it. Small increments are good! You are now ready to dig in and see what CsvPath can really do.&#x20;
