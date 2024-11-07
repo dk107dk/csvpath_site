@@ -8,7 +8,7 @@ If you need help getting started with Python, try [Python.org's intros](https://
 
 ### PyPI and Github
 
-The CsvPath library is available through [Py](https://pypi.org/project/csvpath/)PI as "csvpath". At this stage, pre 1.0, the project changes frequently. You should pin the version you use and update it methodically.&#x20;
+The CsvPath library is available through [PyPI](https://pypi.org/project/csvpath/) as `csvpath`. At this stage, pre 1.0, the project changes frequently. You should pin the version you use but update it regularly.&#x20;
 
 If you are using Pip, install CsvPath with one of:
 
