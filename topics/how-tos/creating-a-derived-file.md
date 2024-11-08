@@ -63,3 +63,5 @@ This is what your project and results would look like:&#x20;
 The derived file you created is `data.csv`. And your new data would look like this:&#x20;
 
 <figure><img src="../../.gitbook/assets/results-of-derived-file.png" alt=""><figcaption></figcaption></figure>
+
+It is also possible to use `print()` to create new files. That approach is flexible and may be valuable for certain cases. However, `print()` is a relatively slow function and for most purposes it doesn't add much additional value. `Collect()`, along with `replace()` and `append()`, are usually the better way to go.
