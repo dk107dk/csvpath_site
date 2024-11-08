@@ -14,6 +14,7 @@ Modes are set in your csvpath's comments. The modes are:&#x20;
 * `return-mode` \[`matches` / `no-matches`]
 * `print-mode` \[`default` / `no-default`]
 * `explain-mode` \[`explain` / `no-explain`]
+* `unmatched-mode` \[`keep` / `no-keep`]
 
 Modes are set in _external_ comments. External comments are comments that are outside the csvpath, above or below it. Comments can have other metadata and plain text mixed in with mode settings. When a setting is not explicitly made the default is:&#x20;
 
@@ -23,6 +24,7 @@ Modes are set in _external_ comments. External comments are comments that are ou
 * `return-mode`: matches are returned
 * `print-mode`: printing to the console is on
 * `explain-mode`: no explanation is presented in INFO
+* `unmatched-mode`: no lines that were not returned are kept&#x20;
 
 These settings are configured like in this example of two trivial csvpaths in a named-paths group called `example`:
 
@@ -41,6 +43,7 @@ $[*][ yes() ]
    validation-mode: no-raise, print
    logic-mode: OR
    return-mode: matches
+   unmatched-mode: keep
    print-mode: default :
    All of these mode settings are optional, of course! And they don't have to be written as neatly as this, either.   
 ~
@@ -80,3 +83,7 @@ Validation mode controls how the `CsvPath` instance reacts to built-in validatio
 ### Explain Mode
 
 <table><thead><tr><th width="195">Setting</th><th></th></tr></thead><tbody><tr><td><code>explain</code></td><td>When set a step-by-step explanation of the values, assignments, match, etc. are dumped to INFO for each line in the file being processed. This can be a good aid to debugging but is performance expensive. The hit can be around 20-25%.</td></tr><tr><td><code>no-explain</code></td><td><code>no-explain</code> is the default.</td></tr></tbody></table>
+
+### Unmatched Mode
+
+<table><thead><tr><th width="206">Setting</th><th></th></tr></thead><tbody><tr><td>keep</td><td>Return mode determines if matches or non-matches are returned. Unmatched mode determines if the non-returned lines are kept available in the <code>Result</code> instance or on the <code>CsvPath</code> instance. If the lines are kept and you are using a <code>CsvPaths</code> instance, the <code>Result</code> instance will be serialized to the <code>archive</code> directory and you will see an <code>unmatched.csv</code> file containing the lines.</td></tr><tr><td>no-keep</td><td>No lines that were not returned are kept.</td></tr></tbody></table>
