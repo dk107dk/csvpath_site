@@ -84,7 +84,7 @@ Without these tokens, all you need to do is look at the run times in the archive
 
 ### So far...
 
-So far we have described the named-files pointer. It is the filename argument used in this line:&#x20;
+So far we have described the named-files pointer. It is the filename argument used in this line to call a `CsvPaths` instance's `collect_paths` method. This one line is where all the rewind and replay magic happens:&#x20;
 
 ```python
 paths.collect_paths(
@@ -93,7 +93,7 @@ paths.collect_paths(
 )
 ```
 
-Rewind and replay can also involve the `pathsname` argument.&#x20;
+Rewind and replay can and typically do involve not just the `filename` argument but also the `pathsname` argument.&#x20;
 
 ### The Named-paths Name
 
