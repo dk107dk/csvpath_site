@@ -13,7 +13,9 @@ A named-paths group is a set of csvpaths that are run as a unit. Named-paths gro
 * The ability to pipe results from one csvpath to be the input to the next
 * The ability to rewind and replay
 
-The last option is super valuable from an operations point of view. What do _rewind_ and _replay_ mean? Let's look at the what and how.
+The last option is super valuable from an operational efficiency point of view. It is important to remember that csvpaths don't just return matched or unmatched lines—captured as their data.csv output—they also have the ability to create new headers, rename and reset headers, and change data values. That potential for change increases the value of being able to pick up from a particular processing point in the named-paths group and (re)run the data forward.
+
+What do _rewind_ and _replay_ actually mean? Let's look at the what and how.
 
 ### Rewind vs. Replay
 
