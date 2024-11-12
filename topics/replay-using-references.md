@@ -121,11 +121,11 @@ Now, if you used just this:&#x20;
 $my-named-paths-group-name.csvpaths.my-csv-identity
 ```
 
-You would be replaying just the `my-csv-identity` csvpath. That is useful, for sure. However, you can do more by using the :from and :to tokens. These tokens indicate that the CsvPaths instance should rewind to either:
+You would be replaying just the `my-csv-identity` csvpath. That is useful, for sure. However, you can do more by using two tokens,  `:from` and `:to`. These tokens indicate that the CsvPaths instance should rewind to either:
 
-* Run from the first csvpath up to and including the csvpath identified by the reference, or
-* Run the identified csvpath along with any following csvpaths in the named-paths group
+* Run from the first csvpath up to and including the csvpath identified by the reference—`:to`
+* Run the identified csvpath along with any following csvpaths in the named-paths group—`:from`
 
-In both cases you are running as if you used `run-mode: no-run` in each of the csvpaths in the group that you want to avoid rerunning during the rewind.
+In both cases you are running as if you used `run-mode: no-run` in each of the csvpaths in the group that you want to avoid rerunning during the rewind run.
 
 This ability to say _"pickup the named-group starting from this csvpath and using this data"_ is not a revolutionary leap from the normal way of running named-groups. But it does offer great tools for development and operational triaging. Definitely worth experimenting with and getting comfortable using.
