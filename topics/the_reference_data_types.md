@@ -3,7 +3,7 @@
 CsvPath uses a namespace-like path to point to data in various places. These are called references. References are integrated into the match components, print output, and the structure of a csvpath. If you want to do lookups from one csvpath to the results or metadata of another, you use a reference. When you need to print data from the `print()` function, you need references.
 
 * [The Parts Of a Reference](the\_reference\_data\_types.md#the-parts-of-a-reference)
-* [Five Types Of Data](the\_reference\_data\_types.md#four-types-of-data)
+* [Six Types Of Data](the\_reference\_data\_types.md#four-types-of-data)
 * [The Csvpath Runtime Fields](the\_reference\_data\_types.md#the-csvpath-runtime-fields)
 * [The Metadata Fields](the\_reference\_data\_types.md#the-metadata-fields)
 
@@ -21,7 +21,9 @@ Let's break this down a bit more.&#x20;
 
 ## Six Types Of Data
 
-The five data types are pretty simple.&#x20;
+The six data types are always the second component of a reference. Their position in the reference is: `$root.`**`datatype`**`.name.name`.&#x20;
+
+The types are pretty simple.&#x20;
 
 * `variables` are variables. Variables from completed runs are available from the CsvPath that the reference points to. We only lose the variables when the Python instance shuts down.
 * `headers` are headers. The header names and indexes are available post-run. The data associated with the headers, line-by-line, may be available or not, depending on if the run method captured data. At this time CsvPath doesn't offer a way for a reference to point to a header value in an individual row.&#x20;
