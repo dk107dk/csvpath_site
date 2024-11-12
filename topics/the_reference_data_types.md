@@ -17,9 +17,9 @@ $paths-name.data-type.name.child
 
 Let's break this down a bit more.&#x20;
 
-<table><thead><tr><th width="137">Part</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><code>$</code></td><td>The root of the csvpath </td><td></td></tr><tr><td>paths-name</td><td>The name of a group of csvpaths. This is referred to as a named-paths name. In <code>print()</code> statements the name can be empty to indicate the csvpath the reference is in.</td><td><ul><li><code>$test.csv[*][yes()</code>]</li><li><code>$mypaths.variables.my_variabl</code>e</li><li><code>$.variables.my_variable</code></li></ul></td></tr><tr><td>type-of-data</td><td><ul><li><code>variables</code></li><li><code>headers</code></li><li><code>csvpath</code></li><li><code>csvpaths</code></li><li><code>metadata</code></li></ul></td><td><code>$mypaths.metadata.description</code></td></tr><tr><td>name-of-data-item</td><td>Any name. In the case of headers the name can be quoted or can be the index of the header. In the <code>csvpaths</code> type the name is the identity of a specific csvpath within the named-paths group.</td><td><ul><li><code>$mypaths.headers."my header</code>"</li><li><code>$mypaths.headers.0</code></li></ul></td></tr><tr><td>tracking value name</td><td>This is called a tracking value. Tracking values are keys in <code>dict</code> variables. In the case of references they can also be an index into a <code>stack()</code> variable.</td><td><ul><li><code>$mypaths.variables.cities.Boston</code></li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="137">Part</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><code>$</code></td><td>The root of the csvpath </td><td></td></tr><tr><td>paths-name</td><td>The name of a group of csvpaths. This is referred to as a named-paths name. In <code>print()</code> statements the name can be empty to indicate the csvpath the reference is in.</td><td><ul><li><code>$test.csv[*][yes()</code>]</li><li><code>$mypaths.variables.my_variabl</code>e</li><li><code>$.variables.my_variable</code></li></ul></td></tr><tr><td>type-of-data</td><td><ul><li><code>variables</code></li><li><code>headers</code></li><li><code>csvpath</code></li><li><code>csvpaths</code></li><li><code>metadata</code></li><li><code>results</code></li></ul></td><td><code>$mypaths.metadata.description</code></td></tr><tr><td>name-of-data-item</td><td>Any name. In the case of headers the name can be quoted or can be the index of the header. In the <code>csvpaths</code> type the name is the identity of a specific csvpath within the named-paths group.</td><td><ul><li><code>$mypaths.headers."my header</code>"</li><li><code>$mypaths.headers.0</code></li></ul></td></tr><tr><td>tracking value name</td><td>This is called a tracking value. Tracking values are keys in <code>dict</code> variables. In the case of references they can also be an index into a <code>stack()</code> variable.</td><td><ul><li><code>$mypaths.variables.cities.Boston</code></li></ul></td></tr></tbody></table>
 
-## Five Types Of Data
+## Six Types Of Data
 
 The five data types are pretty simple.&#x20;
 
@@ -28,6 +28,7 @@ The five data types are pretty simple.&#x20;
 * `csvpath` is either runtime data about the current csvpath or it is post-run residual data about another named-paths group the reference is pointing to
 * `csvpaths` is the namespace for the identities of the individual csvpaths in the named-paths group.
 * `metadata` is descriptive data about the csvpath the reference is pointing to
+* results references point to the data.csv intermediate results of the csvpaths in a named-paths group. Each csvpath's `data.csv` is automatically collected (unless configured not to) and positioned in a standard location so that it can be referenced and piped into other csvpaths.
 
 ## The Csvpath Runtime Fields
 
