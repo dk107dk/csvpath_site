@@ -43,7 +43,7 @@ A named-file name is a pointer that maps to a physical filesystem path. The poin
 
 ### Named-file Names
 
-First named-file names. They are a bit simpler. They come in two flavors:&#x20;
+First named-file names. They come in two flavors:&#x20;
 
 * name-of-named-file
 * $named-paths-name.results.instance.csvpath-identity
@@ -83,6 +83,8 @@ Means that you want to use the last run, from no later than the last second of S
 Means that you want to use the first run that happened on or after the start of March 21st, 2024.&#x20;
 
 Without these tokens, all you need to do is look at the run times in the archive directory. But using the last and first tokens makes things much easier.
+
+The caveat here—and it's an important one—is that you cannot replay a replay using `:last`. The reason is that `:last` looks for the most recent run, but a replay by definition doesn't have all the assets needed for a run within itself. Therefore, if a second replay is attempted using the same instance name, including `:last`, you will find a run that is not self contained and which cannot be the basis for a new run. Imagine, I run the named-paths name ABC. ABC is composed of A, B, and C csvpaths. A works fine, but I need to modify B and replay. Everything works fine. My new run uses A's `data.csv` and creates B and C with their own `data.csv`s. If I want to modify B again and replay again, the last run is my replay and it doesn't contain its own `A/data.csv`. This may sound hard to follow in the abstract. But luckily, looking at the archive directory when you're setting up a replay it is pretty intuitive.  &#x20;
 
 ### So Far...
 
