@@ -76,7 +76,13 @@ The structure is:&#x20;
 
 The key result file for us for this example is data.csv. Every csvpath that is used to collect lines from a delimited file by a CsvPath instance sends its collected data to a data.csv file. (You can choose to not store the data on disk and of course you can also just not collect it).
 
-You can see that these csvpaths each did their modifications to the data in a way that impacts the final results coming out of `source3`. `source1` added a `count` header. `source2` appended a `working` header. And, finally, `source3` removed the `count` header, resulting in this:
+You can see that these csvpaths each did their modifications to the data in a way that impacts the final results coming out of `source3`.
+
+* `source1` added a `count` header and limited the lines collected to only those with both firstname and lastname
+* `source2` appended a `working` header  with a random number from 0 to 5, and limited the lines collected to only those where `count` is greater than 4&#x20;
+* And, finally, `source3` removed the `count` header
+
+The result is this:
 
 <figure><img src="../../.gitbook/assets/final-sourcemode-output.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -103,7 +109,7 @@ The two references are pretty straightforward. The datatypes are important:&#x20
 * `results` indicates that we're looking at the data resulting from running our named-paths
 * `csvpaths` is the datatype that represents the named-paths group we're working with
 
-The only other things to pay attention to are the tokens in the references. There are four tokens for references. They start with a colon:&#x20;
+The only other things to pay attention to are the tokens embedded in the references. There are four tokens you can use in references. They start with a colon:&#x20;
 
 * For the date-stamps of runs:&#x20;
   * `:last`
@@ -112,24 +118,26 @@ The only other things to pay attention to are the tokens in the references. Ther
   * `:from`&#x20;
   * `:to`&#x20;
 
-As you would guess they do exactly what you'd expect. The first and last tokens replace the right-hand side of run date-stamps to make them easier to remember and manipulate programmatically. The from and to tokens are appended to csvpath identities to indicate that we don't want just the csvpath identified, but also want its predecessors or successors.&#x20;
+As you would guess, they do exactly what you'd expect. The `:first` and `:last` tokens replace the right-hand side of run date-stamps to make them easier to remember and manipulate programmatically. The `:from` and `:to` tokens are appended to csvpath identities to indicate that we don't want just the csvpath identified, but also want its predecessors or successors.&#x20;
 
 The result after `source3` is exactly what we were looking for. Which isn't much, in this trivial example, but still.&#x20;
 
 <figure><img src="../../.gitbook/assets/thinking-result.png" alt="" width="375"><figcaption></figcaption></figure>
 
-How do we know that we successfully did a rewind?  Well, a couple of things. The biggest tell is that we don't have a results directory for source1.
+How do we know that we successfully did a rewind?  Well, a couple of things. The biggest tell is that we don't have a results directory for `source1`.
 
 <figure><img src="../../.gitbook/assets/rewind-results.png" alt=""><figcaption></figcaption></figure>
 
-You can also look at the source2 meta.json from the rewind run to see what the settings and inputs were. In a full automated DataOps Collect, Store, Validate pattern this is where the rubber hits the road. Or at least one place.&#x20;
+You can also look at the `source2` `meta.json` from the rewind run to see what the settings and inputs were. In a full automated DataOps Collect, Store, Validate pattern this is where the rubber hits the road. Or at least one place.&#x20;
 
 <figure><img src="../../.gitbook/assets/source2-rewind.png" alt=""><figcaption></figcaption></figure>
 
-You can see on line 3 that we're sourcing data from `source1`. On line 16 you can see that our configuration calls for us to grab the `data.csv` output of the last csvpath. Here is the same `source2` `meta.json` information from the first run. Because we did the runs in one script they ended up in adjacent directories: the first in `2024-11-12_08-03-54` and the second in `2024-11-12_08-03-54.0`. Notice that in the metadata shown above and below both times we pull `source2`'s data from `2024-11-12_08-03-54`, not from the second run data in `2024-11-12_08-03-54.0`.
+You can see on line 3 that we're sourcing data from `source1`. On line 16 you can see that our configuration calls for us to grab the `data.csv` output of the last csvpath.&#x20;
+
+Here is the same `source2` `meta.json` information from the first run. Because we did the runs in one script they ended up in adjacent directories: the first in `2024-11-12_08-03-54` and the second in `2024-11-12_08-03-54.0`. Notice that in the metadata shown above and below both times we pull `source2`'s data from `2024-11-12_08-03-54`, not from the second run `2024-11-12_08-03-54.0`.
 
 <figure><img src="../../.gitbook/assets/source2-orig.png" alt=""><figcaption></figcaption></figure>
 
-Here you can see that we are pulling data from the named-file `sourcemode`, not a physical file path. And you can see that we captured `source-mode-source` metadata key to identify how we swapped in `source1`'s `data.csv` instead of using the `sourcemode` file. &#x20;
+You can see that we are pulling data from the named-file `sourcemode`, not a physical file path. And you can see that we captured a `source-mode-source` metadata key to identify how we swapped in `source1`'s `data.csv` instead of using the `sourcemode` file. &#x20;
 
-And that's about it. Rewind and replay are not hard. In fact, pretty easy, right?
+And that's about it. Rewind and replay are not hard. In fact, pretty darned easy, right?
