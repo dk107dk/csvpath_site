@@ -12,6 +12,8 @@ There are three file sets:&#x20;
 
 Each of these types is managed in a specific location in a structured way. `CsvPaths` allows you to put your files wherever you like, but when you register files for use they are imported into a structured environment.&#x20;
 
+It is worth pointing out that while your `CsvPaths` instance's results files are created for your use, the data files and csvpath validation files areas are for the library's internal use, not yours. You should never need to touch these files. Nevertheless, it is good to know how your data and validation rules are being managed.&#x20;
+
 ## Data files
 
 `CsvPaths`'s validation is applied to named-files. Named-files are just file paths that are referred to by simple names. E.g. you might have a file at&#x20;
@@ -104,3 +106,6 @@ Here is the structure of the named-paths area:&#x20;
 
 <figure><img src="../.gitbook/assets/named-paths-structure (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
+## The results files
+
+The files created as the results of running named-paths against a named-file are super important. And there are more of them with more choices and opportunities for your work approach. [Read all about results files here](where-do-i-find-results.md).
