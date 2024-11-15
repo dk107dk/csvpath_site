@@ -43,7 +43,12 @@ In your data file's home directory you will also see a `manifest.json` file. `ma
  }]
 ```
 
-Each time you make a change to `quarterly-statement.xlsx` and re-present it to `CsvPaths`'s file manager a new object will be added to this JSON structure with information about the new version. The `file` key is ultimately the file used when you use the name `quarterly` to run a validation.
+Each time you make a change to `quarterly-statement.xlsx` and re-present it to `CsvPaths`'s file manager a new object will be added to this JSON structure with information about the new version. The JSON object's `file` key ultimately identifies the physical file used to run a validation, like this:&#x20;
+
+```python
+paths = CsvPaths()
+paths.collect_paths(pathsname="validations", filename="quarterly")
+```
 
 Here is a screenshot of the structure:&#x20;
 
