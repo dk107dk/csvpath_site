@@ -4,7 +4,7 @@ description: >-
   Sometimes you can make your work simpler than you first thought.
 ---
 
-# Your First Validation, Simplified!
+# Your First Validation, The Easy Way
 
 CsvPath is a rules-based validation language. Rules that define when data is valid are powerful. A rule can do things that a structural approach can't do. But sometimes just clarifying the shape of the data is enough. You can [read more about the difference between these approaches here](../topics/schemas-or-rules.md).
 

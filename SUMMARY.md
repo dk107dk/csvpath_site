@@ -6,13 +6,13 @@
 
 * [Quickstart](getting-started/quickstart.md)
 * [Your First Validation, The Hard Way](getting-started/your-first-validation.md)
-* [Your First Validation, The Easy Way](getting-started/your-first-validation-the-easy-way.md)
+* [Your First Validation, The Easy Way](getting-started/your-first-validation-simplified.md)
+* [Your First Validation, The Lazy Way](getting-started/your-first-validation-the-lazy-way.md)
 * [Another Example, Part 1](getting-started/another-example-part-1.md)
 * [Another Example, Part 2](getting-started/another-example-part-2.md)
 * [Path To Production](getting-started/path-to-production.md)
 * [Solution Storming](getting-started/solution-storming.md)
 * [Get Help](getting-started/get-help.md)
-* [Your First Validation, The Lazy Way](getting-started/your-first-validation-the-lazy-way.md)
 
 ## Topics
 
