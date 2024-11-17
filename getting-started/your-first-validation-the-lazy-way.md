@@ -106,7 +106,9 @@ You have just one named-paths name, `first`, so select that and hit return.
 
 Now you get the question of what method you want to use to run your paths against your file. The options are fast forward or collect. As you may by now know, fast forward runs your validation, but doesn't collect the matching lines. Instead, it only collects variables, printouts, and errors. The collect method does collect the matching lines, in addition to variables, printouts, and errors.&#x20;
 
-For our purposes, either works. Pick `collect`.&#x20;
+As an aside, the library also allows you to step through a CSV path as its being validated, line-by-line. However, the CLI does not offer that option. You can easily do it programmatically using a `CsvPaths` instance's `next_paths()` method in a `for line in csvpath.next_paths()` loop.
+
+For our purposes, either method works. Pick `collect`.&#x20;
 
 <figure><img src="../.gitbook/assets/cli-10.png" alt="" width="190"><figcaption></figcaption></figure>
 
