@@ -13,18 +13,19 @@ Here's our First Validation example again, this time using structure to define w
 ```python
 from csvpath import CsvPath
 
-csvpath = """$trivial.csv[*][
+csvpath = """
     ~ 
      id: First Validation, Simplified!
      description: Check if a file is valid
      validation-mode: print, no-raise, fail 
     ~
+    $trivial.csv[*][
     line(
         string.notnone("firstname"),
         string.notnone("lastname", 30),
         string("say")
     )
-  ]"""
+]"""
 
 path = CsvPath().parse(csvpath)
 path.fast_forward()
