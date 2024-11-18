@@ -2,15 +2,19 @@
 description: Super simple rules to demonstrate how validation works
 ---
 
-# Example: Your First Validation
+# Your First Validation, The Hard Way
 
 As you saw in the Quickstart, CsvPath is easy to set up. But what value does it add?
 
-CsvPath data quality checks for CSV and Excel files is a unique capability. Let's see how it work by making the Quickstart into something a little more realistic.
+CsvPath data quality checks for CSV and Excel files is a unique capability. Let's see how it work by making the Quickstart into something a little more realistic.&#x20;
 
-Our mission is to write a three-rule csvpath that can keep some simple problems from getting loaded into our data management systems. The rules are:
+In this example we're going to first take a rules-based approach that will give you a sense of the CsvPath Language's power. In a following part, we will turn around and [create the simplest thing that could possibly work](your-first-validation-simplified.md) for the same simple example, giving you a sense for how easy the CsvPath Language can can be. And in the third part, [we remove the Python by adding the CsvPath Library's command line interface](your-first-validation-the-lazy-way.md).
 
-1. The CSV files we validate cannot have blanks; every header must have data
+## Our goal
+
+Our mission is to write a csvpath that can keep some bad data from getting loaded into our data management systems. Our goals for the data are:
+
+1. There cannot be blanks; every header must have data
 2. The files' `lastname` header cannot have values greater than 30 characters
 3. The first header must be `firstname`
 
