@@ -6,17 +6,17 @@ description: >-
 
 # The Collect, Store, Validate Pattern
 
-CsvPath is first and foremost a declarative validation language. It provides strong validation for delimited tabular data using structural schemas and data validation rules. As the most capable and advanced such tool, it is very focused to-task.&#x20;
+The CsvPath Language is first and foremost a declarative validation language. It provides strong validation for delimited tabular data using structural schemas and data validation rules. As the most capable and advanced such tool, it is very focused-to-task.&#x20;
 
 The CsvPath Library implements the CsvPath Language, and goes beyond it to provide a framework for onboarding and offboarding flat files with confidence. You could use the CsvPath Language in all sorts of ways. The Library is, however, opinionated. It nudges you in the direction of the Collect, Store, Validate Pattern.
 
 ## What Is Collect, Store, Validate?
 
-Design patterns make it easy to reuse proven approaches and communicate about designs. The Collect, Store, Validate Pattern is a narrowly focused architecture for landing and distributing flat files with tabular data. CsvPath Language validation is core to the pattern, but there is much more.
+Design patterns make it easy to reuse proven approaches and communicate about designs. **The Collect, Store, Validate Pattern** is a narrowly focused architecture for landing and distributing flat files with tabular data. CsvPath Language validation is core to the pattern, but there is much more.
 
-Onboarding flat files may feel like a simple thing, too simple to focus on and pattern. That would be a mistake. Flat files are widespread, drive large-scale revenue and value-delivered, and are trickier and more expensive than you might think. 4 of my last 6 companies derived more half a billion a year in revenue based on flat file data exchanges. The 5th provided tools that, in part, enabled companies to do billions of dollars more of flat-file-dependent business. The 6th exchanged vital research data, a substantial amount in flat-files, that impacts essentially everyone alive on the planet. These were all lead-edge companies. Flat files may be ugly and old, but they are complex and vital and a win/lose component of economic activity.
+Onboarding flat files may feel like a simple thing, too simple to focus on and pattern. That would be a mistake. Flat files are widespread, drive large-scale revenue and value-delivered, and are trickier and more expensive than you might think. 4 of my last 6 companies derived more than half a billion USD a year in revenue based on flat-file data exchanges. The 5th provided tools that, in part, enabled companies to do billions of dollars more of flat-file-dependent business. The 6th exchanged vital research data, a substantial amount in flat-files, that impacts essentially everyone alive on the planet. These were all lead-edge companies. Flat files may be ugly and old, but they are complex and vital and a win/lose component of economic activity.
 
-So, back to Collect, Store, Validate.  The CSV Pattern structures the interstitial space where files enter the organization. It is also applicable to where and how flat-files leave the organization, but let's set that slightly simpler problem aside for now. The space between where a file stops being data in-flight in an on-the-wire protocol and where it is loaded into a data lake is the CSV Pattern's focus. There can be a soft-focus distinction between CSV and data lake, but let's set that gray area aside for the moment as well.
+So, back to Collect, Store, Validate.  The CSV Pattern structures the interstitial space where files enter the organization. It is also applicable to where and how flat-files leave the organization, but let's set that slightly simpler problem aside for now. The space between where a file stops being data in-flight in an on-the-wire protocol and where it is loaded into a data lake is the CSV Pattern's focus. In some cases there is a soft-focus distinction between the CSV Pattern and the data lake, but let's set that gray area aside for the moment as well.
 
 ## Interstitial Activities and Decisions
 
@@ -119,9 +119,36 @@ The main thrust answers are these:
 * End the CSV Pattern lifecycle in **a clear presentment state followed by a longer-term, low-accessibility archive state**
 * **Automate** all of the above stages, decision points, and integrations&#x20;
 
-If you read this and think: _how else would you do it?_ that is good. In practice, though, in many companies the pattern is not this clear and intentional. In fact, in many companies the pattern isn't consistently apparent across the operation(s). And in a few more technically savvy companies there are other approaches with their own merits. Those approaches may be API oriented, user-self-service oriented, focused on streaming parallel processes, something else, or combinations of any or all of these. That is fine too. No pattern can cover every possible situation. We believe the CSV Pattern covers the majority of trasaction-oriented, many-party, tabular data loose-integration situations—particularly those where one or more of the parties is technically weak for any reason.&#x20;
+If you read this and think: _how else would you do it?_ that is good. In practice, though, in many companies the pattern is not this clear and intentional. In fact, in many companies the pattern isn't consistently apparent across the operation(s). And in a some more technically savvy companies CSV coexists or competes with other approaches with their own merits. Those approaches may be API oriented, focus on user-self-service, center on streaming parallel processes, etc.—or combinations of any of these. That is fine too. No pattern can cover every possible situation. We believe the CSV Pattern covers the majority of trasaction-oriented, many-party, tabular data, loose-integration situations—particularly those where one or more of the parties is technically weak for any reason.&#x20;
 
+### The CsvPath Library's CSV Pattern Framework
 
+While the CsvPath Library is not a full application or server system it provides the core CSV Pattern features.&#x20;
 
+* The library stores input data, CsvPath Language, and results files in three separate repositories
+* It manages the lifecycle as a strictly linear process implemented by the source data files repository, any number of well-structured groups of CsvPath Language statements, and a consistent flow of data from one stage to the next
+* Data file changes have copy-on-write semantics
+* A substantial volume of metadata is captured for each stage of the lifecycle
+* Lifecycle rewind and stage replay are easily available  &#x20;
 
+The Library enables a variety of validation strategies, of course, including narrow definitions, structural and rules-based validation, logical operations choices, types of stage-chaining, and user-defined extension functions. And it provides tooling around output, errors, and asset identities.&#x20;
 
+At a high level, it looks like this:&#x20;
+
+<figure><img src="../.gitbook/assets/csv-pattern-implementation.png" alt=""><figcaption></figcaption></figure>
+
+This is admitedly barely a sketch. It shows that files arrive at the left (green) and progress into the file storage area (blue) before CsvPath Language files are applied to generate or pass through results (red).&#x20;
+
+The three asset management areas are for source data files, CsvPath Language files, and results, which are the combination of data, metadata, printouts, and errors. Those three asset management areas are on the filesystem. Their structures look like these:
+
+<figure><img src="../.gitbook/assets/csvpath-library-file-areas.png" alt=""><figcaption><p>Name (in red) is the name of a named-paths group or named-file. Results are named for the named-paths groups that generated them.</p></figcaption></figure>
+
+None of these areas is off-limits to CsvPath Library users. However, you should not need to do any work in these areas, other than to collect results data or triage issues. Once you register your assets with the Library, the Library makes a copy, assigns an identity, assembles metadata, and executes runs on command.
+
+As you can see in the screenshot below, a new CsvPath project will have both the `inputs` and `archive` directories. The Library creates those the first time you run the CLI or create a `CsvPath` or `CsvPaths` instance. `inputs` is the root of the named-file and named-paths areas. Named-files are data files that have been received for processing. Named-paths are CsvPath Language validation and data shaping statements. The `archive` directory is where the results of processing steps live. Copy-on-write is implemented in this area.
+
+<figure><img src="../.gitbook/assets/a-csvpath-project.png" alt=""><figcaption></figcaption></figure>
+
+### More Framework Detail
+
+For more details on the asset locations please read [Where Do I Find Results?](where-do-i-find-results.md) and [File Management](file-management.md), and [Named Files and Paths](named\_files\_and\_paths.md). In addition, [The Reference Datatypes](the\_reference\_data\_types.md) gives more information about the runtime, configuration, and user-defined metadata collected in results. To learn about how CsvPath Library implements Rewind and Replay read [Replay Using References](replay-using-references.md). And [Schemas Or Rules](schemas-or-rules.md) talks about how CsvPath Language can be used for both structural and rules-based validation, allowing for stronger, more fine-grained, and more logically separated validations.
