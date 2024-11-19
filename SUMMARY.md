@@ -35,3 +35,4 @@
 * [Named Files and Paths](topics/named\_files\_and\_paths.md)
 * [Config Setup](topics/config-setup.md)
 * [Debugging Your CsvPaths](topics/debugging.md)
+* [The Collect, Store, Validate Pattern](topics/the-collect-store-validate-pattern.md)
