@@ -30,9 +30,11 @@ You can check under the hood on [Github](https://github.com/dk107dk/csvpath). Th
 
 ### Let's run something!
 
-The main class in CsvPath is unsurprisingly called CsvPath. For simple jobs, it is all you need.
+The main class in CsvPath is unsurprisingly called CsvPath. For simple jobs, it is all you need. &#x20;
 
-To do a hello world path you'll need to import CsvPath, create an instance, and point it at a CSV file.
+The quickest way to bootstrap a real CsvPath project is the command line interface (CLI). The CLI is a super simple tool for managing data files, CsvPath Language files, and results. It is barebones, but very productive. To try the CLI, skip over to [Your First Validation, The Lazy Way](your-first-validation-the-lazy-way.md). Or if you want to continue with the simplest possible Python, keep going.
+
+To do a hello world you'll need to import CsvPath, create an instance, and point it at a CSV file.
 
 Create a script file and do the import:&#x20;
 
@@ -56,9 +58,7 @@ Make a csvpath. Also a trivial one, just to keep it simple.
 csvpath = """$trivial.csv[*][yes()]"""
 ```
 
-This path says: open trivial.csv, scan all the lines, match every one of them.
-
-Next, run the csvpath against our CSV file.
+This path says: open trivial.csv, scan all the lines, and match every one of them.
 
 <figure><img src="../.gitbook/assets/first_script (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
