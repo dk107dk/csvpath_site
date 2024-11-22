@@ -68,9 +68,9 @@ There are a couple of things to remember.&#x20;
 The `archive` holds what we call named-results. A named-result is named for its named-paths group. Your results are called the same name as the group of scripts that created them. The `archive` directory has:
 
 * One manifest for all named-results
-* In each directory, named for a named-paths group, a set of data results, data exhaust, report output, and metadata files
+* In each named-results directory, named for the named-paths group that generated it, and within that run directories with a set of data results, data exhaust, report output, and metadata files, including a manifest
 
-First the `manifest.json`. The file is a list of runs of individual csvpaths by the CsvPaths Library. Each csvpath is run by a `CsvPath` instance that is managed by a single `CsvPaths` instance. The runs happen sequentially in the run-by-run order and, within runs, cvspath-by-csvpath. Each looks like:&#x20;
+First the top-level `manifest.json`. The file is a list of runs of individual csvpaths by the CsvPaths Library. Each csvpath is run by a `CsvPath` instance that is managed by a single `CsvPaths` instance. The runs happen sequentially in the run-by-run order and, within runs, cvspath-by-csvpath. Each looks like:&#x20;
 
 ```json
   {
@@ -88,7 +88,9 @@ First the `manifest.json`. The file is a list of runs of individual csvpaths by 
 
 The results metadata in `manifest.json` is entered at the beginning of the run. The contents of the named-result instance files are spooled out as the run happens or written at the end.&#x20;
 
-A run instance is a directory under the named-results that has a date stamp name like `2024-11-21_04-26-41`. The date stamp is, of course, an important piece of metadata. Within each instance directory are directories named for the individual csvpath scripts in the named-paths group.  When you run a csvpath using the CsvPath Library it has an identity. If you use a CsvPath Language comment to give your csvpath a `name` or `id`, that is its identity. Otherwise, the identity is the csvpath's index in the run sequence.&#x20;
+A run instance is a directory under the named-results that has a date stamp name like `2024-11-21_04-26-41`. Each datestamp directory is the results of a single run of the named-paths. The date stamp is, of course, an important piece of metadata. Beyond that, there's a lot more.&#x20;
+
+Within each instance directory are directories named for the individual csvpath scripts in the named-paths group.  When you run a csvpath using the CsvPath Library it has an identity. If you use a CsvPath Language comment to give your csvpath a `name` or `id`, that is its identity. Otherwise, the identity is the csvpath's index in the run sequence.&#x20;
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-11-21 at 7.56.18 PM.png" alt=""><figcaption></figcaption></figure>
 
@@ -100,10 +102,21 @@ The files included in the named results instance directory are:&#x20;
 * **`errors.json`**: the output collected at the point of any exceptions, regardless of if they are raised or suppressed
 * **`printouts.txt`**: the output of printers, with each `Printer` instance having its own segment of the file
 * **`vars.json`**: the variables created by this csvpath
+* **`manifest.json`**: the summary report of the csvpath's outcome
 
-Any of these files may be absent if data was not generated, though in practice most are created even when empty.&#x20;
+data.csv, unmatched.csv, and printouts.txt may be absent if their contents was not generated. The others are created even if they are empty. The theory is that errors, variables, etc. are sufficiently interesting even when there aren't any that we should see an empty json array or dictionary.
 
-Now, our purpose here is the metadata that helps you control your data operations. The core of that is in meta.json. Here is a typical meta.json:
+The manifest isn't large, but it has some key data. It looks like this:
+
+<figure><img src="../.gitbook/assets/results-csvpath-manifest.png" alt=""><figcaption></figcaption></figure>
+
+There are three important summations.  `completed`, `files_expected`, and `file_fingerprints` are unique to this file. `valid` and `time` are available elsewhere as well.
+
+* **`completed`**: this boolean indicates if the data file was fully considered, or if some lines were not seen due to an error or early stopping. You can calculate this value from line counts in meta.json, but this is the more authoritative value because there are several types of line counts (1-based, 0-based, scans, physical, etc.) in meta.json that might lead you astray.&#x20;
+* **`files_expected`**: the file-mode setting allows you to specify what files you expect to be generated. Valid choices are all, data/no-data, unmatched/no-unmatched, printouts/no-printouts, and blank&#x20;
+* **`file_fingerprints`**: these are the SHA 256 hashes of the contents of the generated files. You can verify that the files haven't be changed at any time by regenerating the hashes and comparing to these values.
+
+Now, our purpose here is mainly the metadata that helps you control your data operations. The core of that is in meta.json. Here is a typical meta.json:
 
 <figure><img src="../.gitbook/assets/meta-json-2.png" alt=""><figcaption></figcaption></figure>
 
