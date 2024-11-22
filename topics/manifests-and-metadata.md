@@ -86,6 +86,6 @@ First the `manifest.json`. The file is a list of runs of individual csvpaths by 
 
 ```
 
-The results metadata in `manifest.json` is entered at the beginning of the run. The contents of the named-result instance files are spooled out as the run happens or written at the end.
+The results metadata in `manifest.json` is entered at the beginning of the run. The contents of the named-result instance files are spooled out as the run happens or written at the end. A run instance is a directory under the named-results that has a date stamp name like&#x20;
 
 The files included in the named results&#x20;
