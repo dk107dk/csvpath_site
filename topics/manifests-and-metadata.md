@@ -65,12 +65,13 @@ There are a couple of things to remember.&#x20;
 
 ## archive
 
-The `archive` holds what we call named-results. A named-result is named for its named-paths group. Your results are called the same name as the group of scripts that created them. The `archive` directory has:
+The `archive` holds what we call named-results. A named-result is a set of results named for its named-paths group. Your results are called by the same name as the group of scripts that created them. The `archive` directory has:
 
-* One manifest for all named-results
-* In each named-results directory, named for the named-paths group that generated it, and within that run directories with a set of data results, data exhaust, report output, and metadata files, including a manifest
+* One `manifest.json` for all results in the archive&#x20;
+* In each named-results directory there are time-stamped run directories, each containing a `manifest.json`
+* Within each run directory there is a directory for each csvpath in the named-paths group, each with files of data results, data exhaust, report output, and metadata files, including a `manifest.json`
 
-First the top-level `manifest.json`. The file is a list of runs of individual csvpaths by the CsvPaths Library. Each csvpath is run by a `CsvPath` instance that is managed by a single `CsvPaths` instance. The runs happen sequentially in the run-by-run order and, within runs, cvspath-by-csvpath. Each looks like:&#x20;
+First the top-level `manifest.json`. The file is a flat list of runs of individual csvpaths by the CsvPaths Library in the order they happened without grouping. Each csvpath is run by a `CsvPath` instance that is managed by a single `CsvPaths` instance. The run bookeeping is sequential in run-by-run order and, within runs, cvspath-by-csvpath. Each looks like:&#x20;
 
 ```json
   {
@@ -88,9 +89,17 @@ First the top-level `manifest.json`. The file is a list of runs of individual cs
 
 The results metadata in `manifest.json` is entered at the beginning of the run. The contents of the named-result instance files are spooled out as the run happens or written at the end.&#x20;
 
-A run instance is a directory under the named-results that has a date stamp name like `2024-11-21_04-26-41`. Each datestamp directory is the results of a single run of the named-paths. The date stamp is, of course, an important piece of metadata. Beyond that, there's a lot more.&#x20;
+A run instance is a directory under the named-results that has a date stamp name like `2024-11-21_04-26-41`. Each time-stamped directory contains the results of a single run of the named-paths group. The timestamp is, of course, an important piece of metadata. Beyond that, there's a lot more.&#x20;
 
-Within each instance directory are directories named for the individual csvpath scripts in the named-paths group.  When you run a csvpath using the CsvPath Library it has an identity. If you use a CsvPath Language comment to give your csvpath a `name` or `id`, that is its identity. Otherwise, the identity is the csvpath's index in the run sequence.&#x20;
+Directly within the run directory there is a manifest.json that gives:&#x20;
+
+* **`all_completed`**: `true` if all `CsvPath` instances finished running their delimited data file through their csvpath&#x20;
+* **`all_valid`**: `true` if all `CsvPath` instances report that they ended up in the valid state&#x20;
+* **`error_count`**: a count of all the errors collected by the `CsvPath` instances involved in the run. Note that this error count doesn't count any `CsvPaths` instance errors that might happen during setup or tear-down of the run.
+* **`all_expected_files`**: `true` if all files expected to be generated according to the `file-mode` setting (or default when there is no explicit `file-mode` setting) were in fact generated&#x20;
+* **`time`**: the time the manifest was generated
+
+Within each instance directory there are directories named for the individual csvpath scripts in the named-paths group.  When you run a csvpath using the CsvPath Library it has an identity. If you use a CsvPath Language comment to give your csvpath a `name` or `id`, that is its identity. Otherwise, the identity is the csvpath's index in the run sequence.&#x20;
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-11-21 at 7.56.18 PM.png" alt=""><figcaption></figcaption></figure>
 
