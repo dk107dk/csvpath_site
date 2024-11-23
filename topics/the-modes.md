@@ -4,18 +4,23 @@ In the context of a `CsvPaths` instance's run, an individual `CsvPath` instance 
 
 Modes are set in your csvpath's comments. The modes are:&#x20;
 
-* `run-mode` \[`run` / `no-run`]
-* `validation-mode` _(any combination of)_
+* `run-mode:` \[`run` / `no-run`]
+* `validation-mode:` _(any combination of)_
   * `print` / `no-print`
   * `raise` / `no-raise`
   * `stop` / `no-stop`
   * `fail` / `no-fail`
-* `logic-mode` \[`AND / OR`]
-* `return-mode` \[`matches` / `no-matches`]
-* `print-mode` \[`default` / `no-default`]
-* `explain-mode` \[`explain` / `no-explain`]
-* `unmatched-mode` \[`keep` / `no-keep`]
-* `files-mode` \[ `all` / `data` or `no-data` / `unmatched` or `no-unmatched` / `printouts` or `no-printouts` ]
+* `logic-mode:` \[`AND / OR`]
+* `return-mode:` \[`matches` / `no-matches`]
+* `print-mode:` \[`default` / `no-default`]
+* `explain-mode:` \[`explain` / `no-explain`]
+* `unmatched-mode:` \[`keep` / `no-keep`]
+* `files-mode:`&#x20;
+  * `all`&#x20;
+  * `data` / `no-data`&#x20;
+  * `unmatched` / `no-unmatched`&#x20;
+  * `printouts` / `no-printouts`&#x20;
+* `transfer-mode:` `data` / `unmatched` `>` `var-name`
 
 Modes are set in _external_ comments. External comments are comments that are outside the csvpath, above or below it. Comments can have other metadata and plain text mixed in with mode settings. When a setting is not explicitly made the default is:&#x20;
 
@@ -27,6 +32,7 @@ Modes are set in _external_ comments. External comments are comments that are ou
 * `explain-mode`: no explanation is presented in INFO
 * `unmatched-mode`: no lines that were not returned are kept&#x20;
 * `files-mode`: always-present files are generated and others may or may not be with no consequence
+* `transfer-mode`: there is no default
 
 These settings are configured like in this example of two trivial csvpaths in a named-paths group called `example`:
 
@@ -100,3 +106,8 @@ There are various reasons why printouts.txt, data.csv and unmatched.csv might no
 
 <table><thead><tr><th width="210">Setting</th><th></th></tr></thead><tbody><tr><td><code>all</code></td><td>All file types are expected to be generated</td></tr><tr><td><code>data</code> / <code>no-data</code></td><td>Determines if the data.csv file is expected</td></tr><tr><td><code>unmatched</code> / <code>no-unmatched</code></td><td>Determines if the unmatched.csv file is expected</td></tr><tr><td><code>printouts</code> / <code>no-printouts</code></td><td>Determines if we expect anything to be sent to the <code>Printer</code> instances using <code>print()</code></td></tr></tbody></table>
 
+### Transfer Mode
+
+transfer-mode let's you copy `data.csv` or `unmatched.csv` to an arbitrary location in the `transfers` directory. The `transfers` directory is configured in `config/config.ini` under `[results] transfers`. To use `transfer-mode` you use the form `data` | `unmatched` `>` _var-name_ where _var-name_ is the name of a variable that will be the relative path under the `transfer` directory to the data you are transferring. Note that `transfer-mode` has no effect on the original data, in keeping with CsvPath Library's copy-on-write semantics. You may have as many transfers as you like by separating them with commas.
+
+<table><thead><tr><th width="209">Setting</th><th></th></tr></thead><tbody><tr><td><code>data</code> <code>></code> <em>var-name</em></td><td>Indicates you are transferring <code>data.csv</code> to the value of <em>var-name</em> as a relative path within the <code>transfer</code> directory</td></tr><tr><td><code>unmatched</code> <code>></code> <em>var-name</em></td><td>Indicates unmatched.csv to the value of var-name</td></tr></tbody></table>
