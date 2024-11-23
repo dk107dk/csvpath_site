@@ -1,6 +1,6 @@
 # The Modes
 
-A `CsvPath` instance can run in several possible modes that allow you to configure its behavior without resorting to the global `config.ini` or applying settings programmatically. In particular, the modes help you configure groups of csvpaths more flexibly. You can easily disable individual csvpaths or configure them differently than other csvpaths in the same named-paths group.&#x20;
+In the context of a `CsvPaths` instance's run, an individual `CsvPath` instance can operate in several possible modes that allow you to configure its behavior without resorting to the global `config.ini` or applying settings programmatically. In particular, the modes help you configure groups of csvpaths more flexibly. You can use them to easily disable individual csvpaths or configure them differently than other csvpaths in the same named-paths group.&#x20;
 
 Modes are set in your csvpath's comments. The modes are:&#x20;
 
