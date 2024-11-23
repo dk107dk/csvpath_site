@@ -113,14 +113,14 @@ The manifest isn't large, but it has some key data. It looks like this:
 There are three important summations.  `completed`, `files_expected`, and `file_fingerprints` are unique to this file. `valid` and `time` are available elsewhere as well.
 
 * **`completed`**: this boolean indicates if the data file was fully considered, or if some lines were not seen due to an error or early stopping. You can calculate this value from line counts in meta.json, but this is the more authoritative value because there are several types of line counts (1-based, 0-based, scans, physical, etc.) in meta.json that might lead you astray.&#x20;
-* **`files_expected`**: the file-mode setting allows you to specify what files you expect to be generated. Valid choices are all, data/no-data, unmatched/no-unmatched, printouts/no-printouts, and blank&#x20;
+* **`files_expected`**: the file-mode setting allows you to specify what files you expect to be generated. Valid choices are `all` for all files expected, `data` or `no-data`, `unmatched` or `no-unmatched`, `printouts` or `no-printouts`, or blank for any of these files not of concern one way or the other
 * **`file_fingerprints`**: these are the SHA 256 hashes of the contents of the generated files. You can verify that the files haven't be changed at any time by regenerating the hashes and comparing to these values.
 
-Now, our purpose here is mainly the metadata that helps you control your data operations. The core of that is in meta.json. Here is a typical meta.json:
+Now, our purpose here is mainly the metadata that helps you control your data operations. The core of that is in `meta.json`. Here is a typical `meta.json`:
 
 <figure><img src="../.gitbook/assets/meta-json-2.png" alt=""><figcaption></figcaption></figure>
 
-You can see several threads you could trace back up stream:
+You can see several threads you could trace back upstream:
 
 * `paths_name` is a pointer to the named-paths group's home directory, in this case: `inputs/named_paths/autogen5`
 * Likewise, `file_name` is a pointer to `inputs/named_files/accounts`
