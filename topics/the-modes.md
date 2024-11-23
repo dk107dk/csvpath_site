@@ -15,6 +15,7 @@ Modes are set in your csvpath's comments. The modes are:&#x20;
 * `print-mode` \[`default` / `no-default`]
 * `explain-mode` \[`explain` / `no-explain`]
 * `unmatched-mode` \[`keep` / `no-keep`]
+* `files-mode` \[ `all` / `data` or `no-data` / `unmatched` or `no-unmatched` / `printouts` or `no-printouts` ]
 
 Modes are set in _external_ comments. External comments are comments that are outside the csvpath, above or below it. Comments can have other metadata and plain text mixed in with mode settings. When a setting is not explicitly made the default is:&#x20;
 
@@ -25,6 +26,7 @@ Modes are set in _external_ comments. External comments are comments that are ou
 * `print-mode`: printing to the console is on
 * `explain-mode`: no explanation is presented in INFO
 * `unmatched-mode`: no lines that were not returned are kept&#x20;
+* `files-mode`: always-present files are generated and others may or may not be with no consequence
 
 These settings are configured like in this example of two trivial csvpaths in a named-paths group called `example`:
 
@@ -53,7 +55,7 @@ $[*][
 ]
 ```
 
-`hello_world` will not be run when the named-paths group runs, but it will be imported into the second csvpath identified as `next please!`. This example doesn't do much, but it gives an idea of how you can easily configure individual csvpaths within a group that will be run as a single unit.
+`hello_world` will not be run when the named-paths group runs, but it will be imported into the second csvpath identified as `next please!`. This example doesn't do much, but it gives an idea of how you can easily configure individual csvpaths within a group that will be run as a single unit. As you can see, some modes can take multiple values separated by commas.
 
 ### Run Mode
 
@@ -86,4 +88,15 @@ Validation mode controls how the `CsvPath` instance reacts to built-in validatio
 
 ### Unmatched Mode
 
-<table><thead><tr><th width="206">Setting</th><th></th></tr></thead><tbody><tr><td>keep</td><td>Return mode determines if matches or non-matches are returned. Unmatched mode determines if the non-returned lines are kept available in the <code>Result</code> instance or on the <code>CsvPath</code> instance. If the lines are kept and you are using a <code>CsvPaths</code> instance, the <code>Result</code> instance will be serialized to the <code>archive</code> directory and you will see an <code>unmatched.csv</code> file containing the lines.</td></tr><tr><td>no-keep</td><td>No lines that were not returned are kept.</td></tr></tbody></table>
+<table><thead><tr><th width="206">Setting</th><th></th></tr></thead><tbody><tr><td><code>keep</code></td><td>Return mode determines if matches or non-matches are returned. Unmatched mode determines if the non-returned lines are kept available in the <code>Result</code> instance or on the <code>CsvPath</code> instance. If the lines are kept and you are using a <code>CsvPaths</code> instance, the <code>Result</code> instance will be serialized to the <code>archive</code> directory and you will see an <code>unmatched.csv</code> file containing the lines.</td></tr><tr><td><code>no-keep</code></td><td>No lines that were not returned are kept.</td></tr></tbody></table>
+
+### Files Mode
+
+The impact of `files-mode` is that the run instance manifest and the csvpath's manifest will show that files were created as expected, or not.&#x20;
+
+There are various reasons why printouts.txt, data.csv and unmatched.csv might not be generated. For e.g., if we expect no validation output from user-created `print()` statements or built-in validation error messages we might set the `files-mode` to `no-printouts`. If a validation error was then printed we would be alerted in the metadata. Similarly, if we set `unmatched-mode` to `no-keep` (the default) and `files-mode` to `unmatched` we have a conflict that we'll be alerted to in the metadata. Similarly, if we set `files-mode` to `data` and then run `fast_forward_paths()` we will not get `data.csv` files and the metadata will alert us to the mismatch.
+
+`errors.json`, `vars.json`, `meta.json`, and `manifest.json` are always generated, regardless of `files-mode`. When you set `files-mode` to `all` the CsvPath Library will double-check that meta, vars, errors were correctly created, but that part of its checking is superfluous.
+
+<table><thead><tr><th width="210">Setting</th><th></th></tr></thead><tbody><tr><td><code>all</code></td><td>All file types are expected to be generated</td></tr><tr><td><code>data</code> / <code>no-data</code></td><td>Determines if the data.csv file is expected</td></tr><tr><td><code>unmatched</code> / <code>no-unmatched</code></td><td>Determines if the unmatched.csv file is expected</td></tr><tr><td><code>printouts</code> / <code>no-printouts</code></td><td>Determines if we expect anything to be sent to the <code>Printer</code> instances using <code>print()</code></td></tr></tbody></table>
+
