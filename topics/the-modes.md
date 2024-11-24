@@ -23,17 +23,24 @@ Modes are set in your csvpath's comments. The modes are:&#x20;
   * `stop` / `no-stop`
   * `fail` / `no-fail`
 
-Modes are set in _external_ comments. External comments are comments that are outside the csvpath, above or below it. Comments can have other metadata and plain text mixed in with mode settings. When a setting is not explicitly made the default is:&#x20;
+Modes are only set in _external_ comments. External comments are comments that are outside the csvpath, above or below it. External comments can also have other user-defined metadata and plain text mixed in with mode settings. If a mode setting is followed by plain text there must be a stand-alone colon between the mode and the text.&#x20;
 
-* `run-mode`: the csvpath is run
-* `validation-mode`: validation errors are printed (note that `config.ini` raises exceptions by default,  the default behavior remains to raise exceptions)
+## Defaults
+
+When a mode is not explicitly set the default is:&#x20;
+
+* `explain-mode`: no explanations are logged when logging is set to INFO
+* `files-mode`: optional files are not generated unless there is data for them
 * `logic-mode`: match components are ANDed
+* `print-mode`: print statements go to the console
 * `return-mode`: matches are returned
-* `print-mode`: printing to the console is on
-* `explain-mode`: no explanation is presented in INFO
-* `unmatched-mode`: no lines that were not returned are kept&#x20;
-* `files-mode`: always-present files are generated and others may or may not be with no consequence
-* `transfer-mode`: there is no default
+* `run-mode`: the csvpath is run
+* `source-mode`: the named-file that was passed to the named-paths group is used as input
+* `transfer-mode`: no result data transfer is made
+* `unmatched-mode`: lines not returned are discarded&#x20;
+* `validation-mode`: validation errors are only printed and logged&#x20;
+
+## An Example
 
 These settings are configured like in this example of two trivial csvpaths in a named-paths group called `example`:
 
@@ -63,6 +70,8 @@ $[*][
 ```
 
 `hello_world` will not be run when the named-paths group runs, but it will be imported into the second csvpath identified as `next please!`. This example doesn't do much, but it gives an idea of how you can easily configure individual csvpaths within a group that will be run as a single unit. As you can see, some modes can take multiple values separated by commas.
+
+## Detailed Descriptions
 
 ### Run Mode
 
