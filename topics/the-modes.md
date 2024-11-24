@@ -4,23 +4,24 @@ In the context of a `CsvPaths` instance's run, an individual `CsvPath` instance 
 
 Modes are set in your csvpath's comments. The modes are:&#x20;
 
-* `run-mode:` \[`run` / `no-run`]
-* `validation-mode:` _(any combination of)_
-  * `print` / `no-print`
-  * `raise` / `no-raise`
-  * `stop` / `no-stop`
-  * `fail` / `no-fail`
-* `logic-mode:` \[`AND / OR`]
-* `return-mode:` \[`matches` / `no-matches`]
-* `print-mode:` \[`default` / `no-default`]
-* `explain-mode:` \[`explain` / `no-explain`]
-* `unmatched-mode:` \[`keep` / `no-keep`]
-* `files-mode:`&#x20;
+* [`explain-mode`](the-modes.md#explain-mode)`:` \[`explain` / `no-explain`]
+* [`files-mode`](the-modes.md#files-mode)`:` _(all or any combination of)_
   * `all`&#x20;
   * `data` / `no-data`&#x20;
   * `unmatched` / `no-unmatched`&#x20;
   * `printouts` / `no-printouts`&#x20;
-* `transfer-mode:` `data` / `unmatched` `>` `var-name`
+* [`logic-mode`](the-modes.md#logic-mode)`:` \[`AND / OR`]
+* [`print-mode`](the-modes.md#print-mode)`:` \[`default` / `no-default`]
+* [`return-mode`](the-modes.md#return-mode)`:` \[`matches` / `no-matches`]
+* [`run-mode`](the-modes.md#run-mode)`:` \[`run` / `no-run`]
+* [`source-mode`](the-modes.md#source-mode)`:` `preceding`
+* [`transfer-mode`](the-modes.md#transfer-mode)`:` `data` / `unmatched` `>` `var-name`
+* [`unmatched-mode`](the-modes.md#unmatched-mode)`:` \[`keep` / `no-keep`]
+* [`validation-mode`](the-modes.md#validation-mode)`:` _(any combination of)_
+  * `print` / `no-print`
+  * `raise` / `no-raise`
+  * `stop` / `no-stop`
+  * `fail` / `no-fail`
 
 Modes are set in _external_ comments. External comments are comments that are outside the csvpath, above or below it. Comments can have other metadata and plain text mixed in with mode settings. When a setting is not explicitly made the default is:&#x20;
 
@@ -105,6 +106,16 @@ There are various reasons why printouts.txt, data.csv and unmatched.csv might no
 `errors.json`, `vars.json`, `meta.json`, and `manifest.json` are always generated, regardless of `files-mode`. When you set `files-mode` to `all` the CsvPath Library will double-check that meta, vars, errors were correctly created, but that part of its checking is superfluous.
 
 <table><thead><tr><th width="210">Setting</th><th></th></tr></thead><tbody><tr><td><code>all</code></td><td>All file types are expected to be generated</td></tr><tr><td><code>data</code> / <code>no-data</code></td><td>Determines if the data.csv file is expected</td></tr><tr><td><code>unmatched</code> / <code>no-unmatched</code></td><td>Determines if the unmatched.csv file is expected</td></tr><tr><td><code>printouts</code> / <code>no-printouts</code></td><td>Determines if we expect anything to be sent to the <code>Printer</code> instances using <code>print()</code></td></tr></tbody></table>
+
+### Source Mode
+
+Usually the data for a csvpath in a named-paths group comes from the data input for the whole group. I.e., all the csvpaths in the group run against the same source file. However, in some cases you might want the input to a csvpath to be the csvpath preceding it. Meaning that the results captured from the first csvpath are piped into the second. To do this, you set `source-mode: preceding` on the second csvpath.
+
+
+
+| Setting     |                                                                                                              |
+| ----------- | ------------------------------------------------------------------------------------------------------------ |
+| `preceding` | Instructs the csvpath to use the output of the preceding csvpath in the named-paths group as its input data  |
 
 ### Transfer Mode
 
