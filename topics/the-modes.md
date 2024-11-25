@@ -30,7 +30,7 @@ Modes are only set in _external_ comments. External comments are comments that a
 When a mode is not explicitly set the default is:&#x20;
 
 * `explain-mode`: no explanations are logged when logging is set to INFO
-* `files-mode`: optional files are not generated unless there is data for them
+* `files-mode`: there is no check for optional files having been generated&#x20;
 * `logic-mode`: match components are ANDed
 * `print-mode`: print statements go to the console
 * `return-mode`: matches are returned
