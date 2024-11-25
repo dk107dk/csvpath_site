@@ -10,7 +10,7 @@ Modes are set in your csvpath's comments. The modes are:&#x20;
   * `data` / `no-data`&#x20;
   * `unmatched` / `no-unmatched`&#x20;
   * `printouts` / `no-printouts`&#x20;
-* [`logic-mode`](the-modes.md#logic-mode)`:` \[`AND / OR`]
+* [`logic-mode`](the-modes.md#logic-mode)`:` \[`AND` / `OR`]
 * [`print-mode`](the-modes.md#print-mode)`:` \[`default` / `no-default`]
 * [`return-mode`](the-modes.md#return-mode)`:` \[`matches` / `no-matches`]
 * [`run-mode`](the-modes.md#run-mode)`:` \[`run` / `no-run`]
