@@ -34,7 +34,7 @@
 * [Serial Or Breadth-first Runs?](topics/serial-or-breadth-first-runs.md)
 * [The Reference Data Types](topics/the_reference_data_types.md)
 * [Validation Strategies](topics/validation_strategies.md)
+* [Namespacing With the Archive](topics/namespacing-with-the-archive.md)
 * [Named Files and Paths](topics/named_files_and_paths.md)
 * [Config Setup](topics/config-setup.md)
 * [Debugging Your CsvPaths](topics/debugging.md)
-* [Namespacing With the Archive](topics/namespacing-with-the-archive.md)
