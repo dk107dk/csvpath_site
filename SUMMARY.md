@@ -37,3 +37,4 @@
 * [Named Files and Paths](topics/named_files_and_paths.md)
 * [Config Setup](topics/config-setup.md)
 * [Debugging Your CsvPaths](topics/debugging.md)
+* [Namespacing With the Archive](topics/namespacing-with-the-archive.md)
