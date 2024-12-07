@@ -21,7 +21,7 @@ layout:
 
 ## **A path to data validation for the files that need it most!**
 
-[CsvPath](https://github.com/csvpath/csvpath) is a declarative validation language to verify that CSV, Excel, and other delimited files meet expectations.&#x20;
+[CsvPath](https://github.com/csvpath/csvpath) is a declarative validation language to verify that CSV, Excel, and other delimited and tabular data meet expectations.&#x20;
 
 The CsvPath language, and its Python library, is simple, easy to integrate, and flexible enough to handle the unexpected quirks of CSV and Excel data. Inspired by [Schematron](https://schematron.com/), [XPath](https://www.w3.org/TR/xpath-31/), and [the Collect, Store, Validate design pattern](topics/the-collect-store-validate-pattern.md), CsvPath brings rules-based data validation to less structured data.
 
