@@ -1,4 +1,10 @@
+---
+description: There are many paths. What's the simplest thing that could possibly work?
+---
+
 # Path To Production
+
+<figure><img src="../.gitbook/assets/code_green_buttons.png" alt="" width="371"><figcaption></figcaption></figure>
 
 As you saw in [Your First Validation](your-first-validation.md) and [Another Example Part 2](another-example-part-1.md), there are two ways to use the CsvPath library.&#x20;
 
@@ -35,6 +41,6 @@ Adding a simple email giving validation results using SES is an easy add-on. The
 
 <figure><img src="../.gitbook/assets/ses-example.png" alt=""><figcaption></figcaption></figure>
 
-Likewise, pushing metadata or lines from the Results object into a database would be a straightforward database insert—at least if we're sticking with the [simplest-thing-that-could-possibly-work ethic](https://ronjeffries.com/xprog/articles/practices/pracsimplest/).
+Likewise, pushing metadata or lines from the Results object into a database would be a straightforward database insert—at least if we're sticking with the [simplest-thing-that-could-possibly-work ethic](https://ronjeffries.com/xprog/articles/practices/pracsimplest/).&#x20;
 
 And that's pretty much all of it. Obviously, some assembly required. As they say, an exercise for the reader.&#x20;
