@@ -1,10 +1,15 @@
 ---
-description: Get started with Edge Data Governance the easy way
+description: >-
+  Get started with Edge Data Governance the easy way. The instructions on this
+  page should take you 15 to 45 minutes, depending on network speeds, docker
+  startup times, etc.
 ---
 
 # CsvPath + OpenLineage
 
 <figure><img src="../.gitbook/assets/three-logos.png" alt="" width="188"><figcaption></figcaption></figure>
+
+First a bit on what we're aiming to do and why.
 
 Lineage is about tracking the changes to data sets and their usage over time with the goal of explaining how every state in the data lifecycle happened. Clear lineage data makes finding, explaining, and fixing problems easier. To get a clear view of the lineage of a data set you need metadata — lots of it — and a way to analyze the information to tell the story of how things happened. &#x20;
 
@@ -147,7 +152,7 @@ Click on [Group:lineage\_example.Instance:first lin...](http://localhost:3000/li
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.39.28 AM.png" alt=""><figcaption></figcaption></figure>
 
-And there you have it. A local install of Marquez integrated with a CsvPath project. Not bad for a couple minutes work.
+And there you have it. A local install of Marquez integrated with a CsvPath project. Not bad for a few minutes work.
 
 
 
