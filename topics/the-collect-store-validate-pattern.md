@@ -14,7 +14,7 @@ The CsvPath Library implements the CsvPath Language, and goes beyond it to provi
 
 Design patterns make it easy to reuse proven approaches and communicate about designs. **The Collect, Store, Validate Pattern** is a narrowly focused architecture for landing and distributing flat files with tabular data. It fills the gap between MFT (managed file transfer) and the typical data lake architecture. CsvPath Language validation is core to the pattern, but there is much more.
 
-<figure><img src="../.gitbook/assets/lineage-schema.png" alt=""><figcaption><p>A Collect, Store, Validate architecture using Marquez Server to collect OpenLineage events.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/lineage-schema.png" alt=""><figcaption><p>A Collect, Store, Validate architecture using Marquez Server to collect CsvPath's OpenLineage events.</p></figcaption></figure>
 
 Onboarding flat files may feel like a simple thing; too simple to focus on and pattern. That would be a mistake. Flat files are widespread, drive large-scale revenue and value-delivered, and are trickier and more expensive than you might think. 4 of this author's last 6 companies derived more than half a billion USD a year in revenue based on flat-file data exchanges. The 5th provided tools that, in part, enabled companies to do many billions of dollars more of flat-file-dependent business. The 6th exchanged vital research data, a substantial amount in flat-files, that impacts essentially everyone alive on the planet. These were all leading-edge companies.&#x20;
 
