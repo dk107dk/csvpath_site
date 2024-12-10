@@ -140,7 +140,7 @@ Switch to the Jobs vertical tab on the left-hand side.&#x20;
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.24.36 AM.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Then look at the top right for the namespaces dropdown.&#x20;
+Then look at the top right for the namespaces dropdown. Select `Sunshine_Inc`. If you don't see our namespace right away, refresh the page.
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.38.56 AM.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -148,11 +148,11 @@ You should now see your job events!
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.39.08 AM.png" alt=""><figcaption></figcaption></figure>
 
-Click on [Group:lineage\_example.Instance:first lin...](http://localhost:3000/lineage/job/Sunshine_Inc/Group%3Alineage_example.Instance%3Afirst%20lineage%20example) to open your core job. There will be other jobs for staging assets. You can learn about everything you are seeing on other pages of this site.&#x20;
+Click on [Group:lineage\_example.Instance:first lin...](http://localhost:3000/lineage/job/Sunshine_Inc/Group%3Alineage_example.Instance%3Afirst%20lineage%20example) to open your core job. There will be other jobs that were for staging assets. You can learn about everything you are seeing on other pages of this site.&#x20;
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.39.28 AM.png" alt=""><figcaption></figcaption></figure>
 
-And there you have it. A local install of Marquez integrated with a CsvPath project. Not bad for a few minutes work.
+And there you have it. A local install of Marquez integrated with a CsvPath project. Clarity and consistency! Not bad for a few minutes work. And a good start on the journey to stronger edge governance and operational efficiency.&#x20;
 
 
 
