@@ -15,7 +15,7 @@ Lineage is about tracking the changes to data sets and their usage over time wit
 
 [OpenLineage](https://openlineage.io/) is an open standard for event-based lineage capture. [Marquez](https://peppy-sprite-186812.netlify.app/) is the server and webapp providing the reference API to collect and display OpenLineage events. CsvPath is an OpenLineage event source that provides copious metadata describing how your data moves through a consistent onboarding lifecycle.&#x20;
 
-Together these three open source tools provide an unprecedented level of visibility into your data onboarding operation. With workflow, transformation, and processing tools like **dbt**, **Airflow**, and **Spark** also throwing off OpenLineage events, you now have a straightforward way to collect end-to-end lineage. From data partner, to data lake, to analytics and applications, and back out to the World as a data product or service.
+Together these open source tools **fill the gap between MFT (managed file transfer) and the typical data lake architecture**. They provide an unprecedented level of visibility into your data onboarding operation. With workflow, transformation, and processing tools like **dbt**, **Airflow**, and **Spark** also throwing off OpenLineage events, you now have a straightforward way to collect end-to-end lineage. From data partner, to data lake, to analytics and applications, and back out to the World as a data product or service.
 
 <figure><img src="../.gitbook/assets/lineage-schema.png" alt=""><figcaption><p>An end-to-end lineage schematic</p></figcaption></figure>
 
