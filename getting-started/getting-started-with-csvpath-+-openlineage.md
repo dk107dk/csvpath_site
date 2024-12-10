@@ -5,7 +5,7 @@ description: >-
   startup times, etc.
 ---
 
-# CsvPath + OpenLineage
+# Getting Started With CsvPath + OpenLineage
 
 <figure><img src="../.gitbook/assets/three-logos.png" alt="" width="188"><figcaption></figcaption></figure>
 
@@ -96,7 +96,7 @@ After CsvPath adds your input data file you go back to the top menu. This time s
 
 <figure><img src="../.gitbook/assets/add-named-path.png" alt="" width="223"><figcaption></figcaption></figure>
 
-You'll be asked for a name. Give the name lineage\_example. You will again be asked if you are picking a file (of csvpaths), a directory, or a JSON file. Again pick file. You will be presented with your directory:&#x20;
+You'll be asked for a name. Give the name `lineage_example`. You will again be asked if you are picking a file of csvpaths, a directory, or a JSON file. Again pick file. You will be presented with your directory:&#x20;
 
 <figure><img src="../.gitbook/assets/named-paths-file.png" alt="" width="238"><figcaption></figcaption></figure>
 
