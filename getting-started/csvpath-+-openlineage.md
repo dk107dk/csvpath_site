@@ -8,23 +8,23 @@ description: Get started with Edge Data Governance the easy way
 
 Lineage is about tracking the changes to data sets and their usage over time with the goal of explaining how every state in the data lifecycle happened. Clear lineage data makes finding, explaining, and fixing problems easier. To get a clear view of the lineage of a data set you need metadata — lots of it — and a way to analyze the information to tell the story of how things happened. &#x20;
 
-[OpenLineage](https://openlineage.io/) is an open standard for event-based lineage capture. [Marquez](https://peppy-sprite-186812.netlify.app/) is the server and webapp providing the reference API to collect and display OpenLineage events. CsvPath is an OpenLineage event source that provides copious metadata describing how your data moves through the onboarding lifecycle.&#x20;
+[OpenLineage](https://openlineage.io/) is an open standard for event-based lineage capture. [Marquez](https://peppy-sprite-186812.netlify.app/) is the server and webapp providing the reference API to collect and display OpenLineage events. CsvPath is an OpenLineage event source that provides copious metadata describing how your data moves through a consistent onboarding lifecycle.&#x20;
 
-Together these three open source tools provide a level of visibility into your data onboarding operation that is unprecedented. With workflow, transformation, and processing tools like dbt, Airflow, and Spark also throwing off OpenLineage events, you now have a straightforward way to collect end-to-end lineage. From data partner, to data lake, to analytics and applications, and back out to the World as a data product or service.
+Together these three open source tools provide an unprecedented level of visibility into your data onboarding operation. With workflow, transformation, and processing tools like **dbt**, **Airflow**, and **Spark** also throwing off OpenLineage events, you now have a straightforward way to collect end-to-end lineage. From data partner, to data lake, to analytics and applications, and back out to the World as a data product or service.
 
 <figure><img src="../.gitbook/assets/lineage-schema.png" alt=""><figcaption><p>An end-to-end lineage schematic</p></figcaption></figure>
 
 ## How to start
 
-To start, create a new CsvPath project. As usual we'll use Poetry, but you're welcome to use Pip or any Python project tool.
+<img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.12.53 AM (1).png" alt="" data-size="line"> To start, create a new CsvPath project. As usual we'll use Poetry, but of course you can use Pip or any Python project tool.
 
 <figure><img src="../.gitbook/assets/lineage-project-start.png" alt="" width="375"><figcaption></figcaption></figure>
 
 That sets up your CsvPath library. For this example we only need the CLI so we're almost done. We'll create a dummy CsvPath language file to run and some dummy data in a moment.&#x20;
 
-Install [Docker desktop](https://www.docker.com/products/docker-desktop/), if you don't already have it. You'll need to create a Dockerhub account. Should be painless.
+<img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.16.06 AM.png" alt="" data-size="line"> Install [Docker desktop](https://www.docker.com/products/docker-desktop/), if you don't already have it. You'll need to create a Dockerhub account. Should be painless.
 
-Next install Marquez. [Read this page](https://peppy-sprite-186812.netlify.app/docs/quickstart) because it's interesting and tells you much more than this page.&#x20;
+<img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.16.16 AM.png" alt="" data-size="line"> Next install Marquez. [Read this page](https://peppy-sprite-186812.netlify.app/docs/quickstart) because it's interesting and tells you much more than this page.&#x20;
 
 Clone the Marquez Github: &#x20;
 
@@ -40,7 +40,7 @@ In the marquez directory do:&#x20;
 
 After the images download and the server starts you should be done setting up Marquez.
 
-Back to CsvPath. Create a file in your project directory called `test.csv`. Paste in our usual test data.
+<img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.17.25 AM.png" alt="" data-size="line"> Back to CsvPath. Create a file in your project directory called `test.csv`. Paste in our usual test data.
 
 ```csv
 firstname,lastname,say
@@ -61,7 +61,7 @@ Create another file called lineage\_example.csvpath. Paste in this:&#x20;
 $[*][ yes()]
 ```
 
-Before we can run your files we need to stage them in the CsvPath framework's inputs directory. We also need to tell CsvPath library that it should send events to Marquez.  We'll add the files first because that will give CsvPath the opportunity to create directories and config files.
+<img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.17.34 AM.png" alt="" data-size="line"> Before we can run your files we need to stage them in the CsvPath framework's inputs directory. We also need to tell CsvPath library that it should send events to Marquez.  We'll add the files first because that will give CsvPath the opportunity to create directories and config files.
 
 Fire up the CsvPath CLI. Do:&#x20;
 
@@ -93,15 +93,15 @@ You'll be asked for a name. Give the name lineage\_example. You will again be as
 
 &#x20;Pick your `lineage_example.csvpath` file. And you're done with that part of the setup. Next let's modify the `config.ini` slightly.&#x20;
 
-Open `./config/config.ini`. We want to make two changes. First we'll change the archive name. You don't really need to do this, but since your example isn't real work, why not separate it?
+<img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.19.30 AM.png" alt="" data-size="line"> Open `./config/config.ini`. We want to make two changes. First we'll change the archive name. You don't really need to do this, but since your example isn't real work, why not separate it?
 
 We also need to uncomment the `[listeners]` and `[marquez]` settings. When you've made those changes your config file should look like:&#x20;
 
 <figure><img src="../.gitbook/assets/config-changed.png" alt=""><figcaption></figcaption></figure>
 
-Notice we made the archive name `Sunshine Inc`.
+Notice we made the archive name `Sunshine_Inc`. Do the same. Marquez doesn't like spaces so use the `_`.
 
-Now we can run our csvpath. Restart your CLI so it has your config changes.
+<img src="../.gitbook/assets/Screenshot 2024-12-10 at 11.19.38 AM.png" alt="" data-size="line"> Now we can run our csvpath! Restart your CLI so it has your config changes.
 
 At the top level select run:
 
@@ -123,3 +123,6 @@ You should get a message indicating that your run completed:&#x20;
 
 <figure><img src="../.gitbook/assets/run-complete.png" alt="" width="375"><figcaption></figcaption></figure>
 
+We're good. We should see our run in Marquez. Open [http://localhost:3000/](http://localhost:3000/). You'll be looking at the default namespace. default is empty. We pushed our events to `Sunshine_Inc`.
+
+Switch to the Jobs virtical tab on the left-hand side. Then look at the top right for the namespaces dropdown.&#x20;
