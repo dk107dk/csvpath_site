@@ -6,6 +6,10 @@ This page gives you all the information you need to get started validating your 
 If you need help getting started with Python, try [Python.org's intros](https://www.python.org/about/gettingstarted/). Starting with a project tool like [Poetry](https://python-poetry.org/docs/basic-usage/) or [Jupyter Notebooks](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/) can also help.
 {% endhint %}
 
+{% hint style="success" %}
+Feel like skipping the Python? There isn't much, and it's totally jumping ahead, [but if you insist try this Python-free CLI example](your-first-validation-the-lazy-way.md).
+{% endhint %}
+
 ### PyPI and Github
 
 The CsvPath library is available through [PyPI](https://pypi.org/project/csvpath/) as `csvpath`. At this stage, pre 1.0, the project changes frequently. You should pin the version you use but update it regularly.&#x20;
@@ -22,11 +26,7 @@ Both of the optional dependencies add a lot of bulk and platform considerations.
 
 You can check under the hood on [Github](https://github.com/dk107dk/csvpath). There are detailed docs that you can read in parallel or in addition to this site.
 
-<div data-full-width="false">
-
-<figure><img src="../.gitbook/assets/github-home.png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
+<div data-full-width="false"><figure><img src="../.gitbook/assets/github-home.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### Let's run something!
 
