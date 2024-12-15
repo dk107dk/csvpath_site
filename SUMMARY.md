@@ -22,6 +22,7 @@
   * [Rewind / replay](topics/how-tos/rewind-replay.md)
 * [Language Basics](topics/language.md)
 * [The Collect, Store, Validate Pattern](topics/the-collect-store-validate-pattern.md)
+* [A CsvPath Cheatsheet](topics/a-csvpath-cheatsheet.md)
 * [Where Do I Find Results?](topics/where-do-i-find-results.md)
 * [File Management](topics/file-management.md)
 * [Why CsvPath?](topics/why-csvpath.md)
