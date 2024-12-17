@@ -6,7 +6,7 @@ layout:
     visible: true
     size: full
   title:
-    visible: true
+    visible: false
   description:
     visible: false
   tableOfContents:
@@ -18,6 +18,8 @@ layout:
 ---
 
 # CsvPath
+
+<figure><img src=".gitbook/assets/logo-wordmark-4.svg" alt=""><figcaption></figcaption></figure>
 
 ## **A path to data validation for the files that need it most!**
 
