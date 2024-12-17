@@ -19,7 +19,7 @@ layout:
 
 # CsvPath
 
-<figure><img src=".gitbook/assets/logo-wordmark-4.svg" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/logo-wordmark-4.svg" alt=""><figcaption><p>Collect. Store. Validate.</p></figcaption></figure>
 
 ## **A path to data validation for the files that need it most!**
 
