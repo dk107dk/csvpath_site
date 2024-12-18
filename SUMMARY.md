@@ -20,6 +20,7 @@
 * [How-tos](topics/how-tos/README.md)
   * [Creating a derived file](topics/how-tos/creating-a-derived-file.md)
   * [Rewind / replay](topics/how-tos/rewind-replay.md)
+  * [Setup notifications to Slack](topics/how-tos/setup-notifications-to-slack.md)
 * [Language Basics](topics/language.md)
 * [The Collect, Store, Validate Pattern](topics/the-collect-store-validate-pattern.md)
 * [A CsvPath Cheatsheet](topics/a-csvpath-cheatsheet.md)
