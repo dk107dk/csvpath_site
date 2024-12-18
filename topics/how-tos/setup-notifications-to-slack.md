@@ -64,10 +64,13 @@ The value of the field is a webhook URL. When you add these fields remember to o
 https://hooks.slack.com/services/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
 ```
 
-You use:&#x20;
+You just use:&#x20;
 
-```
-hooks.slack.com/services/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
+```xquery
+~
+id: Slack example
+on-valid-slack: hooks.slack.com/services/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
+~
 ```
 
 The reason to do that is because a full URL has a protocol signifier that includes a colon. Since metadata fields are defined as names followed by a colon, `https://...` looks to CsvPath like a metadata field named `https`.
