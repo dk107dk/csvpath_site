@@ -14,11 +14,11 @@ CsvPath can send alerts to Slack as run events happen. It looks basically like t
 
 To recap, there are five event types. Each event goes to listeners. CsvPath has its own listener that creates new or updated manifests. The types are:&#x20;
 
-* Named-file staging: a `file` event is fired at the time you add a file to the file inputs directory using the file manager.
-* Named-paths loading: a `paths` event is fired when you load a named-paths group into the inputs directory using the paths manager.&#x20;
-* Run start: when a run starts a `run` notification indicates the highest level inputs and start time. This event is fired whenever a named-path is started, so it is at the same point as a result event, but with the flatter, broader intent of telling you that an activity in the archive is happening.&#x20;
-* Results available: `results` events are fired when at the beginning and end of a named-paths group run. It is summary-level information about the group's progress.
-* Result available: a result `event` is fired when an instance of a csvpath in a named-paths group starts or completes. This is the most detailed event.
+* **Named-file staging**: a `file` event is fired at the time you add a file to the file inputs directory using the file manager.
+* **Named-paths loading**: a `paths` event is fired when you load a named-paths group into the inputs directory using the paths manager.&#x20;
+* **Run start**: when a run starts a `run` notification indicates the highest level inputs and start time. This event is fired whenever a named-path is started, so it is at the same point as a result event, but with the flatter, broader intent of telling you that an activity in the archive is happening.&#x20;
+* **Results available**: `results` events are fired when at the beginning and end of a named-paths group run. It is summary-level information about the group's progress.
+* **Result available**: a result `event` is fired when an instance of a csvpath in a named-paths group starts or completes. This is the most detailed event.
 
 All of these events are received by all listeners configured in `config/config.ini` to listen for events of a type. For example, the Marquez OpenLineage listeners are configured like this:
 
