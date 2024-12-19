@@ -50,14 +50,14 @@ webhook_url =
 
 Obviously you need to add your webhook URL.&#x20;
 
-And finally you need to tell CsvPath that you want the `slack` group to receive events. Do that by adding slack to the groups key in the `[listeners]` section of `config.ini`.
+And finally you need to tell CsvPath that you want the `slack` group of event listeners to receive events. Do that by adding slack to the groups key in the `[listeners]` section of `config.ini`.
 
 ```ini
 [listeners]
 groups = slack, marquez
 ```
 
-As the comments in your config file say, you can also configure the result Slack events on a csvpath-by-csvpath basis. Only the result events can be configured by a csvpath. That is because the result event is tied to a single csvpath; whereas, the other events apply to groups of csvpaths or to input files.
+As the comments in your config file say, you can also configure the result Slack events on a csvpath-by-csvpath basis. Only the `result` events can be configured by a csvpath. That is because a `result` event is tied to a single csvpath; whereas, the other events apply to named-paths groups of csvpaths or to input files.
 
 Within your csvpath you need an external comment. An external comment is one that is above or below the csvpath, not within the match part of the csvpath. In the external comment you may put one or two custom metadata fields that the Slack integration knows to look for:
 
@@ -79,8 +79,8 @@ on-valid-slack: hooks.slack.com/services/T085CBWRUH4/B085G72QY77/xInazYF04qBex3A
 ~
 ```
 
-The reason to do that is because a full URL has a protocol signifier that includes a colon. Since metadata fields are defined as names followed by a colon, `https://...` looks to CsvPath like a metadata field named `https`.
+The reason to use the shorter form is because a full URL has a protocol signifier that includes a colon. Since CsvPath metadata fields are defined as names followed by a colon, `https://...` looks to CsvPath like a metadata field named `https`.
 
 If neither of these metadata fields is present, your event will go to the default URL in `config/config.ini`. As you would guess, if your csvpath is valid — per the `valid` field in the metadata collected during the run — the `on-valid-slack` webhook is called. If not `valid` the `on-invalid-slack` webhook gets the call. &#x20;
 
-And in case you don't remember, you set the `valid` value using the `fail()` function. A csvpath is considered valid by default. Under certain circumstances it may have indications that something is wrong (e.g. expected files not generated, stopped early, etc.) which generally you can see in the metadata. But unless you explicitly say a file is invalid, it is valid. That said, bear in mind that built-in validations when tripped can mark a file as invalid. For example, if you try to `add("five", none())` you will raise an error and depending on your [mode settings](../the-modes.md), your file may be marked invalid without you having to do anything.
+And in case you don't remember, you set the `valid` value using the `fail()` function. A csvpath is considered valid by default. Under certain circumstances it may have indications that something is wrong (e.g. expected files not generated, stopped early, etc.) which generally you can see in the metadata and/or `errors.json`. But unless you explicitly say a file is invalid, it is valid. That said, bear in mind that built-in validations, when tripped, can mark a file as invalid. For example, if you try to `add("five", none())` you will raise an error and depending on your [mode settings](../the-modes.md), your file may be marked invalid without you having to do anything.
