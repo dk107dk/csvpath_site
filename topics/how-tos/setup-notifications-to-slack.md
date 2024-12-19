@@ -4,9 +4,15 @@ description: Send yourself notifications about CsvPath runs via Slack webhooks
 
 # Setup notifications to Slack
 
-<figure><img src="../../.gitbook/assets/Slack-logo.png" alt="" width="188"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-12-18 at 7.04.18 PM.png" alt="" width="563"><figcaption></figcaption></figure>
 
-CsvPath can send alerts to Slack when run events happen. To recap, there are five event types. Each event goes to listeners. CsvPath has its own listener that creates new or updated manifests. The types are:&#x20;
+
+
+CsvPath can send alerts to Slack as run events happen. It looks basically like this:&#x20;
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-12-18 at 8.09.16 AM.png" alt="" width="563"><figcaption></figcaption></figure>
+
+To recap, there are five event types. Each event goes to listeners. CsvPath has its own listener that creates new or updated manifests. The types are:&#x20;
 
 * Named-file staging: a `file` event is fired at the time you add a file to the file inputs directory using the file manager.
 * Named-paths loading: a `paths` event is fired when you load a named-paths group into the inputs directory using the paths manager.&#x20;
