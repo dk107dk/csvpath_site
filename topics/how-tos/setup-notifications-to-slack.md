@@ -77,6 +77,7 @@ You just use:&#x20;
 id: Slack example
 on-valid-slack: hooks.slack.com/services/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
 ~
+$[*][print("hello world!")]
 ```
 
 The reason to use the shorter form is because a full URL has a protocol signifier that includes a colon. Since CsvPath metadata fields are defined as names followed by a colon, `https://...` looks to CsvPath like a metadata field named `https`.
