@@ -12,6 +12,8 @@ CsvPath can send alerts to Slack as run events happen. It looks basically like t
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-12-18 at 8.09.16 AM.png" alt="" width="563"><figcaption></figcaption></figure>
 
+## Event Types
+
 To recap, there are five event types. Each event goes to listeners. CsvPath has its own listener that creates new or updated manifests. The types are:&#x20;
 
 * **Named-file staging**: a `file` event is fired at the time you add a file to the file inputs directory using the file manager.
@@ -19,6 +21,8 @@ To recap, there are five event types. Each event goes to listeners. CsvPath has 
 * **Run start**: when a run starts a `run` notification indicates at the highest-level the inputs and start time. It tells you that an activity is happening in the archive.&#x20;
 * **Results available**: `results` events are fired when at the beginning and end of a named-paths group run. It is summary-level information about the group's progress.
 * **Result available**: a result `event` is fired when an instance of a csvpath in a named-paths group starts or completes. This is the most detailed event.
+
+## Configuring Listeners
 
 All of these events are received by all listeners configured in `config/config.ini` to listen for events of a type. For example, the Marquez OpenLineage listeners are configured like this:
 
@@ -57,6 +61,8 @@ And finally you need to tell CsvPath that you want the `slack` group of event li
 groups = slack, marquez
 ```
 
+## Using Csvpath-by-csvpath Webhooks
+
 As the comments in your config file say, you can also configure the result Slack events on a csvpath-by-csvpath basis. Only the `result` events can be configured by a csvpath. That is because a `result` event is tied to a single csvpath; whereas, the other events apply to named-paths groups of csvpaths or to input files.
 
 Within your csvpath you need an external comment. An external comment is one that is above or below the csvpath, not within the match part of the csvpath. In the external comment you may use one or both of the custom metadata fields that the Slack integration knows to look for:
@@ -84,4 +90,10 @@ The reason to use the shorter form is because a full URL has a protocol signifie
 
 If neither of these metadata fields is present, your event will go to the default URL in `config/config.ini`. As you would guess, if your csvpath is valid — per the `valid` field in the metadata collected during the run — the `on-valid-slack` webhook is called. If not `valid` the `on-invalid-slack` webhook gets the call. &#x20;
 
-And in case you don't remember, you set the `valid` value using the `fail()` function. A csvpath is considered valid by default. Under certain circumstances it may have indications that something is wrong (e.g. the expected files not generated and stopped early indicators) which generally you see in the metadata and/or as errors in `errors.json`. But unless you explicitly say a file is invalid, it is valid. That said, bear in mind that built-in validations, when tripped, can mark a file as invalid. For example, if you try to `add("five", none())` you will raise an error and depending on your [mode settings](../the-modes.md), your file may be marked invalid without you having to do anything.
+## A Reminder About Validity
+
+And in case you don't remember, you set the `valid` value using the `fail()` function.&#x20;
+
+A csvpath is considered valid by default. Under certain circumstances it may have indications that something is wrong (e.g. the expected files not generated and stopped early indicators) which generally you see in the metadata and/or as errors in `errors.json`. But unless you explicitly say a file is invalid, it is valid.&#x20;
+
+That said, bear in mind that built-in validations, when tripped, can mark a file as invalid. For example, if you try to `add("five", none())` you will raise an error and depending on your [mode settings](../the-modes.md), your file may be marked invalid without you having to do anything. In that case, if you had `on-invalid-slack` configured with a webhook, you would get an alert.
