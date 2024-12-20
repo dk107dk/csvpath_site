@@ -16,7 +16,7 @@ To recap, there are five event types. Each event goes to listeners. CsvPath has 
 
 * **Named-file staging**: a `file` event is fired at the time you add a file to the file inputs directory using the file manager.
 * **Named-paths loading**: a `paths` event is fired when you load a named-paths group into the inputs directory using the paths manager.&#x20;
-* **Run start**: when a run starts a `run` notification indicates the highest level inputs and start time. This event is fired whenever a named-path is started, so it is at the same point as a result event, but with the flatter, broader intent of telling you that an activity in the archive is happening.&#x20;
+* **Run start**: when a run starts a `run` notification indicates at the highest-level the inputs and start time. It tells you that an activity is happening in the archive.&#x20;
 * **Results available**: `results` events are fired when at the beginning and end of a named-paths group run. It is summary-level information about the group's progress.
 * **Result available**: a result `event` is fired when an instance of a csvpath in a named-paths group starts or completes. This is the most detailed event.
 
@@ -50,7 +50,7 @@ webhook_url =
 
 Obviously you need to add your webhook URL.&#x20;
 
-And finally you need to tell CsvPath that you want the `slack` group of event listeners to receive events. Do that by adding slack to the groups key in the `[listeners]` section of `config.ini`.
+And finally you need to tell CsvPath that you want the `slack` group of event listeners to receive events. Do that by adding slack to the `groups` key in the `[listeners]` section of `config.ini`.
 
 ```ini
 [listeners]
