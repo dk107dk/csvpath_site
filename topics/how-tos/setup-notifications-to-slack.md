@@ -23,10 +23,10 @@ To recap, there are five event types. Each event goes to listeners. CsvPath has 
 All of these events are received by all listeners configured in `config/config.ini` to listen for events of a type. For example, the Marquez OpenLineage listeners are configured like this:
 
 ```ini
-file = from csvpath.managers.files.file_listener_ol import OpenLineageFileListener
-paths = from csvpath.managers.paths.paths_listener_ol import OpenLineagePathsListener
-result = from csvpath.managers.results.result_listener_ol import OpenLineageResultListener
-results = from csvpath.managers.results.results_listener_ol import OpenLineageResultsListener
+marquez.file = from csvpath.managers.files.file_listener_ol import OpenLineageFileListener
+marquez.paths = from csvpath.managers.paths.paths_listener_ol import OpenLineagePathsListener
+marquez.result = from csvpath.managers.results.result_listener_ol import OpenLineageResultListener
+marquez.results = from csvpath.managers.results.results_listener_ol import OpenLineageResultsListener
 ```
 
 There is a Slack listener that can receive any of those same four events. (Neither Marquez or Slack support the very general `run` event). To configure Slack you simple add any or all of these lines to your `config.ini` file:
