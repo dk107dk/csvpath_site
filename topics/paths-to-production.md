@@ -2,11 +2,11 @@
 description: There are many paths. What's the simplest thing that could possibly work?
 ---
 
-# Path To Production
+# Paths To Production
 
 <figure><img src="../.gitbook/assets/code_green_buttons.png" alt="" width="371"><figcaption></figcaption></figure>
 
-As you saw in [Your First Validation](your-first-validation.md) and [Another Example Part 2](another-example-part-1.md), there are two ways to use the CsvPath library.&#x20;
+As you saw in [Your First Validation](../getting-started/your-first-validation.md) and [Another Example Part 2](../getting-started/another-example-part-1.md), there are two ways to use the CsvPath library.&#x20;
 
 * Single csvpath pointing to a single file, simple results
 * Multi-csvpath
@@ -33,7 +33,7 @@ Your Lambda, where CsvPath runs, is pretty simple. (Remembering this is just a s
 
 <figure><img src="../.gitbook/assets/lambda_code.png" alt=""><figcaption><p>Pseudo-code for setting up CsvPaths in an AWS Lambda</p></figcaption></figure>
 
-And we can repurpose the multi-csvpath file from [Another Example, Part 2](another-example-part-2.md) to stand in for your inbound file validation rules.
+And we can repurpose the multi-csvpath file from [Another Example, Part 2](../getting-started/another-example-part-2.md) to stand in for your inbound file validation rules.
 
 <figure><img src="../.gitbook/assets/inbound_validation_csvpaths.png" alt=""><figcaption></figcaption></figure>
 

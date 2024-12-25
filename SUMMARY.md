@@ -11,8 +11,6 @@
 * [Another Example, Part 1](getting-started/another-example-part-1.md)
 * [Another Example, Part 2](getting-started/another-example-part-2.md)
 * [Getting Started With CsvPath + OpenLineage](getting-started/getting-started-with-csvpath-+-openlineage.md)
-* [Paths To Production](getting-started/paths-to-production.md)
-* [Solution Storming](getting-started/solution-storming.md)
 * [Get Help](getting-started/get-help.md)
 
 ## Topics
@@ -25,8 +23,10 @@
 * [Language Basics](topics/language.md)
 * [The Collect, Store, Validate Pattern](topics/the-collect-store-validate-pattern.md)
 * [A CsvPath Cheatsheet](topics/a-csvpath-cheatsheet.md)
-* [Where Do I Find Results?](topics/where-do-i-find-results.md)
+* [Paths To Production](topics/paths-to-production.md)
+* [Solution Storming](topics/solution-storming.md)
 * [File Management](topics/file-management.md)
+* [Where Do I Find Results?](topics/where-do-i-find-results.md)
 * [Why CsvPath?](topics/why-csvpath.md)
 * [Python vs. CsvPath](topics/python-vs.-csvpath.md)
 * [CsvPath Use Cases](topics/csvpath_use_cases.md)
