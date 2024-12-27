@@ -43,3 +43,4 @@
 * [Named Files and Paths](topics/named_files_and_paths.md)
 * [Config Setup](topics/config-setup.md)
 * [Debugging Your CsvPaths](topics/debugging.md)
+* [CKAN directives](topics/ckan-directives.md)
