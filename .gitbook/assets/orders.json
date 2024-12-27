@@ -1,0 +1,13 @@
+{
+    "orders": [
+        "assets/csvpaths/metadata.csvpath",
+        "assets/csvpaths/file_length.csvpath",
+        "assets/csvpaths/reset.csvpath",
+        "assets/csvpaths/categories.csvpath",
+        "assets/csvpaths/prices.csvpath",
+        "assets/csvpaths/sku_upc.csvpath"
+    ],
+    "top_matter_import": [
+        "assets/csvpaths/top_matter_import.csvpath"
+    ]
+}
