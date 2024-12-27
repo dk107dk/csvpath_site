@@ -1,0 +1,29 @@
+---- CSVPATH ----
+
+~ description: Check for SKUs and UPCs
+  id: upc-sku
+  validation-mode: no-raise, no-stop
+  unmatched-mode: keep
+
+  ckan-publish: always
+  ckan-group: A Big Test
+  ckan-dataset-name: orders_march
+  ckan-dataset-title: Orders March 2024
+  ckan-visibility: public
+  ckan-send: data, printouts, unmatched
+  ckan-split-printouts: split
+  ckan-printouts-title: Validation Errors
+  ckan-data-title: Orders Data
+  ckan-unmatched-title: Orders Not Accepted
+  ckan-vars-title: Run Variables
+  ckan-meta-title: Run Metadata
+  ckan-errors-title: Run Errors
+~
+$[*][
+    import("top_matter_import")
+    print("Line $.csvpath.line_number: $.csvpath.headers", "Headers by line")
+    not.nocontrib( #SKU ) -> print("Line $.csvpath.count_lines: No SKU", fail())
+    not.nocontrib( #UPC ) -> print("Line $.csvpath.count_lines: No UPC", fail())
+    not(#SKU)
+]
+

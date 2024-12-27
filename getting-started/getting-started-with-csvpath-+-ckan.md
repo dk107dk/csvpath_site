@@ -84,7 +84,9 @@ Package operations: 31 installs, 0 updates, 0 removals
 
 You'll see a few more dependencies installed than I'm pasting in here, but otherwise, that's it.
 
-Now copy your files from the [Another Example](another-example-part-2.md) pages. Put the csv file in: `assets/csvs` and the csvpaths in `assets/csvpaths`. You can put these files anywhere within the project, really, because we are going to use CsvPath's CLI to import them. Put the JSON file in the project root directory; again, it could go anywhere you like.
+Now we'll copy the files from the [Another Example](another-example-part-2.md) pages. The ones attached here are slightly updated so use them, even if you did the example and have your own.&#x20;
+
+Put the csv file in: `assets/csvs` and the csvpaths in `assets/csvpaths`. You _can_ put these files anywhere within the project, really, because we are going to use CsvPath's CLI to import them, but for now, still with those directories. Put the JSON file in the project root directory; again, it _could_ go anywhere you like within the project.
 
 {% file src="../.gitbook/assets/orders.json" %}
 
@@ -100,7 +102,7 @@ Now copy your files from the [Another Example](another-example-part-2.md) pages.
 
 {% file src="../.gitbook/assets/reset (1).csvpath" %}
 
-{% file src="../.gitbook/assets/sku_upc (1).csvpath" %}
+{% file src="../.gitbook/assets/sku_upc (3).csvpath" %}
 
 {% file src="../.gitbook/assets/top_matter_import (2).csvpath" %}
 
@@ -126,11 +128,11 @@ If you aren't using poetry have a look in the pyproject.toml to see the command 
 
 Check to make sure the config directory was created. If it was, select `quit`.
 
-Next open `config/config.ini`. Remove the comment from the CKAN listener configuration. Then add ckan to the listener groups. Your file's `[listeners]` section should look like:&#x20;
+Next open `config/config.ini`. Check the CKAN listener configuration under the \[listeners] section. If it is commented out, remove the `#` comment marker. Then add ckan to the listener `groups`. Your file's `[listeners]` section should look like:&#x20;
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-24 at 11.23.06 PM.png" alt=""><figcaption></figcaption></figure>
 
-Create an API token in CKAN in your profile page. It's [a quick task described here](https://docs.ckan.org/en/2.9/api/index.html?#authentication-and-api-tokens). Add your API token to the `api_token` key in the `[ckan]` section.
+Create an API token in CKAN in your profile page. It's [a quick task described here](https://docs.ckan.org/en/2.9/api/index.html?#authentication-and-api-tokens). Add your API token to the `api_token` key in the `[ckan]` section. If your CKAN server is at a different address, change the server key to point to it.
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-24 at 11.25.06 PM.png" alt=""><figcaption></figcaption></figure>
 
@@ -144,14 +146,14 @@ Now CsvPath will send named-group run `results` events to the CKAN integration s
 
 ## Adding CKAN metadata directives
 
-The last part of connecting CKAN and CsvPath is to add instructions for how the events should be handled. The instructions will be in the form of metadata directives, similar to the modes settings. Metadata directives are tagged instructions you put in the external comments of a csvpath. By tagged we mean they are metadata fields that are defined as keywords followed by colons like:&#x20;
+The last part of connecting CKAN and CsvPath is to add instructions for how the events should be handled. The instructions will be in the form of metadata directives, similar to CsvPath's [modes settings](../topics/the-modes.md). Metadata directives are instructions you put in the external comments of a csvpath. They are special metadata fields that the CKAN integration looks for. Metadata fields are created by keywords followed by colons, like:&#x20;
 
 ```
 description: this is a user defined metadata field named description.
 lunch-menu: this is another user defined metadata field, it is named lunch-menu.
 ```
 
-In this example `lunch-menu` starts because it has a colon. That means that the `description`-keyed metadata is: `this is a user defined metadata field named description.`
+In this example `lunch-menu` starts a new metadata field because it has a colon. That means that the `description`-keyed metadata is: `this is a user defined metadata field named description.`
 
 Metadata goes in external comments. An external comment is one that is outside the csvpath; above it or below.&#x20;
 
@@ -172,13 +174,13 @@ Here are the possible directives with possible values and/or examples. You can [
 * `ckan-errors-title`: Orders&#x20;
 * `ckan-split-printouts`: (no-)split
 
-Yes, that's a lot! You will come to appreciate the flexibility. When you are first getting started you may want to have the description/how-to pages at hand.
+Yes, that's a lot! You won't use them all, and very likely you will come to appreciate the flexibility. When you are first getting started you may want to have the [docs page](../topics/ckan-directives.md) at hand.
 
-Here's how we updated the sku\_upc.csvpath file with CKAN directives. You don't have to use all of these, but it doesn't hurt to try them.
+Here's how we updated the `sku_upc.csvpath` file with CKAN directives. You don't have to use all of these, but it doesn't hurt to try them.
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-24 at 11.41.28 PM.png" alt=""><figcaption><p>That's a lot of CKAN instructions to apply to your csvpaths. Most likely you'll usually use fewer than this.</p></figcaption></figure>
 
-{% file src="../.gitbook/assets/sku_upc (2).csvpath" %}
+{% file src="../.gitbook/assets/sku_upc (4).csvpath" %}
 
 ## Let's see it working!
 
@@ -190,7 +192,7 @@ Fire up the CLI again using `poetry run cli`.  You will again see:&#x20;
 
 We're going to stage our data file and load our csvpaths. That essentially means we're going to import those assets into the CsvPath Library's workspace so we can run our named-paths group. A named-path group is simply a collection of csvpaths that are run as a single group and known by a name.
 
-Hit return with `named-files` selected.
+Hit return with `named-paths` selected.
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-25 at 11.24.29 AM.png" alt="" width="296"><figcaption></figcaption></figure>
 
@@ -248,11 +250,11 @@ Your run will produce validation messages and informational printouts. We intent
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-25 at 11.47.13 AM.png" alt="" width="563"><figcaption></figcaption></figure>
 
-Your run produced lots of assets in your archive. Let's have a look. Open the project directory and drill into the `archive` folder. The Archive is where the CsvPath Library stores results. You can name it anything you like — `archive` is just the default. This is what you should see:
+Your run produced lots of assets in your new archive directory. Let's have a look. Open the project's root directory and drill into the `archive` folder. The Archive is where the CsvPath Library stores results. You can name it anything you like — `archive` is just the default. This is what you should see:
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-25 at 11.50.59 AM.png" alt=""><figcaption><p>Your archive after one run of the orders named-paths group, as seen in the MacOS Finder</p></figcaption></figure>
 
-In this image you're looking at the `order` group result flies for the `2024-12-25_04-46-55` run (in my case; your run identifier will be different, of course) in the csvpath results identified as `upc-sku`. These files contain:
+In this image you're looking at the `order` group result flies for the `2024-12-25_04-46-55` run (in my case; your run identifier will be different, of course) in the results of the csvpath identified as `upc-sku`. These files are:
 
 * The `data.csv` of matched lines
 * The `unmatched.csv` of lines that did not match your csvpath's rules
@@ -261,9 +263,9 @@ In this image you're looking at the `order` group result flies for the `2024-12-
 * Our `printouts.txt` containing all the printed statements from the run
 * The `vars.json` file that contains all the variables that were created during the run.
 
-That's all standard CsvPaths stuff. We haven't looked at anything specific to CKAN yet.&#x20;
+That's all standard CsvPath stuff. We haven't looked at anything specific to CKAN yet.&#x20;
 
-Keep in mind that the files you see in the screenshot are for just one of the six csvpaths in the orders named-paths group. All six csvpaths were run against the input data file. Each has its own outputs. In this example we are only sending results to CKAN for the `upc-sku` csvpath.&#x20;
+Keep in mind that the files you see in the screenshot are for just one of the six csvpaths in the `orders` named-paths group. All six csvpaths were run against the input data file. Each has its own outputs. In this example we are only sending results to CKAN for the `upc-sku` csvpath.&#x20;
 
 ## The CKAN results
 
@@ -272,21 +274,21 @@ What should we see in CKAN?
 Looking at our `upc_sku.csvpath`'s metadata you can see what we're asking for:&#x20;
 
 * `ckan-group: A Big Test`. This says we want to have our results associated with a CKAN group. If the group doesn't exist, it will be created.
-* `ckan-dataset-name: orders_august`. We're explicitly giving our CKAN dataset a name. The name will become a slug in the website and an identifier that can be used like an ID in some cases. The dataset will also have an autogenerated ID.
-* `ckan-dataset-title: Orders August 2024`. Setting a title gives the dataset a prettier name than if we just used the actual name.
+* `ckan-dataset-name: orders_march`. We're explicitly giving our CKAN dataset a name. The name will become a slug in the website and an identifier that can be used like an ID in some cases. The dataset will also have an autogenerated ID.
+* `ckan-dataset-title: Orders March 2024`. Setting a title gives the dataset a prettier name than if we just used the actual name.
 * `ckan-visibility: public`. As you would guess, we're making this dataset immediately visible to anyone with access.
 * `ckan-send: data, printouts, unmatched`. This is the big one. Here we say what data we want to send to CKAN. In this case, we send three of the standard files CsvPath generates to CKAN.
 * `ckan-split-printouts: split`. Printouts come from calling `print()` on `Printer` instances. Each printer is separate and handles print statements in its own way. The `upc_sku.csvpath` uses both the default printer and also a different named printer, called `Headers by line`, for some printouts.  In the `printouts.txt` the default and `Headers by line` printouts are separated by a delimiter so they can be easily extracted. With `ckan-split-printouts` we can split the printouts into one file per `Printer` instance. This makes it easy to create user-friendly focused reports that are delivered in CKAN in a way that is clear for report readers who don't know CsvPath. In this example, our default printouts are the validation errors. The `Headers by line` printouts report the headers in effect at each line in the file. In CKAN these reports will be separated into two files and given titles that make clear what each file contains. Because we have two sets of printouts and are splitting them we will send CKAN four files total, not three.
 * The remaining CKAN directives assign more helpful names to the files we're sending to CKAN. Again, we don't want to assume that all CKAN users know what CsvPath's standard files contain. Our assumption is that CKAN users should not have to know the details of CsvPath Language or the CsvPath Library's workflow.
 
-What we get is a dataset in the `Archive` organization associated with the `A Big Test` group titled `Orders August 2024`. When you open the new dataset it looks similar to this screenshot.&#x20;
+What we get is a dataset in the `Archive` organization associated with the `A Big Test` group titled `Orders March 2024`. When you open the new dataset it looks similar to this screenshot.&#x20;
 
-<figure><img src="../.gitbook/assets/ckan-dataset (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-12-27 at 5.22.36 PM.png" alt=""><figcaption></figcaption></figure>
 
 Each time we rerun our named-paths group we will get new data and metadata files in a new run directory. And each run's events will be forwarded to CKAN. The result will be that this page is updated, new versions are captured, and the activity stream is updated.
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-12-25 at 9.01.03 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-12-27 at 5.24.06 PM.png" alt=""><figcaption></figcaption></figure>
 
-&#x20;Meanwhile, back in CsvPath, the archive and the inputs directories capture each change of all your artifacts and every run, in perpetuity with clear identities and hash codes to help you pin down exactly what happened if you should ever be asked about the lineage or chain of custody. And should there be a validation failure, that problem never gets to CKAN — instead we handle it at the source and only promote trustworthy data to CKAN and its data customers.
+&#x20;Meanwhile, back in CsvPath, the archive and the inputs directories will capture each change of all your artifacts for every run, in perpetuity with clear identities and hash codes to help you pin down exactly what happened if you should ever be asked about the lineage or chain of custody. And should there be a validation failure, that problem will never get to CKAN — instead you'll be able to handle it at the source and only promote trustworthy data to CKAN and its data customers.
 
-There's a lot going on in this integration. At a high-level it's quite simple. Of course, the configuration details and use cases will take settle in gradually. Spend a bit of time exploring. You'll be impressed with what CKAN offers and how well its mission fits with CsvPath's. &#x20;
+There's a lot going on in this integration. At a high-level it's quite simple. Of course, the configuration details and use cases will settle in gradually. Spend a bit of time exploring. You'll be impressed with what CKAN offers and how well its mission fits with CsvPath's. &#x20;
