@@ -15,7 +15,7 @@ Beyond that, there are the comparisons. If the alternative is not validating you
 
 The nearest alternatives are Python data frames libraries, XPath in the form of Schematron, SQL, and Excel functions and macros. Each has a number of drawbacks or gaps. Let's go through them. Then we'll recap out why you should consider CsvPath.
 
-<figure><img src="../.gitbook/assets/alternatives.png" alt=""><figcaption><p>There are probably dozens of ways to do CSV validation. These are four of the leading contenders.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/alternatives.png" alt=""><figcaption><p>There are probably dozens of ways to do CSV validation. These are four of the leading contenders.</p></figcaption></figure>
 
 ### Data Frames
 

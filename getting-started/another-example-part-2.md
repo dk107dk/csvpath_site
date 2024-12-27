@@ -85,7 +85,7 @@ First we import the CsvPath library and create an instance of `CsvPaths`. We cre
 
 Now that you've seen  `print_default=False`, go ahead and delete it. We'll want to see the output in the terminal, at least at first.
 
-Next, we do another completely optional thing: set the logging level. We're just seeing how to do it, for future reference. Out of the box, CsvPath is already set to `warn` by default. You can [read more about setting up logging and error handling policies here](../topics/debugging.md).
+Next, we do another completely optional thing: set the logging level. We're just seeing how to do it, for future reference. Out of the box, CsvPath is already set to `warn` by default. You can [read more about setting up logging and error handling policies here](../topics/how-tos/debugging.md).
 
 ### Named-files, named-paths, named-results
 
@@ -99,7 +99,7 @@ Named-paths are more interesting. These are sets of csvpaths strings that can be
 
 We'll try each. When we're done with Part 2 of our orders file example, we're going to have the last one—multiple csvpaths in a single file—but this time in a more DataOps-friendly way than in Part 1.&#x20;
 
-For more background, you can [read more about named-paths and named-files here](../topics/named\_files\_and\_paths.md).&#x20;
+For more background, you can [read more about named-paths and named-files here](../topics/named_files_and_paths.md).&#x20;
 
 ### The fast\_forward\_paths() method
 

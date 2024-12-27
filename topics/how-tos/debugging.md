@@ -18,13 +18,13 @@ The obvious place to start is with the log. By default CsvPath logs to ./logs. T
 
 Here's an example of the config showing all the log-related options.
 
-<figure><img src="../.gitbook/assets/log-options.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/log-options.png" alt="" width="375"><figcaption></figcaption></figure>
 
 As you can see you have logging and error options for CsvPath and CsvPaths. If you use CsvPaths you still use the settings for CsvPath for those instances that CsvPaths is managing.
 
 The logging is, today, heavily focused on matching. That's where most of the complexity creeps in. You can see when matching starts, what the match structure is, how the match components behave and what their focus is — meaning are they value producers, match deciders, or side-effects. Lots of information.
 
-<figure><img src="../.gitbook/assets/log-example.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/log-example.png" alt=""><figcaption></figcaption></figure>
 
 ### debug()
 
@@ -90,7 +90,7 @@ Running simple paths together in CsvPaths has the added benefit of allowing you 
 
 ## More Advice
 
-* `print()` is your friend — if you've been leaning on debuggers rather than print statements lately you may feel like the debugger is the better way to go. Try print as well. It is simpler than learning the CsvPath internals and provides access to [a large amount of metadata](the\_reference\_data\_types.md).&#x20;
+* `print()` is your friend — if you've been leaning on debuggers rather than print statements lately you may feel like the debugger is the better way to go. Try print as well. It is simpler than learning the CsvPath internals and provides access to [a large amount of metadata](../the_reference_data_types.md).&#x20;
 * Use the $.csvpaths.headers field — headers change mid-file because CSV. You can dump the current headers using the headers reference in a print statement. You can dump the line to compare to the headers using the `print_line()` function. Keep in mind that while the CSV file's headers may change, your csvpath's headers do not change unless you use `reset_headers()`.
 * `push()` line-by-line indicators — consider using `push()` to push indicators, variables, headers, etc., into a stack variable, line by line. This can be a handy way of seeing how state progresses over a run.
 * Check counts vs. numbers — one of the CSV file things you wouldn't think would be hard turns out to be harder than expected: counts vs. references. When you refer to a line or a header you are pointing to an item in a 0-based list. When you count something you are indicating how many times you've seen it; implying a 1-based counter. When we talk about match counts and line numbers, or even line counts and line numbers, we are talking about different kinds of things. Then there's the distinction between "physical" lines and "data" lines. The former are essentially a count of line feed characters in a series of bytes. The latter is a series of line feeds plus the content between them. And finally, there is the problem of lines that have whitespace but no delimiters, as well as lines with too few or too many delimiters. Lines with a single space look blank to us. Technically they are a single header line containing whitespace. CsvPath takes pity on us and treats those as blanks, meaning non-data lines. You can inspect all these numbers in the line monitor. For a quick understanding, do: `print(f"{csvpath.line_montor}")` &#x20;

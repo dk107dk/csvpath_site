@@ -155,7 +155,7 @@ In this example `lunch-menu` starts because it has a colon. That means that the 
 
 Metadata goes in external comments. An external comment is one that is outside the csvpath; above it or below.&#x20;
 
-Here are the possible directives with possible values and/or examples. You can learn more about CKAN directives here.
+Here are the possible directives with possible values and/or examples. You can [learn more about CKAN directives here](../topics/ckan-directives.md).
 
 * `ckan-publish`: always | on-valid | on-all-valid | never&#x20;
 * `ckan-group`: use-archive | use-named-results | some-literal&#x20;

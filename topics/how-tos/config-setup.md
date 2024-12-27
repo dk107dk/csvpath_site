@@ -16,13 +16,13 @@ CsvPath will create a config directory. The config directory will have the defau
 
 If you want to move your config to another location, simply add the other location to the default config file as path.
 
-<figure><img src="../.gitbook/assets/config-path.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/config-path.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Once you do that, you can clear out any other configuration values. Or you can leave them. Either is fine.&#x20;
 
 When you start CsvPath it will check to see if it should load your config from another location. It will find the location in an env variable or in the path key in the default config.ini.
 
-<figure><img src="../.gitbook/assets/config.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/config.png" alt=""><figcaption></figcaption></figure>
 
 ## The Defaults
 

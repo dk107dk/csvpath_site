@@ -28,7 +28,7 @@ The latter is an illustration, not a real method call.&#x20;
 
 ## Named Files
 
-Named-paths are more interesting. The goal with named-paths is for us to be able to easily run multiple csvpaths against a single file in one go. The attraction to that is primarily that you can segment your validations into separate and composable csvpaths.  As discussed in [Validation Strategies](validation\_strategies.md) and [Another Example, Part 2](../getting-started/another-example-part-2.md), separate cvpaths can be important to:&#x20;
+Named-paths are more interesting. The goal with named-paths is for us to be able to easily run multiple csvpaths against a single file in one go. The attraction to that is primarily that you can segment your validations into separate and composable csvpaths.  As discussed in [Validation Strategies](validation_strategies.md) and [Another Example, Part 2](../getting-started/another-example-part-2.md), separate cvpaths can be important to:&#x20;
 
 * Quality control of your validation
 * Maintainability
@@ -55,7 +55,7 @@ It is important to remember that order is important across csvpaths as well as w
 * The `CsvPath` instance that ran each csvpath in the named-paths set
 * All the print output lines&#x20;
 * The CSV file lines that matched the csvpath _(optionally)_
-* Any errors that happened _(configurable in_ [_config.ini_](config-setup.md)_)_
+* Any errors that happened _(configurable in_ [_config.ini_](how-tos/config-setup.md)_)_
 
 The CsvPath instance also holds the metadata and variables collections. All-in-all, named-results have a ton of data to support your validations.
 

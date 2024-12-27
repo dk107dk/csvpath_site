@@ -41,7 +41,7 @@ We don't need a lot more information in this file area. The version control you 
 
 <figure><img src="../.gitbook/assets/named-paths-why-result.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Keep in mind that you also have `logs/csvpath.log`. The log is on `WARN` by default, but you can get lots more information by putting it on `INFO` or even `DEBUG`. Experiment with that setting in [config/config.ini](config-setup.md).  And, of course, you have control of if the Library and CsvPath Language team up to complete your run, or stop early, using the `validation-mode` [settings in your csvpath](the-modes.md) statements and error policies in `config.ini`.&#x20;
+Keep in mind that you also have `logs/csvpath.log`. The log is on `WARN` by default, but you can get lots more information by putting it on `INFO` or even `DEBUG`. Experiment with that setting in [config/config.ini](how-tos/config-setup.md).  And, of course, you have control of if the Library and CsvPath Language team up to complete your run, or stop early, using the `validation-mode` [settings in your csvpath](the-modes.md) statements and error policies in `config.ini`.&#x20;
 
 ## inputs/named\_files
 
