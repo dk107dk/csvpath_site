@@ -159,20 +159,21 @@ Metadata goes in external comments. An external comment is one that is outside t
 
 Here are the possible directives with possible values and/or examples. You can [learn more about CKAN directives here](../topics/ckan-directives.md).
 
-* `ckan-publish`: always | on-valid | on-all-valid | never&#x20;
-* `ckan-group`: use-archive | use-named-results | some-literal&#x20;
-* `ckan-dataset-name`: use-instance | use-named-results | var-value:name | a literal&#x20;
-* `ckan-dataset-title`: a-metadata-field-name | var-value:name ckan-visibility: private&#x20;
-* `ckan-tags`: any-static-tag-value | instance-identity | instance-home | var-value:name&#x20;
-* `ckan-show-fields`: line\_number, identity, validation-mode....&#x20;
-* `ckan-send`: all, printouts, data, metadata, unmatched, vars, errors, manifest&#x20;
-* `ckan-printouts-title`: Background&#x20;
-* `ckan-data-title`: Orders&#x20;
-* `ckan-unmatched-title`: Orders&#x20;
-* `ckan-vars-title`: Orders&#x20;
-* `ckan-meta-title`: Orders&#x20;
-* `ckan-errors-title`: Orders&#x20;
-* `ckan-split-printouts`: (no-)split
+* `ckan-publish`: `always` | `on-valid` | `on-all-valid` | `never`&#x20;
+* `ckan-group`: `use-archive` | `use-named-results` | any alphanum string&#x20;
+* `ckan-dataset-name`: `use-instance` | `use-named-results` | `var-value:name` | a literal&#x20;
+* `ckan-dataset-title`: a metadata field name | `var-value:name`&#x20;
+* `ckan-visibility`: `public` | `private`&#x20;
+* `ckan-tags`: any alphanum | `instance-identity` | `instance-home` | `var-value:name`&#x20;
+* `ckan-show-fields`: e.g. `line_number`, `identity`, `validation-mode`....&#x20;
+* `ckan-send`: `all` | `printouts`, `data`, `metadata`, `unmatched`, `vars`, `errors`, `manifest`&#x20;
+* `ckan-printouts-title`: e.g. `Background`&#x20;
+* `ckan-data-title`: e.g. `Orders`&#x20;
+* `ckan-unmatched-title`: e.g. `Orders`&#x20;
+* `ckan-vars-title`: e.g. `Orders`&#x20;
+* `ckan-meta-title`: e.g. `Orders`&#x20;
+* `ckan-errors-title`: e.g. `Orders`&#x20;
+* `ckan-split-printouts`: `split` | `no-split`
 
 Yes, that's a lot! You won't use them all, and very likely you will come to appreciate the flexibility. When you are first getting started you may want to have the [docs page](../topics/ckan-directives.md) at hand.
 
