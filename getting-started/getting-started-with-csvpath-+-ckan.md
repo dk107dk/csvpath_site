@@ -8,7 +8,7 @@ description: How to use CsvPath to publish data products to CKAN with confidence
 
 ## What is CKAN?
 
-[CKAN](https://ckan.org/) is the leading data portal. It powers the US, EU, and UK government's open data publishing, along with that of numerous other countries, provinces, cities, research centers, and NGOs. It is used by private companies to host data assets internally for use across departments and divisions. Corporate data portal implementations include ones at LEGO, National Grid, Suncorp Bank, and many others.&#x20;
+[CKAN](https://ckan.org/) is the leading data portal. It powers massive data repositories, including the US, EU, and UK government's open data publishing, along with those of numerous other countries, provinces, cities, research centers, and NGOs. CKAN is used by private companies to host data assets internally for use across departments and divisions. Corporate data portal implementations include ones at LEGO, National Grid, Suncorp Bank, and many others.&#x20;
 
 CKAN is a **data portal**. A data portal is a purpose-built catalog for data products in the form of downloadable data and metadata references to online or on-request sources. The goal of a data portal is to offer high-value, validated, versioned datasets with sufficient metadata to fully characterize their content and provenance. Data portals often provide known-good snapshots of datasets that support research, open government, AI development, BI development, and data mastering tools such as ontologies, reference datasets, and controlled vocabularies.&#x20;
 
