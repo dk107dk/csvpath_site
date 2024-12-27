@@ -1,10 +1,10 @@
 ---
-description: How to use CsvPath to publish data products in CKAN with confidence
+description: How to use CsvPath to publish data products to CKAN with confidence
 ---
 
 # Getting Started with CsvPath + CKAN
 
-<figure><img src="../.gitbook/assets/ckan-logo-2.png" alt="" width="70"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/csvpath_plus_ckan (4).png" alt=""><figcaption></figcaption></figure>
 
 ## What is CKAN?
 
@@ -14,7 +14,7 @@ CKAN is a **data portal**. A data portal is a purpose-built catalog for data pro
 
 ## The gap between data lake and data portal
 
-High quality data is useless unless it is known and accessible to solve high-value problems. Likewise, a high-value data portal connecting consumers to producers is useless if the data produced is untrustworthy. Most organizations have piles of data. Many organizations have some form of a data lake. Regardless of tooling and investment, most data lakes quickly become a collection of messy, lossy, inexplicable silos. How can the right data get to the data portal in a validated, known-good form for clear presentation to consumers?  CsvPath can help. &#x20;
+**High quality data is useless unless it is known and accessible to solve high-value problems. Likewise, a high-value data portal connecting consumers to producers is useless if the data produced is untrustworthy.** Most organizations have piles of data. Many organizations have some form of a data lake. Regardless of tooling and investment, most data lakes quickly become a collection of messy, lossy, inexplicable silos. How can the right data get to the data portal in a validated, known-good form for clear presentation to consumers?  CsvPath can help. &#x20;
 
 Data products are an interface to a data operation. One of CsvPath's core use cases is in the automated validation, canonicalization, metadata management, and publishing of data products to data catalogs. It is the filter that guarantees that a known source presents known-good data in an expected form through a durable and explainable process. CsvPath does this by applying the Collect, Store, Validate Pattern to the challenge of data departure. Collect, Store, Validate centralizes operations, makes processes highly consistent, keeps records in the form of immutable intermediate products and metadata, and verifies that data matches a schema and/or set of business validation rules.&#x20;
 
