@@ -286,7 +286,9 @@ What we get is a dataset in the `Archive` organization associated with the `A Bi
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-27 at 5.22.36 PM.png" alt=""><figcaption></figcaption></figure>
 
-Each time we rerun our named-paths group we will get new data and metadata files in a new run directory. And each run's events will be forwarded to CKAN. The result will be that this page is updated, new versions are captured, and the activity stream is updated.
+Each time we rerun our named-paths group we will get new data and metadata files in a new run directory. And each run's events will be forwarded to CKAN. The result will be that this page is updated, new versions are captured, and the activity stream is updated
+
+_(Side note: if for any reason you want to delete your group or dataset and start again, remember that you have to log in as admin and empty the trash at_ [_http://localhost/ckan-admin/trash_](http://localhost/ckan-admin/trash) _to hard delete your assets. CKAN uses soft deletes. Simply deleting as a regular user doesn't clear assets out of the CKAN system.)_
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-27 at 5.24.06 PM.png" alt=""><figcaption></figcaption></figure>
 
