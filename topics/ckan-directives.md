@@ -8,6 +8,8 @@ description: CsvPath is integrated with CKAN, the leading open source data porta
 
 CKAN is integrated with CsvPath through the event listener mechanism. When named-paths groups run, CKAN is notified and receives content. The integration is standard and requires only two minor changes to `config.ini` to activate.
 
+See this page with [more step-by-step guidance on getting started with CKAN](../getting-started/getting-started-with-csvpath-+-ckan.md).&#x20;
+
 ## Setup the link to CKAN&#x20;
 
 Open `config/config.ini` (or wherever your config file is). We have two changes to make:&#x20;
