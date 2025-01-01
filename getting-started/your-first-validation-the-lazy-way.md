@@ -1,12 +1,10 @@
 ---
-description: >-
-  Can we make the first validation example even less taxing? Yes, probably.
-  Let's try!
+description: Start here if you want a code-free introduction!
 ---
 
 # Your First Validation, The Lazy Way
 
-In the other approaches to our [super-simple first validation exercise](your-first-validation-simplified.md) the focus was on the CsvPath Language, but there was also a little Python to drive it. We can do it without the Python by using the CLI that comes with the CsvPath Library. Here's how.
+This page gives one way to do the **Your First Validation** exercise. In the other approaches to our [super-simple first validation exercise](your-first-validation-simplified.md) the focus is on the CsvPath Language, but there was also a little Python to drive it. We can do it without the Python by using the CLI that comes with the CsvPath Library. Here's how.
 
 We're going to use Poetry for our example project. You can [learn how to set Poetry up here](https://python-poetry.org/docs/).
 
@@ -55,7 +53,7 @@ You should see this:&#x20;
 
 You can select `quit`, for now.
 
-In your project dir, create a subdirectory called `assets`, or whatever name you like. We'll drop the example CSV file and your csvpath file there. Create a file called `first.csvpath`—or again, whatever name you like. Into it, paste the simplified version of the example csvpath statement:&#x20;
+In your project dir, create a subdirectory called `assets`, or whatever name you like. We'll drop an example CSV file and your csvpath file there. Create a file called `first.csvpath`—or again, whatever name you like. Into it, paste the simplified version of the [First Validation Example](your-first-validation-simplified.md) csvpath statement:&#x20;
 
 ```xquery
     ~ 
@@ -72,7 +70,7 @@ In your project dir, create a subdirectory called `assets`, or whatever name you
   ]
 ```
 
-Add the example delimited data in example.csv to the assets dir. Use the same trivial data set:
+Add the example delimited data in example.csv to the assets dir. Use a trivial data set:
 
 ```csv
 firstname,lastname,say
@@ -115,7 +113,7 @@ Next you'll be asked for the name of your csvpaths:&#x20;
 
 You have just one named-paths name, `first`, so select that and hit return.
 
-Now you get the question of what method you want to use to run your paths against your file. The options are fast forward or collect. As you may by now know, fast forward runs your validation, but doesn't collect the matching lines. Instead, it only collects variables, printouts, and errors. The collect method does collect the matching lines, in addition to variables, printouts, and errors.&#x20;
+Now you get the question of what method you want to use to run your paths against your file. The options are **fast forward** or **collect**. As you may already know, fast-forward runs your validation, but doesn't collect the matching lines. Instead, it only collects variables, printouts, and errors. The collect method does collect the matching lines, in addition to variables, printouts, and errors.&#x20;
 
 As an aside, the library also allows you to step through a CSV path as its being validated, line-by-line. However, the CLI does not offer that option. You can easily do it programmatically using a `CsvPaths` instance's `next_paths()` method in a `for line in csvpath.next_paths()` loop.
 
