@@ -24,3 +24,9 @@ Correct data is more than well-formed + valid + canonicalized. Correct means tha
 * And the company listed as `IBM` is described as being in the business of `Sunflower Farming`
 
 Due to the last bullet having sketchy intelligence — we don't think `IBM` grows sunflowers — we'll say that this data is incorrect.
+
+## Where CsvPath can help
+
+CsvPath can help with validity, canonicalization, and checking correctness. It cannot help you with well-formedness checking. CsvPath treats any file that Python can read as CSV or Excel as being well-formed.&#x20;
+
+By contrast, most of the so-called CSV validators on the Internet are simple well-formedness checkers. A smaller number of them can check a structural definition of a file's headers. Vanishingly few go beyond that.&#x20;
