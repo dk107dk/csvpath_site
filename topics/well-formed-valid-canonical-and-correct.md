@@ -1,6 +1,8 @@
 # Well-formed, Valid, Canonical, and Correct
 
-The world of data is messy. It's full of terms-of-art with squishy definitions. And people who use terms in ways their perspective or product, but may not be commonly accepted. This page tackles the definitions of a few data management terms that are often used loosely. I'll say up front two things: 1) this page is a stub to be filled in over time, and 2) you may not agree with my definitions.&#x20;
+The world of data is messy. It's full of terms-of-art with squishy definitions. People use terms in ways that match their perspective or product, but may not be commonly accepted.&#x20;
+
+This page tackles the definitions of a few data management terms that are often used loosely. I'll say up front two things: 1) this page is a stub to be filled in over time, and 2) you may not agree with my definitions.&#x20;
 
 ## **Well-formed**
 
