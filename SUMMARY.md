@@ -45,3 +45,4 @@
 * [Validation Strategies](topics/validation_strategies.md)
 * [Namespacing With the Archive](topics/namespacing-with-the-archive.md)
 * [Named Files and Paths](topics/named_files_and_paths.md)
+* [Well-formed, Valid, Canonical, and Correct](topics/well-formed-valid-canonical-and-correct.md)
