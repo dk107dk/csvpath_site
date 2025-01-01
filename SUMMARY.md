@@ -5,9 +5,9 @@
 ## Getting Started
 
 * [Quickstart](getting-started/quickstart.md)
-* [Your First Validation, The Hard Way](getting-started/your-first-validation.md)
-* [Your First Validation, The Easy Way](getting-started/your-first-validation-simplified.md)
 * [Your First Validation, The Lazy Way](getting-started/your-first-validation-the-lazy-way.md)
+* [Your First Validation, The Easy Way](getting-started/your-first-validation-simplified.md)
+* [Your First Validation, The Hard Way](getting-started/your-first-validation.md)
 * [Another Example, Part 1](getting-started/another-example-part-1.md)
 * [Another Example, Part 2](getting-started/another-example-part-2.md)
 * [Getting Started With CsvPath + OpenLineage](getting-started/getting-started-with-csvpath-+-openlineage.md)
