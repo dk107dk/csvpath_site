@@ -6,7 +6,7 @@ description: >-
 
 # Your First Validation, The Lazy Way
 
-In the first two approaches to our [super-simple first validation exercise](your-first-validation-simplified.md) the focus was on the CsvPath Language, but there was also a little Python to drive it. We can do without the Python by using the barebones CLI that comes with the CsvPath Library. Here's how.
+In the other approaches to our [super-simple first validation exercise](your-first-validation-simplified.md) the focus was on the CsvPath Language, but there was also a little Python to drive it. We can do it without the Python by using the CLI that comes with the CsvPath Library. Here's how.
 
 We're going to use Poetry for our example project. You can [learn how to set Poetry up here](https://python-poetry.org/docs/).
 
@@ -47,7 +47,7 @@ from csvpath.cli import Cli
 Cli().loop()
 ```
 
-The CsvPath CLI is bare-bones. Don't expect much! Despite that, it is a useful way to do simple stuff fast. It is great for learning and basic CsvPath Language dev work.&#x20;
+The CsvPath CLI is bare-bones. Despite that, it is a useful way to do simple stuff fast. It is great for learning and basic CsvPath Language dev work.&#x20;
 
 You should see this:&#x20;
 
