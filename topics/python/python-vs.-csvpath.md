@@ -50,7 +50,7 @@ Lots of good stuff. Not everyone needs all that, but it's there. If you are a Da
 
 ## How about that Python example?
 
-In [Another Example, Part 1](../getting-started/another-example-part-1.md) and [Another Example, Part 2](../getting-started/another-example-part-2.md) we created a CsvPath validation for a simplified retail goods order file. The rules were:&#x20;
+In [Another Example, Part 1](../../getting-started/another-example-part-1.md) and [Another Example, Part 2](../../getting-started/another-example-part-2.md) we created a CsvPath validation for a simplified retail goods order file. The rules were:&#x20;
 
 * There would be top-matter to skip before the header line
 * The top matter would include two metadata fields to capture
@@ -68,7 +68,7 @@ A just-get-it-done Python version came in at about 130 lines. Now, lines of code
 
 But the thing that most makes the blood run cold: the lack of patterns and guardrails is immediately noticeable. If you think in terms of a partnership of any kind—commercial, government, research, what have you—you want to know your partner's code is disciplined and verified, not messy, siloed, and unloved. With CSVs the latter is too often the case. CsvPath cannot fix that problem completely, but it is a good first step. When you look at the example code below, imagine you have files in 100 formats coming in daily. Now imagine 1000 formats. And now imagine the developers playing hot-potato with the CSV code. You get the idea.
 
-And without further ado, here's the Python implementation to compare to [Another Example, Part 2](../getting-started/another-example-part-2.md). Put your DataOps engineering manager hat on and judge for yourself.  &#x20;
+And without further ado, here's the Python implementation to compare to [Another Example, Part 2](../../getting-started/another-example-part-2.md). Put your DataOps engineering manager hat on and judge for yourself.  &#x20;
 
 ```python
 import re

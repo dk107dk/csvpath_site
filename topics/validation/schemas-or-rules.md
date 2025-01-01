@@ -2,7 +2,7 @@
 
 The data quality tools we use, including languages like Python, validate according to schemas and/or rules. Here are some examples of each:
 
-<figure><img src="../.gitbook/assets/schemas and rules.png" alt="" width="563"><figcaption><p>CsvPath is placed kind of randomly on these lists. Obviously it should go at the top. :)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/schemas and rules.png" alt="" width="563"><figcaption><p>CsvPath is placed kind of randomly on these lists. Obviously it should go at the top. :)</p></figcaption></figure>
 
 Both types of validation are important and useful. Many of these tools do some of both. For example, you can use XPath in XSD to achieve some of what you can achieve with Schematron. Likewise, SQL provides DDL for defining structure and can easily write rules in DML (a.k.a. just plain SQL) to validate beyond just the entities and relationships.&#x20;
 

@@ -28,7 +28,7 @@ The latter is an illustration, not a real method call.&#x20;
 
 ## Named Files
 
-Named-paths are more interesting. The goal with named-paths is for us to be able to easily run multiple csvpaths against a single file in one go. The attraction to that is primarily that you can segment your validations into separate and composable csvpaths.  As discussed in [Validation Strategies](validation_strategies.md) and [Another Example, Part 2](../getting-started/another-example-part-2.md), separate cvpaths can be important to:&#x20;
+Named-paths are more interesting. The goal with named-paths is for us to be able to easily run multiple csvpaths against a single file in one go. The attraction to that is primarily that you can segment your validations into separate and composable csvpaths.  As discussed in [Validation Strategies](validation/validation_strategies.md) and [Another Example, Part 2](../getting-started/another-example-part-2.md), separate cvpaths can be important to:&#x20;
 
 * Quality control of your validation
 * Maintainability
