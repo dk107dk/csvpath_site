@@ -12,6 +12,19 @@ description: How to use CsvPath to publish data products to CKAN with confidence
 
 CKAN is a **data portal**. A data portal is a purpose-built catalog for data products in the form of downloadable data and metadata references to online or on-request sources. The goal of a data portal is to offer high-value, validated, versioned datasets with sufficient metadata to fully characterize their content and provenance. Data portals often provide known-good snapshots of datasets that support research, open government, AI development, BI development, and data mastering tools such as ontologies, reference datasets, and controlled vocabularies.&#x20;
 
+## Steps to using CKAN + CsvPath
+
+There are only a few steps to start using the CKAN integration:
+
+* Create or get access to a CKAN instance
+* Make two small changes to your CsvPath config.ini
+* Add CKAN directives to a csvpath&#x20;
+* Load your named-paths group and run it
+
+The first one is the only heavy-lifting. If you have a CKAN instance you can skip it. The remaining three steps should take you about 15 minutes, using CsvPath's CLI and following the instructions below.&#x20;
+
+First, a screenshot of CKAN + CsvPath and a word about why are we doing this.
+
 ## The gap between data lake and data portal
 
 **High quality data is useless unless it is known and accessible to solve high-value problems. Likewise, a high-value data portal connecting consumers to producers is useless if the data produced is untrustworthy.** Most organizations have piles of data. Many organizations have some form of a data lake. Regardless of tooling and investment, most data lakes quickly become a collection of messy, lossy, inexplicable silos. How can the right data get to the data portal in a validated, known-good form for clear presentation to consumers?  CsvPath can help. &#x20;
