@@ -10,7 +10,7 @@ There are three places CsvPath keeps files:&#x20;
 
 * The Archive — the place where results live
 * Inputs:
-  * Named files — all the source data files
+  * Named files — all the source Excel and CSV data files
   * Named paths — your named groups of csvpaths
 
 Each of these can be independently placed. By default Archive is the folder at `./archive`. Named-files and named-paths default to:
