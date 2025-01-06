@@ -39,6 +39,6 @@ CsvPath isn't the silver bullet to reams of messy delimited data, but it can hel
 
 Take a look through these pages and cruise over to the [detailed docs](https://github.com/csvpath/csvpath) on the [CsvPath Github](https://github.com/csvpath/csvpath) to see if open source CSV and Excel data validation should be part of your DataOps toolkit.
 
-<figure><img src=".gitbook/assets/integration-logos.png" alt="" width="188"><figcaption><p>Don't see your tool? Suggest it!</p></figcaption></figure>
+<figure><img src=".gitbook/assets/integration-logos.png" alt="" width="188"><figcaption><p>Built-in integrations. Suggest more!</p></figcaption></figure>
 
 {% embed url="https://github.com/csvpath/csvpath" %}
