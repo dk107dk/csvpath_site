@@ -50,7 +50,7 @@ It is important to remember that order is important across csvpaths as well as w
 
 ## Named Results
 
-`CsvPaths` instances keep named-results that store the outputs from named-paths runs. The name of the results is the same as the name of the paths that generated them. Named results are a collection of one `Result` object per `CsvPath` instance per csvpath string. The `Result` objects hold:&#x20;
+`CsvPaths` instances keep named-results in [an archive](namespacing-with-the-archive.md) that stores the outputs from named-paths runs. The name of the results is the same as the name of the paths that generated them. Named results are a collection of one `Result` object per `CsvPath` instance per csvpath string. The `Result` objects hold:&#x20;
 
 * The `CsvPath` instance that ran each csvpath in the named-paths set
 * All the print output lines&#x20;
