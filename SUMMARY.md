@@ -17,13 +17,13 @@
 ## Topics
 
 * [How-tos](topics/how-tos/README.md)
-  * [Creating a derived file](topics/how-tos/creating-a-derived-file.md)
-  * [Rewind / replay](topics/how-tos/rewind-replay.md)
+  * [Inputs and/or outputs in AWS S3](topics/how-tos/inputs-and-or-outputs-in-aws-s3.md)
   * [Setup notifications to Slack](topics/how-tos/setup-notifications-to-slack.md)
   * [Transfer a file out of CsvPath](topics/how-tos/transfer-a-file-out-of-csvpath.md)
-  * [Debugging Your CsvPaths](topics/how-tos/debugging.md)
+  * [Rewind / replay](topics/how-tos/rewind-replay.md)
   * [Config Setup](topics/how-tos/config-setup.md)
-  * [Inputs and/or outputs in AWS S3](topics/how-tos/inputs-and-or-outputs-in-aws-s3.md)
+  * [Debugging Your CsvPaths](topics/how-tos/debugging.md)
+  * [Creating a derived file](topics/how-tos/creating-a-derived-file.md)
 * [High-level Topics](topics/high-level-topics/README.md)
   * [Why CsvPath?](topics/high-level-topics/why-csvpath.md)
   * [CsvPath Use Cases](topics/high-level-topics/csvpath_use_cases.md)
