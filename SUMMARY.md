@@ -17,6 +17,7 @@
 ## Topics
 
 * [How-tos](topics/how-tos/README.md)
+  * [Sending results by SFTP](topics/how-tos/sending-results-by-sftp.md)
   * [Inputs and/or outputs in AWS S3](topics/how-tos/inputs-and-or-outputs-in-aws-s3.md)
   * [Setup notifications to Slack](topics/how-tos/setup-notifications-to-slack.md)
   * [Transfer a file out of CsvPath](topics/how-tos/transfer-a-file-out-of-csvpath.md)
