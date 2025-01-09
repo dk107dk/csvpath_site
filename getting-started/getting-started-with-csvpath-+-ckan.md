@@ -170,7 +170,7 @@ In this example `lunch-menu` starts a new metadata field because it has a colon.
 
 Metadata goes in external comments. An external comment is one that is outside the csvpath; above it or below.&#x20;
 
-Here are the possible directives with possible values and/or examples. You can [learn more about CKAN directives here](../topics/ckan-directives.md).
+Here are the possible directives with possible values and/or examples. You can [learn more about CKAN directives here](../topics/how-tos/sending-results-to-ckan.md).
 
 * `ckan-publish`: `always` | `on-valid` | `on-all-valid` | `never`&#x20;
 * `ckan-group`: `use-archive` | `use-named-results` | any alphanum string&#x20;
@@ -188,7 +188,7 @@ Here are the possible directives with possible values and/or examples. You can [
 * `ckan-errors-title`: e.g. `Orders`&#x20;
 * `ckan-split-printouts`: `split` | `no-split`
 
-Yes, that's a lot! You won't use them all, and very likely you will come to appreciate the flexibility. When you are first getting started you may want to have the [docs page](../topics/ckan-directives.md) at hand.
+Yes, that's a lot! You won't use them all, and very likely you will come to appreciate the flexibility. When you are first getting started you may want to have the [docs page](../topics/how-tos/sending-results-to-ckan.md) at hand.
 
 Here's how we updated the `sku_upc.csvpath` file with CKAN directives. You don't have to use all of these, but it doesn't hurt to try them.
 
