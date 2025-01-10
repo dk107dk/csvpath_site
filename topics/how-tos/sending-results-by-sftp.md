@@ -1,8 +1,10 @@
 ---
-description: Forward your results from the archive to an SFTP account
+description: Forward your results from CsvPath's archive to an SFTP account
 ---
 
 # Sending results by SFTP
+
+<figure><img src="../../.gitbook/assets/sftp.png" alt="" width="100"><figcaption></figcaption></figure>
 
 Sending your named-results files by SFTP easy. This feature is similar to the `transfer-mode` feature. The difference is that `transfer-mode` only copies files on the local disk.&#x20;
 
@@ -36,7 +38,7 @@ from csvpath.cli import Cli
 Cli().loop()
 ```
 
-Next the metadata directives. There are just a few of them:
+Next the metadata directives:
 
 * sftp-server
 * sftp-port&#x20;
@@ -48,20 +50,20 @@ Next the metadata directives. There are just a few of them:
 
 You can use these in external comments. External comments are ones that are above or below your csvpath, but not within the csvpath. Comments are delimited with the `~`. Obviously some of these values are required. Server, port, user, password, and sftp-files are mandatory.&#x20;
 
+<figure><img src="../../.gitbook/assets/Screenshot 2025-01-10 at 3.34.59 PM.png" alt=""><figcaption><p>Notice the ALL CAPS env references and var|variable dynamic substitutions.</p></figcaption></figure>
 
-
-| Setting              | Description                                                                                                                                                                                                                                         | Example                                                         |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `sftp-server`        | The network name or IP of the  SFTP server.                                                                                                                                                                                                         | `sftp-server: localhost`                                        |
-| `sftp-port`          | The port.                                                                                                                                                                                                                                           | `sftp-port: 22`                                                 |
-| `sftp-user`          | This is the username of the regular SFTP account, not an admin account.                                                                                                                                                                             | `sftp-user: frog`                                               |
-| `sftp-password`      | The account password. If the value is ALL CAPS it is swapped for the value of any env var that matches.                                                                                                                                             | `sftp-password: SFTP_USER_PASSD`                                |
-| `sftp-target-path`   | The directory within the account where the files will land                                                                                                                                                                                          |                                                                 |
-| `sftp-files`         | <p>A set of file names in the form X > Y, Z > A, B > C. </p><p></p><p>This pattern means that X will be copied to a file named Y, Z to a file named A, and so forth. </p>                                                                           | `sftp-files: data.csv > results.csv, errors.json > errors.json` |
-| `sftp-original-data` | If yes, send the original data file. The original data file is taken from the filename of the input to the first csvpath in the named-paths group. That way if we are in source-mode preceding, or doing a by\_lines run, we get the original data. | `sftp-original-data: yes`                                       |
+| Setting              | Description                                                                                                                                                                                                                                                                 | Example                                                         |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `sftp-server`        | The network name or IP of the  SFTP server.                                                                                                                                                                                                                                 | `sftp-server: localhost`                                        |
+| `sftp-port`          | The port.                                                                                                                                                                                                                                                                   | `sftp-port: 22`                                                 |
+| `sftp-user`          | This is the username of the regular SFTP account, not an admin account.                                                                                                                                                                                                     | `sftp-user: frog`                                               |
+| `sftp-password`      | The account password. If the value is ALL CAPS it is swapped for the value of any env var that matches.                                                                                                                                                                     | `sftp-password: SFTP_USER_PASSD`                                |
+| `sftp-target-path`   | The directory within the account where the files will land                                                                                                                                                                                                                  |                                                                 |
+| `sftp-files`         | <p>A set of file names in the form X > Y, Z > A, B > C. </p><p></p><p>This pattern means that X will be copied to a file named Y, Z to a file named A, and so forth. </p>                                                                                                   | `sftp-files: data.csv > results.csv, errors.json > errors.json` |
+| `sftp-original-data` | If `yes`, the original data file is sent using the same original filename. The original data file is taken from the first csvpath in the named-paths group. That way if we are in `source-mode: preceding`, or doing one of the by\_lines methods, we get the correct data. | `sftp-original-data: yes`                                       |
 
 For all these settings you have two options for non-static values:&#x20;
 
 * `ALL CAPS` are swapped for env vars, if there is a match
-* Any value that is in the form `var|name` is swapped for any matching run variable named `name`. If none matches `name` becomes the value.&#x20;
+* Any value that is in the form `var|variablename` is swapped for any matching run variable named `variablename`. If none matches `variablename` becomes the value.&#x20;
 
