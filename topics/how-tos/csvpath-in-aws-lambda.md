@@ -46,20 +46,24 @@ Our requirements are basic. For all S3's innumerable options, the buckets should
 2. Use a name that tells you this lambda is for inbound data processing
 3. Allow AWS to create a new role for the lambda
 4. Pick Python as the platform. Either AMD or ARM works.
-5. Link the inbound bucket to the lambda. Click `Add a trigger`. In the `Trigger Configuration` page select S3 as your source. Pick your inbound bucket. All object create events should be selected. Acknowledge the warning about input and output buckets. We have two, one for input, one for output, in part for the reason Amazon indicates: infinite loops.
-6. In the `Configuration` tab, select `General configuration` and click `Edit`. Change the `Timeout` field from 3 seconds to 1 minute. CsvPaths won't need a minute for our orders runs. But 3 seconds isn't a great starting point, even for a simple test.
+5. Link the inbound bucket to the lambda. Click `Add a trigger`. In the `Trigger Configuration` page select S3 as your source. Pick your inbound bucket. All object create events should be selected. Acknowledge the warning about using one bucket for inputs and outputs. A write-event-driven lambda-bucket pair that reads and writes to the same bucket cause endless loops. There are some safeguards, but it is a problem you definitely want to avoid. We have two buckets, one for arrivals and one for CsvPath's own use. The arrivals bucket triggers the lambda and the lambda writes to the CsvPath framework's bucket. No loops.
+6. In the `Configuration` tab, select `General configuration` and click `Edit`. Change the `Timeout` field from 3 seconds to 3 minutes. The way we are setting up CsvPaths for this example our runs will need more than 3 seconds.
 
-Before we finish our lambda let's create the lambda layer for the dependencies we need.
+We're done with the core of creating the lambda. Before we configure our lambda, let's create the lambda layer that provides the dependencies we need.
 
 ## Create a lambda layer
 
 Lambda layers make it easy to setup your dependencies and share them across lambdas. You can [read about lambda layers here](https://docs.aws.amazon.com/lambda/latest/dg/chapter-layers.html). Creating a lambda layer is pretty straightforward. While our way works, we're no experts and cannot guarantee there isn't a better way to do it.&#x20;
 
-We'll create a Poetry project to create the layer. Typically the project would be a home for our lambda, but in this case we'll just use the Lambda service's `Code Source` tab to write the actual lambda. This project will give us an empty wheel that defines all the dependencies. We'll then install the wheel, along with its dependencies, and zip up the directory as our layer.&#x20;
+As elsewhere on this site we'll use Poetry for our Python projects. If you prefer another way, by all means do that.
 
-1. Create a Poetry project
+We'll create a Poetry project to create the lambda layer. Typically the project would be a home for our lambda, but in this case we'll just use the Lambda service's `Code Source` tab to write the actual lambda.&#x20;
+
+Instead, this project will give us an empty wheel that defines all its dependencies. We'll then install the wheel, along with its dependencies, and zip up the directory as our layer.&#x20;
+
+1. Create a Poetry project: `poetry new tin_penny_toys_orders`
 2. `cd` into your new project
-3. Add the `csvpath`&#x20;
+3. Add the `csvpath` library: `poetry add csvpath`
 4. Do a Poetry build with: `poetry build`
 5. `cd` into the `dist` directory and run these commands:
 
@@ -69,7 +73,7 @@ poetry run pip install --upgrade -t layer/python ./*.whl
 cd layer ; zip -r ../lambda_layer.zip python -x '*.pyc'
 ```
 
-You should see a `lambda_layer.zip` containing your dependencies. This is the artifact we upload to make the layer.&#x20;
+You should see a `lambda_layer.zip` containing your dependencies. This is the artifact we upload to make the lambda layer.&#x20;
 
 1. Back in the Lambda service, in the left column nav click on `Layers`
 2. &#x20;At the top right, click on `Create layer`
@@ -121,12 +125,12 @@ def lambda_handler(event, context):
 
 Here's what's going on:
 
-* Line 9: we get a `client` that we'll use to interact with S3. We get it up here and share it through the `Box` with all the components that need to use it.
+* Line 9: we get a `client` that we'll use to interact with S3. We get it up here and share it below through the `Box` to provide access to all the components that need to use it.
 * Line 17: `paths` is the core of our Lambda. It coordinates all the configuration and runs the named-paths group.
 * Line 18, 19: `namedfile` and `namedpaths` name our assets in S3. We're getting the values from the environment. We haven't set the environment up yet.
 * Line 20: `newfile` is the S3 URL of our arriving file. It is coming from the event that S3 called our lambda with.
 * Line 22: we have a new file so we need to register it under the name we use for Tin Penny Toys's orders. We'll configure the name when we setup env vars.
-* Line 23: this is the run. We apply our named-paths to this new orders file.
+* Line 23: this is where the run happens. We apply our named-paths to this new orders file.
 
 ## Config, Config
 
@@ -202,13 +206,15 @@ Here are the important things:&#x20;
 
 And that's it. Your `config.ini` should be all set. Now let's do the env vars. Click on the `Configuration` tab, Select `Environment variables` in the left-hand nav, and click `Edit`. We need to add three vars:&#x20;
 
-* `CSVPATH_CONFIG_PATH` = config.ini
-* `file` = orders
-* `paths` = orders
+* `CSVPATH_CONFIG_PATH` = `config.ini`
+* `file` = `orders`
+* `paths` = `orders`
 
 The first, `CSVPATH_CONFIG_PATH`, is needed to tell the `CsvPaths` instance where to find config.ini. If we didn't provide it, `CsvPaths` would look at the default location, `config/config.ini`, which doesn't work for a lambda.
 
 The other two vars are giving the logical name of our inbound files and the named-paths group name that identifies the set of csvpaths we want to run on each new orders file.
+
+<figure><img src="../../.gitbook/assets/env vars.png" alt="" width="563"><figcaption></figcaption></figure>
 
 That's it. Our lambda configuration is done. But we still need to setup the right permissions for the Lambda service to access S3.
 
@@ -223,30 +229,34 @@ Click the role name to open the role in IAM. In the `Permissions policies` box y
 
 You should get a message that the policy was attached to the role and you should see the two policies the role has listed.&#x20;
 
+<figure><img src="../../.gitbook/assets/policies.png" alt="" width="375"><figcaption></figcaption></figure>
+
 Now let's set up our named-paths.
 
 ## Create and load the named-paths
 
-Back in your local Python project let's setup our named-paths. If you have named-paths already loaded you can use those. But supposing we don't have any already loaded, let's see what to do.
+Back in your local Python project let's setup our named-paths. If you have named-paths already loaded you can use those. But supposing we don't have any already loaded? Let's see what to do.
 
-First fire up the CLI to make sure we have config.ini and other assets created. Do:&#x20;
+First fire up the CLI to make sure we have `config.ini` and other assets created. Do:&#x20;
 
 ```
 poetry run CLI
 ```
 
-Select quit. We just needed to give CsvPath the chance to generate a config file.
+<figure><img src="../../.gitbook/assets/cli.png" alt="" width="295"><figcaption></figcaption></figure>
 
-Open config/config.ini and make one change. Set \[inputs] csvpaths equal to your named-paths location in your assets bucket. E.g.:&#x20;
+Select `quit`. We just needed to give CsvPath the chance to generate a config file.
+
+Open `config/config.ini` and make one change. Set `[inputs] csvpaths` equal to your named-paths location in your CsvPath assets bucket. It will be the same path as you used in `[inputs] csvpaths` in your lambda's `config.ini`. It might look like:&#x20;
 
 ```ini
 [inputs]
-csvpaths = s3://tin-penny-toys-inbound-orders
+csvpaths = s3://csvpath-order-management-archive/inputs/named_paths
 ```
 
-Everything else is fine. Remember to make sure you have your secret key and access key environment variables setup. AWS looks for `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.&#x20;
+Everything else is fine as-is. Remember to make sure you have your secret key and access key environment variables setup. AWS looks for `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.&#x20;
 
-Now create a simple csvpath called `orders.csvpath`. Put it in a `named_paths` directory at the root of your project. Since the point here is to wire up AWS let's go super trivial with:&#x20;
+Now create a simple csvpath called `orders.csvpath`. Put it in a `named_paths` directory at the root of your project. Since the point here is to wire up AWS let's just go super trivial on the CsvPath Language.  Create the file with:&#x20;
 
 ```xquery
 ~
@@ -257,6 +267,8 @@ $[*][
 ]
 ```
 
+This path will be named `hello-world` and it will print `hello world!` once for every line of every file it sees.
+
 Now fire up the CLI again and let's push the named-paths to S3. Do `poetry run cli` again.
 
 1. Select `named-paths`
@@ -264,6 +276,16 @@ Now fire up the CLI again and let's push the named-paths to S3. Do `poetry run c
 3. Type in `orders` as the name of the named-paths group
 4. Pick `file`
 5. Drill down to select `./named_paths/orders.csvpath`
+
+<figure><img src="../../.gitbook/assets/1 (1).png" alt="" width="263"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/2 (1).png" alt="" width="246"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/3 (1).png" alt="" width="313"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/4 (1).png" alt="" width="281"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/5.png" alt="" width="328"><figcaption></figcaption></figure>
 
 There should be a brief pause as your file uploads. Then you should be able to see it in S3 under the `named_paths` directory.
 
@@ -273,6 +295,6 @@ Now we're ready to test an inbound file arrival.
 
 Testing this setup is easy. Just navigate to your S3 bucket and upload a file.
 
-You should see a log begin spooling in the Monitor tab. And you can watch your results bucket to see that you successfully staged your named-file and created the named-paths group results.
+You should see a log begin spooling in the lambda's `Monitor` tab. And you can watch your results bucket to see that you successfully staged your named-file and created the named-paths group results.
 
 There are many ways to optimize this setup. What you have is the quick-get-something-working version. Now that you can see CsvPath basically working, you can think about how to iteratively improve your solution.
