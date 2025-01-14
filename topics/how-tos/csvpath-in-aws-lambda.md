@@ -139,7 +139,7 @@ There are two sets of configuration to do. We need to add our `config.ini` and w
 Jump back to the Code source tab.
 
 1. Right click in the explorer and add a file. Call it `config.ini`
-2. Paste in the configuration below, changing it to match your names and URLs.&#x20;
+2. Paste in the configuration below, changing it to match your names and URLs.  (This is pretty stock, but if you want to generate your own default just run the CLI to give CsvPath a chance to create one. We do this below in a moment).
 
 {% code lineNumbers="true" %}
 ```ini
