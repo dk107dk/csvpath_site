@@ -1,5 +1,6 @@
 ---
 description: Create an effective automated MFT solution in minutes
+hidden: true
 ---
 
 # Getting Started with CsvPath + SFTPPlus
