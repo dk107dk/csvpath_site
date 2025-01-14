@@ -4,6 +4,8 @@ description: Setup a Lambda to automatically process files arriving to an S3 buc
 
 # CsvPath in AWS Lambda
 
+<figure><img src="../../.gitbook/assets/lambda-logo.png" alt="" width="127"><figcaption></figcaption></figure>
+
 AWS's parts bin may be the ultimate for DIY MFT. The components include:
 
 * Transfer Family for secure transfer
@@ -13,7 +15,7 @@ AWS's parts bin may be the ultimate for DIY MFT. The components include:
 
 Of course there are many other services that might also come into play. AWS has more than everything you need. That said, some assembly is required and batteries are not included.&#x20;
 
-We can make setting up data onboarding a bit easier by showing how CsvPath can automatically pick up a newly arrived file for registration, validation, canonicalization, and publishing. When you have finished this page you will have automated a file arrival. What we do on this page builds on the [description of CsvPath's S3 capabilities here](inputs-and-or-outputs-in-aws-s3.md).
+We can make setting up data onboarding a bit easier by showing how an automatically triggered lambda can enable CsvPath to pick up a newly arrived file for registration, validation, canonicalization, and publishing. When you have finished this page you will have a fully automated a file onboarding process. What we do on this page builds on the [description of CsvPath's S3 capabilities here](inputs-and-or-outputs-in-aws-s3.md).
 
 ## The steps we are about to take
 
@@ -25,18 +27,22 @@ The steps are straightforward:&#x20;
 * Load your named-paths group
 * Drop a data file to test
 
-Before we start, caveats abound. Primarily, most of these steps are deep topics and this isn't a complete tutorial on setting up infrastructure in AWS. We can get you close, possibly all the way to the beach, but you are definitely going to have to get your feet wet. If that is not what you're looking for, try one of our other integrations that might be quicker. SFTP and SFTPPlus are worth a look. Another caveat, while we're focused on automated DataOps goodness, this is not how you would want to do it IRL. If you haven't already, you would be well served to check out Terraform or CloudFormation.
+Before we start, caveats abound. Primarily, most of these steps are deep topics and this isn't a complete tutorial on setting up infrastructure in AWS. We can get you close to the beach, but you are definitely going to have to get your feet wet. If that is not what you're looking for, try one of CsvPath's other integrations that might be quicker. SFTP and SFTPPlus are worth a look. Another caveat, we're focused on the simplest automated thing that could possibly work. This is not typically how you would go about setting up a production environment. If you haven't already, check out [Terraform](https://www.terraform.io/) and/or CloudFormation.
 
 ## Create the buckets
 
-We want two buckets. One for inbound and one for CsvPath assets. But CsvPath assets we're talking about the archive holding our results and the two inputs directories holding our onboarding files and csvpaths.&#x20;
+We will use two buckets. One for inbound files and one for CsvPath assets. Our assets bucket will hold the results archive and the two inputs directories for files and csvpaths.&#x20;
 
 1. Log into AWS and navigate to S3
-2. Create two buckets with default settings. Make one have a name that tells you the bucket is for inbound data. The second bucket's name should indicate that it holds a results archive for one or more named-paths groups.&#x20;
+2. Create two buckets with default settings. Make one have a name that tells you the bucket is for inbound data. The second bucket's name should indicate that it holds a CsvPath assets.&#x20;
+
+Our requirements are basic. For all S3's innumerable options, the buckets should be a snap.
 
 ## Create the lambda
 
-1. In Lambda, click the new button
+<figure><img src="../../.gitbook/assets/Screenshot 2025-01-14 at 1.28.54 PM.png" alt="" width="563"><figcaption></figcaption></figure>
+
+1. Open the Lambda service and click the `Create function` button
 2. Use a name that tells you this lambda is for inbound data processing
 3. Allow AWS to create a new role for the lambda
 4. Pick Python as the platform. Either AMD or ARM works.
