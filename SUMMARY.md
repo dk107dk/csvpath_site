@@ -12,6 +12,7 @@
 * [Another Example, Part 2](getting-started/another-example-part-2.md)
 * [Getting Started With CsvPath + OpenLineage](getting-started/getting-started-with-csvpath-+-openlineage.md)
 * [Getting Started with CsvPath + CKAN](getting-started/getting-started-with-csvpath-+-ckan.md)
+* [Getting Started with CsvPath + SFTPPlus](getting-started/getting-started-with-csvpath-+-sftpplus.md)
 * [Get Help](getting-started/get-help.md)
 
 ## Topics
@@ -26,6 +27,7 @@
   * [Config Setup](topics/how-tos/config-setup.md)
   * [Debugging Your CsvPaths](topics/how-tos/debugging.md)
   * [Creating a derived file](topics/how-tos/creating-a-derived-file.md)
+  * [CsvPath in AWS Lambda](topics/how-tos/csvpath-in-aws-lambda.md)
 * [High-level Topics](topics/high-level-topics/README.md)
   * [Why CsvPath?](topics/high-level-topics/why-csvpath.md)
   * [CsvPath Use Cases](topics/high-level-topics/csvpath_use_cases.md)

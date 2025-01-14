@@ -22,7 +22,7 @@ Once you do that, you can clear out any other configuration values. Or you can l
 
 When you start CsvPath it will check to see if it should load your config from another location. It will find the location in an env variable or in the path key in the default config.ini.
 
-<figure><img src="../../.gitbook/assets/config.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/config (1).png" alt=""><figcaption></figcaption></figure>
 
 ## The Defaults
 
