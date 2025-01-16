@@ -14,6 +14,7 @@
 * [Getting Started with CsvPath + CKAN](getting-started/getting-started-with-csvpath-+-ckan.md)
 * [Getting Started with CsvPath + SFTPPlus](getting-started/getting-started-with-csvpath-+-sftpplus.md)
 * [Get Help](getting-started/get-help.md)
+* [Getting Started with OpenTelemetry](getting-started/getting-started-with-opentelemetry.md)
 
 ## Topics
 
