@@ -38,4 +38,6 @@ Likewise, to store your source data in S3 you would set a key like:&#x20;
 files = s3://csvpath-example-1/inputs/named_files
 ```
 
+As usual with AWS you will need to authenticate at the command line. This can be as simple as exporting your SK and AK as env vars. See AWS's docs.
+
 Bear in mind that as soon as you separate your data and compute you incur a network latency cost, as well as actual dollars and cents costs. There are ways to mitigate the latency and moving your compute to AWS along with your data is likely to be a big help. All-in-all, using S3 is sweet, but as with any work you do using CsvPath, try, test, automate, and iterate.
