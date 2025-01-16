@@ -8,7 +8,7 @@ description: Observability for the masses
 
 DataOps success demands a good understanding of what is happening on multiple levels moment-to-moment. You can't agile what you don't observe.&#x20;
 
-OpenTelemetry is the standard way to collect indicators from systems into an observability platform. Its OTLP protocol is supported by [more than 80 venders](https://opentelemetry.io/ecosystem/vendors/), including Grafana, Splunk, Elastic, and more. And now CsvPath, too.&#x20;
+OpenTelemetry is the standard way to collect indicators from systems into an observability platform. Its OTLP protocol is supported by [more than 80 observability venders](https://opentelemetry.io/ecosystem/vendors/) and open source platforms, including Grafana, Splunk, Elastic, and more. And now CsvPath, too.&#x20;
 
 Getting started with CsvPath + OpenTelemetry is drop-dead easy. Easier even than the other CsvPaths integrations, which are all pretty lightweight themselves. Here's what you do:&#x20;
 
@@ -22,7 +22,7 @@ Getting started with CsvPath + OpenTelemetry is drop-dead easy. Easier even than
 
 Then run some named-paths groups and see your metrics flowing into your observability tool. Simple!
 
-There's more just a couple of simple graphs going on here. We'll talk about how adding observability to CsvPath is much more than the sum of its parts. It can change your mode of operations entirely.
+There's more than just a couple of pretty graphs going on here. We'll talk about how adding observability to CsvPath is much more than the sum of its parts. It can change your DataOps mode of operations entirely.
 
 Give OpenTelemetry a try and let us know what you'd like to see. There's much more we can do on OTLP.
 
