@@ -1,6 +1,6 @@
 # Language Basics
 
-The CsvPath language is simple, declarative, and purpose-built. Here is a quick introduction. As well as in these pages, there is [more information and more examples on Github](https://github.com/dk107dk/csvpath/tree/main).
+The CsvPath's Validation Language is simple, declarative, and purpose-built. Here is a quick introduction. As well as in these pages, there is [more information and more examples on Github](https://github.com/dk107dk/csvpath/tree/main).
 
 * [Root, Scanning, and Matching](language.md#root-scanning-and-matching)
 * [File References and Match Components](language.md#file-references-and-match-components)
