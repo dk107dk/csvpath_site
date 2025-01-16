@@ -10,11 +10,11 @@
 * [Your First Validation, The Hard Way](getting-started/your-first-validation.md)
 * [Another Example, Part 1](getting-started/another-example-part-1.md)
 * [Another Example, Part 2](getting-started/another-example-part-2.md)
+* [Getting Started with OpenTelemetry](getting-started/getting-started-with-opentelemetry.md)
 * [Getting Started With CsvPath + OpenLineage](getting-started/getting-started-with-csvpath-+-openlineage.md)
 * [Getting Started with CsvPath + CKAN](getting-started/getting-started-with-csvpath-+-ckan.md)
 * [Getting Started with CsvPath + SFTPPlus](getting-started/getting-started-with-csvpath-+-sftpplus.md)
 * [Get Help](getting-started/get-help.md)
-* [Getting Started with OpenTelemetry](getting-started/getting-started-with-opentelemetry.md)
 
 ## Topics
 
