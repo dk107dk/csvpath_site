@@ -18,9 +18,19 @@ Getting started with CsvPath + OpenTelemetry is drop-dead easy. Easier even than
 2. Open `config/config.ini` and add otlp to the `[listeners] groups` list
 3. Set your OTLP platform environment variables
 
+If your `config/config.ini` isn't generated new so it doesn't already have the OTLP class imports you see in the screenshot above, just paste these in:&#x20;
+
+```ini
+[listeners]
+otlp.result = from csvpath.managers.integrations.otlp.otlp_result_listener import OpenTelemetryResultListener
+otlp.results = from csvpath.managers.integrations.otlp.otlp_results_listener import OpenTelemetryResultsListener
+```
+
+The env vars values are vender specific. Here's a screenshot of my Grafana Cloud setup. Yours will be similar, but different values. Check your vender's docs.
+
 <figure><img src="../.gitbook/assets/otlp_env_vars.png" alt=""><figcaption><p>OTPL env vars. Don't use these, though! Your observability tool vender will provide your values for your own use</p></figcaption></figure>
 
-Then run some named-paths groups and see your metrics flowing into your observability tool. Simple!
+Once you've done those three things you're done. Run some named-paths groups and see your metrics flowing into your observability tool. Simple!
 
 There's more than just a couple of pretty graphs going on here. We'll talk about how adding observability to CsvPath is much more than the sum of its parts. It can change your DataOps mode of operations entirely.
 
