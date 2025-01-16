@@ -2,7 +2,7 @@
 description: CsvPath's three file stores can be local or on S3. Mix and match!
 ---
 
-# Store inputs and/or outputs and/or the archive in AWS S3
+# Store source data and/or named-paths and/or the archive in AWS S3
 
 <figure><img src="../../.gitbook/assets/s3_archive_view.png" alt=""><figcaption></figcaption></figure>
 
