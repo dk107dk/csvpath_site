@@ -63,7 +63,9 @@ To be sure, this information has to be exchanged by these same people regardless
 
 Setting up the SFTP integration is straightforward. You, as the DataOps driver, just add a few directives to your csvpath files. The DevOps team sets up the server-side of the integration. And the data partner starts dropping files in an FTP directory.&#x20;
 
-Here's an image of who owns what. <mark style="color:green;">**Green**</mark> for you, the data person, control. <mark style="color:blue;">**Blue**</mark> for the DevOps ownership. And <mark style="color:red;">**red**</mark> for the data partner's contribution.
+Here's an image of who owns what. <mark style="color:green;">**Green**</mark> for you, the data person, control. <mark style="color:blue;">**Blue**</mark> for the DevOps ownership. And <mark style="color:red;">**red**</mark> for the data partner's contribution.&#x20;
+
+And, just to be clear, these are setup steps. Once the SFTPPlus solution is in place any number of DataOps team members can work with any number of data partners without needing anything beyond account names and logins.&#x20;
 
 <figure><img src="../.gitbook/assets/who-does-what.png" alt=""><figcaption><p><mark style="color:green;"><strong>Green</strong></mark> for the person using CsvPath. <mark style="color:blue;"><strong>Blue</strong></mark> for IT setup. <mark style="color:red;"><strong>Red</strong></mark> for the data partner sending data.</p></figcaption></figure>
 
