@@ -137,7 +137,7 @@ poetry run cli
 
 If you aren't using poetry have a look in the pyproject.toml to see the command we're running so you can run it yourself. When the CLI comes up you should see:&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-12-24 at 11.17.38 PM.png" alt="" width="284"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-12-24 at 11.17.38 PM (1).png" alt="" width="284"><figcaption></figcaption></figure>
 
 Check to make sure the config directory was created. If it was, select `quit`.
 
@@ -202,7 +202,7 @@ To see the CKAN integration in action we have to run a csvpath using a `CsvPaths
 
 Fire up the CLI again using `poetry run cli`.  You will again see:&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-12-24 at 11.17.38 PM.png" alt="" width="284"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-12-24 at 11.17.38 PM (1).png" alt="" width="284"><figcaption></figcaption></figure>
 
 We're going to stage our data file and load our csvpaths. That essentially means we're going to import those assets into the CsvPath Library's workspace so we can run our named-paths group. A named-path group is simply a collection of csvpaths that are run as a single group and known by a name.
 
@@ -224,7 +224,7 @@ And pick your `orders.json` file that you downloaded a moment ago.
 
 We're done setting up our named-paths group. Now let's stage our data as a named-file. The process is the same. Click on named-files.
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-12-24 at 11.17.38 PM.png" alt="" width="284"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-12-24 at 11.17.38 PM (1).png" alt="" width="284"><figcaption></figcaption></figure>
 
 Then click on add-named file.
 
