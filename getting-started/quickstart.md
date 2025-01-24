@@ -7,7 +7,7 @@ If you need help getting started with Python, try [Python.org's intros](https://
 {% endhint %}
 
 {% hint style="success" %}
-Feel like skipping the Python? There isn't much, and it's totally jumping ahead, [but if you insist try this Python-free CLI example](your-first-validation-the-lazy-way.md).
+<mark style="color:green;">Feel like skipping the Python?</mark> [Watch these videos](https://www.youtube.com/@atesta-analytics) <mark style="color:red;">🎥</mark> or [try this Python-free CLI example](your-first-validation-the-lazy-way.md).
 {% endhint %}
 
 ### PyPI and Github
