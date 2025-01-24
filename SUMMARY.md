@@ -19,6 +19,7 @@
 ## Topics
 
 * [How-tos](topics/how-tos/README.md)
+  * [How-to videos](topics/how-tos/how-to-videos.md)
   * [Sending results by SFTP](topics/how-tos/sending-results-by-sftp.md)
   * [Store source data and/or named-paths and/or the archive in AWS S3](topics/how-tos/store-source-data-and-or-named-paths-and-or-the-archive-in-aws-s3.md)
   * [CsvPath in AWS Lambda](topics/how-tos/csvpath-in-aws-lambda.md)
@@ -29,7 +30,6 @@
   * [Config Setup](topics/how-tos/config-setup.md)
   * [Debugging Your CsvPaths](topics/how-tos/debugging.md)
   * [Creating a derived file](topics/how-tos/creating-a-derived-file.md)
-  * [How-to videos](topics/how-tos/how-to-videos.md)
 * [High-level Topics](topics/high-level-topics/README.md)
   * [Why CsvPath?](topics/high-level-topics/why-csvpath.md)
   * [CsvPath Use Cases](topics/high-level-topics/csvpath_use_cases.md)
