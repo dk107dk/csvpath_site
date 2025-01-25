@@ -169,18 +169,19 @@ $[*][
        decimal.notnone.strict(#height,7.5)
    )
    
-   count_headers_in_line() == 8
-   count_headers() == 8
+   count_headers_in_line() == 9
+   count_headers() == 9
    in(#state, "MA|CT|RI|ME|VT|NH")
    in(#zip, $zips.csvpaths.zipcodes)
 ]
 ```
 
-Here we're adding three things:
+Here we're adding four things:
 
 * We're overlay-naming three of our entity fields: `#0`, `#2`, and `#7`. (We could have used the names of the headers just as well, but since we're giving our own names the indexes are cleaner). These names will show up in any built-in validation messages.
+* Then we're locking down our table to just the thre entities: person, address, height. We do that by limiting the number of named-headers in the header line (`count_headers() == 9`). As you probably know, we can change the header line, so this rule, in combination with the three `line()` entities, is quite limiting. And we lock down the number of header values in each line (`count_headers_in_line() == 9`), which keeps our tabular data from getting cute by adding or removing header values on any given line.&#x20;
 * With the first `in()` we are limiting the range of values in the `state` header
-* And with the second `in()` we are referencing another table in the results of a different named-paths group run, `zips`, presumably on different data. _(If we wanted to do the same within our current named-paths group on our current data we could certainly do it, but that is less often needed and comes with the caveat that you would be typically be looking at just the results that streamed so far and only results, not the raw data; though there are ways around both issues, if really needed)._
+* And with the second `in()` we are referencing another table in the results of a different named-paths group run, `zips`, presumably on different data. _(If we wanted to do the same within our current named-paths group on our current data we could certainly do it, but that is less often needed and comes with the caveat that you would be typically be looking at just the results that streamed so far and only results, not the raw data; though there are ways around both issues)._
 
 So, basically, we have started to both creep into rules-based validation (the range limitation) and creep further towards SQL (the reference) at the same time. The header aliases are also SQLish, and in certain cases can be a real help in debugging tables of poorly labeled data. &#x20;
 
