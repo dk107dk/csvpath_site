@@ -6,7 +6,7 @@ The data quality tools we use, including languages like Python, validate accordi
 
 Both types of validation are important and useful. Many of these tools do some of both. For example, you can use XPath in XSD to achieve some of what you can achieve with Schematron. Likewise, SQL provides DDL for defining structure and can easily write rules in DML (a.k.a. just plain SQL) to validate beyond just the entities and relationships.&#x20;
 
-CsvPath provides both structural and rules-based validation. This is not a far reach, given CSV and Excel's limited capability for structural modeling. Regardless, both approaches are quite helpful. This page looks at structural validation in CsvPath, mainly. There is plenty of rules-based validation on basically every other page!
+CsvPath provides both structural and rules-based validation. Both approaches are quite helpful. This page looks at structural validation in CsvPath, mainly. There is plenty of rules-based validation on basically every other page!
 
 An entity model in CsvPath is a line, as defined by the `line()` function. There can be multiple lines per csvpath. This is particularly important for Excel, where people often have ancillary boxes of data sitting beside larger data sets. &#x20;
 
