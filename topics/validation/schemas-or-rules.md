@@ -185,4 +185,4 @@ Here we're adding four things:
 
 So, basically, we have started to both creep into rules-based validation (the range limitation) and creep further towards SQL (the reference) at the same time. The header aliases are also SQLish, and in certain cases can be a real help in debugging tables of poorly labeled data. &#x20;
 
-There you go, a few structural validation capabilities. Hopefully, seeing this, you are convinced that both structural schemas and validation rules are both helpful tools.&#x20;
+There you go, a few structural validation capabilities. Hopefully, seeing this, you are convinced that both structural schemas and validation rules are super helpful tools.&#x20;
