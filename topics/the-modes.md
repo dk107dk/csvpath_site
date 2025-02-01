@@ -29,9 +29,9 @@ Modes are only set in _external_ comments. External comments are comments that a
 
 ## Defaults
 
-When a mode is not explicitly set the default is:&#x20;
+When a mode is not explicitly set CsvPath uses sensible defaults. Some modes default to options set in `config/config.ini`. For example, `validation-mode` overrides `[errors] csvpath` in `config.ini`. Other defaults are built-in, for instance, `logic-mode` overrides the library's built-in default matching using ANDed operations. The defaults are:&#x20;
 
-* `explain-mode`: no explanations are logged when logging is set to INFO
+* `explain-mode`: no explanations are logged when logging is set to `INFO`
 * `files-mode`: there is no check for optional files having been generated&#x20;
 * `logic-mode`: match components are ANDed
 * `print-mode`: print statements go to the console
@@ -39,7 +39,7 @@ When a mode is not explicitly set the default is:&#x20;
 * `run-mode`: the csvpath is run
 * `source-mode`: the named-file that was passed to the named-paths group is used as input
 * `transfer-mode`: no result data transfer is made
-* `unmatched-mode`: lines not returned are discarded&#x20;
+* `unmatched-mode`: the lines not returned are discarded&#x20;
 * `validation-mode`: validation errors are only printed and logged&#x20;
 
 ## An Example
