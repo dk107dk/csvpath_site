@@ -136,13 +136,13 @@ On the DevOps side of things there are three main activities, assuming your SFTP
 
 Creating the CsvPath project is quite easy. It requires a Python 3.11 or greater environment.&#x20;
 
-First we add Pipx and Poetry. Pipx keeps Python applications from getting in each other's way. Poetry is our Python project tool. The commands are as follows.&#x20;
+First we add Pipx and Poetry. Pipx keeps Python applications from getting in each other's way. Poetry is our Python project tool. For the official SFTPPlus Ubuntu docker container, the commands are as follows. Otherwise, if you are installing on Windows you could use Scoop or on MacOS Homebrew.&#x20;
 
 * apt-get --no-install-recommends install -y pipx&#x20;
 * pipx ensurepath&#x20;
 * pipx install poetry
 
-Next you may need a higher Python version. (Check the version by doing `python3 --version`). If you do, follow these steps:&#x20;
+Next you may need a higher Python version. (Check the version by doing `python3 --version`). If you do, follow these steps. (Windows and Mac users will obviously have slightly different steps).&#x20;
 
 * apt install software-properties-common&#x20;
 * add-apt-repository ppa:deadsnakes/ppa&#x20;
@@ -151,16 +151,15 @@ Next you may need a higher Python version. (Check the version by doing `python3 
 
 Creating the CsvPath integration project is simple:&#x20;
 
-* cd to parent directory. e.g. `/opt/sftpplus/run`&#x20;
-* `poetry add transfers`
+* cd to the directory where you plan to put your scripts. e.g. `/opt/sftpplus/run` or `C:\sftp\run`&#x20;
+* `poetry new transfers`  _(or whatever project name you prefer)_
 
 If you need to raise your Python level, make that change as you create your project:&#x20;
 
-* cd to project's desired parent directory. e.g. /opt/sftpplus/run&#x20;
-* `poetry add transfers`
-* edit `pyproject.toml.` Change the `requires-python` line to: `requires-python = ">=3.10,<4.0"`&#x20;
+* `cd` to project's desired parent directory. e.g. /opt/sftpplus/run&#x20;
+* You may need to edit `pyproject.toml` to get the correct Python version for CsvPath and its dependencies. Change the `requires-python` line to: `requires-python = ">=3.10,<4.0"`&#x20;
 * `poetry add csvpath`
-* Download 4 scripts and drop them in the root directory of your new project
+* Download 4 simple scripts and drop them in the root directory of your new project
 
 The  4 scripts [live in CsvPath's Github here](https://github.com/csvpath/csvpath/tree/main/assets/integrations/sftpplus). They are:&#x20;
 
@@ -169,9 +168,13 @@ The  4 scripts [live in CsvPath's Github here](https://github.com/csvpath/csvpat
 * [handle\_mailbox\_arrival.py](https://github.com/csvpath/csvpath/blob/main/assets/integrations/sftpplus/handle_mailbox_arrival.py)
 * [handle\_mailbox\_arrival.sh](https://github.com/csvpath/csvpath/blob/main/assets/integrations/sftpplus/handle_mailbox_arrival.sh)
 
-`chmod` the shell scripts to make them executable. `chmod +x handle_auto_arrival.sh` and `chmod +x handle_mailbox_arrival.sh`.&#x20;
+(There are `.bat` files in the same location in GitHub).
 
-Check that the shell scripts run Poetry correctly. (They will blow up if you don't feed them the right data, but you'll see if Poetry is working). If it is not, do which poetry to see where poetry lives and update the .sh scripts with the right path.  E.g. on my laptop, the scripts need to use `/Users/sftpplus/.local/bin/poetry`, rather than just `poetry`. So my `handle_mailbox_arrival.sh` looks like:
+On Linux, `chmod` the shell scripts to make them executable. `chmod +x handle_auto_arrival.sh` and `chmod +x handle_mailbox_arrival.sh`.&#x20;
+
+Update the paths in the scripts as needed. Check that the shell scripts run Poetry correctly by running them yourself. They will blow up because you won't be feeding them the right data, but you'll see if they run Poetry correctly.&#x20;
+
+If the scripts don't run Poetry correctly you will need to update the scripts to point to Poetry. On Linux, do `which poetry` to see where poetry lives and update the .sh scripts with the right path.  E.g. on my laptop, the scripts need to use `/Users/sftpplus/.local/bin/poetry`, rather than just `poetry`. So my `handle_mailbox_arrival.sh` looks like:
 
 `/Users/sftpplus/.local/bin/poetry install && /Users/sftpplus/.local/bin/poetry run python handle_mailbox_arrival.py "$1"`
 
@@ -183,7 +186,7 @@ Open the SFTPPlus server admin console in your web browser. Create an account ca
 
 Then, if it doesn't already exist, create an account for your data partner.&#x20;
 
-In the storage area create the following directories:&#x20;
+Make a storage folder for inbound content. In your storage area create the following directories:&#x20;
 
 #### Mailbox
 
@@ -196,9 +199,13 @@ In the storage area create the following directories:&#x20;
 * ./<\<data-partner-name>>/handled
 * ./<\<data-partner-name>>/meta
 
-The final SFTPPlus step is to create a `mailbox` account transfer. CsvPath users with the SFTPPath integration switched on are connected to SFTPPlus. Behind the scenes the integration sends instructions to SFTPPlus. The instructions go into the `mailbox` account. The `mailbox` transfer runs the `handle_mailbox_arrival.sh` script, and on success, will move the incoming instructions to its `handled` directory. Those instructions tell SFTPPlus how to handle incoming data partner files.
+Assign the root of these directories to `mailbox` and _\<data partner>_ as their respective storage areas.
 
-Create a transfer called `csvpath` (or whatever you like). Set it to check the `mailbox` frequently. It should move files from `./mailbox` to `./mailbox/handled`. Before it moves files make it run `handle_mailbox_arrival.sh`.
+The final SFTPPlus step is to create a transfer for the `mailbox` account. CsvPath Framework users with the SFTPPath integration configured are connected to SFTPPlus. Behind the scenes the integration sends instructions to SFTPPlus when users load CsvPath Language files.&#x20;
+
+The instructions CsvPath sends go into the `mailbox` account. The `mailbox` transfer runs the `handle_mailbox_arrival.sh` script, and on success, will move the incoming instructions to its `handled` directory. Those instructions tell SFTPPlus how to handle incoming data partner files.
+
+To set this up, create a transfer called `csvpath` (or whatever you like). Set it to check the `mailbox` frequently. It should move files from `./mailbox` to `./mailbox/handled`. Before it moves files make it run `handle_mailbox_arrival.sh`.
 
 And you're done.
 
