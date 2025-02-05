@@ -44,9 +44,9 @@ And for the SFTPPlus admin, they will:
 * Set up the data partner's account&#x20;
 * Create a mailbox transfer to receive instructions from CsvPath
 * Add information to the server-side CsvPath project's `config/config.ini` file
-* Add trivial scripts ([download able from CsvPath's Github](https://github.com/csvpath/csvpath/tree/main/assets/integrations/sftpplus)) to connect the wires
+* Add trivial scripts ([downloadable from CsvPath's Github](https://github.com/csvpath/csvpath/tree/main/assets/integrations/sftpplus)) to connect the wires
 
-In concept, this is all pretty straightforward. There are a lot of details, of course. We imagine that getting it working will take a morning and a couple cups of coffee.&#x20;
+In concept, this is all pretty straightforward. There are a lot of details, of course. Getting it working will likely take a morning and a couple cups of coffee. [Here's a high-level checklist of the steps](sftpplus-implementation-checklist.md).&#x20;
 
 ## Who Knows What?
 
