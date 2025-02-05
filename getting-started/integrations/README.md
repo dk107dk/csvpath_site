@@ -8,12 +8,16 @@ description: >-
 
 <figure><img src="../../.gitbook/assets/integration_logos (3).png" alt="" width="375"><figcaption></figcaption></figure>
 
-* [AWS S3](../../topics/how-tos/csvpath-in-aws-lambda.md)
-* [CKAN](getting-started-with-csvpath-+-ckan.md)
-* Excel
-* [OpenLineage](../getting-started-with-csvpath-+-openlineage.md) and Marquez
-* [OpenTelemetry](../getting-started-with-csvpath-+-opentelemetry.md)
-* Pandas
-* [SFTP](../../topics/how-tos/sending-results-by-sftp.md)&#x20;
-* [SFTPPlus](getting-started-with-csvpath-+-sftpplus/)
-* [Slack](../../topics/how-tos/setup-notifications-to-slack.md)
+CsvPath is growing its list of pre-integrated tools week-by-week. If you don't see the tool you need, [just ask](../get-help.md).
+
+| Category            | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **File Transfer**   | <p></p><ul><li><a href="getting-started-with-csvpath-+-sftpplus/">SFTPPlus</a></li><li><a href="../../topics/how-tos/sending-results-by-sftp.md">SFTP</a></li><li><a href="../../topics/how-tos/csvpath-in-aws-lambda.md">AWS </a>Transfer Family</li><li><a href="../../topics/how-tos/store-source-data-and-or-named-paths-and-or-the-archive-in-aws-s3.md">AWS S3 </a>and <a href="../../topics/how-tos/csvpath-in-aws-lambda.md">Lambda</a></li></ul> |
+| **Lineage**         | <p></p><ul><li><a href="../getting-started-with-csvpath-+-openlineage.md">OpenLineage</a></li><li><a href="https://peppy-sprite-186812.netlify.app/">Marquez</a></li></ul>                                                                                                                                                                                                                                                                                |
+| **Observability**   | <p></p><ul><li><a href="../getting-started-with-csvpath-+-opentelemetry.md">OpenTelemetry</a> </li></ul><p><em>(80+ metrics and alerting venders rely on OpenTelemetry)</em> </p>                                                                                                                                                                                                                                                                         |
+| **Data Formats**    | <p></p><ul><li>CSV (comma separated values and other types of delimited files)</li><li>Excel</li><li>Pandas dataframes</li></ul>                                                                                                                                                                                                                                                                                                                          |
+| **Notifications**   | <p></p><ul><li><a href="../../topics/how-tos/setup-notifications-to-slack.md">Slack</a></li></ul>                                                                                                                                                                                                                                                                                                                                                         |
+| **Data Publishing** | <p></p><ul><li><a href="getting-started-with-csvpath-+-ckan.md">CKAN</a></li></ul>                                                                                                                                                                                                                                                                                                                                                                        |
+
+
+
