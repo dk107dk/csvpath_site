@@ -203,11 +203,15 @@ Assign the root of these directories to `mailbox` and _\<data partner>_ as their
 
 The final SFTPPlus step is to create a transfer for the `mailbox` account. CsvPath Framework users with the SFTPPath integration configured are connected to SFTPPlus. Behind the scenes the integration sends instructions to SFTPPlus when users load CsvPath Language files.&#x20;
 
-The instructions CsvPath sends go into the `mailbox` account. The `mailbox` transfer runs the `handle_mailbox_arrival.sh` script, and on success, will move the incoming instructions to its `handled` directory. Those instructions tell SFTPPlus how to handle incoming data partner files.
+The instructions CsvPath sends go into the `mailbox` account. The `mailbox` transfer runs the `handle_mailbox_arrival.sh` (or `handle_mailbox_arrival.bat)` script, and on success, will move the incoming instructions to its `handled` directory. Those instructions tell SFTPPlus how to handle incoming data partner files.
 
-To set this up, create a transfer called `csvpath` (or whatever you like). Set it to check the `mailbox` frequently. It should move files from `./mailbox` to `./mailbox/handled`. Before it moves files make it run `handle_mailbox_arrival.sh`.
+To set this up, create a transfer called `csvpath` (or whatever you like). Set it to check the `mailbox` frequently. It should move files from `./mailbox` to `./mailbox/handled`. Before it moves files make it run `handle_mailbox_arrival.sh`. Be sure to set `Overwriting rule` to `Overwrite existing file`.
 
-And you're done.
+At this point you should be able to sftp into the mailbox and data partner accounts.
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 3.51.36 PM.png" alt="" width="563"><figcaption></figcaption></figure>
+
+## And you're done
 
 Well, done but for testing, of course. The two tests you need to see working are:&#x20;
 
