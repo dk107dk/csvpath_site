@@ -238,6 +238,22 @@ The csvpath writer needs to know how to fill in the directives they add to the c
 
 The DevOps person needs to know the data partner's information so they can create that account.
 
+* **As a CsvPath writer, how do I know everything is working?**
+
+Great question. There are several ways to make sure things are going well.&#x20;
+
+* [Add a Slack notification](../topics/how-tos/setup-notifications-to-slack.md) to your csvpath so that you can see the processing happen when files arrive
+* Use [Marquez or another OpenLineage server](getting-started-with-csvpath-+-openlineage.md) to track file arrival events
+* Use an observability tool like [Grafana, New Relic, or another OpenTelemetry](getting-started-with-csvpath-+-opentelemetry.md) enabled system to see the arrivals
+* If you have access to the SFTPPlus event log you will see the transfer creation and all its activity
+* SFTPPlus allows you to set up email alerts that can help you understand when server actions happen.
+* Using an SFTP client you can easily watch the metadata file land in the mailbox and see the data partner's named-file directory, with its meta and handled subdirectories. Watching that progression and then sending a file and watching it be processed can take just a few seconds.
+* The CsvPath log will give you a good understanding of the step-by-step. You can look in the CsvPath writer's log. If you have access to the server's CsvPath log you can see the automated side.
+
+The first three bullets are available to CsvPath writers on a csvpath-by-csvpath basis, without DataOps support once the configuration data is available. In general, though, the initial setup of an automated transfer is something that the CsvPath writer, their DataOps support, and the data partner will have to work together on to make sure the automation is buttoned up.&#x20;
+
+Once you have the automation in place you should consider using an observability tool to track when files arrive, if you are seeing the correct amount of data, and if the files process correctly. And if your file arrivals are routine, an obserability tool will give you a way to get an alert if the expected processing didn't happen within a time period.
+
 * **When do the handled files get deleted?**
 
 That's up to you. Once a file lands in `./mailbox/handled` or `./<<partner>>/handled` it can be deleted. The instructions JSON files are copied to the `./<<partner>>/meta` directory and the inbound data files are copied into CsvPath's file storage area as part of file registration. (CsvPath's named-files area is configured in the server-side CsvPath project's `config/config.ini`). The original files are no longer needed.&#x20;
