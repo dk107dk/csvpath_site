@@ -258,6 +258,18 @@ The first three bullets are available to CsvPath writers on a csvpath-by-csvpath
 
 Once you have the automation in place you should consider using an observability tool to track when files arrive, if you are seeing the correct amount of data, and if the files process correctly. And if your file arrivals are routine, an observability tool will give you a way to get an alert if the expected processing didn't happen within a time period.
 
+* **As a CsvPath writer, what if I need to make changes to the setup?**
+
+That's no problem. You can change your SFTPPlus metadata fields and reload your named-paths at any time. The integration will update the transfer.
+
+* **What if my data partner sends a file with an unexpected name?**
+
+From the CsvPath Framework's point of view, each file that arrives is named by the directory your data partner puts it in. If you have the named-file name "orders" the integration will create an orders directory. Your data partner will drop their orders files in that directory.
+
+Within CsvPath, each file will be tracked as part of a well-identified sequence of versions of data arriving with the same physical filename, all within the scope of the single named file name. For you as a CsvPath writer, nothing changes because you're working against the CsvPath Framework's named-file name, which doesn't change.&#x20;
+
+So, to be clear, if you have `orders` as your named-file name an `orders` directory is created. Your data partner may drop `Jan-orders.xlsx`, `Feb-orders.xlsx`, `Mar-orders.xlsx` and each of these will take its turn as the the named-file `orders`. If your partner drops three versions of `Feb-orders.xlsx`, CsvPath Framework will collect, fingerprint, and make all three available in sequence as `orders`. Likewise, if your data partner sends `spring-picnic-menu.csv` to the `orders` directory, CsvPath Framework will track that file as its own sequence of data within the scope of `orders` — even though it seems like that data probably doesn't belong.
+
 * **When do the handled files get deleted?**
 
 That's up to you. Once a file lands in `./mailbox/handled` or `./<<partner>>/handled` it can be deleted. The instructions JSON files are copied to the `./<<partner>>/meta` directory and the inbound data files are copied into CsvPath's file storage area as part of file registration. (CsvPath's named-files area is configured in the server-side CsvPath project's `config/config.ini`). The original files are no longer needed.&#x20;
