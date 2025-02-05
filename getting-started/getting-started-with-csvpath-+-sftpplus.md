@@ -164,11 +164,11 @@ If you need to raise your Python level, make that change as you create your proj
 The  4 scripts [live in CsvPath's Github here](https://github.com/csvpath/csvpath/tree/main/assets/integrations/sftpplus). They are:&#x20;
 
 * [handle\_auto\_arrival.py](https://github.com/csvpath/csvpath/blob/main/assets/integrations/sftpplus/handle_auto_arrival.py)
-* [handle\_auto\_arrival.sh](https://github.com/csvpath/csvpath/blob/main/assets/integrations/sftpplus/handle_auto_arrival.sh)
+* [handle\_auto\_arrival.sh](https://github.com/csvpath/csvpath/blob/main/assets/integrations/sftpplus/handle_auto_arrival.sh) or [handle\_auto\_arrival.bat](https://github.com/csvpath/csvpath/blob/main/assets/integrations/sftpplus/handle_auto_arrival.bat)
 * [handle\_mailbox\_arrival.py](https://github.com/csvpath/csvpath/blob/main/assets/integrations/sftpplus/handle_mailbox_arrival.py)
-* [handle\_mailbox\_arrival.sh](https://github.com/csvpath/csvpath/blob/main/assets/integrations/sftpplus/handle_mailbox_arrival.sh)
+* [handle\_mailbox\_arrival.sh](https://github.com/csvpath/csvpath/blob/main/assets/integrations/sftpplus/handle_mailbox_arrival.sh) or [handle\_mailbox\_arrival.bat](https://github.com/csvpath/csvpath/blob/main/assets/integrations/sftpplus/handle_mailbox_arrival.bat)
 
-(There are `.bat` files in the same location in GitHub).
+_(The `.bat` files  are for Windows users. They are in the same location in GitHub)._
 
 On Linux, `chmod` the shell scripts to make them executable. `chmod +x handle_auto_arrival.sh` and `chmod +x handle_mailbox_arrival.sh`.&#x20;
 
@@ -196,10 +196,14 @@ Make a storage folder for inbound content. In your storage area create the follo
 #### Data partner
 
 * ./<\<data-partner-name>>
-* ./<\<data-partner-name>>/handled
-* ./<\<data-partner-name>>/meta
 
-Assign the root of these directories to `mailbox` and _\<data partner>_ as their respective storage areas.
+You don't have to create any other directories, but you should know that the integration will create a directory for each named-file name and two more directories within.
+
+* ./<\<data-partner-name>>/<\<named-file-name>>
+* ./<\<data-partner-name>>/<\<named-file-name>>/handled
+* ./<\<data-partner-name>>/<\<named-file-name>>/meta
+
+Assign the root of these directories to the `mailbox` and _\<data partner>_  accounts as their respective storage areas. You do that in the SFTPPlus admin UI accounts page.
 
 The final SFTPPlus step is to create a transfer for the `mailbox` account. CsvPath Framework users with the SFTPPath integration configured are connected to SFTPPlus. Behind the scenes the integration sends instructions to SFTPPlus when users load CsvPath Language files.&#x20;
 
@@ -250,9 +254,9 @@ Great question. There are several ways to make sure things are going well.&#x20;
 * Using an SFTP client you can easily watch the metadata file land in the mailbox and see the data partner's named-file directory, with its meta and handled subdirectories. Watching that progression and then sending a file and watching it be processed can take just a few seconds.
 * The CsvPath log will give you a good understanding of the step-by-step. You can look in the CsvPath writer's log. If you have access to the server's CsvPath log you can see the automated side.
 
-The first three bullets are available to CsvPath writers on a csvpath-by-csvpath basis, without DataOps support once the configuration data is available. In general, though, the initial setup of an automated transfer is something that the CsvPath writer, their DataOps support, and the data partner will have to work together on to make sure the automation is buttoned up.&#x20;
+The first three bullets are available to CsvPath writers on a csvpath-by-csvpath basis, without DataOps support once the configuration values are available. In general, though, the initial setup of an automated transfer is something that the CsvPath writer, their DataOps support, and the data partner will have to work together on to make sure the automation is buttoned up.&#x20;
 
-Once you have the automation in place you should consider using an observability tool to track when files arrive, if you are seeing the correct amount of data, and if the files process correctly. And if your file arrivals are routine, an obserability tool will give you a way to get an alert if the expected processing didn't happen within a time period.
+Once you have the automation in place you should consider using an observability tool to track when files arrive, if you are seeing the correct amount of data, and if the files process correctly. And if your file arrivals are routine, an observability tool will give you a way to get an alert if the expected processing didn't happen within a time period.
 
 * **When do the handled files get deleted?**
 
@@ -266,4 +270,4 @@ No, your SFTPPlus just needs one `mailbox` account for CsvPath to use no matter 
 
 * **The configuration feels like a lot, can I get help?**
 
-Conceptually it's all straightforward. But for sure there are lots of details. We're happy to give help and advice — [use the contact form here](get-help.md). And if there's a bigger need that goes beyond the SFTPPath integration setup we can point you to partners.
+Conceptually it's all pretty straightforward. But for sure there are lots of details. File and process permissions, in particular, can be a pain in the neck. We're happy to give help and advice — [use the contact form here](get-help.md). And if there's a bigger need that goes beyond the SFTPPath integration setup we can point you to partners.
