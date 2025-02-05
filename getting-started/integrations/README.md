@@ -11,9 +11,9 @@ description: >-
 * [AWS S3](../../topics/how-tos/csvpath-in-aws-lambda.md)
 * [CKAN](getting-started-with-csvpath-+-ckan.md)
 * Excel
-* [OpenLineage](getting-started-with-csvpath-+-openlineage.md) and Marquez
-* [OpenTelemetry](getting-started-with-csvpath-+-opentelemetry.md)
+* [OpenLineage](../getting-started-with-csvpath-+-openlineage.md) and Marquez
+* [OpenTelemetry](../getting-started-with-csvpath-+-opentelemetry.md)
 * Pandas
 * [SFTP](../../topics/how-tos/sending-results-by-sftp.md)&#x20;
-* SFTPPlus
+* [SFTPPlus](getting-started-with-csvpath-+-sftpplus/)
 * [Slack](../../topics/how-tos/setup-notifications-to-slack.md)
