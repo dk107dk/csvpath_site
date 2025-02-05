@@ -229,7 +229,7 @@ You can use the CLI for the first test to make it quick and code-free. You can r
 
 <figure><img src="../../../.gitbook/assets/testing.png" alt="" width="375"><figcaption><p>After adding a named-paths group you should see something like this</p></figcaption></figure>
 
-## Questions
+## Questions?
 
 * **Can multiple csvpath writers use the same inbound named-file for their separate named-paths group runs?**&#x20;
 
