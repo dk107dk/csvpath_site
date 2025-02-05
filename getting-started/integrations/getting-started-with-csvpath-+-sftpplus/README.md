@@ -135,9 +135,9 @@ On the DevOps side of things there are three main activities, assuming your SFTP
 
 ### Setting up the server-side CsvPath project
 
-Creating the CsvPath project is quite easy. It requires a Python 3.11 or greater environment.&#x20;
+Creating the CsvPath project is quite easy. It requires a Python 3.10.5 or greater environment.&#x20;
 
-First we add Pipx and Poetry. Pipx keeps Python applications from getting in each other's way. Poetry is our Python project tool. For the official SFTPPlus Ubuntu docker container, the commands are as follows. Otherwise, if you are installing on Windows you could use Scoop or on MacOS Homebrew.&#x20;
+First we add Pipx and Poetry. Pipx keeps Python applications from getting in each other's way. Poetry is our Python project tool. For the official SFTPPlus Ubuntu docker container, the commands are as follows. Otherwise, if you are installing on Windows you could use [Scoop](https://scoop.sh/) or on MacOS [Homebrew](https://brew.sh/).&#x20;
 
 * apt-get --no-install-recommends install -y pipx&#x20;
 * pipx ensurepath&#x20;
@@ -152,15 +152,15 @@ Next you may need a higher Python version. (Check the version by doing `python3 
 
 Creating the CsvPath integration project is simple:&#x20;
 
-* cd to the directory where you plan to put your scripts. e.g. `/opt/sftpplus/run` or `C:\sftp\run`&#x20;
+* cd to the directory wherever you plan to put your scripts. E.g. `/opt/sftpplus/run` or `C:\sftp\run`&#x20;
 * `poetry new transfers`  _(or whatever project name you prefer)_
 
 If you need to raise your Python level, make that change as you create your project:&#x20;
 
 * `cd` to project's desired parent directory. e.g. /opt/sftpplus/run&#x20;
-* You may need to edit `pyproject.toml` to get the correct Python version for CsvPath and its dependencies. Change the `requires-python` line to: `requires-python = ">=3.10,<4.0"`&#x20;
 * `poetry add csvpath`
-* Download 4 simple scripts and drop them in the root directory of your new project
+* You may need to edit `pyproject.toml` to get the correct Python version for CsvPath and its dependencies. If Poetry complains, change the Python requirement to:`">=3.10,<4.0"` or follow Poetry's suggestion.
+* Download the following 4 simple scripts and drop them in the root directory of your new project
 
 The  4 scripts [live in CsvPath's Github here](https://github.com/csvpath/csvpath/tree/main/assets/integrations/sftpplus). They are:&#x20;
 
@@ -171,11 +171,13 @@ The  4 scripts [live in CsvPath's Github here](https://github.com/csvpath/csvpat
 
 _(The `.bat` files  are for Windows users. They are in the same location in GitHub)._
 
+These scripts are just trivial shims that allow SFTPPlus to call CsvPath.&#x20;
+
 On Linux, `chmod` the shell scripts to make them executable. `chmod +x handle_auto_arrival.sh` and `chmod +x handle_mailbox_arrival.sh`.&#x20;
 
-Update the paths in the scripts as needed. Check that the shell scripts run Poetry correctly by running them yourself. They will blow up because you won't be feeding them the right data, but you'll see if they run Poetry correctly.&#x20;
+Update the paths in the scripts as needed. Check that the shell scripts run Poetry correctly by running them yourself. They will blow up because you won't be feeding them the right data, but you'll see if they run Poetry.&#x20;
 
-If the scripts don't run Poetry correctly you will need to update the scripts to point to Poetry. On Linux, do `which poetry` to see where poetry lives and update the .sh scripts with the right path.  E.g. on my laptop, the scripts need to use `/Users/sftpplus/.local/bin/poetry`, rather than just `poetry`. So my `handle_mailbox_arrival.sh` looks like:
+If not, change the path to Poetry used in the script. On Linux, do `which poetry` to see where poetry lives and update the .sh scripts with the right path.  E.g. on my laptop, the scripts need to use `/Users/sftpplus/.local/bin/poetry`, rather than just `poetry`. So my `handle_mailbox_arrival.sh` looks like:
 
 `/Users/sftpplus/.local/bin/poetry install && /Users/sftpplus/.local/bin/poetry run python handle_mailbox_arrival.py "$1"`
 
@@ -220,7 +222,7 @@ At this point you should be able to sftp into the mailbox and data partner accou
 
 Well, done but for testing, of course. The two tests you need to see working are:&#x20;
 
-* Add one or more csvpaths to a named-group using the `PathsManager.add_named_path method` and see a transfer created for the data partner and a metadata file show up in the partner's `meta` directory.&#x20;
+* Add one or more csvpaths to a named-paths group using the `PathsManager.add_named_paths method` and see a transfer created for the data partner and a metadata file show up in the partner's `meta` directory.&#x20;
 * Drop a file in the partner's account and see it processed into the `handled` directory and its results show up in the CsvPath archive.
 
 You can use the CLI for the first test to make it quick and code-free. You can read an [example of how to do it here](../../your-first-validation-the-lazy-way.md). Assuming your accounts are on the local server, you should see something like the below. In this case `tinpenny` is the data partner, `orders` is the named-file-name, and `sftpplus` is the named-paths group name:
@@ -249,11 +251,14 @@ Great question. There are several ways to make sure things are going well.&#x20;
 
 * [Add a Slack notification](../../../topics/how-tos/setup-notifications-to-slack.md) to your csvpath so that you can see the processing happen when files arrive
 * Use [Marquez or another OpenLineage server](../../getting-started-with-csvpath-+-openlineage.md) to track file arrival events
-* Use an observability tool like [Grafana, New Relic, or another OpenTelemetry](../../getting-started-with-csvpath-+-opentelemetry.md) enabled system to see the arrivals
-* If you have access to the SFTPPlus event log you will see the transfer creation and all its activity
+* Use an observability tool like [Grafana, New Relic, or another OpenTelemetry system](../../getting-started-with-csvpath-+-opentelemetry.md) to see the arrivals
+* If you have access to the SFTPPlus event log you will see the transfer creation and all its activity there
 * SFTPPlus allows you to set up email alerts that can help you understand when server actions happen.
 * Using an SFTP client you can easily watch the metadata file land in the mailbox and see the data partner's named-file directory, with its meta and handled subdirectories. Watching that progression and then sending a file and watching it be processed can take just a few seconds.
-* The CsvPath log will give you a good understanding of the step-by-step. You can look in the CsvPath writer's log. If you have access to the server's CsvPath log you can see the automated side.
+* The CsvPath logs on both client and server will give you a good understanding of the step-by-step at each end.
+* As you are writing csvpaths and using the CLI don't forget to set CsvPath to raise exceptions and log on the `DEBUG` level during development. In the CLI there is an option to set those two configuration values, or just do it in `config/config.ini`.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-02-05 at 5.48.15 PM.png" alt="" width="375"><figcaption><p>You can configure debugging from the CLI's main menu</p></figcaption></figure>
 
 The first three bullets are available to CsvPath writers on a csvpath-by-csvpath basis, without DataOps support once the configuration values are available. In general, though, the initial setup of an automated transfer is something that the CsvPath writer, their DataOps support, and the data partner will have to work together on to make sure the automation is buttoned up.&#x20;
 
@@ -265,15 +270,17 @@ That's no problem. You can change your SFTPPlus metadata fields and reload your 
 
 * **What if my data partner sends a file with an unexpected name?**
 
-From the CsvPath Framework's point of view, each file that arrives is named by the directory your data partner puts it in. If you have the named-file name "orders" the integration will create an orders directory. Your data partner will drop their orders files in that directory.
+From the CsvPath Framework's point of view, each file that arrives is named by the directory your data partner puts it in. If you have the named-file name `orders` the integration will create an `orders` directory. Your data partner will drop their files in that directory.
 
 Within CsvPath, each file will be tracked as part of a well-identified sequence of versions of data arriving with the same physical filename, all within the scope of the single named file name. For you as a CsvPath writer, nothing changes because you're working against the CsvPath Framework's named-file name, which doesn't change.&#x20;
 
-So, to be clear, if you have `orders` as your named-file name an `orders` directory is created. Your data partner may drop `Jan-orders.xlsx`, `Feb-orders.xlsx`, `Mar-orders.xlsx` and each of these will take its turn as the the named-file `orders`. If your partner drops three versions of `Feb-orders.xlsx`, CsvPath Framework will collect, fingerprint, and make all three available in sequence as `orders`. Likewise, if your data partner sends `spring-picnic-menu.csv` to the `orders` directory, CsvPath Framework will track that file as its own sequence of data within the scope of `orders` — even though it seems like that data probably doesn't belong.
+So, to be clear, if you have `orders` as your named-file name an `orders` directory is created. Your data partner may drop `Jan-orders.xlsx`, `Feb-orders.xlsx`, `Mar-orders.xlsx` and each of these will take its turn as the the named-file `orders`. If your partner drops three versions of `Feb-orders.xlsx`, CsvPath Framework will collect, fingerprint, and make all three available in sequence as `orders`. Likewise, if your data partner sends `spring-picnic-menu.csv` to the `orders` directory, CsvPath will track that file in its own sequence of data within the scope of `orders` — even though it seems like that data probably doesn't belong.
+
+You can see the progression of each named-file in its `manifest.json`. Look in (by default) `inputs/named_files`.
 
 * **When do the handled files get deleted?**
 
-That's up to you. Once a file lands in `./mailbox/handled` or `./<<partner>>/handled` it can be deleted. The instructions JSON files are copied to the `./<<partner>>/meta` directory and the inbound data files are copied into CsvPath's file storage area as part of file registration. (CsvPath's named-files area is configured in the server-side CsvPath project's `config/config.ini`). The original files are no longer needed.&#x20;
+That's up to you. Once a file lands in `./mailbox/handled` or `./<<partner>>/handled` it can be deleted. The instructions JSON files are copied to the `./<<partner>>/meta` directory and the inbound data files are copied into CsvPath's file storage area as part of file registration. (CsvPath's named-files area is configured in the server-side CsvPath project's `config/config.ini`). The original data files are no longer needed.&#x20;
 
 Leaving the inbound files for a relatively brief period of days just in case the World blows up would be prudent. But immediately on processing the inbound files, the source of truth becomes CsvPath's data storage area.&#x20;
 
