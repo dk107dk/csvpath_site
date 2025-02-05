@@ -10,7 +10,7 @@ CsvPath exists to close the gap between managed file transfer (MFT) and the data
 
 Combining SFTPPlus and CsvPath enables you to land your data securely, automatically register its identity, check its validity, and canonicalize it, and stage it for efficient downstream use. Likewise, channeling the outbound flow through CsvPath into SFTPPlus and out to external data partners is a robust solution for effective data partnerships.&#x20;
 
-Sounds great. How do we set it up? In fact, it's pretty simple. We'll work on the assumption you have an SFTPPlus server installed. (You can get a [trial here](https://www.sftpplus.com/#trial)). We'll also assume you or your SFTPPlus admin are comfortable with Python and can setup a CsvPath project using Poetry, Pip, or the like.&#x20;
+Sounds great. How do we set it up? In fact, it's pretty simple. We'll work on the assumption you have an SFTPPlus server installed. (You can get a [trial here](https://www.sftpplus.com/#trial)). We'll also assume you or your SFTPPlus admin are comfortable enough with Python to follow the simple steps that setup a CsvPath project. We'll use [Poetry](https://python-poetry.org/) for that.
 
 ## Requirements
 

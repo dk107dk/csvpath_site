@@ -20,7 +20,7 @@ _For this checklist we are assuming the client-side and server-side are on the s
 * [ ] **Create a server-side CsvPath workspace**
   * [ ] Pick a location and do: `poetry new <project-name>`
   * [ ] Add CsvPath to the project: `poetry add csvpath`
-  * [ ] Start and stop the CLI to generate the `config/config.ini` file
+  * [ ] Start and quit the CLI to generate the `config/config.ini` file: `poetry run cli`
   * [ ] Add SFTPPlus integration fields to `config/config.ini` &#x20;
   * [ ] &#x20;Set the `[inputs] named_paths` location to a location that is accessible to the client side (On the local filesystem, S3, or a file share)
   * [ ] Add the SFTPPlus integration's four scripts from Github to the project's root directory
@@ -28,7 +28,7 @@ _For this checklist we are assuming the client-side and server-side are on the s
 * [ ] **Create a client-side CsvPath workspace**
   * [ ] Pick a location and do: `poetry new <project-name>`
   * [ ] Add CsvPath to the project: `poetry add csvpath`
-  * [ ] Start and stop the CLI to generate the config file
+  * [ ] Start and quit the CLI to generate the config file: `poetry run cli`
   * [ ] Add SFTPPlus integration fields to `config/config.ini`&#x20;
   * [ ] Set the `[inputs] named_paths` property to the location that the server-side is also configured to use
 * [ ] **Load your first named-paths**
