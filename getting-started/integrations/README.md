@@ -6,7 +6,7 @@ description: >-
 
 # DataOps Integrations
 
-<figure><img src="../../.gitbook/assets/integration_logos (3).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/integration_logos (5).png" alt="" width="563"><figcaption></figcaption></figure>
 
 CsvPath is growing its list of pre-integrated tools week-by-week. If you don't see the tool you need, [just ask](../get-help.md).
 

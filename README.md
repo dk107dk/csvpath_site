@@ -41,6 +41,6 @@ Take a look through these pages and cruise over to the [detailed docs](https://g
 
 
 
-<figure><img src=".gitbook/assets/integration_logos (2).png" alt="" width="563"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
+<figure><img src=".gitbook/assets/integration_logos (4).png" alt="" width="563"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
 
 {% embed url="https://github.com/csvpath/csvpath" %}
