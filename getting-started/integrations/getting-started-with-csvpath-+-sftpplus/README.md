@@ -72,7 +72,7 @@ And, just to be clear, these are setup steps. Once the SFTPPlus solution is in p
 
 ## Setting Up the DataOps Side
 
-This part is easy. You simply:
+Here you are setting up the client-side. This part is easy. You simply:
 
 * Receive mailbox connection information
 * Start adding SFTPPlus directives to your csvpaths
@@ -105,6 +105,12 @@ Now, open `config/config.ini`. We're going to add some information about our SFT
 
 Edit these four fields to have appropriate values, or if you don't see them in your `config.ini`, add them. The username and password in the screenshot are in ALL CAPS. That tells CsvPath's SFTPPlus integration that it should look in your environment variables for the values of those names. You don't have to use env vars but that is a better approach than having passwords in config files.
 
+You shouldn't need to add the SFTPPlus integration's listener, because CsvPath includes it in the generated `config.ini`. But you do have to indicate that you want to use it. Look for `[listeners] groups` and add sftpplus like this:&#x20;
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-02-04 at 4.49.08 PM.png" alt="" width="262"><figcaption></figcaption></figure>
+
+If you are using multiple integrations just separate the names with commas.
+
 You're done in `config.ini`. Painless!&#x20;
 
 Next, pick a csvpath from your named-paths group. It can be any of them. You're going to be running the whole group against every arriving named-file, but only the csvpaths you decorate with the SFTPPlus instructions are automated in SFTPPlus.&#x20;
@@ -127,7 +133,7 @@ Your csvpath should look something like this:
 
 ## Setting up the DevOps infrastructure
 
-On the DevOps side of things there are three main activities, assuming your SFTPPlus server is already installed:
+On the DevOps side of things — the server-side — there are three main activities, assuming your SFTPPlus server is already installed:
 
 * Create a Python CsvPath project on the server
 * Create the mailbox account
@@ -139,16 +145,16 @@ Creating the CsvPath project is quite easy. It requires a Python 3.10.5 or great
 
 First we add Pipx and Poetry. Pipx keeps Python applications from getting in each other's way. Poetry is our Python project tool. For the official SFTPPlus Ubuntu docker container, the commands are as follows. Otherwise, if you are installing on Windows you could use [Scoop](https://scoop.sh/) or on MacOS [Homebrew](https://brew.sh/).&#x20;
 
-* apt-get --no-install-recommends install -y pipx&#x20;
-* pipx ensurepath&#x20;
-* pipx install poetry
+* `apt-get --no-install-recommends install -y pipx`&#x20;
+* `pipx ensurepath`&#x20;
+* `pipx install poetry`
 
 Next you may need a higher Python version. (Check the version by doing `python3 --version`). If you do, follow these steps. (Windows and Mac users will obviously have slightly different steps).&#x20;
 
-* apt install software-properties-common&#x20;
-* add-apt-repository ppa:deadsnakes/ppa&#x20;
-* apt update&#x20;
-* apt install python3.12
+* `apt install software-properties-common`&#x20;
+* `add-apt-repository ppa:deadsnakes/ppa`&#x20;
+* `apt update`&#x20;
+* `apt install python3.12`
 
 Creating the CsvPath integration project is simple:&#x20;
 
@@ -220,7 +226,7 @@ At this point you should be able to sftp into the mailbox and data partner accou
 
 ## And you're done
 
-Well, done but for testing, of course. The two tests you need to see working are:&#x20;
+Well, done but for testing, of course. The two manual tests you need to see working are:&#x20;
 
 * Add one or more csvpaths to a named-paths group using the `PathsManager.add_named_paths method` and see a transfer created for the data partner and a metadata file show up in the partner's `meta` directory.&#x20;
 * Drop a file in the partner's account and see it processed into the `handled` directory and its results show up in the CsvPath archive.

@@ -12,9 +12,9 @@
 * [Another Example, Part 2](getting-started/another-example-part-2.md)
 * [DataOps Integrations](getting-started/integrations/README.md)
   * [Getting Started with CsvPath + OpenTelemetry](getting-started/getting-started-with-csvpath-+-opentelemetry.md)
-  * [Getting Started With CsvPath + OpenLineage](getting-started/getting-started-with-csvpath-+-openlineage.md)
   * [Getting Started with CsvPath + SFTPPlus](getting-started/integrations/getting-started-with-csvpath-+-sftpplus/README.md)
     * [SFTPPlus Implementation Checklist](getting-started/integrations/getting-started-with-csvpath-+-sftpplus/sftpplus-implementation-checklist.md)
+  * [Getting Started With CsvPath + OpenLineage](getting-started/getting-started-with-csvpath-+-openlineage.md)
   * [Getting Started with CsvPath + CKAN](getting-started/integrations/getting-started-with-csvpath-+-ckan.md)
 * [Get Help](getting-started/get-help.md)
 
