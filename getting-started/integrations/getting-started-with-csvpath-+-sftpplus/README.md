@@ -5,7 +5,7 @@ hidden: true
 
 # Getting Started with CsvPath + SFTPPlus
 
-<figure><img src="../.gitbook/assets/logos.png" alt="" width="377"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/logos.png" alt="" width="377"><figcaption></figcaption></figure>
 
 CsvPath exists to close the gap between managed file transfer (MFT) and the data lake. SFTPPlus is a managed service that provides a secure route into the organization that is manageable at scale.&#x20;
 
@@ -29,7 +29,7 @@ The goal is to allow a CsvPath writer to create a landing zone for files from an
 
 That's what we're going for.
 
-<figure><img src="../.gitbook/assets/overall-goal.png" alt=""><figcaption><p>Automated data onboarding made easy!</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/overall-goal.png" alt=""><figcaption><p>Automated data onboarding made easy!</p></figcaption></figure>
 
 ## The Steps
 
@@ -55,7 +55,7 @@ There are several pieces of information that need to be shared. For example, the
 
 To be clear, here are the communication flows:
 
-<figure><img src="../.gitbook/assets/communications4.png" alt="" width="563"><figcaption><p>Good communication is the bedrock for long-term data partnerships</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/communications4.png" alt="" width="563"><figcaption><p>Good communication is the bedrock for long-term data partnerships</p></figcaption></figure>
 
 To be sure, this information has to be exchanged by these same people regardless of if CsvPath and SFTPPlus are used. We're just putting it into specific places to facilitate an automated process.
 
@@ -67,7 +67,7 @@ Here's an image of who owns what. <mark style="color:green;">**Green**</mark> fo
 
 And, just to be clear, these are setup steps. Once the SFTPPlus solution is in place any number of DataOps team members can work with any number of data partners without needing anything beyond account names and logins.&#x20;
 
-<figure><img src="../.gitbook/assets/who-does-what.png" alt=""><figcaption><p><mark style="color:green;"><strong>Green</strong></mark> for the person using CsvPath. <mark style="color:blue;"><strong>Blue</strong></mark> for IT setup. <mark style="color:red;"><strong>Red</strong></mark> for the data partner sending data.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/who-does-what.png" alt=""><figcaption><p><mark style="color:green;"><strong>Green</strong></mark> for the person using CsvPath. <mark style="color:blue;"><strong>Blue</strong></mark> for IT setup. <mark style="color:red;"><strong>Red</strong></mark> for the data partner sending data.</p></figcaption></figure>
 
 ## Setting Up the DataOps Side
 
@@ -94,13 +94,13 @@ Next fire up the CsvPath CLI just for a moment to allow CsvPath to create your c
 poetry run cli
 ```
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-12-24 at 11.17.38 PM.png" alt="" width="284"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-12-24 at 11.17.38 PM.png" alt="" width="284"><figcaption></figcaption></figure>
 
 When the CLI comes up just select `quit` and hit enter. CsvPath generated your `config.ini` so we're done with it for now.
 
 Now, open `config/config.ini`. We're going to add some information about our SFTPPlus server. Look for `[sftpplus]`. Keep in mind that if you didn't just create this project you may need to update your csvpath version.&#x20;
 
-<figure><img src="../.gitbook/assets/config.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Edit these four fields to have appropriate values, or if you don't see them in your `config.ini`, add them. The username and password in the screenshot are in ALL CAPS. That tells CsvPath's SFTPPlus integration that it should look in your environment variables for the values of those names. You don't have to use env vars but that is a better approach than having passwords in config files.
 
@@ -122,7 +122,7 @@ The directives you can add are: &#x20;
 
 Your csvpath should look something like this:
 
-<figure><img src="../.gitbook/assets/directives (1).png" alt=""><figcaption><p>These four lines automate file arrivals from a data partner</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/directives (1).png" alt=""><figcaption><p>These four lines automate file arrivals from a data partner</p></figcaption></figure>
 
 ## Setting up the DevOps infrastructure
 
@@ -213,7 +213,7 @@ To set this up, create a transfer called `csvpath` (or whatever you like). Set i
 
 At this point you should be able to sftp into the mailbox and data partner accounts.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 3.51.36 PM.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-02-04 at 3.51.36 PM.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## And you're done
 
@@ -222,9 +222,9 @@ Well, done but for testing, of course. The two tests you need to see working are
 * Add one or more csvpaths to a named-group using the `PathsManager.add_named_path method` and see a transfer created for the data partner and a metadata file show up in the partner's `meta` directory.&#x20;
 * Drop a file in the partner's account and see it processed into the `handled` directory and its results show up in the CsvPath archive.
 
-You can use the CLI for the first test to make it quick and code-free. You can read an [example of how to do it here](your-first-validation-the-lazy-way.md). Assuming your accounts are on the local server, you should see something like the below. In this case `tinpenny` is the data partner, `orders` is the named-file-name, and `sftpplus` is the named-paths group name:
+You can use the CLI for the first test to make it quick and code-free. You can read an [example of how to do it here](../../your-first-validation-the-lazy-way.md). Assuming your accounts are on the local server, you should see something like the below. In this case `tinpenny` is the data partner, `orders` is the named-file-name, and `sftpplus` is the named-paths group name:
 
-<figure><img src="../.gitbook/assets/testing.png" alt="" width="375"><figcaption><p>After adding a named-paths group you should see something like this</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/testing.png" alt="" width="375"><figcaption><p>After adding a named-paths group you should see something like this</p></figcaption></figure>
 
 ## Questions
 
@@ -246,9 +246,9 @@ The DevOps person needs to know the data partner's information so they can creat
 
 Great question. There are several ways to make sure things are going well.&#x20;
 
-* [Add a Slack notification](../topics/how-tos/setup-notifications-to-slack.md) to your csvpath so that you can see the processing happen when files arrive
-* Use [Marquez or another OpenLineage server](getting-started-with-csvpath-+-openlineage.md) to track file arrival events
-* Use an observability tool like [Grafana, New Relic, or another OpenTelemetry](getting-started-with-csvpath-+-opentelemetry.md) enabled system to see the arrivals
+* [Add a Slack notification](../../../topics/how-tos/setup-notifications-to-slack.md) to your csvpath so that you can see the processing happen when files arrive
+* Use [Marquez or another OpenLineage server](../../getting-started-with-csvpath-+-openlineage.md) to track file arrival events
+* Use an observability tool like [Grafana, New Relic, or another OpenTelemetry](../../getting-started-with-csvpath-+-opentelemetry.md) enabled system to see the arrivals
 * If you have access to the SFTPPlus event log you will see the transfer creation and all its activity
 * SFTPPlus allows you to set up email alerts that can help you understand when server actions happen.
 * Using an SFTP client you can easily watch the metadata file land in the mailbox and see the data partner's named-file directory, with its meta and handled subdirectories. Watching that progression and then sending a file and watching it be processed can take just a few seconds.
@@ -282,4 +282,5 @@ No, your SFTPPlus just needs one `mailbox` account for CsvPath to use no matter 
 
 * **The configuration feels like a lot, can I get help?**
 
-Conceptually it's all pretty straightforward. But for sure there are lots of details. File and process permissions, in particular, can be a pain in the neck. We're happy to give help and advice — [use the contact form here](get-help.md). And if there's a bigger need that goes beyond the SFTPPath integration setup we can point you to partners.
+Conceptually it's all pretty straightforward. But for sure there are lots of details. File and process permissions, in particular, can be a pain in the neck. We're happy to give help and advice — [use the contact form here](../../get-help.md). And if there's a bigger need that goes beyond the SFTPPath integration setup we can point you to partners.
+
