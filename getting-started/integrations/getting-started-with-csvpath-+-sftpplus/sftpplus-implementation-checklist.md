@@ -50,5 +50,5 @@ You're done. Congratulations! What you have achieved is:&#x20;
 * The server operator **never needs to worry about new data drops**. They just create user accounts as needed and otherwise manage the SFTPPlus server.
 * Your csvpath writers can **turn transfers on and off and make other changes without help**
 * The data partner can **drop their files with confidence**
-* You can improve the robustness of your DataOps with **CsvPath's strong identification, validation, and canonicalization capabilities**. And **you added traceability** and the ability to **easily do rewind and replay.**
+* You can improve the robustness of your DataOps with **strong identification, validation, and canonicalization capabilities**. The data you stage now has **traceability and durability**. And you now have the ability to **easily rewind and replay data processing steps.**
 * You can **easily add pre-integrated observability and alerting** tools so you can keep track of data flows and react quickly to any anomalies &#x20;
