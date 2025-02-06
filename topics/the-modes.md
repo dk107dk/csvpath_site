@@ -4,6 +4,7 @@ In the context of a `CsvPaths` instance's run, an individual `CsvPath` instance 
 
 Modes are set in your csvpath's comments. The modes are:&#x20;
 
+* [`error-mode`](the-modes.md#error-mode): \[`bare` / `full`]
 * [`explain-mode`](the-modes.md#explain-mode)`:` \[`explain` / `no-explain`]
 * [`files-mode`](the-modes.md#files-mode)`:` _(all or any combination of)_
   * `all`&#x20;
@@ -31,6 +32,7 @@ Modes are only set in _external_ comments. External comments are comments that a
 
 When a mode is not explicitly set CsvPath uses sensible defaults. Some modes default to options set in `config/config.ini`. For example, `validation-mode` overrides `[errors] csvpath` in `config.ini`. ([Read here for more about the config file](how-tos/config-setup.md).) Other defaults are built-in, for instance, `logic-mode` overrides the library's built-in default matching using ANDed operations. The defaults are:&#x20;
 
+* `error-mode`: defaults to `bare`, meaning `error()` and built-in errors are presented minimally
 * `explain-mode`: no explanations are logged when logging is set to `INFO`
 * `files-mode`: there is no check for optional files having been generated&#x20;
 * `logic-mode`: match components are ANDed
@@ -137,3 +139,10 @@ Keep in mind that `CsvPaths` instances' `_collects` methods and `_by_line` metho
 `transfer-mode` let's you copy `data.csv` or `unmatched.csv` to an arbitrary location in the `transfers` directory. The `transfers` directory is configured in `config/config.ini` under `[results] transfers`. To use `transfer-mode` you use the form `data` | `unmatched` `>` _var-name_ where _var-name_ is the name of a variable that will be the relative path under the `transfer` directory to the data you are transferring. Note that `transfer-mode` has no effect on the original data, in keeping with CsvPath Library's copy-on-write semantics. You may have as many transfers as you like by separating them with commas. [Read more about using transfer-mode here](how-tos/transfer-a-file-out-of-csvpath.md).
 
 <table><thead><tr><th width="209">Setting</th><th></th></tr></thead><tbody><tr><td><code>data</code> <code>></code> <em>var-name</em></td><td>Indicates you are transferring <code>data.csv</code> to the value of <em>var-name</em> as a relative path within the <code>transfer</code> directory</td></tr><tr><td><code>unmatched</code> <code>></code> <em>var-name</em></td><td>Indicates unmatched.csv to the value of var-name</td></tr></tbody></table>
+
+### Error Mode
+
+`error-mode` allows you to output errors with log-like information or as plain plain messages.
+
+<table><thead><tr><th width="220">Setting</th><th></th></tr></thead><tbody><tr><td><code>bare</code></td><td>Errors are output as simple strings</td></tr><tr><td><code>full</code></td><td><p>Errors are output according to the <code>[errors] pattern</code> config value using the following fields: </p><ul><li><code>time</code>: Time</li><li><code>file</code>: Named-file name</li><li><code>line</code>: Line number</li><li><code>paths</code>: Named-paths name</li><li><code>instance</code>: Csvpath instance ID/name</li><li><code>chain</code>: Match component chain</li><li><code>message</code>: Message</li></ul><p>The default pattern is: </p><p><code>{time}:{file}:{line}:{paths}:{instance}:{chain}: {message}</code> </p><p></p><p>The <code>chain</code> field gives the parent-child relationships from the top match component to the match component child that was the source of the error. </p></td></tr></tbody></table>
+
