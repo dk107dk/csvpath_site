@@ -76,7 +76,7 @@ These two rules are a good illustration. The first addresses the file as a whole
 
 The first rule says if there is such a header, all lines are wrong. That is only technically correct—the file as a whole is wrong, the lines are just following the structure they exist within. More importantly, the first rule could obscure the results of the second rule, which might only pick out a few of a large number of lines. Keeping these rules separate can help each be more effective.
 
-If you use print() to communicate your validation results, using multiple csvpaths shows no difference from what you would see using a single csvpath.&#x20;
+If you use `print()` to communicate your validation results, using multiple csvpaths shows no difference from what you would see using a single csvpath. Unless... you could use the `print()` function's ability to print to individual `Printer` instances to separate your validation results. Each `Printer` instance collects its own print stream. The resulting print streams are separately available at the end of a run.&#x20;
 
 ### What to keep?
 
