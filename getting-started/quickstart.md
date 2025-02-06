@@ -19,10 +19,9 @@ If you are using Pip, install CsvPath with one of:
 ```
 pip install csvpath
 pip install csvpath[pandas]
-pip install csvpath[smart-open]
 ```
 
-Both of the optional dependencies add a lot of bulk and platform considerations. Pandas is available for validating DataFrames. If you don't need to do that, don't bother installing with Pandas. Likewise, smart-open is used for reading files in s3. If you don't need it, don't install it. &#x20;
+The optional dependency adds a lot of bulk and platform considerations. Pandas is available for validating DataFrames. If you don't need to do that, don't bother installing with Pandas.  &#x20;
 
 You can check under the hood on [Github](https://github.com/dk107dk/csvpath). There are detailed docs that you can read in parallel or in addition to this site.
 
