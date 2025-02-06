@@ -47,6 +47,7 @@
 * [Language Basics](topics/language.md)
 * [A CsvPath Cheatsheet](topics/a-csvpath-cheatsheet.md)
 * [The Collect, Store, Validate Pattern](topics/the-collect-store-validate-pattern.md)
+* [Named Files and Paths](topics/named_files_and_paths.md)
 * [The Modes](topics/the-modes.md)
 * [Where Do I Find Results?](topics/where-do-i-find-results.md)
 * [File Management](topics/file-management.md)
@@ -55,4 +56,3 @@
 * [Serial Or Breadth-first Runs?](topics/serial-or-breadth-first-runs.md)
 * [The Reference Data Types](topics/the_reference_data_types.md)
 * [Namespacing With the Archive](topics/namespacing-with-the-archive.md)
-* [Named Files and Paths](topics/named_files_and_paths.md)
