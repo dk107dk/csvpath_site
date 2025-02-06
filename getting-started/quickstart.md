@@ -14,6 +14,16 @@ If you need help getting started with Python, try [Python.org's intros](https://
 
 The CsvPath library is available through [PyPI](https://pypi.org/project/csvpath/) as `csvpath`. At this stage, pre 1.0, the project changes frequently. You should pin the version you use but update it regularly.&#x20;
 
+We mostly use Poetry for our projects, so we'll start with that. All you need to do is:&#x20;
+
+```
+poetry new <<your project name>>
+cd <<your project name>>
+poetry add csvpath
+```
+
+You'll see a bunch of output from Poetry, of course.&#x20;
+
 If you are using Pip, install CsvPath with one of:
 
 ```
