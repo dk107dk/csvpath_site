@@ -23,7 +23,7 @@ layout:
 
 ## Automate Data Pre-boarding
 
-[The CsvPath Framework](https://github.com/csvpath/csvpath) **makes robust DataOps at the parameter easy**. It verifies that CSV, Excel, and other delimited and tabular data files meet expectations and enter the organization in a controlled way. CsvPath's approach to edge governance is opinionated, prescriptive, and super productive. &#x20;
+[The CsvPath Framework](https://github.com/csvpath/csvpath) **makes robust DataOps at the parameter easy**. It verifies that CSV, Excel, and other delimited and tabular data files meet expectations and enter the organization in a controlled way. CsvPath's approach to **edge governance** is opinionated, prescriptive, and super productive. &#x20;
 
 The CsvPath Validation Language is simple, easy to integrate, and flexible enough to handle the unexpected. Inspired by [Schematron](https://schematron.com/), [XPath](https://www.w3.org/TR/xpath-31/), and [the Collect, Store, Validate design pattern](topics/the-collect-store-validate-pattern.md), CsvPath Validation Language brings powerful data validation to less structured data. Coming from the world of DDL, XSD, or JSON Schema? [Start here](topics/validation/schemas-or-rules.md).
 
