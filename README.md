@@ -21,7 +21,7 @@ layout:
 
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="" width="321"><figcaption></figcaption></figure>
 
-## Automate Data Pre-boarding
+## Automate  Your Data Pre-boarding
 
 [The CsvPath Framework](https://github.com/csvpath/csvpath) **makes robust DataOps at the parameter easy**. It verifies that CSV, Excel, and other delimited and tabular data files meet expectations and enter the organization in a controlled way. The Framework's approach to **edge governance** is opinionated, prescriptive, and super productive. &#x20;
 
