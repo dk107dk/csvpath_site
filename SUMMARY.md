@@ -25,6 +25,7 @@
   * [Sending results by SFTP](topics/how-tos/sending-results-by-sftp.md)
   * [Store source data and/or named-paths and/or the archive in AWS S3](topics/how-tos/store-source-data-and-or-named-paths-and-or-the-archive-in-aws-s3.md)
   * [CsvPath in AWS Lambda](topics/how-tos/csvpath-in-aws-lambda.md)
+  * [Working with error messages](topics/how-tos/working-with-error-messages.md)
   * [Sending results to CKAN](topics/how-tos/sending-results-to-ckan.md)
   * [Setup notifications to Slack](topics/how-tos/setup-notifications-to-slack.md)
   * [Transfer a file out of CsvPath](topics/how-tos/transfer-a-file-out-of-csvpath.md)
