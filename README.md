@@ -21,9 +21,9 @@ layout:
 
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="" width="321"><figcaption></figcaption></figure>
 
-## **A path to data validation for the files that need it most!**
+## Automate Data Pre-boarding
 
-[CsvPath](https://github.com/csvpath/csvpath) is a framework for **easy and robust data onboarding**. It verifies that CSV, Excel, and other delimited and tabular data files meet expectations and enter the organization in a controlled way. CsvPath's approach to edge governance is opinionated, prescriptive, and super productive. &#x20;
+[The CsvPath Framework](https://github.com/csvpath/csvpath) **makes robust DataOps at the parameter easy**. It verifies that CSV, Excel, and other delimited and tabular data files meet expectations and enter the organization in a controlled way. CsvPath's approach to edge governance is opinionated, prescriptive, and super productive. &#x20;
 
 The CsvPath Validation Language is simple, easy to integrate, and flexible enough to handle the unexpected. Inspired by [Schematron](https://schematron.com/), [XPath](https://www.w3.org/TR/xpath-31/), and [the Collect, Store, Validate design pattern](topics/the-collect-store-validate-pattern.md), CsvPath Validation Language brings powerful data validation to less structured data. Coming from the world of DDL, XSD, or JSON Schema? [Start here](topics/validation/schemas-or-rules.md).
 
@@ -35,7 +35,7 @@ This data onboarding blindspot is a big deal. Think about it. If even 1 in 30 co
 
 <figure><img src=".gitbook/assets/data-flow.png" alt=""><figcaption></figcaption></figure>
 
-CsvPath isn't the silver bullet to reams of messy delimited data, but it can help build confidence that your data governance doesn't turn a blind eye to your most unruly data.&#x20;
+CsvPath Framework isn't the silver bullet to reams of messy delimited data, but it can help build confidence that your data governance doesn't turn a blind eye to your most unruly data.&#x20;
 
 Take a look through these pages and cruise over to the [detailed docs](https://github.com/csvpath/csvpath) on the [CsvPath Github](https://github.com/csvpath/csvpath) to see if open source CSV and Excel data validation should be part of your DataOps toolkit.
 
