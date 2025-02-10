@@ -39,7 +39,7 @@ This data onboarding blindspot is a big deal. Think about it. If even 1 in 30 co
 
 CsvPath Framework isn't the silver bullet to reams of messy delimited data, but it can help build confidence that your data governance doesn't turn a blind eye to your most unruly data.&#x20;
 
-Take a look through these pages and cruise over to the [detailed docs](https://github.com/csvpath/csvpath) on the [CsvPath Github](https://github.com/csvpath/csvpath) to see if open source CSV and Excel data validation should be part of your DataOps toolkit.
+Take a look through these pages and cruise over to the [detailed docs](https://github.com/csvpath/csvpath) on the [CsvPath Github](https://github.com/csvpath/csvpath) to see if open source CSV and Excel **data pre-boarding should be part of your DataOps toolkit**.
 
 
 
