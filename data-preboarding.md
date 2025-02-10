@@ -23,7 +23,7 @@ CsvPath is a drop-in replacement for rickety data landing zones. It is lazer-foc
 
 With the CsvPath Framework you are signing up for a well-known pattern that settles the architecture and design questions up-front, leaving your team focused on data quality and accountability. And with CsvPath's the automation-forward approach, you can scale-down manual data quality efforts and scale up data throughput.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-02-09 at 8.32.52 PM.png" alt="" width="375"><figcaption><p>CsvPath is a pre-packaged automation-focused preboarding process.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-02-09 at 8.32.52 PM.png" alt="" width="563"><figcaption><p>CsvPath is a pre-packaged automation-focused preboarding process.</p></figcaption></figure>
 
 ## How to get started
 
