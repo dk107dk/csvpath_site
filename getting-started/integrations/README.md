@@ -8,7 +8,7 @@ description: >-
 
 <figure><img src="../../.gitbook/assets/integration_logos (5).png" alt="" width="563"><figcaption></figcaption></figure>
 
-CsvPath is growing its list of pre-integrated tools week-by-week. If you don't see the tool you need, [just ask](../get-help.md).
+CsvPath is growing its list of pre-integrated tools week-by-week. If you don't see the tool you need, [just ask](../a-helping-hand.md).
 
 | Category            | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -102,4 +102,4 @@ When you run your script you should see something like:
 
 No question, that is far from impressive! Still, go with it. Small increments are good! You are now ready to dig in and see what CsvPath can really do.&#x20;
 
-Next, try [Your First Validation, the Lazy Way](your-first-validation-the-lazy-way.md). Also check out the [How-tos section](../topics/how-tos/) for more use cases and examples. If you feel like there must be a pony in there somewhere, but you'd like a helping hand, [contact us](get-help.md)!
+Next, try [Your First Validation, the Lazy Way](your-first-validation-the-lazy-way.md). Also check out the [How-tos section](../topics/how-tos/) for more use cases and examples. If you feel like there must be a pony in there somewhere, but you'd like a helping hand, [contact us](a-helping-hand.md)!

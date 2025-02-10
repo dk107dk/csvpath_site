@@ -1,6 +1,7 @@
 # Table of contents
 
 * [CsvPath](README.md)
+* [DATA PREBOARDING](data-preboarding.md)
 
 ## Getting Started
 
@@ -8,15 +9,15 @@
 * [Your First Validation, The Lazy Way](getting-started/your-first-validation-the-lazy-way.md)
 * [Your First Validation, The Easy Way](getting-started/your-first-validation-simplified.md)
 * [Your First Validation, The Hard Way](getting-started/your-first-validation.md)
-* [Another Example, Part 1](getting-started/another-example-part-1.md)
-* [Another Example, Part 2](getting-started/another-example-part-2.md)
 * [DataOps Integrations](getting-started/integrations/README.md)
   * [Getting Started with CsvPath + OpenTelemetry](getting-started/getting-started-with-csvpath-+-opentelemetry.md)
   * [Getting Started with CsvPath + SFTPPlus](getting-started/integrations/getting-started-with-csvpath-+-sftpplus/README.md)
     * [SFTPPlus Implementation Checklist](getting-started/integrations/getting-started-with-csvpath-+-sftpplus/sftpplus-implementation-checklist.md)
   * [Getting Started With CsvPath + OpenLineage](getting-started/getting-started-with-csvpath-+-openlineage.md)
   * [Getting Started with CsvPath + CKAN](getting-started/integrations/getting-started-with-csvpath-+-ckan.md)
-* [Get Help](getting-started/get-help.md)
+* [Another Example, Part 1](getting-started/another-example-part-1.md)
+* [Another Example, Part 2](getting-started/another-example-part-2.md)
+* [A Helping Hand](getting-started/a-helping-hand.md)
 
 ## Topics
 

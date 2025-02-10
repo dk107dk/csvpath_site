@@ -296,5 +296,5 @@ No, your SFTPPlus just needs one `mailbox` account for CsvPath to use no matter 
 
 * **The configuration feels like a lot, can I get help?**
 
-Conceptually it's all pretty straightforward. But for sure there are lots of details. File and process permissions, in particular, can be a pain in the neck. We're happy to give help and advice — [use the contact form here](../../get-help.md). And if there's a bigger need that goes beyond the SFTPPath integration setup we can point you to partners.
+Conceptually it's all pretty straightforward. But for sure there are lots of details. File and process permissions, in particular, can be a pain in the neck. We're happy to give help and advice — [use the contact form here](../../a-helping-hand.md). And if there's a bigger need that goes beyond the SFTPPath integration setup we can point you to partners.
 
