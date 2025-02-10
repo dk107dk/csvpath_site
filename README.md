@@ -33,7 +33,7 @@ Delimited data validation is core to the Framework. The CsvPath Validation Langu
 
 The **CsvPath Framework** implements **CsvPath Validation Language** within a complete [**Collect, Store, Validate Pattern** ](https://static1.squarespace.com/static/66df9d47982d0d40e1574327/t/6771fe6f63bbf5361725ad05/1735523953587/The+Collect+Store+Validate+Pattern+-+Atesta+Analytics.pdf)that makes data onboarding and publishing faster, cost-efficient, and more effective. Out-of-the-box, CsvPath Framework fills the blindspot between MFT (managed file transfer) and the data lake with a simple path to provably correct data.
 
-This data onboarding blindspot is a big deal. Think about it. If even 1 in 30 companies depends heavily on CSV or Excel data, the _lack of good delimited file validation is a trillion-dollar problem_. In our experience, 1 in 30 would be a low estimate.&#x20;
+This data onboarding blindspot is a big deal. Think about it. If even 1 in 30 companies depends heavily on CSV or Excel data, the _lack of good delimited file pre-boarding is a trillion-dollar problem_. In our experience, 1 in 30 would be a low estimate.&#x20;
 
 <figure><img src=".gitbook/assets/data-flow.png" alt=""><figcaption></figcaption></figure>
 
