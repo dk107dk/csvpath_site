@@ -1,5 +1,5 @@
 ---
-description: An overview of CsvPath and why you need to work on your data preboarding
+description: An overview of why you need to care about data preboarding
 ---
 
 # DATA PREBOARDING
