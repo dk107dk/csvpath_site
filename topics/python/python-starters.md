@@ -4,7 +4,7 @@ description: A few really basic scripts to get you started
 
 # Python Starters
 
-The CsvPath library was build to be easy. You can do a lot with very little Python scaffolding. Let's look at some code. Obviously, you can do better and have more stringent requirements. But starting from a blank page is harder than editing.
+The CsvPath library was build to be easy. You can do a lot with very little Python scaffolding. Let's look at some code. Obviously, you can do better and have more stringent requirements. But starting from a blank page is harder than editing. As you get started you should probably keep [the Python public interface docs](https://csvpath.github.io/csvpath/csvpath.html) open in a tab.
 
 ## Simplest CsvPath Runner Ever
 
