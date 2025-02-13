@@ -8,7 +8,7 @@ CsvPath is the leading tool for automated data preboarding. It is a purpose-buil
 
 ## What is Data Preboarding?
 
-Data preboarding is the process of receiving external data. Preboarding assigns a durable identity, validates that the data meets expectations, canonicalizes it for downstream productivity, and stages it for loading into the data lake and/or applications. Once data is pre-boarded it is known-good and no longer considered external.
+Data preboarding is the process of receiving external data. Preboarding assigns a durable identity, validates that the data meets expectations, canonicalizes it for downstream productivity, and stages it for loading into the data lake and/or applications. Your data lake deserves a data publisher it can trust! Once data is pre-boarded it is known-good and no longer considered external.
 
 <figure><img src=".gitbook/assets/Screenshot 2025-02-10 at 11.10.16 AM.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -16,7 +16,7 @@ Data Preboarding may be a new term, but it is not a new concept. All data goes t
 
 ## How does the CsvPath Framework help? &#x20;
 
-CsvPath is a drop-in replacement for rickety data landing zones. It is lazer-focused on automated data pre-boarding.  CsvPath brings a lot of capabilities to the table:&#x20;
+CsvPath is a drop-in replacement for rickety data landing zones. It is  laser-focused on automated data pre-boarding.  CsvPath brings a lot of capabilities to the table:&#x20;
 
 * An opinionated framework for collecting, identifying, validating and publishing data that you can spin up literally in seconds
 * Powerful validation that has never before been available for delimited data
