@@ -14,7 +14,7 @@ The CsvPath library was build to be easy. You can do a lot with very little Pyth
 if __name__ == "__main__":
     with open(sys.argv[1]) as file:
         csvpath = file.read()
-        path = CsvPath().parse(csvpath).fast_forward()
+        path = CsvPath().fast_forward(csvpath)
 </code></pre>
 
 The script above reads a file you give it as a command line argument. The file is a csvpath that must include the file it is being run against.  It might look like this:&#x20;
@@ -53,6 +53,7 @@ if __name__=="__main__":
     paths.paths_manager.add_named_paths_from_file(name="autogen", file_path="assets/created_by_autogen.csvpath")
     paths.file_manager.add_named_file(name="usage", path="assets/usage_report_excerpt.csv")
     paths.fast_forward_paths(pathsname="autogen", filename="usage")
+    results = paths.results_manager.get_named_results("autogen")
 ```
 
 In this case we are setting up a number of csvpath statements that live in a single file. They will run against a usage report CSV. We do `fast_forward_paths` to run the csvpaths sequentially without collecting or iterating on the matched lines.
