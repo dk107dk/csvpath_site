@@ -2,9 +2,9 @@
 description: How to start a run from an intermediate point in a past run
 ---
 
-# Rewind / replay
+# Rewind / replay, part 1
 
-In [Replay Using References](../replay-using-references.md) we looked at how to start a run based off an intermediate state of a past run. Let's take a look at an example. This will be very artificial, but it will give you a more concrete understanding that you can bring to more real-world situations.
+In [Replay Using References](../../replay-using-references.md) we looked at how to start a run based off an intermediate state of a past run. Let's take a look at an example. This will be very artificial, but it will give you a more concrete understanding that you can bring to more real-world situations.
 
 Implementing the rewind concept is build up from parts:
 
@@ -18,9 +18,9 @@ In brief: we rewind back csvpath steps in a named-paths group of csvpaths. Each 
 
 We'll start with a simple three csvpath named-paths group. Each csvpath is unimaginatively named: `source1`, `source2`, `source3`. The csvpaths pipe their output from one into the next. We run the csvpaths in the group serially. After the first run we find something to improve in the second csvpath. We want to run the group again after our improvements. But ideally we would skip the first csvpath because that one is time consuming. What to do?
 
-<figure><img src="../../.gitbook/assets/rewind.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/rewind.png" alt=""><figcaption></figcaption></figure>
 
-For more background on how results are stored please read: [Where Do I Find Results?](../where-do-i-find-results.md)
+For more background on how results are stored please read: [Where Do I Find Results?](../../where-do-i-find-results.md)
 
 Our named-paths group, called "sourcemode", looks like this:&#x20;
 
@@ -68,11 +68,11 @@ As usual, we create a `CsvPaths` instance and register our delimited file with a
 
 After running this super simple setup, this is what we get.&#x20;
 
-<figure><img src="../../.gitbook/assets/rewind_first_run.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/rewind_first_run.png" alt=""><figcaption></figcaption></figure>
 
 The structure is:&#x20;
 
-<figure><img src="../../.gitbook/assets/archive-dir (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/archive-dir (2).png" alt=""><figcaption></figcaption></figure>
 
 The key result file for us for this example is data.csv. Every csvpath that is used to collect lines from a delimited file by a CsvPath instance sends its collected data to a data.csv file. (You can choose to not store the data on disk and of course you can also just not collect it).
 
@@ -84,11 +84,11 @@ You can see that these csvpaths each did their modifications to the data in a wa
 
 The result is this:
 
-<figure><img src="../../.gitbook/assets/final-sourcemode-output.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/final-sourcemode-output.png" alt="" width="375"><figcaption></figcaption></figure>
 
 That's all well and good. But let's make a change in `source2` and set ourselves up to use the output of the first run of `source1` as our input. To keep it simple, just change `working` to `thinking`.
 
-<figure><img src="../../.gitbook/assets/thinking.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/thinking.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Great! Now, because we want to save bytes and watts we're going to rewind to `source2` using `source1`'s data.csv in our new run. Here's the Python:&#x20;
 
@@ -122,21 +122,21 @@ As you would guess, they do exactly what you'd expect. The `:first` and `:last` 
 
 The result after `source3` is exactly what we were looking for. Which isn't much, in this trivial example, but still.&#x20;
 
-<figure><img src="../../.gitbook/assets/thinking-result.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/thinking-result.png" alt="" width="375"><figcaption></figcaption></figure>
 
 How do we know that we successfully did a rewind?  Well, a couple of things. The biggest tell is that we don't have a results directory for `source1`.
 
-<figure><img src="../../.gitbook/assets/rewind-results.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/rewind-results.png" alt=""><figcaption></figcaption></figure>
 
 You can also look at the `source2` `meta.json` from the rewind run to see what the settings and inputs were. In a full automated DataOps Collect, Store, Validate pattern this is where the rubber hits the road. Or at least one place.&#x20;
 
-<figure><img src="../../.gitbook/assets/source2-rewind.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/source2-rewind.png" alt=""><figcaption></figcaption></figure>
 
 You can see on line 3 that we're sourcing data from `source1`. On line 16 you can see that our configuration calls for us to grab the `data.csv` output of the last csvpath.&#x20;
 
 Here is the same `source2` `meta.json` information from the first run. Because we did the runs in one script they ended up in adjacent directories: the first in `2024-11-12_08-03-54` and the second in `2024-11-12_08-03-54.0`. Notice that in the metadata shown above and below both times we pull `source2`'s data from `2024-11-12_08-03-54`, not from the second run `2024-11-12_08-03-54.0`.
 
-<figure><img src="../../.gitbook/assets/source2-orig.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/source2-orig.png" alt=""><figcaption></figcaption></figure>
 
 You can see that we are pulling data from the named-file `sourcemode`, not a physical file path. And you can see that we captured a `source-mode-source` metadata key to identify how we swapped in `source1`'s `data.csv` instead of using the `sourcemode` file. &#x20;
 

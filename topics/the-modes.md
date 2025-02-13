@@ -128,7 +128,7 @@ Usually the data for a csvpath in a named-paths group comes from the data input 
 
 Keep in mind that `CsvPaths` instances' `_collects` methods and `_by_line` methods are [quite different in how they handle data sources](serial-or-breadth-first-runs.md). Source mode does not apply to by-lines runs—i.e. it is for linear, not breadth-first runs—because in a by-lines run each line is passed through each of the csvpaths in the named-paths group before the next line is considered. Csvpaths in a by-lines run can change data for downstream csvpaths in their named-paths group, and they can skip or advance the run in order to filter data so that downstream csvpaths don't have a chance at it. This just means that there are multiple ways of allowing earlier csvpaths to have an effect on later csvpaths.
 
-[Source mode has a lot to do with rewind/replay](how-tos/rewind-replay.md), also [references between data sets](replay-using-references.md), as well as [strategies for validation and canonicalization](validation/validation_strategies.md).
+[Source mode has a lot to do with rewind/replay](how-tos/rewind-replay-part-1/), also [references between data sets](replay-using-references.md), as well as [strategies for validation and canonicalization](validation/validation_strategies.md).
 
 | Setting     |                                                                                                              |
 | ----------- | ------------------------------------------------------------------------------------------------------------ |
