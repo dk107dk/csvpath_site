@@ -30,6 +30,8 @@ When it comes up, you will see a click-through splash screen and then a menu of 
 * It offers tab completion for named-path group names and name-files names
 * In most lists (directory drill downs excepted), the cursor jumps to the sorted initial letters when you press a key
 
+<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 3.09.17 PM.png" alt="" width="375"><figcaption><p>Simple and effective!</p></figcaption></figure>
+
 ## What does it do?
 
 At this time (again, the CLI improves frequently), the CLI offers the ability to:&#x20;
