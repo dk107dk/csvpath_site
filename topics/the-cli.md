@@ -140,12 +140,18 @@ You can also look in the log and in `errors.json` in the csvpath instance's resu
 
 If you're seeing to much or too little, you can set the debugging config options right within the CLI. You can also set the same options in the `config/config.ini` file. And you can override the config setting within an individual csvpath using `validation-mode`; however, setting `validation-mode` requires reloading your csvpath.&#x20;
 
-To change the debug settings you can use the config selection in the top menu, or click `c` and `enter` when you are faced with an error message that offers that option. The dialog that opens lets you change these settings:
+To change the debug settings you can use the config selection in the top menu, or click `c` and `enter` when you are faced with an error message that offers that option.&#x20;
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 1.54.06 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+
+The config dialog that opens lets you change these settings:
 
 * Set logging in logs/csvpath.log to the `DEBUG` or `INFO` levels
 * Raising or suppressing exceptions on csvpath errors
 * Stopping or continuing on csvpath errors
 * Printing detailed validation error lines or bare errors messages without additional metadata
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 1.55.52 PM.png" alt=""><figcaption></figcaption></figure>
 
 Error messages can be customized in the `[errors] pattern` key of `config/config.ini`. The fields are pretty straightforward. You can [read more here](how-tos/working-with-error-messages.md).
 
