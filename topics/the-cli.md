@@ -7,7 +7,7 @@ description: CsvPath's command line interface is a productivity booster
 CsvPath includes a CLI to help you iterate quickly on validation and canonicalization dev. It is also helpful when setting up and testing integrations. While the Python required for CsvPath automations is not hard or extensive, the CLI is often a faster alternative.
 
 {% hint style="warning" %}
-Note that the CLI is not intended for "production" use, however that might work. It is intended to help with dev and triage activities. In the future there will likely be more capable and polished tools available. The CLI is **a rough and ready tool that includes the minimum a DevOps person would need** to work with CsvPath. It changes frequently with new capabilities or information from time to time.&#x20;
+Note that the CLI is not intended for "production" use. (What would that even mean?) It is intended to help DevOps pros with development and triage activities. The CLI is **a rough and ready tool that includes the minimum a DevOps person would need** to work with CsvPath. In the future there will likely be more capable and polished tools available. The CLI changes frequently with new capabilities and information.&#x20;
 {% endhint %}
 
 ## Turn it on
