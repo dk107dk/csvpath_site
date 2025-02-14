@@ -67,7 +67,7 @@ Within each name is a `manifest.json` tracking changes to the named files and th
 Loading csvpaths means creating named-paths groups. When you run a csvpath in the CsvPath Framework you are usually actually running a group of csvpaths. The group can have just one member. You run and manage groups of csvpaths by a name, hence `named-paths`. The main reason for this approach is that it allows you to break validation and data-upgrading down to fine-grained steps that are easier to develop, triage, reuse, and rerun.&#x20;
 
 {% hint style="success" %}
-You can of course use the `CsvPath` class to run a single csvpath without a named-paths group. That is not the ideal way to use the CsvPath Framework in production, in most cases. Regardless, the CLI does not support running individual csvpaths using only a `CsvPath` instance. That makes exactly 0% of use cases harder. And actually, in many, many ways, even though you have a few more concepts to get comfortable with, things get much easier because of the Frameworks opinionated way of working.
+You can of course use the `CsvPath` class to run a single csvpath without a named-paths group. That is not the ideal way to use the CsvPath Framework in production, in most cases. Regardless, the CLI does not support running individual csvpaths using only a `CsvPath` instance. That makes exactly 0% of use cases harder. And actually, in many, many ways, even though you have a bit more terminology to remember, things get much easier because of the Frameworks opinionated way of working.
 {% endhint %}
 
 To load named paths groups you use the `PathsManager`'s `add_named_paths` method or one of its variants. In the CLI this breaks down into four steps:
