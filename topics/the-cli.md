@@ -161,9 +161,9 @@ Error messages can be customized in the `[errors] pattern` key of `config/config
 
 The last (for now!) feature of the CLI is functions documentation. On the main menu, select `functions` to see a list of all 150+ CsvPath Language functions. Selecting any one of them shows information like this:&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 10.45.03 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 4.18.45 PM.png" alt=""><figcaption></figcaption></figure>
 
-Not all functions have this much information. Luckily you can [get even more detail from the GitHub docs](https://github.com/csvpath/csvpath/blob/main/docs/functions.md). But regardless, the CLI information is very consistent and quick to access. All of the functions have signatures and a focus, and all the types  indicate that they are used to create schemas using the `line()` function. Descriptions and argument names are still thin on the ground. This is a new feature. Over time there will more information for each function.
+Not all functions have this much information. Luckily you can get even more detail from the GitHub docs. But regardless, the CLI information is very consistent and quick to access. All of the functions have signatures and a focus, and all the types  indicate that they are used to create schemas using the `line()` function. Descriptions and argument names are still thin on the ground. This is a new feature. Over time there will more information for each function.
 
 There are a few things to know:
 
