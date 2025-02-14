@@ -2,10 +2,10 @@
 
 CsvPath uses a namespace-like path to point to data in various places. These are called references. References are integrated into the match components, print output, and the structure of a csvpath. If you want to do lookups from one csvpath to the results or metadata of another, you use a reference. When you need to print data from the `print()` function, you need references.
 
-* [The Parts Of a Reference](the\_reference\_data\_types.md#the-parts-of-a-reference)
-* [Six Types Of Data](the\_reference\_data\_types.md#four-types-of-data)
-* [The Csvpath Runtime Fields](the\_reference\_data\_types.md#the-csvpath-runtime-fields)
-* [The Metadata Fields](the\_reference\_data\_types.md#the-metadata-fields)
+* [The Parts Of a Reference](the_reference_data_types.md#the-parts-of-a-reference)
+* [Six Types Of Data](the_reference_data_types.md#four-types-of-data)
+* [The Csvpath Runtime Fields](the_reference_data_types.md#the-csvpath-runtime-fields)
+* [The Metadata Fields](the_reference_data_types.md#the-metadata-fields)
 
 ## The Parts Of a Reference
 
@@ -30,7 +30,7 @@ The types are pretty simple.&#x20;
 * `csvpath` is either runtime data about the current csvpath or it is post-run residual data about another named-paths group the reference is pointing to
 * `csvpaths` is the namespace for the identities of the individual csvpaths in the named-paths group.
 * `metadata` is descriptive data about the csvpath the reference is pointing to
-* results references point to the data.csv intermediate results of the csvpaths in a named-paths group. Each csvpath's `data.csv` is automatically collected (unless configured not to) and positioned in a standard location so that it can be referenced and piped into other csvpaths.
+* `results` references point to the data.csv intermediate results of the csvpaths in a named-paths group. Each csvpath's `data.csv` is automatically collected (unless configured not to) and positioned in a standard location so that it can be referenced and piped into other csvpaths.
 
 ## The Csvpath Runtime Fields
 
