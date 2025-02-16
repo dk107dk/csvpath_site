@@ -23,7 +23,7 @@ An architectural pattern is a well-definined approach to a well understood softw
 
 ## Collect, Store, Validate Publish
 
-The Collect, Store, Validate, Publish pattern is a simple preboarding data ingestion pattern. It manages inbound files in linear identification, validation, and upgrading steps that result in an archive of known-good, trustworthy data published to the organization's data lake and applications.
+The Collect, Store, Validate, Publish pattern is a simple data preboarding pattern for ingestion external data. It manages inbound files in linear identification, validation, and upgrading steps that result in an archive of known-good, trustworthy data published to the organization's data lake and applications.
 
 CSVP creates a Trusted Publisher intermediary that adds value to an untrustworthy external publisher. Using CSVP centralizes investment in trust-building capability. Unsurprisingly, purpose-built preboarding tools deliver better preboarding capabilities. And centralized infrastructure and operations for preboarding scales better as the number of data partners grows.
 
