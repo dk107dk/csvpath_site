@@ -11,11 +11,23 @@ Buzzwords are fun. When they actually mean something they are a way to communica
 
 ## Architectural Pattern
 
-
+An architectural pattern is a well-definined approach to a well understood software design challenge. Architectures that are considered patterns are relatively generalized and typically pretty commonly used. The reason to use a pattern in designing software is the same as in any design-based activity, from knitting to civil engineering: higher productivity, predictability, and quality. Basically, not making it up as you go along is faster, less error-prone, and more likely to result in the thing you want. In addition, architectural patterns are useful during requirements and design discussions because they are a shorthand shared between people who know the software development domain well.&#x20;
 
 ## Collect, Store, Validate Publish
 
+The Collect, Store, Validate, Publish pattern is a simple preboarding data ingestion pattern. It manages inbound files in linear identification, validation, and upgrading steps that result in an archive of known-good, trustworthy data published to the organization's data lake and applications.
 
+CSVP creates a Trusted Publisher intermediary that adds value to an untrustworthy external publisher. Using CSVP centralizes investment in trust-building capability. Unsurprisingly, purpose-built preboarding tools deliver better preboarding capabilities. And centralized infrastructure and operations for preboarding scales better as the number of data partners grows.
+
+The CSVP trusted publisher becomes the data source for internal users. To do that well, CSVP:
+
+* Collects data into an immutable store for idempotent processing
+* Gives each item a durable identity
+* Provides strong validation based on structure and rules
+* Enables data upgrading and canonicalization
+* Publishes data and metadata from a long term archive for loading into data lakes and applications
+
+Copy-on-write semantics, simple linear processing, composable validation rules, rewind/replay capability, and lightweight distributed clients processing data under the direct control of DataOps team members are attributes that naturally fall out of the pattern, though they are not required.&#x20;
 
 ## Data Preboarding
 
