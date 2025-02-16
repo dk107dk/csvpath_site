@@ -9,6 +9,14 @@ description: >-
 
 Buzzwords are fun. When they actually mean something they are a way to communicate important concepts in just a few words. Or they can just be buzzy. Here are some brief definitions to take the buzz out and put the meaning in.
 
+* [Architectural Pattern](glossary.md#architectural-pattern)
+* [Collect, Store, Validate, Publish](glossary.md#collect-store-validate-publish)
+* [Data Preboarding](glossary.md#data-preboarding)
+* [Data Upgrading](glossary.md#data-upgrading)
+* [Data Validation](glossary.md#data-validation)
+* [Edge Governance](glossary.md#edge-governance)
+* [Trusted Publisher](glossary.md#trusted-publisher)
+
 ## Architectural Pattern
 
 An architectural pattern is a well-definined approach to a well understood software design challenge. Architectures that are considered patterns are relatively generalized and typically pretty commonly used. The reason to use a pattern in designing software is the same as in any design-based activity, from knitting to civil engineering: higher productivity, predictability, and quality. Basically, not making it up as you go along is faster, less error-prone, and more likely to result in the thing you want. In addition, architectural patterns are useful during requirements and design discussions because they are a shorthand shared between people who know the software development domain well.&#x20;
