@@ -58,7 +58,12 @@ Validation is the act of making certain that an item of data meets expectations.
 
 ## Edge Governance
 
+Edge governance is the set of data governance processes that control data at the parameter of the organization. This set of processes is time and scope limited. Edge governance has the focus the moment data is presented to the organization and completes the moment the internally published data moves to the operational system of record — typically a data lake or data warehouse. At that point, for a given item of data, data governance shifts to other tools and processes; while the edge governance process continues with new data and maintains the archival history and immutable forms of transited data.&#x20;
 
+While we most often focus on inbound data flows, edge governance is also applicable to the data outflow from the moment operational systems make data available for distribution to the moment externally published data is presented to the data partner. Typically outflow publishing is seen as less risky and higher trust by the publishing organization; however, outbound edge governance can reduce errors and consolidate processes, as well as potentially bolstering compliance and security.
 
 ## Trusted Publisher
 
+In DataOps, the question of who to trust and how much is fraught. There are few natural controls on external publishers and transparency is typically poor. Not trusting data partners completely, while pragmatic, can be costly. One of the best ways to deal with the data-not-under-your-control problem is to put a trusted publisher between the external partner and the operational data stores and applications.&#x20;
+
+This internal publisher has the responsibility for regulating the flow of data and assuring it meets a standard of quality and traceability that allows the operational systems to operate with high-trust. The high-trust data environment allows the applications and analytics to focus more effort on the business the data supports and less on being data-defensive. In custom applications and analytics in particular, this separation of focus — preboarding as the trust-building publisher, applications being fully business focused — leads to higher productivity for all.
