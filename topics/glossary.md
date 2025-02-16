@@ -31,7 +31,7 @@ Copy-on-write semantics, simple linear processing, composable validation rules, 
 
 ## Data Preboarding
 
-
+Data preboarding is a term for any approach to bringing external datasets into the organization in a controlled way that protects the company's data environment by catching problems at the parameter. In concept external publishers are both untrustworthy and not responsible for starting the chain of custody and data identification that makes data coherent before it goes into the data lake. Data coming into the enterprise will always be identified, validated, upgraded, and staged in some way. The question is how well is that done? Too often it is not done well across the board. A solid data preboarding process boosts quality and productivity, and protects the company's reputation; whereas, an ad hoc, effort-minimizing, or unacknowledged data preboarding process raises costs and is corrosive to the company's reputation over time.&#x20;
 
 ## Data Upgrading
 
