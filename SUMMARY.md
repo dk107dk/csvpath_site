@@ -21,6 +21,7 @@
 
 ## Topics
 
+* [The CLI](topics/the-cli.md)
 * [How-tos](topics/how-tos/README.md)
   * [How-to videos](topics/how-tos/how-to-videos.md)
   * [Sending results by SFTP](topics/how-tos/sending-results-by-sftp.md)
@@ -47,7 +48,6 @@
 * [Python](topics/python/README.md)
   * [Python vs. CsvPath](topics/python/python-vs.-csvpath.md)
   * [Python Starters](topics/python/python-starters.md)
-* [The CLI](topics/the-cli.md)
 * [Language Basics](topics/language.md)
 * [A CsvPath Cheatsheet](topics/a-csvpath-cheatsheet.md)
 * [The Collect, Store, Validate Pattern](topics/the-collect-store-validate-pattern.md)
