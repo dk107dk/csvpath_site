@@ -7,7 +7,7 @@ description: CsvPath's command line interface is a productivity booster
 CsvPath includes a CLI to help you iterate quickly on validation and canonicalization dev. It is also helpful when setting up and testing integrations. While the Python required for CsvPath automations is not hard or extensive, the CLI is often a faster alternative.
 
 {% hint style="warning" %}
-Note that the CLI is not intended for "production" use. (What would that even mean?) It is intended to help DevOps pros with development and triage activities. The CLI is **a rough and ready tool that includes the minimum a DevOps person would need** to work with CsvPath. In the future there will likely be more capable and polished tools available. The CLI changes frequently with new features and additional information.&#x20;
+Note that the CLI is not intended for "production" use. (What would that even mean?) It is intended to help DevOps pros (and anyone just kicking the tires). The CLI supports development and triage activities. Ultimately, it is **a rough and ready and effective tool that includes the minimum a DevOps person would need** to work with CsvPath. In the future there will likely be more capable and polished tools available. &#x20;
 {% endhint %}
 
 ## Turn it on
@@ -163,7 +163,9 @@ The last (for now!) feature of the CLI is functions documentation. On the main m
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 4.18.45 PM.png" alt=""><figcaption></figcaption></figure>
 
-Not all functions have this much information. Luckily you can get even more detail from the GitHub docs. But regardless, the CLI information is very consistent and quick to access. All of the functions have signatures and a focus, and all the types  indicate that they are used to create schemas using the `line()` function. Descriptions and argument names are still thin on the ground. This is a new feature. Over time there will more information for each function.
+Not all functions have this much information. Luckily [you can get even more detail from the GitHub function docs](https://github.com/csvpath/csvpath/blob/main/docs/functions.md). But regardless, the CLI information is very consistent, well-formatted, and quick to access. All of the functions have signatures and a focus, and all the `Type` functions (those that subclass `Type`) indicate that they can be used to create schemas using the `line()` function.&#x20;
+
+Descriptions and argument names are still thin on the ground. Function look-ups is a new feature. Over time there will more information for each function.
 
 There are a few things to know:
 

@@ -30,6 +30,7 @@
   * [Working with error messages](topics/how-tos/working-with-error-messages.md)
   * [Sending results to CKAN](topics/how-tos/sending-results-to-ckan.md)
   * [Setup notifications to Slack](topics/how-tos/setup-notifications-to-slack.md)
+  * [Send run events to Sqlite](topics/how-tos/send-run-events-to-sqlite.md)
   * [Transfer a file out of CsvPath](topics/how-tos/transfer-a-file-out-of-csvpath.md)
   * [Rewind / replay, part 1](topics/how-tos/rewind-replay-part-1/README.md)
     * [Rewind / replay, part 2](topics/how-tos/rewind-replay-part-1/rewind-replay-part-2.md)
