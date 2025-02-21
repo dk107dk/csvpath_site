@@ -15,6 +15,10 @@ To start sending results by SFTP you simply:
 
 The process is the same as for the other integrations. You will, of course, also need to have an SFTP account.&#x20;
 
+{% hint style="success" %}
+Sending results by SFTP as this page describes is not the same as using the SFTP backend. You have the option to [configure your archive, named-files, or named-paths storage areas to be in an SFTP server](../data-validation-files-and-storage/storage-backends.md). Doing that applies to all work in your CsvPath Framework project; whereas, sending results files the way this page describes is something you set up for an individual csvpath.
+{% endhint %}
+
 Here is the `config.ini` change:&#x20;
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-01-08 at 9.16.41 PM.png" alt=""><figcaption></figcaption></figure>
