@@ -6,17 +6,21 @@ description: You have a few simple choices for where to store your assets
 
 CsvPath Framework stores data and csvpath files in three locations that it manages for you:
 
-* The archive  _(default: ./archive)_
-* Data inputs  _(default: ./inputs/named\_files)_
-* Csvpath files  _(default: ./inputs/named\_paths)_
+* The archive &#x20;
+* Data files &#x20;
+* Csvpath files&#x20;
 
-These locations are settable. You can set them to be locations in three types of storage. (With more options coming!)
+These locations are settable in `config/config.ini`. By default the archive is at `./archive`. The defaults for data files and csvpath files are `./inputs/named_files` and `./inputs/named_paths`, respectively.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-02-20 at 5.07.37 PM.png" alt="" width="563"><figcaption></figcaption></figure>
+
+You can set these three areas to point to locations in three types of storage. (With more options on the way!)
 
 * The local filesystem
 * AWS S3
 * An SFTP server
 
-First, let's revisit what the locations are and how they work.
+The screenshot above kind of gives away the how-to secrets. First, let's revisit what the locations are and how they work.
 
 ## The Archive
 
