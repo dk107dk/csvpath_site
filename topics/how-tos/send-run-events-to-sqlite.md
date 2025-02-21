@@ -6,7 +6,7 @@ description: Capturing run events to Sqlite can make searching for answers faste
 
 <figure><img src="../../.gitbook/assets/sqlite_logo.jpeg" alt=""><figcaption></figcaption></figure>
 
-You can easily send your run metadata Sqlite as well as, or instead of, `manifest.json` files. Why might you want to do that? Sqlite gives you the ability to quickly search for runs that match certain characteristics. It contains most of the data in the results and result events so you can more easily query at multiple levels across runs.
+You can easily send your runs metadata to Sqlite as well as to `manifest.json` files. Why might you want to do that? Sqlite gives you the ability to quickly search for runs that match certain characteristics. It contains most of the data in the results and result events so you can more easily query at multiple levels across runs.
 
 Turning on the Sqlite backend is simple. It is pre-configured in your generated `config/config.ini`, when you create a new project. To add Sqlite to an existing project, pickup the latest version of CsvPath Framework from Pypi and add these to the `[listeners]` section of your `config.ini`:
 
@@ -92,4 +92,4 @@ The schema for the tables is:&#x20;
         );
 ```
 
-Expanding the model to cover named-paths file loads and named-file stagings is on the roadmap.&#x20;
+Expanding the model to cover named-paths csvpath group loads and staging named-files is on the roadmap.&#x20;

@@ -6,7 +6,7 @@ description: >-
 
 # Manifests and Metadata
 
-As you may have read in [File Management ](file-management.md)and [Where Do I Find Results](where-do-i-find-results.md), the CsvPath Library generates a lot of metadata. The goal is to provide a high-trust environment to do Collect, Store, Validate Pattern processing. When you are dealing with delimited data in file-based data flows you have the potential for control problems due to both low-structure data and low-structure data flow. The Collect, Store, Validate pattern captures complete lineage and action records and limits the degrees of flexibility in the overall process architecture to counteract the risks and enable fast remediation.&#x20;
+As you may have read in [File Management ](data-validation-files-and-storage/file-management.md)and [Where Do I Find Results](data-validation-files-and-storage/where-do-i-find-results.md), the CsvPath Library generates a lot of metadata. The goal is to provide a high-trust environment to do Collect, Store, Validate Pattern processing. When you are dealing with delimited data in file-based data flows you have the potential for control problems due to both low-structure data and low-structure data flow. The Collect, Store, Validate pattern captures complete lineage and action records and limits the degrees of flexibility in the overall process architecture to counteract the risks and enable fast remediation.&#x20;
 
 Let's look at where the data is. The CsvPath Library keeps files in:
 

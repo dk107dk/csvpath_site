@@ -9,7 +9,7 @@ description: CsvPath's three file stores can be local or on S3. Mix and match!
 There are three places CsvPath keeps files:&#x20;
 
 * [The archive](../namespacing-with-the-archive.md) — the place where results live
-* [Inputs](../named_files_and_paths.md):
+* [Inputs](../data-validation-files-and-storage/named_files_and_paths.md):
   * Named files — all the source Excel and CSV data files
   * Named paths — your named groups of csvpaths
 

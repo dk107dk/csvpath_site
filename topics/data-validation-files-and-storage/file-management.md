@@ -1,6 +1,8 @@
 # File Management
 
-CsvPath can be used as an operational framework, as well as a validation language. Using it this way requires only that you work with instances of the `CsvPaths` class, rather than the `CsvPath` class used for one-off validations. It's a small change that makes a big difference.&#x20;
+CsvPath Framework is a DataOps infrastructure framework. Using it for just its delimited data validation language is totally reasonable for some use cases, but doing so leaves a lot of advantages on the table.&#x20;
+
+Using the Framework as automation infrastructure requires only that you work with instances of the `CsvPaths` class, rather than just the `CsvPath` class. We use `CsvPath` instances directly only for one-off validations. If you haven't already been using `CsvPaths` instances, it is a small change that makes a big difference.&#x20;
 
 `CsvPaths` applies csvpath statements to delimited files and stores the results for further use. This page explains how and where data and validation files are managed.
 
@@ -54,11 +56,11 @@ paths.collect_paths(pathsname="validations", filename="quarterly")
 
 Here is a screenshot of the structure:&#x20;
 
-<figure><img src="../.gitbook/assets/named-files.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/named-files.png" alt=""><figcaption></figcaption></figure>
 
 And again in text, the structure is like this:&#x20;
 
-<figure><img src="../.gitbook/assets/named-files-structure.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/named-files-structure.png" alt=""><figcaption></figcaption></figure>
 
 ## Csvpath validation files
 
@@ -78,7 +80,7 @@ Each time you re-add your csvpaths under a named-paths name your CsvPaths instan
 
 You may also notice other JSON files called `definition.json` in the named-paths home directories. `definition.json` is captured when you use JSON to define your named-paths group(s). It is just a stright capture of the JSON copied and renamed `definition.json`, with no other modifications. That means if you have a JSON file that defines three named-paths groups each of the named-paths group home directories will have that same JSON file copied in as `definition.json`, and each copy will have the complete JSON for all three named-paths groups.&#x20;
 
-For example, a JSON named-paths definition from the [Another Example](../getting-started/another-example-part-2.md) how-to article looked like:&#x20;
+For example, a JSON named-paths definition from the [Another Example](../../getting-started/another-example-part-2.md) how-to article looked like:&#x20;
 
 ```json
 {
@@ -100,11 +102,11 @@ Both the `orders` and the `top_matter_import` named-paths home directories recei
 
 Here is the structure of the named-paths area:&#x20;
 
-<figure><img src="../.gitbook/assets/named-paths.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/named-paths.png" alt="" width="563"><figcaption></figcaption></figure>
 
 &#x20;And in text form, the structure is:&#x20;
 
-<figure><img src="../.gitbook/assets/named-paths-structure (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/named-paths-structure (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## The results files
 

@@ -11,7 +11,7 @@ You can of course make the archive live anywhere and be called anything. What is
 * Long-term immutable storage for versioned releases -- basically, being an archive!
 * A means of namespacing results
 
-The first role—that of archiving results—[is covered here](where-do-i-find-results.md). The role of namespacing is also extremely important, at least for larger CsvPath implementations.&#x20;
+The first role—that of archiving results—[is covered here](data-validation-files-and-storage/where-do-i-find-results.md). The role of namespacing is also extremely important, at least for larger CsvPath implementations.&#x20;
 
 One of the decisions you will need to make in setting up CsvPath is how closely coupled you want your operations to be across data sources and destinations. There's no right or wrong answer. If you keep all your data partner assets together in the same install you have all the same core benefits of the Collect Store Validate Pattern as you would if  you created one install per data partner.&#x20;
 
