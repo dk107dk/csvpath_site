@@ -36,7 +36,7 @@ As you would guess, `named_paths_group_run` is the main table describing a run. 
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-02-18 at 4.00.29 PM.png" alt=""><figcaption></figcaption></figure>
 
-The schema for the tables is:&#x20;
+Just for reference, the schema for the tables is here. You don't have to do anything with it, though. The tables are set up automatically when you enable the integration or anytime you delete the database.
 
 ```sql
        CREATE TABLE IF NOT EXISTS named_paths_group_run (
