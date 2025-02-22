@@ -1,18 +1,16 @@
 ---
 description: >-
-  CsvPath is a very flexible language. There is often another way to do a thing.
-  Sometimes you can make your work simpler than you first thought.
+  CsvPath is a very flexible language. There is often a simpler way than you
+  first thought.
 ---
 
 # Your First Validation, The Easy Way
 
-CsvPath is a rules-based validation language. Rules that define when data is valid are powerful. A rule can do things that a structural approach can't do. But sometimes just clarifying the shape of the data is enough.&#x20;
+CsvPath Language offers both rules-based validation and schemas. Rules that define valid data are powerful. A rule can do things that a schema can't do. But sometimes just clarifying the shape of the data is enough. Both approaches are important tools.&#x20;
 
-CsvPath's claim to fame is the power of rules-based validation, but it is also really good at structural validation. You can see examples and [read about the difference between these approaches here](../topics/validation/schemas-or-rules.md).
+CsvPath's claim to fame is the power of rules-based validation — there is no other validation language the offers the same capabilities for delimited, tabular data. But CsvPath is also really good at structural validation. You can see examples and [read about the difference between these approaches here](../topics/validation/schemas-or-rules.md).
 
-Here's our First Validation example again, this time using structure to define what is valid.
-
-We'll use `line()` to specify what a line of data looks like in a valid CSV or Excel file. This snippet is the whole validation:
+Here's our First Validation example again, this time using a simple schema. We'll use the `line()` function to specify what each line of data looks like in a valid CSV or Excel file. This snippet is the whole validation:
 
 ```xquery
     line(
@@ -49,7 +47,7 @@ if not path.is_valid:
     print(f"The file is invalid")
 ```
 
-Two lines to run the validation. Two lines to print a warning if the file is invalid. Simple!
+Two lines to run the validation. Two lines to print a warning if the CSV file is invalid. Simple!
 
 We also added some optional metadata and a mode configuration in a comment. The comment is the part between the `~` characters.
 
@@ -57,4 +55,4 @@ In the metadata we are saying that the `id` field will become the csvpath's `ide
 
 The `description` is ours to use as we wish—it is a user-defined field. And the `validation-mode` is a setting that tells the `CsvPath` instance what to do when there is a validation error. In this case we want to print errors, but not raise exceptions, and we want the file to be marked as invalid if there are errors. We sometimes call this failing the file.&#x20;
 
-There's a lot more you could do, of course. This is barely the tip of the iceburg. Keep reading and experimenting!
+There's a lot more you could do, of course. This is barely the tip of the iceberg. Keep reading and experimenting!
