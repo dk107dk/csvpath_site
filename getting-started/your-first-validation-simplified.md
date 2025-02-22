@@ -6,9 +6,9 @@ description: >-
 
 # Your First Validation, The Easy Way
 
-CsvPath Language offers both rules-based validation and schemas. Rules that define valid data are powerful. A rule can do things that a schema can't do. But sometimes just clarifying the shape of the data is enough. Both approaches are important tools.&#x20;
+CsvPath Language offers both rules-based validation and schemas. Validation rules are powerful. A rule can do things that a schema can't do. But sometimes just clarifying the shape of the data is enough. Both approaches are important tools.&#x20;
 
-CsvPath's claim to fame is the power of rules-based validation — there is no other validation language the offers the same capabilities for delimited, tabular data. But CsvPath is also really good at structural validation. You can see examples and [read about the difference between these approaches here](../topics/validation/schemas-or-rules.md).
+CsvPath's claim to fame is the power of rules-based validation — no other validation language offers the same capabilities for delimited, tabular data. But CsvPath is also really good at structural validation. You can see more examples and [read about the difference between these approaches here](../topics/validation/schemas-or-rules.md).
 
 Here's our First Validation example again, this time using a simple schema. We'll use the `line()` function to specify what each line of data looks like in a valid CSV or Excel file. This snippet is the whole validation:
 
