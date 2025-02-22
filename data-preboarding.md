@@ -1,10 +1,10 @@
 ---
-description: An overview of why you need to care about data preboarding
+description: Why you need to care about data preboarding and the trusted publisher model
 ---
 
 # DATA PREBOARDING
 
-CsvPath is the leading tool for automated data preboarding. It is a purpose-built open source Python framework integrated with a wide variety of popular DataOps tools.&#x20;
+CsvPath is the leading tool for automated data preboarding. It is a purpose-built open source Python framework integrated with a wide variety of popular DataOps tools that acts as a trusted publisher between MFT and the data laken and applications.&#x20;
 
 ## What is Data Preboarding?
 
