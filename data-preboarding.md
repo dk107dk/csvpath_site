@@ -14,11 +14,15 @@ Data preboarding is the receiving process for external batch data. Preboarding a
 
 Data preboarding may be a new term to you, or not; either way it is not a new concept. All data preboarded on its way into the organization. The question is, how well does the process work? The experience of most companies is that the process is less reliable, holds more risk, and is much more expensive than is comfortable. **Manual and error prone preboarding commonly diverts more than 2% of revenues to overhead**. That's $20,000 per million or $20 million per billion in revenue. That adds up! &#x20;
 
+
+
+<figure><img src=".gitbook/assets/csvpath-word-only-blue-sm.png" alt="" width="255"><figcaption></figcaption></figure>
+
 ## How does the CsvPath Framework help? &#x20;
 
 CsvPath is a drop-in replacement for rickety data landing zones. It is  laser-focused on automated data preboarding. The Framework focuses on generating trustworthy data, and doing it in a way that scales operationally to any number of data partners. A company with one data partner needs effective preboarding. A company with a thousand data partners needs efficient preboarding that never fails.
 
-CsvPath brings a lot of capabilities to the table:&#x20;
+CsvPath brings many capabilities to the table:&#x20;
 
 * An opinionated framework for collecting, identifying, validating and publishing data that enables you to spin up a new data partner project literally in seconds
 * Powerful schema and rules-based validation that has never before been available for delimited data
