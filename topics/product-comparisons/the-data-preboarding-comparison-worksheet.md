@@ -10,9 +10,9 @@ description: >-
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-02-23 at 3.07.32 PM.png" alt=""><figcaption></figcaption></figure>
 
-Why are there not more Data Preboarding category tools? Well, there just aren't that many. At least according to us. Though, there are definitely lots of tools you could build a robust preboarding framework on top of or including, with some effort. &#x20;
+Why are there not more Data Preboarding category tools? Well, there just aren't that many. At least according to us. Though, there are definitely lots of tools you could build a robust preboarding framework on top of, with some effort. &#x20;
 
 For example, Python — you could simply roll you own. We think that would not be a good use of time, since you can grab CsvPath Framework and be up and running in minutes.&#x20;
 
-Remember that Data Preboarding is hard. The best indicator of that is that a majority of companies could use a good preboarding tool. Some would substantially reduce expensive manual processing and expensive, even sometimes existential, errors. They would happily pay for the lower overhead and peace of mind. And yet there are so few data preboarding options. Hard things are hard!
+Remember that a real Data Preboarding solution is hard. The best indicator of that is that a majority of companies could use a good preboarding tool. Some would substantially reduce expensive manual processing and expensive errors. And some errors in preboarding could be said to be existential. These companies would happily pay for the lower overhead and peace of mind. And yet there are so few data preboarding options. Hard things are hard!
 
