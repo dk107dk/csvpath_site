@@ -64,3 +64,4 @@
 * [The Reference Data Types](topics/the_reference_data_types.md)
 * [Namespacing With the Archive](topics/namespacing-with-the-archive.md)
 * [Glossary](topics/glossary.md)
+* [Product Comparisons](topics/product-comparisons.md)
