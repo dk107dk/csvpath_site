@@ -4,10 +4,10 @@ The CsvPath Framework is developed in Python. Python provides the basic CVS pars
 
 To be fair, let's up-front acknowledge that there are some situations where CsvPath may not be as competitive with just plain old Python: &#x20;
 
-* Only ad-hoc CSVs or Excel files
-* Low expectations for correctness or only an occasional need to validate
-* Just one format
-* Low volume
+* You CSVs and/or Excel files are ad hoc
+* You have low expectations for correctness or only an occasional need to validate
+* There is just one format
+* Volume is low
 
 In these cases, you _might_ benefit from CsvPath, but you don't _need_ it.&#x20;
 
