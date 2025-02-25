@@ -1,0 +1,24 @@
+# Loading files from S3 or SFTP
+
+Say you want to add a named file from S3. That is to say, you want to give an easy name to a physical file and move it into CsvPath's inputs location from the bucket where it currently is in S3.
+
+CsvPath Framework stores incoming files in the named-files directory tree. The location of the root directory is set in config/config.ini's `[inputs]` section under the `files` key. The named-files directories can live in any of the CsvPath storage backends. At this time:
+
+* The local filesystem
+* S3
+* SFTP
+
+But your file is in one of these storage systems too. How can you get it loaded into named-files? Easy, just use:
+
+* A relative or absolute path to the file in the local system, or
+* A URL like `s3://bucket/name`, or
+* An `sftp://server:port/path/to/my/file` URL
+
+In the case of S3 and SFTP you also need credentials. That will require one of these options:&#x20;
+
+* For AWS, add an `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` pair to the environment
+* For SFTP, credentials are set in the `[sftp]` section's `username` and `password` keys. Use all caps to reference environment variables.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-02-25 at 4.50.47 PM.png" alt="Moving csv or excel files into CsvPath Framework from S3 to SFTP"><figcaption><p> </p></figcaption></figure>
+
+That takes care of the left-hand side of this picture. As you may already know, the right-hand side is setup just using the `[inputs]` section and the `flies` and `csvpaths` keys. You can [read more about that here](store-source-data-and-or-named-paths-and-or-the-archive-in-aws-s3.md).
