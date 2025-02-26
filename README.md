@@ -19,7 +19,7 @@ layout:
 
 # CsvPath
 
-<figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="" width="321"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 
 ## The Framework For Automated Data Preboarding
 
@@ -35,7 +35,7 @@ The **CsvPath Framework** implements **CsvPath Validation Language** within a co
 
 This data onboarding blindspot is a big deal. Think about it. If even 1 in 30 companies depends heavily on CSV or Excel data, the _lack of **delimited file pre-boarding is a trillion-dollar problem**_. In our experience, 1 in 30 would be a low estimate.&#x20;
 
-<figure><img src=".gitbook/assets/data-flow.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/data-flow.png" alt="A data flow diagram showing how CSV, Excel and other tabular data come into the organization through a preboarding process that acts as a Trusted Publisher to the data lake and applications."><figcaption></figcaption></figure>
 
 CsvPath Framework isn't the silver bullet to reams of messy delimited data, but it can help build confidence that your data governance doesn't turn a blind eye to your most unruly data.&#x20;
 
@@ -43,6 +43,6 @@ Take a look through these pages and cruise over to the [detailed docs](https://g
 
 
 
-<figure><img src=".gitbook/assets/integration_logos (4).png" alt="" width="563"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
+<figure><img src=".gitbook/assets/integration_logos (4).png" alt="Logos of the many popular DataOps tools that are integrated with CsvPath Framework" width="563"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
 
 {% embed url="https://github.com/csvpath/csvpath" %}
