@@ -10,6 +10,8 @@ CsvPath includes a CLI to help you iterate quickly on validation and canonicaliz
 The CLI supports development and triage activities. Ultimately, it is **a rough and ready and effective tool that includes just the minimum a DataOps person would need** to work with CsvPath. In the future there will likely be more capable and polished tools available. &#x20;
 {% endhint %}
 
+<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 3.09.17 PM.png" alt="The main menu of the CsvPath Framework&#x27;s command line app" width="375"><figcaption><p>Simple and effective!</p></figcaption></figure>
+
 ## Turn it on
 
 If you are using Poetry to manage your CsvPath projects just do:&#x20;
@@ -29,8 +31,6 @@ When it comes up, you will see a click-through splash screen and then a menu of 
 
 * It offers tab completion for named-path group names and name-files names
 * In most lists (directory drill downs excepted), the cursor jumps to the sorted initial letters when you press a key
-
-<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 3.09.17 PM.png" alt="" width="375"><figcaption><p>Simple and effective!</p></figcaption></figure>
 
 ## What does it do?
 
@@ -144,7 +144,7 @@ If you're seeing to much or too little, you can set the debugging config options
 
 To change the debug settings you can use the config selection in the top menu, or click `c` and `enter` when you are faced with an error message that offers that option.&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 1.54.06 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 1.54.06 PM.png" alt="The message and options you see when your csvpath file encounters an error, expected or not." width="375"><figcaption></figcaption></figure>
 
 The config dialog that opens lets you change these settings:
 
@@ -153,7 +153,7 @@ The config dialog that opens lets you change these settings:
 * Stopping or continuing on csvpath errors
 * Printing detailed validation error lines or bare errors messages without additional metadata
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 1.55.52 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 1.55.52 PM.png" alt="The debug config dialog"><figcaption></figcaption></figure>
 
 Error messages can be customized in the `[errors] pattern` key of `config/config.ini`. The fields are pretty straightforward. You can [read more here](how-tos/working-with-error-messages.md).
 
@@ -161,7 +161,7 @@ Error messages can be customized in the `[errors] pattern` key of `config/config
 
 The last (for now!) feature of the CLI is functions documentation. On the main menu, select `functions` to see a list of all 150+ CsvPath Language functions. Selecting any one of them shows information like this:&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 4.18.45 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 4.18.45 PM.png" alt="A function definition giving call signature, qualifiers, a description of what the function does, etc."><figcaption></figcaption></figure>
 
 Not all functions have this much information. Luckily [you can get even more detail from the GitHub function docs](https://github.com/csvpath/csvpath/blob/main/docs/functions.md). But regardless, the CLI information is very consistent, well-formatted, and quick to access. All of the functions have signatures and a focus, and all the `Type` functions (those that subclass `Type`) indicate that they can be used to create schemas using the `line()` function.&#x20;
 
