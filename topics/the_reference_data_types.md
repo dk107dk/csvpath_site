@@ -3,7 +3,7 @@
 CsvPath uses a namespace-like path to point to data in various places. These are called references. References are integrated into the match components, print output, and the structure of a csvpath. If you want to do lookups from one csvpath to the results or metadata of another, you use a reference. When you need to print data from the `print()` function, you need references.
 
 * [The Parts Of a Reference](the_reference_data_types.md#the-parts-of-a-reference)
-* [Six Types Of Data](the_reference_data_types.md#four-types-of-data)
+* [Seven Types Of Data](the_reference_data_types.md#four-types-of-data)
 * [The Csvpath Runtime Fields](the_reference_data_types.md#the-csvpath-runtime-fields)
 * [The Metadata Fields](the_reference_data_types.md#the-metadata-fields)
 
@@ -17,11 +17,11 @@ $paths-name.data-type.name.child
 
 Let's break this down a bit more.&#x20;
 
-<table><thead><tr><th width="137">Part</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><code>$</code></td><td>The root of the csvpath </td><td></td></tr><tr><td>paths-name</td><td>The name of a group of csvpaths. This is referred to as a named-paths name. In <code>print()</code> statements the name can be empty to indicate the csvpath the reference is in.</td><td><ul><li><code>$test.csv[*][yes()</code>]</li><li><code>$mypaths.variables.my_variabl</code>e</li><li><code>$.variables.my_variable</code></li></ul></td></tr><tr><td>type-of-data</td><td><ul><li> <code>csvpath</code></li><li><code>csvpaths</code> </li><li><code>files</code></li><li><code>headers</code></li><li><code>metadata</code></li><li><code>results</code> </li><li><code>variables</code> </li></ul></td><td><code>$mypaths.metadata.description</code></td></tr><tr><td>name-of-data-item</td><td>Any name. In the case of headers the name can be quoted or can be the index of the header. In the <code>csvpaths</code> type the name is the identity of a specific csvpath within the named-paths group.</td><td><ul><li><code>$mypaths.headers."my header</code>"</li><li><code>$mypaths.headers.0</code></li></ul></td></tr><tr><td>tracking value name</td><td>This is called a tracking value. Tracking values are keys in <code>dict</code> variables. In the case of references they can also be an index into a <code>stack()</code> variable.</td><td><ul><li><code>$mypaths.variables.cities.Boston</code></li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="137">Part</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><code>$</code></td><td>The root of the csvpath </td><td></td></tr><tr><td>paths-name</td><td>The name of a group of csvpaths or a named-file. This is referred to as a named-paths name or a named-file name. In <code>print()</code> statements the name can be empty to indicate the currently active csvpath the reference is in.</td><td><ul><li><code>$test.csv[*][yes()</code>]</li><li><code>$mypaths.variables.my_variabl</code>e</li><li><code>$.variables.my_variable</code></li></ul></td></tr><tr><td>type-of-data</td><td><ul><li> <code>csvpath</code></li><li><code>csvpaths</code> </li><li><code>files</code></li><li><code>headers</code></li><li><code>metadata</code></li><li><code>results</code> </li><li><code>variables</code> </li></ul></td><td><code>$mypaths.metadata.description</code></td></tr><tr><td>name-of-data-item</td><td>Any name. In the case of headers the name can be quoted or can be the index of the header. In the <code>csvpaths</code> type the name is the identity of a specific csvpath within the named-paths group.</td><td><ul><li><code>$mypaths.headers."my header</code>"</li><li><code>$mypaths.headers.0</code></li></ul></td></tr><tr><td>tracking value name</td><td>This is called a tracking value. Tracking values are keys in <code>dict</code> variables. In the case of references they can also be an index into a <code>stack()</code> variable.</td><td><ul><li><code>$mypaths.variables.cities.Boston</code></li></ul></td></tr></tbody></table>
 
-## Six Types Of Data
+## Seven Types Of Data
 
-The six data types are always the second component of a reference. Their position in the reference is: `$root.`**`datatype`**`.name.name`.&#x20;
+The seven data types are always the second component of a reference. Their position in the reference is: `$root.`**`datatype`**`.name.name`.&#x20;
 
 The types are pretty simple.&#x20;
 
