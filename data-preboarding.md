@@ -10,13 +10,13 @@ CsvPath is the leading tool for automated data preboarding. It is a purpose-buil
 
 Data preboarding is the receiving process for external batch data. Preboarding assigns a durable identity, validates that the data meets expectations, upgrades it for productivity, and stages it in an immuable known-good archive for downstream consumers. Your data lake deserves a data publisher it can trust! Once data is preboarded it is no longer considered external.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-02-10 at 11.10.16 AM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-02-10 at 11.10.16 AM.png" alt="A checklist of the capabilities of a preboarding architecture like CsvPath Framework: durable identification, validation, data upgrading, canonicalization, consistent immutable staging as a trusted publisher to downstream data users." width="375"><figcaption></figcaption></figure>
 
 Data preboarding may be a new term to you, or not; either way it is not a new concept. All data preboarded on its way into the organization. The question is, how well does the process work? The experience of most companies is that the process is less reliable, holds more risk, and is much more expensive than is comfortable. **Manual and error prone preboarding commonly diverts more than 2% of revenues to overhead**. That's $20,000 per million or $20 million per billion in revenue. That adds up! &#x20;
 
 
 
-<figure><img src=".gitbook/assets/csvpath-word-only-blue-sm.png" alt="" width="255"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/csvpath-word-only-blue-sm.png" alt="The CsvPath Framework logo" width="255"><figcaption></figcaption></figure>
 
 ## How does the CsvPath Framework help? &#x20;
 
@@ -31,7 +31,7 @@ CsvPath brings many capabilities to the table:&#x20;
 
 With the CsvPath Framework you are signing up for a well-known pattern that settles the architecture and design questions up-front, leaving your team focused on data quality and accountability. And with CsvPath's the automation-forward approach, you can scale-down manual data quality efforts and scale up data throughput.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-02-09 at 8.32.52 PM.png" alt="" width="563"><figcaption><p>CsvPath is a pre-packaged automation-focused preboarding process.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-02-09 at 8.32.52 PM.png" alt="A super high-level data flow diagram showing how data files and validation/upgrading files are combined to create known-good data for downstream data consumers." width="563"><figcaption><p>CsvPath is a pre-packaged automation-focused preboarding process.</p></figcaption></figure>
 
 ## How to get started
 
