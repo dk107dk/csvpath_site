@@ -2,9 +2,9 @@
 description: Can we achieve the same goals using only the CLI? Yes!
 ---
 
-# Rewind / replay, part 2
+# Doing rewind / replay, part 2
 
-While the Python we used to drive [Rewind / replay, part 1](./) was not complicated, using the CLI would be even quicker and in a triage situation might be a better option. So let's try that.
+While the Python we used to drive [Rewind / replay, part 1](doing-rewind-replay-part-1.md) was not complicated, using the CLI would be even quicker and in a triage situation might be a better option. So let's try that.
 
 We'll use the same data and csvpaths for this second example. Only our use of the CLI is different. Because it is the same activity we'll do it quickly and let you refer back to part 1 for the background information.
 

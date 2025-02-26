@@ -2,14 +2,14 @@
 description: How to start a run from an intermediate point in a past run
 ---
 
-# Rewind / replay, part 1
+# Doing rewind / replay, part 1
 
-In [Replay Using References](../../replay-using-references.md) we looked at how to start a run based off an intermediate state of a past run. Let's take a look at an example. This will be very artificial, but it will give you a more concrete understanding that you can bring to more real-world situations.
+In [Replay Using References](replay-using-references.md) we looked at how to start a run based off an intermediate state of a past run. Let's take a look at an example. This will be very artificial, but it will give you a more concrete understanding that you can bring to more real-world situations.
 
 
 
 {% hint style="success" %}
-There is a [CLI version of this how-to here](rewind-replay-part-2.md). No Python required. And there is a video of the CLI at the bottom as a bonus.
+There is a [CLI version of this how-to here](doing-rewind-replay-part-2.md). No Python required. And there is a video of the CLI at the bottom as a bonus.
 {% endhint %}
 
 Implementing the rewind concept is build up from parts:
