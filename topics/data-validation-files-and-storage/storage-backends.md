@@ -21,7 +21,7 @@ You can set these three areas to point to locations in four types of storage. (W
 * An SFTP server
 * Azure Blob Storage
 
-The screenshot above kind of gives away the how-to secrets. First, let's revisit what the locations are and how they work.
+There are [more how-to notes here](../how-tos/storage-backends/). The screenshot above kind of gives away the how-to secrets, tho. First, let's revisit what the locations are and how they work.
 
 ## The Archive
 
