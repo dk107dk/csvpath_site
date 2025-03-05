@@ -21,6 +21,6 @@ In the case of S3 and SFTP you also need credentials. That will require one of t
 * For AWS, add an `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` pair to the environment
 * For SFTP, credentials are set in the `[sftp]` section's `username` and `password` keys. Use all caps to reference environment variables.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-02-25 at 4.50.47 PM.png" alt="Moving csv or excel files into CsvPath Framework from S3 to SFTP"><figcaption><p>This is just an example. You can mix and match storage backends as you like. </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-02-25 at 4.50.47 PM.png" alt="Moving csv or excel files into CsvPath Framework from S3 to SFTP"><figcaption><p>This is just an example. You can mix and match storage backends as you like. </p></figcaption></figure>
 
 That takes care of the left-hand side of this picture. As you may already know, the right-hand side is setup simply using the `[inputs]` section and the `flies` and `csvpaths` keys. You can [read more about that here](store-source-data-and-or-named-paths-and-or-the-archive-in-aws-s3.md).
