@@ -1,8 +1,8 @@
 # Loading files from S3, SFTP, or Azure
 
-Say you want to add a named file from S3. That is to say, you want to give an easy name to a physical file and move it into CsvPath's inputs location from the bucket where it currently is in S3.
+Say you want to add a file currently sitting in S3 to CsvPath Framework as a named-file. That is to say, you want to give an easy name to a physical file and move it into CsvPath's inputs location from the bucket where it currently is in S3.
 
-CsvPath Framework stores incoming files in the named-files directory tree. The location of the root directory is set in config/config.ini's `[inputs]` section under the `files` key. The named-files directories can live in any of the CsvPath storage backends. At this time those are:
+CsvPath Framework stores incoming files in the named-files directory tree. This is your data file registry. The location of the named-files directory is set in config/config.ini's `[inputs]` section under the `files` key. The named-files directories can live in any of the CsvPath storage backends. At this time those are:
 
 * The local filesystem
 * S3
