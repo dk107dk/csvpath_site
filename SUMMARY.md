@@ -26,7 +26,7 @@
   * [How-to videos](topics/how-tos/how-to-videos.md)
   * [Sending results by SFTP](topics/how-tos/sending-results-by-sftp.md)
   * [Store source data and/or named-paths and/or the archive in AWS S3](topics/how-tos/store-source-data-and-or-named-paths-and-or-the-archive-in-aws-s3.md)
-  * [Loading files from S3 or SFTP](topics/how-tos/loading-files-from-s3-or-sftp.md)
+  * [Loading files from S3, SFTP, or Azure](topics/how-tos/loading-files-from-s3-sftp-or-azure.md)
   * [CsvPath in AWS Lambda](topics/how-tos/csvpath-in-aws-lambda.md)
   * [Add a file by https](topics/how-tos/add-a-file-by-https.md)
   * [Working with error messages](topics/how-tos/working-with-error-messages.md)
