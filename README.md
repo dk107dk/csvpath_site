@@ -43,6 +43,6 @@ Take a look through these pages and cruise over to the [detailed docs](https://g
 
 
 
-<figure><img src=".gitbook/assets/integration_logos.png" alt="Logos of the many popular DataOps tools that are integrated with CsvPath Framework: aws s3, azure, slack, Excel, opentelemetry, sftp, ckan, pandas, openlineage, and more"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
+<figure><img src=".gitbook/assets/integration_logos (7).png" alt="Logos of the many popular DataOps tools that are integrated with CsvPath Framework: aws s3, azure, slack, Excel, opentelemetry, sftp, ckan, pandas, openlineage, and more"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
 
 {% embed url="https://github.com/csvpath/csvpath" %}

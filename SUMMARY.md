@@ -30,6 +30,7 @@
     * [Loading files from S3, SFTP, or Azure](topics/how-tos/loading-files-from-s3-sftp-or-azure.md)
     * [Add a file by https](topics/how-tos/add-a-file-by-https.md)
     * [Store source data and/or named-paths and/or the archive in Azure](topics/how-tos/storage-backends/store-source-data-and-or-named-paths-and-or-the-archive-in-azure.md)
+    * [Store source data and/or named-paths and/or the archive in Google Cloud Storage](topics/how-tos/storage-backend-how-tos/store-source-data-and-or-named-paths-and-or-the-archive-in-google-cloud-storage.md)
   * [CsvPath in AWS Lambda](topics/how-tos/csvpath-in-aws-lambda.md)
   * [Working with error messages](topics/how-tos/working-with-error-messages.md)
   * [Sending results to CKAN](topics/how-tos/sending-results-to-ckan.md)

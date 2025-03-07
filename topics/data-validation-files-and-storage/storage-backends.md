@@ -20,6 +20,7 @@ You can set these three areas to point to locations in four types of storage. (W
 * AWS S3
 * An SFTP server
 * Azure Blob Storage
+* Google Cloud Storage
 
 There are [more how-to notes here](../how-tos/storage-backends/). The screenshot above kind of gives away the how-to secrets, tho. First, let's revisit what the locations are and how they work.
 
@@ -71,14 +72,15 @@ Named-paths live in a similar directory structure to data files. Each named-path
 
 ## Picking your location
 
-Now, for all that, the actual thing we want to do here — choose and configure where we put our files — turns out to be super easy. Open your config/config.ini file. You should see a `[results]` section and an `[inputs]` section. With in `[results]` there is an archive key. It takes a path to your archive. And within `[results]` there is a file key and a csvpaths key. Those point to your file inputs. Use relative or fully qualified file system paths. For Azure, S3, and SFTP use URI form locations like:&#x20;
+Now, for all that, the actual thing we want to do here — choose and configure where we put our files — turns out to be super easy. Open your config/config.ini file. You should see a `[results]` section and an `[inputs]` section. With in `[results]` there is an archive key. It takes a path to your archive. And within `[results]` there is a file key and a csvpaths key. Those point to your file inputs. Use relative or fully qualified file system paths. For Azure, S3, GCP, and SFTP use URI form locations like:&#x20;
 
 * `s3://csvpath-example-1/named_files`
 * `sftp://my-server/csvpath/archive`
 * `azure://csvpath/storage/named_paths`
+* `gs://csvpath_def/trusted_publisher_archive`
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-02-20 at 5.07.37 PM.png" alt="" width="563"><figcaption></figcaption></figure>
 
-Each of these three `config.ini` keys can point to a different backend. You can mix and match the filesystem, S3, SFTP, and Azure any way you like. The only constraint is the additional latency of moving storage from the local hard disk to a remote backend. Test to make sure you're good with the latency, given your use case. If you need to, consider moving your compute closer to your storage. For e.g., you could choose to put CsvPath Framework into an AWS Lambda or a Fargate container.
+Each of these three `config.ini` keys can point to a different backend. You can mix and match the filesystem, S3, SFTP, the file system, Google, and Azure any way you like. The only constraint is the additional latency of moving storage from the local hard disk to a remote backend. Test to make sure you're good with the latency, given your use case. If you need to, consider moving your compute closer to your storage. For e.g., you could choose to put CsvPath Framework into an AWS Lambda or a Fargate container.
 
-Over time, CsvPath Framework will support more backends. For many use cases the network storage options you have already today are super easy and effective. Give them a try!
+Over time, CsvPath Framework will probably support more backends. For many use cases the network storage options you have already today are super easy and effective. Give them a try!
