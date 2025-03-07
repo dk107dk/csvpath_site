@@ -85,7 +85,7 @@ First we import the CsvPath library and create an instance of `CsvPaths`. We cre
 
 Now that you've seen  `print_default=False`, go ahead and delete it. We'll want to see the output in the terminal, at least at first.
 
-Next, we do another completely optional thing: set the logging level. We're just seeing how to do it, for future reference. Out of the box, CsvPath is already set to `warn` by default. You can [read more about setting up logging and error handling policies here](../topics/how-tos/debugging.md).
+Next, we do another completely optional thing: set the logging level. We're just seeing how to do it, for future reference. Out of the box, CsvPath is already set to `warn` by default. You can [read more about setting up logging and error handling policies here](debugging.md).
 
 ### Named-files, named-paths, named-results
 
@@ -99,7 +99,7 @@ Named-paths are more interesting. These are sets of csvpaths strings that can be
 
 We'll try each. When we're done with Part 2 of our orders file example, we're going to have the last one—multiple csvpaths in a single file—but this time in a more DataOps-friendly way than in Part 1.&#x20;
 
-For more background, you can [read more about named-paths and named-files here](../topics/data-validation-files-and-storage/named_files_and_paths.md).&#x20;
+For more background, you can [read more about named-paths and named-files here](../data-validation-files-and-storage/named_files_and_paths.md).&#x20;
 
 ### The fast\_forward\_paths() method
 
@@ -166,7 +166,7 @@ $[*][
 ]
 ```
 
-{% file src="../.gitbook/assets/top_matter_import.csvpath" %}
+{% file src="../../.gitbook/assets/top_matter_import.csvpath" %}
 
 We're going to create six more csvpaths files. Most will import this one. No reason to go slow since you've already created these once in a single file, so here we go.
 
@@ -190,7 +190,7 @@ $[*][
 
 &#x20;
 
-{% file src="../.gitbook/assets/metadata.csvpath" %}
+{% file src="../../.gitbook/assets/metadata.csvpath" %}
 
 Wait, what's that `---- CSVPATH ----` block? I'm glad you asked. It is a separator between csvpaths that live in the same file.  It is of course completely optional at this stage because we're using multiple files with one csvpath in each. Doesn't hurt to have it there, though.
 
@@ -210,7 +210,7 @@ $[*][
 ]
 ```
 
-{% file src="../.gitbook/assets/reset.csvpath" %}
+{% file src="../../.gitbook/assets/reset.csvpath" %}
 
 You may have noticed that these csvpath files have comments outside the csvpath itself. These comments are important. While we're not doing anything with them at the moment, we could add metadata fields that describe the csvpath. If you add an `ID` or a `name` metadata field to a comment, you can use it to reference the individual csvpath, even when it is bundled with others under the same named-paths name. Important, for sure, but we'll look at how to do that another time.
 
@@ -232,7 +232,7 @@ $[*][
 
 
 
-{% file src="../.gitbook/assets/file_length.csvpath" %}
+{% file src="../../.gitbook/assets/file_length.csvpath" %}
 
 ### categories.csvpath
 
@@ -248,7 +248,7 @@ $[*][
 ]
 ```
 
-{% file src="../.gitbook/assets/categories.csvpath" %}
+{% file src="../../.gitbook/assets/categories.csvpath" %}
 
 Two more csvpaths to go!
 
@@ -266,7 +266,7 @@ $[*][
 ]
 ```
 
-{% file src="../.gitbook/assets/prices.csvpath" %}
+{% file src="../../.gitbook/assets/prices.csvpath" %}
 
 ### sku\_upc.csvpath
 
@@ -282,13 +282,13 @@ $[*][
 ]
 ```
 
-{% file src="../.gitbook/assets/sku_upc.csvpath" %}
+{% file src="../../.gitbook/assets/sku_upc.csvpath" %}
 
 There, that's all of them.&#x20;
 
 You should now have seven .csvpath files in your csvpaths dir. It's worth pointing out, you don't have to use the .csvpath extension. We use it because it makes it clear what is contained in the file. But whatever works for you is fine. If you choose to use another file extension take a quick look in `config/config.ini` to make sure to let CsvPath know what your extension of choice is.
 
-<figure><img src="../.gitbook/assets/all-csvpaths.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/all-csvpaths.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Back to your modified script. Here's where we left it. From this you can run any of the csvpath files you just created. Each file will be named in the named-paths manager by its name (minus the extension). Or you could iterate over your csvpaths by name. Ultimately, this isn't the way we want to run them, but it is a good test.
 
