@@ -10,9 +10,3 @@ CsvPath is an open source project. As individuals we're happy to help. And we ha
 
 {% embed url="https://docs.google.com/forms/d/e/1FAIpQLSe7ZDN0vhpgvlFYZFWr58_gZbWavStOEL9NaaJ4EcdPtumRBw/viewform" %}
 
-
-
-
-
-{% @formspree/formspree %}
-
