@@ -25,7 +25,7 @@ layout:
 
 The open source [CsvPath Framework](https://github.com/csvpath/csvpath) **makes robust DataOps at the parameter easy**. CsvPath Framework verifies that CSV, Excel, and other delimited and tabular data files meet expectations and enter the organization in a controlled way, acting as the **Trusted Publisher** to your data lake and applications. The Framework's approach to **edge governance** is opinionated, prescriptive, and super productive. &#x20;
 
-<figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="563"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
 
 {% file src=".gitbook/assets/CsvPath - Data Onboarding Simplified.pdf" %}
 
