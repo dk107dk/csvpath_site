@@ -1,13 +1,10 @@
 ---
-description: >-
-  CsvPath is an open source project, not a company. But as individuals we're
-  happy to help. And we have sponsors and partners we can hand off to, if more
-  help is needed.
+description: We're here to help
 ---
 
-# Get Help
+# A Helping Hand
 
-
+CsvPath is an open source project. As individuals we're happy to help. And we have sponsors and partners we can hand off to, if more is needed. Reach out and let's talk about what you're trying to do.
 
 
 
