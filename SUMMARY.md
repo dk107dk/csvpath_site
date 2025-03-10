@@ -45,6 +45,7 @@
   * [Config Setup](topics/how-tos/config-setup.md)
   * [Debugging Your CsvPaths](topics/how-tos/debugging.md)
   * [Creating a derived file](topics/how-tos/creating-a-derived-file.md)
+  * [Run CsvPath on Jenkins](topics/how-tos/run-csvpath-on-jenkins.md)
 * [High-level Topics](topics/high-level-topics/README.md)
   * [Why CsvPath?](topics/high-level-topics/why-csvpath.md)
   * [CsvPath Use Cases](topics/high-level-topics/csvpath_use_cases.md)
