@@ -18,7 +18,7 @@ Our mission is to write a csvpath that can keep some bad data from getting loade
 
 Our strategy is to collect any lines that break these rules. The validity of the file as a whole will depend on there being no failing lines.
 
-<figure><img src="../.gitbook/assets/judges-scores.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/judges-scores.png" alt=""><figcaption></figcaption></figure>
 
 ## To raise or call
 
@@ -26,7 +26,7 @@ By default, the CsvPath library config raises errors when it runs into problems.
 
 To have your `CsvPath` instance neatly print errors, but not raise exceptions, you can make a quick change to the `config.ini` file. By default the config file is in `./config/config.ini`. Make the change to this line:&#x20;
 
-<figure><img src="../.gitbook/assets/error-policy.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/error-policy.png" alt="" width="375"><figcaption></figcaption></figure>
 
 As you can see, in my `config.ini` the `CsvPath` instance error policy is on line 8. Just remove the keyword `raise` from that line, save, and you're good to go. Now, for that incorrect addition above, you get a concise error message like this, rather than a big exception stack dump: `Line 3: Wrong value in match component 0: mismatch in add`
 
@@ -38,7 +38,7 @@ Paste this rule into the csvpath string. It goes in the matching part, after the
 
 Your file should now look something like:&#x20;
 
-<figure><img src="../.gitbook/assets/three-rules-1.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/three-rules-1.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Csvpaths can include line breaks, so you can format your csvpath any way you like.
 
@@ -46,7 +46,7 @@ What did we just do? We added a comment saying what our csvpath does. That's all
 
 Here is the file so far.
 
-{% file src="../.gitbook/assets/example2.py" %}
+{% file src="../../.gitbook/assets/example2.py" %}
 
 Let's continue.
 
@@ -91,15 +91,15 @@ print(f"Found {len(lines)} invalid lines")
 
 Try it out. You should see that our file is still valid. Here's our CSV file again.
 
-{% file src="../.gitbook/assets/trivial.csv" %}
+{% file src="../../.gitbook/assets/trivial.csv" %}
 
 To see that the script works, edit the CSV file to make a blank. Take Sam Cat's lastname out.
 
-<figure><img src="../.gitbook/assets/csv-edited.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/csv-edited.png" alt="" width="375"><figcaption></figcaption></figure>
 
 This time your script should tell you that there is one invalid line.
 
-<figure><img src="../.gitbook/assets/1-invalid-line.png" alt="" width="348"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1-invalid-line.png" alt="" width="348"><figcaption></figcaption></figure>
 
 ## Rule two: no long lastnames
 
@@ -115,7 +115,7 @@ This line uses functions to check a particular header's length. We're saying tha
 
 Your csvpath should now look like:&#x20;
 
-<figure><img src="../.gitbook/assets/2nd-rule.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2nd-rule.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 csvpath = """$trivial.csv[*][
@@ -183,7 +183,7 @@ print(f"Found {len(lines)} invalid lines")
 
 Try running it. You should still see that there is one invalid line. After you confirm that, try creating a very long lastname for Sam the Cat and no lastname for Fred the Dog. CsvPath should collect the two invalid lines.
 
-<figure><img src="../.gitbook/assets/2-invalid-lines.png" alt="" width="359"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2-invalid-lines.png" alt="" width="359"><figcaption></figcaption></figure>
 
 ## Rule three: first header
 
@@ -254,7 +254,7 @@ if not path.is_valid:
 
 Now you should see something like:&#x20;
 
-<figure><img src="../.gitbook/assets/invalid-file-msg.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/invalid-file-msg.png" alt="" width="563"><figcaption></figcaption></figure>
 
 You might wonder if we should really be saying that the file as a whole is invalid only if we find a problem with the headers. Isn't it a problem that two lines are invalid, as well? That is a very reasonable opinion. CsvPath cannot make assumption about if you are collecting invalid lines or valid ones. That is a decision about [your validation strategy](your-first-validation.md#validation-rule-strategies)—as we have said, there are always multiple ways to do things. &#x20;
 

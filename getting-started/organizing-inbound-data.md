@@ -20,7 +20,7 @@ After data is preboarded it is considered known and trustworthy and ready for ET
 
 All onboarding processes include these data preboarding steps. The only question is how effective, efficient, and low-risk their implementation is. Often companies under-invest in the preboarding stage, resulting in manual validation and handling, more support issues, and rework. Shortcuts in preboarding have substantial long-term costs to the business.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-03-27 at 11.26.05 AM.png" alt="Preboarding is the critical first step of the data onboarding process"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-03-27 at 11.26.05 AM.png" alt="Preboarding is the critical first step of the data onboarding process"><figcaption></figcaption></figure>
 
 Underinvestment in preboarding exposes your company to&#x20;
 
@@ -47,11 +47,11 @@ In a few cases we see files dropped into a common area, differentiated only by f
 * By jurisdiction
 * By transaction or business process
 
-<figure><img src=".gitbook/assets/Screenshot 2025-03-27 at 11.48.01 AM.png" alt="Inbound data layout is important. There are four broad approaches." width="375"><figcaption><p>All of these approaches make sense in the right context</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-03-27 at 11.48.01 AM.png" alt="Inbound data layout is important. There are four broad approaches." width="375"><figcaption><p>All of these approaches make sense in the right context</p></figcaption></figure>
 
 These organizing concepts will be layered on on the other. For example, an orders business process alignment may include date and sales region in a hierarchy like this:
 
-<figure><img src=".gitbook/assets/Screenshot 2025-03-27 at 11.57.09 AM.png" alt="An example of one way to lay out inbound data files" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-03-27 at 11.57.09 AM.png" alt="An example of one way to lay out inbound data files" width="375"><figcaption></figcaption></figure>
 
 These are file directories in a file system holding CSV files. Clearly, this data layout is going to make it easy to find all orders in 2025 but much harder to see all the files holding the different sales person orders. Another layout might provide easy access in a different way.
 
@@ -109,5 +109,5 @@ This flexibility in the publishing layout helps downstream users find data quick
 
 As you can see, CsvPath is both flexible and opinionated. The more you keep preboarding simple, the easier it is to run an efficient data onboarding process that is effective over the long term. However, most companies have an existing process they want to improve. They want to eliminate garbage-in-garbage-out without throwing the baby out with the bath water. CsvPath gives you the flexibility to make those dramatic improvements with the minimum disruption to the way things work today.
 
-Give it a shot. [Reach out if you have questions](getting-started/a-helping-hand.md). We can help!
+Give it a shot. [Reach out if you have questions](a-helping-hand.md). We can help!
 

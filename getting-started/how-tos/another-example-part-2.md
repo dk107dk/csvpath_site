@@ -99,7 +99,7 @@ Named-paths are more interesting. These are sets of csvpaths strings that can be
 
 We'll try each. When we're done with Part 2 of our orders file example, we're going to have the last one—multiple csvpaths in a single file—but this time in a more DataOps-friendly way than in Part 1.&#x20;
 
-For more background, you can [read more about named-paths and named-files here](../data-validation-files-and-storage/named_files_and_paths.md).&#x20;
+For more background, you can [read more about named-paths and named-files here](../../topics/data-validation-files-and-storage/named_files_and_paths.md).&#x20;
 
 ### The fast\_forward\_paths() method
 

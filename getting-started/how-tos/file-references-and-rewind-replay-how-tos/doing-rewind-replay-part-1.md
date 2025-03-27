@@ -26,7 +26,7 @@ We'll start with a simple three csvpath named-paths group. Each csvpath is unima
 
 <figure><img src="../../../.gitbook/assets/rewind.png" alt=""><figcaption></figcaption></figure>
 
-For more background on how results are stored please read: [Where Do I Find Results?](../../data-validation-files-and-storage/where-do-i-find-results.md)
+For more background on how results are stored please read: [Where Do I Find Results?](../../../topics/data-validation-files-and-storage/where-do-i-find-results.md)
 
 Our named-paths group, called "sourcemode", looks like this:&#x20;
 

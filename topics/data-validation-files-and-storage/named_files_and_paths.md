@@ -28,7 +28,7 @@ The latter is an illustration, not a real method call.&#x20;
 
 ## Named Files
 
-Named-paths are more interesting. The goal with named-paths is for us to be able to easily run multiple csvpaths against a single file in one go. The attraction to that is primarily that you can segment your validations into separate and composable csvpaths.  As discussed in [Validation Strategies](../validation/validation_strategies.md) and [Another Example, Part 2](../how-tos/another-example-part-2.md), separate cvpaths can be important to:&#x20;
+Named-paths are more interesting. The goal with named-paths is for us to be able to easily run multiple csvpaths against a single file in one go. The attraction to that is primarily that you can segment your validations into separate and composable csvpaths.  As discussed in [Validation Strategies](../validation/validation_strategies.md) and [Another Example, Part 2](../../getting-started/how-tos/another-example-part-2.md), separate cvpaths can be important to:&#x20;
 
 * Quality control of your validation
 * Maintainability
@@ -42,7 +42,7 @@ You can set up named-paths that are simple 1-to-1 names, like with named-files. 
 * Read a JSON structure from a file that contains a `Dict[str, List[str]]` where the list of strings is a list of csvpaths
 * Do the same, but constructing the `Dict[str, List[str]]` yourself in Python
 
-There is a table of the advantages of each approach [here](../how-tos/another-example-part-2.md).
+There is a table of the advantages of each approach [here](../../getting-started/how-tos/another-example-part-2.md).
 
 Keep in mind that order matters in CsvPath. The order of match components within a csvpath is most important. But the order csvpaths are run in may also have an impact. Depending on if you run your named-paths breadth-first (a.k.a. line-by-line) or serially, you can enable different interactions. The differences are [discussed here](../serial-or-breadth-first-runs.md). Having your separate csvpaths impact one another is optional, of course!
 
@@ -55,7 +55,7 @@ It is important to remember that order is important across csvpaths as well as w
 * The `CsvPath` instance that ran each csvpath in the named-paths set
 * All the print output lines&#x20;
 * The CSV file lines that matched the csvpath _(optionally)_
-* Any errors that happened _(configurable in_ [_config.ini_](../how-tos/config-setup.md)_)_
+* Any errors that happened _(configurable in_ [_config.ini_](../../getting-started/how-tos/config-setup.md)_)_
 
 The CsvPath instance also holds the metadata and variables collections. All-in-all, named-results have a ton of data to support your validations.
 

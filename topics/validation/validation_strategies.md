@@ -59,7 +59,7 @@ The right-hand side of your do/when expressions will be a side-effect. The main 
 
 The most clear-cut way to separate your match components is to move them into separate csvpaths. When you break down your validation rules into small groups of like rules or single rules you gain clarity and testability.  You lose nothing. If anything, it's easier to craft individual rules and run them together.&#x20;
 
-CsvPaths makes runs with multiple csvpaths simple. [Another Example, Part 2](../how-tos/another-example-part-2.md) shows several ways to do it. The closest approach to a single csvpath validation is to simply drop all your single-rule csvpaths into one file like this:&#x20;
+CsvPaths makes runs with multiple csvpaths simple. [Another Example, Part 2](../../getting-started/how-tos/another-example-part-2.md) shows several ways to do it. The closest approach to a single csvpath validation is to simply drop all your single-rule csvpaths into one file like this:&#x20;
 
 ```clike
 ~ name: rule one ~

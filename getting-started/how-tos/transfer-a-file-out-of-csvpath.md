@@ -9,7 +9,7 @@ Files in the Archive are intended to stay put until they age out or are otherwis
 
 A transfer copies a `data.csv` or `unmatched.csv` to a dynamically chosen location. These are the only files you can transfer. When you transfer a file you are copying the contents to another location, not moving it. The original file always stays where it is created in the run.
 
-The way you do a transfer involves [setting a mode](../the-modes.md): `transfer-mode`. That's right, you set up transfers on a csvpath-by-csvpath basis. Transfer mode is like any of the modes. It is set in an external comment. An external comment is a comment that is above or below the csvpath, not within the match part of the path. Setting transfer mode looks like:
+The way you do a transfer involves [setting a mode](../../topics/the-modes.md): `transfer-mode`. That's right, you set up transfers on a csvpath-by-csvpath basis. Transfer mode is like any of the modes. It is set in an external comment. An external comment is a comment that is above or below the csvpath, not within the match part of the path. Setting transfer mode looks like:
 
 ```xquery
 ~ 

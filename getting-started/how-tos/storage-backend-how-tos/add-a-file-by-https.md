@@ -31,7 +31,7 @@ The main event is the method call starting on line 6 that adds a named-file call
 
 However, when we look at the registered file's manifest there is a gotcha. Our manifest is at `./inputs/named_files/orders/manifest.json`. (If you aren't using the default location for named-files your path will be different). When we open it we see:&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-02-27 at 9.11.23 AM.png" alt="The named-file manifest for a new item of CSV content."><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-02-27 at 9.11.23 AM.png" alt="The named-file manifest for a new item of CSV content."><figcaption></figcaption></figure>
 
 Lots of things went right. Our time, uuid, from URL, and fingerprint are fine. But the file type should be `csv` and the file name and file home are garbled because the HTTP URL didn't point to a physical file so much as identify an item of content held by the Google Drive application.&#x20;
 
@@ -59,7 +59,7 @@ class Main:
 
 The fix is line 10. We're passing a "patch" that will change the type of the file to `cvs` and the name of the file to `download.csv`. The `FileRegistar` updates the `manifest.json` so everything tics and ties. This is what you should see:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-02-27 at 9.22.07 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-02-27 at 9.22.07 AM.png" alt=""><figcaption></figcaption></figure>
 
 And you're good. The `orders` named-file is ready to work.&#x20;
 

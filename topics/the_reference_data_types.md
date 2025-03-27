@@ -27,10 +27,10 @@ The types are pretty simple.&#x20;
 
 * `csvpath` is either runtime data about the current csvpath or it is post-run residual data about another named-paths group the reference is pointing to
 * `csvpaths` is the namespace for the identities of the individual csvpaths in the named-paths group.
-* `files` indicates that the reference is [a pointer to a named-file version as described here](how-tos/file-references-and-rewind-replay-how-tos/referring-to-named-file-versions.md)
+* `files` indicates that the reference is [a pointer to a named-file version as described here](../getting-started/how-tos/file-references-and-rewind-replay-how-tos/referring-to-named-file-versions.md)
 * `headers` are headers. The header names and indexes are available post-run. The data associated with the headers, line-by-line, may be available or not, depending on if the run method captured data. At this time CsvPath doesn't offer a way for a reference to point to a header value in an individual row.&#x20;
 * `metadata` is descriptive data about the csvpath the reference is pointing to
-* `results` references point to the data.csv intermediate results of the csvpaths in a named-paths group. Each csvpath's `data.csv` is automatically collected (unless configured not to) and positioned in a standard location so that it can be referenced and piped into other csvpaths. You can [read more about results references here](how-tos/file-references-and-rewind-replay-how-tos/doing-rewind-replay-part-1.md).
+* `results` references point to the data.csv intermediate results of the csvpaths in a named-paths group. Each csvpath's `data.csv` is automatically collected (unless configured not to) and positioned in a standard location so that it can be referenced and piped into other csvpaths. You can [read more about results references here](../getting-started/how-tos/file-references-and-rewind-replay-how-tos/doing-rewind-replay-part-1.md).
 * `variables` are variables. Variables from completed runs are available from the CsvPath that the reference points to. We only lose the variables when the Python instance shuts down.
 
 ## The Csvpath Runtime Fields

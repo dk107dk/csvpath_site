@@ -118,7 +118,7 @@ One of the challenges with CsvPath Framework and CsvPath Language is their flexi
 
 If you set `Raise exceptions`, your runs will stop at the first problem encountered. Likewise, if you select `Stop on errors` the Framework will stop when it runs into an issue; it won't, however, throw an exception — again, the difference is an operational concern. If you want to see all your errors at once you need to suppress exceptions and not stop at errors. But keep in mind, it is possible to halt on an error, or on the use of `stop()`, without there being an error message. Likewise, it is possible to suppress exceptions and then not realize you encountered them.
 
-All of this gets even more fun when you remember that a csvpath writer can override the Framework's config settings on a csvpath-by-csvpath basis using [the modes](../the-modes.md). The reason the modes exist is so that ops teams can set a standard config that csvpath writers can override during development or because they have more specific requirements and/or greater knowledge of the data.
+All of this gets even more fun when you remember that a csvpath writer can override the Framework's config settings on a csvpath-by-csvpath basis using [the modes](../../topics/the-modes.md). The reason the modes exist is so that ops teams can set a standard config that csvpath writers can override during development or because they have more specific requirements and/or greater knowledge of the data.
 
 All this flexibility is there for important operational reasons. You just have to be mindful of it.&#x20;
 
