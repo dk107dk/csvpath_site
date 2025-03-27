@@ -25,7 +25,7 @@ In this example, you will see more functions, headers, qualifiers, and reference
 * [Functions](https://github.com/dk107dk/csvpath/blob/main/docs/functions.md), including the list of all built-in functions
 * [Qualifiers](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md)
 * [Headers](https://github.com/dk107dk/csvpath/blob/main/docs/headers.md)
-* [References](https://github.com/dk107dk/csvpath/blob/main/docs/references.md) and [the reference data types](../../topics/the_reference_data_types.md)
+* [References](https://github.com/dk107dk/csvpath/blob/main/docs/references.md) and [the reference data types](../../../topics/the_reference_data_types.md)
 
 And, for a general overview of the match components, [start here](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components).
 
@@ -33,11 +33,11 @@ And, for a general overview of the match components, [start here](https://github
 
 This is a simplified order for goods from retail stores. It is a monthly report delivered automatically.
 
-<figure><img src="../../.gitbook/assets/data-before.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/data-before.png" alt=""><figcaption></figcaption></figure>
 
 Here is the file. It is shortened, but it is enough for this example.
 
-{% file src="../../.gitbook/assets/March-2024.csv" %}
+{% file src="../../../.gitbook/assets/March-2024.csv" %}
 
 There are so many things to possibly validate here. Types of products, IDs, prices. Just sticking with simple checks we could come up with many rules. We'll create a csvpath that applies six rules while dealing with the complicating top-matter.
 
@@ -90,7 +90,7 @@ Variables are new; we haven't seen them in the previous examples. Everytime you 
 * Runtime stats
 * Variables
 
-You can [read about these types of data here](../../topics/the_reference_data_types.md). Variables are like session variables in web development. They come in three flavors:&#x20;
+You can [read about these types of data here](../../../topics/the_reference_data_types.md). Variables are like session variables in web development. They come in three flavors:&#x20;
 
 * Strings or numbers
 * Dictionaries of named "tracking values"
@@ -174,7 +174,7 @@ print(f"path.variables: {path.variables}")
 
 When you run it you will see something like:&#x20;
 
-<figure><img src="../../.gitbook/assets/first-run.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/first-run.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Notice that because this is the first time I ran this script in a new project CsvPath created a default config file and a logs directory. But more importantly, we got our two metadata values in the CsvPath instance's variables. Perfect!
 
@@ -279,7 +279,7 @@ lines = path.collect()
 
 Running your script should look like what you would expect:&#x20;
 
-<figure><img src="../../.gitbook/assets/reset-headers-msg.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/reset-headers-msg.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Congrats! You are done with the hard part. The rest of the validations are simple business rules.
 
@@ -300,7 +300,7 @@ Notice that we asked `print()` to activate a `fail()` function, as well as print
 
 When you run your script now, you see nothing changed. That's because all our categories are correct. To make sure your rule works change line twelve's category from OFFICE to OPERA.&#x20;
 
-<figure><img src="../../.gitbook/assets/opera.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/opera.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Now you assuming your script looks like this:&#x20;
 
@@ -336,7 +336,7 @@ lines = path.collect()
 
 When you run it you should see something like this:
 
-<figure><img src="../../.gitbook/assets/bad-category.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bad-category.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Rule 4: Price Format
 
@@ -413,7 +413,7 @@ It is definitely getting long. But we're getting close to complete. And in Part 
 
 Run your script and you should see output like this:&#x20;
 
-<figure><img src="../../.gitbook/assets/bad-prices.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bad-prices.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ## Rule 5: UPCs and SKUs
 
@@ -430,11 +430,11 @@ not( #UPC ) -> print("Line $.csvpath.count_lines: No UPC", fail())
 
 When you run your script you again see no additional issues. So let's make one. In line 11 remove the value in the SKU field, the fourth header from the end: `9933757492`. It should look like this:&#x20;
 
-<figure><img src="../../.gitbook/assets/remove-sku.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/remove-sku.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Run your script again. You should see something close to:&#x20;
 
-<figure><img src="../../.gitbook/assets/bad-sku.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/bad-sku.png" alt="" width="563"><figcaption></figcaption></figure>
 
 If that works correctly your script looks like this:&#x20;
 
@@ -542,7 +542,7 @@ lines = path.collect()
 
 I bumped up the number of lines requirement so that we could see the rule's effect. When you run this final version of your script you should see something like:&#x20;
 
-<figure><img src="../../.gitbook/assets/final-run (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/final-run (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 Congrats! You have a very functional csvpath to check your CSV files with.&#x20;
 

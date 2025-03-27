@@ -69,7 +69,7 @@ CKAN isn't ugly, but it does look plain just out of the box. To see for yourself
 
 Next let's set up CsvPath to talk to CKAN. This part should be a snap, partly because it's simple and partly because you've probably done it already from other examples on this site.
 
-We'll use the example from [Another Example](../how-tos/another-example-part-2.md). First create a Poetry project. You can use Pip or any tool you like, but we like Poetry. In the terminal do:
+We'll use the example from [Another Example](../how-tos/another-longer-example/another-example-part-2.md). First create a Poetry project. You can use Pip or any tool you like, but we like Poetry. In the terminal do:
 
 ```bash
 poetry new ckan
@@ -97,7 +97,7 @@ Package operations: 31 installs, 0 updates, 0 removals
 
 You'll see a few more dependencies installed than I'm pasting in here, but otherwise, that's it.
 
-Now we'll copy the files from the [Another Example](../how-tos/another-example-part-2.md) pages. The ones attached here are slightly updated so use them, even if you did the example and have your own.&#x20;
+Now we'll copy the files from the [Another Example](../how-tos/another-longer-example/another-example-part-2.md) pages. The ones attached here are slightly updated so use them, even if you did the example and have your own.&#x20;
 
 Put the csv file in: `assets/csvs` and the csvpaths in `assets/csvpaths`. You _can_ put these files anywhere within the project, really, because we are going to use CsvPath's CLI to import them, but for now, still with those directories. Put the JSON file in the project root directory; again, it _could_ go anywhere you like within the project.
 
