@@ -11,7 +11,7 @@ CsvPath Framework includes a robust delimited data validation framework that mak
 * Provides schema-based validation&#x20;
 * Has over 150 validation functions and allows user-defined custom functions
 * Supports data upgrading and canonicalization
-* Is streams data to handle large files
+* Streams data to handle large files
 * Provides metadata, variables, reporting, and error handling options
 * Comes with a wealth of features enabling all kinds of use cases
 
