@@ -2,6 +2,7 @@
 
 * [CsvPath](README.md)
 * [DATA PREBOARDING](data-preboarding.md)
+* [Organizing Inbound Data](organizing-inbound-data.md)
 
 ## Getting Started
 
