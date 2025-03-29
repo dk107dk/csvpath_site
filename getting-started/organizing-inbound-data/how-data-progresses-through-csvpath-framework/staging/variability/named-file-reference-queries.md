@@ -1,4 +1,4 @@
-# Reference Queries
+# Named-file Reference Queries
 
 The simplest use of CsvPath is to simply stick with names to reference files, groups of csvpaths, and results. But sometimes using a simple name is not enough. When you get to that point you need to use CsvPath's Reference Language.
 
@@ -138,45 +138,4 @@ This reference returns all the files registered before `Jan 1, 2025 at 2:30 PM U
 $orders.files.acme/2025:all.2025-03-21_:before
 ```
 
-Another reference returning any number of files before a date. This time we're scoping the datetime limitation to those files that have a named-files path beginning with `acme/2025`. To be clear, the reference would match any file located at `staging/orders/acme/2025-EMEA-invoices.csv` and registered before the start of March 21, 2025, assuming `staging` is the name we configured for our named-files area. It might match other filenames within the `orders` named-file as well, for e.g. `staging/orders/acme/2025-US-invoices.csv`.
-
-### Named-paths references
-
-Named-paths references are simpler. They only need to give dynamic control over which csvpaths within the named-paths group to run. A named-paths reference does that by using the :from and :to pointers to indicate the starting or stopping csvpaths. If there is no pointer the reference is to the specific csvpath named.
-
-```
-$invoices.csvpaths.cleanup:from
-```
-
-This reference says to do a run of the `invoices` named-paths starting from the `cleanup` csvpath. Or, to be more precise, it references the specific csvpath statements — but that typically means we're setting up a named-paths group run. It is, of course, equally easy to pass a reference to `PathsManager.get_named_paths()` and get back a list of the csvpath statements.&#x20;
-
-Let's say that the invoices named-paths looks like:&#x20;
-
-```bash
-~ id: print date ~
-$[0][ @day = today() print("Today is $.variables.day")]
----- CSVPATH ----
-~ id: cleanup ~
-$[*][ replace(#city, uppercase(#city)) ] 
----- CSVPATH ----
-~ id: add line number ~
-$[*][ append("line", line_number())] 
-```
-
-The reference would run the second (`cleanup`) and third (`add line number`) csvpaths in the group. The `print date` csvpath would not run.
-
-```
-$invoices.csvpaths.cleanup:1
-```
-
-Using the same example, this reference would return only the second csvpath from the `invoices` named-paths group.&#x20;
-
-```
-$invoices.csvpaths.cleanup:to
-```
-
-And finally, this version of the reference would run the first csvpath (`print date`) and the second (`cleanup`), but would not run the third csvpath in the group.
-
-
-
-&#x20;
+Another reference returning any number of files before a date. This time we're scoping the datetime limitation to those files that have a named-files path beginning with `acme/2025`. To be clear, the reference would match any file located at `staging/orders/acme/2025-EMEA-invoices.csv` and registered before the start of March 21, 2025, assuming `staging` is the name we configured for our named-files area. It might match other filenames within the `orders` named-file as well, for e.g. `staging/orders/acme/2025-US-invoices.csv`.&#x20;
