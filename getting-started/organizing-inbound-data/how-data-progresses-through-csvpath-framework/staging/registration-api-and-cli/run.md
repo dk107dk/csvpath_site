@@ -12,7 +12,7 @@ Regardless or serial or breadth-first or serial, there are three options:&#x20;
 
 The method names above are for serial runs. For breadth-first runs the methods are collect\_by\_line(), fast\_forward\_by\_line(), and next\_by\_line().
 
-```
+```python
 from csvpath import CsvPaths
 CsvPath().fast_forward_paths( pathsname="orders", filename="acme-orders" )
 ```
