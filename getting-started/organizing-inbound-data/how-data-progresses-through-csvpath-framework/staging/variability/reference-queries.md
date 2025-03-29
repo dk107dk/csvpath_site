@@ -40,6 +40,10 @@ The four sections are:
 * `name_one`: the most important id/name/date, etc. we're pointing to
 * `name_three`: a secondary id/name/date, etc. that helps determine what the reference is to&#x20;
 
+{% hint style="info" %}
+Wait, `name_three`?  What happened to `name_two`?  We're coming to that below. Spoiler, `name_one` and `name_three` can be split to create a `name_two` and `name_four`. But that feature is not often used at this time.
+{% endhint %}
+
 The datatypes are like XPath's axes or a scope, they tell you where the root name is. Effectively they determine what kind of reference you are dealing with. The main datatypes are:&#x20;
 
 * `files`: for references to a named-file
@@ -71,7 +75,7 @@ While this is a great use of references, it is not the most common syntax.
 
 References use "pointers" to fill in parts of `name_one` and `name_three`. A pointer looks like a colon followed by a word or number. Using a pointer you can complete a date, provide an index, indicate a day, etc. The pointers are:&#x20;
 
-* `:all` — returns all matches. `:all` is the default behavior. Using `:all` just more explicit.
+* `:all` — returns all matches. `:all` is the default behavior. Using `:all` is just more explicit.
 * `:from` — used in the `csvpaths` datatype to indicate a run should start from a certain csvpath
 * `:to` — like `:from`, but indicating the run should stop with a certain csvpath
 * `:before` — selects all files registered before a date
@@ -79,13 +83,13 @@ References use "pointers" to fill in parts of `name_one` and `name_three`. A poi
 * `:first` — selects the first file in a set of matching files
 * `:last` — selects the most recent or last match
 * `:yesterday` — converts to the datastamp of `0:00:00` on the previous day
-* `:today` — converts to the datestamp of `0:00:00` on the present day
+* `:today` — converts to the timestamp of `0:00:00` on the present day
 * `:n` _(n = any integer from `0` to `99`)_ — indicates which match to return out of a set of matches
 
 {% hint style="danger" %}
-As noted above, in some few cases you can split the root, name\_one, and name\_two path segments using a `#`. In fact, grammatically, you can always do this; however, the support for `#` separated words having a good effect is inconsistent and the intended usage has not yet settled.&#x20;
+As noted above, in some few cases you can split the root, name\_one, and name\_three path segments using a `#`. In fact, grammatically, you can always do this; however, the support for `#` separated words having a good effect is inconsistent and the intended usage has not yet settled.&#x20;
 
-You might see the values created by a `#` referred to as `root_minor` and `name_two` and `name_four`
+You might see the values created by a `#` referred to as `root_minor` and `name_two` and `name_four`.
 
 But again, it is not common and unless directions say to use the capability you should not.
 {% endhint %}
