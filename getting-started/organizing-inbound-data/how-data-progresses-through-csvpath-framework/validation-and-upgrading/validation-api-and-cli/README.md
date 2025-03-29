@@ -1,2 +1,0 @@
-# Validation API and CLI
-
