@@ -1,6 +1,6 @@
 # Loading
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-03-29 at 12.09.40 PM.png" alt=""><figcaption><p>Staging and loading</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-03-29 at 1.47.13 PM.png" alt=""><figcaption><p>Staging and loading</p></figcaption></figure>
 
 Staging source data files is an easy task. You can register a single file name, a directory, or a JSON file containing name-to-file mappings.
 

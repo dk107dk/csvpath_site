@@ -1,6 +1,6 @@
 # Run
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-03-29 at 12.11.12 PM.png" alt=""><figcaption><p>Running a named-paths group against one or more files</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-03-29 at 1.48.34 PM.png" alt=""><figcaption><p>Running a named-paths group against one or more files</p></figcaption></figure>
 
 Runs of a named-paths group take one of six forms. Three run the csvpaths in the group in serial. The other three run the csvpaths in the group in a breadth-first manner, line-by-line. Each approach has its advantages; though, in practice you most often don't have a reason to choose one over the other.
 
