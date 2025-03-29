@@ -20,12 +20,19 @@ Add a template like this:&#x20;
 
 ```python
 from csvpath import CsvPaths
-CsvPaths().add_named_path_from_directory(directory='./assets', name='orders', template=':2/:0/:run_dir'))
+CsvPaths().paths_manager.add_named_path_from_directory(directory='./assets', name='orders', template=':2/:0/:run_dir'))
 ```
 
 This method stores the template in the named-paths group's optional `definition.json` file, creating the file if needed. `definition.json` is a use-created assignment of csvpaths files to names. It also has a `_config` key holding a dictionary of named-path group names to configuration values, including templates.
 
-You can also add a template, overriding any existing named-path group template, when you run a named-path group against a named-file(s).&#x20;
+If your named-path is already loaded and you don't want to reload it for some reason, you can do:&#x20;
+
+```
+from csvpath import CsvPaths
+CsvPaths().paths_manager.store_template_for_paths(name='orders', template='Acme/:1/orders/:0')
+```
+
+You can also add a template, overriding any existing named-path group template, when you run a named-path group against one or more named-files.&#x20;
 
 ```python
 from csvpath import CsvPaths
