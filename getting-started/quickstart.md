@@ -36,6 +36,10 @@ Have a look at the [Github project](https://github.com/dk107dk/csvpath) for more
 
 The worker class in CsvPath is unsurprisingly called `CsvPath`. For simple validation, it is all you need. &#x20;
 
+{% hint style="warning" %}
+For more complex situations and DataOps automation we use the manager class `CsvPaths`. But we'll come back to that in later pages. For now just know that it exists, has essentially the same API, and is equally lightweight to use.
+{% endhint %}
+
 The quickest way to bootstrap a CsvPath Framework project is the command line interface (CLI). The CLI is a super simple tool that is great for fast no-code development. To try the CLI, skip over to [Your First Validation, The Lazy Way](csv-and-excel-validation/your-first-validation-the-lazy-way.md).&#x20;
 
 To continue with the simplest possible Python, let's do a _hello world_.&#x20;
