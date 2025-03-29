@@ -1,10 +1,8 @@
 # Named-paths Reference Queries
 
-
-
 ## How are references used?
 
-References are used run individual csvpaths or subsets of csvpaths in named-paths groups. For named-paths references their form is: &#x20;
+References are used to run individual csvpaths or subsets of csvpaths in named-paths groups. For named-paths references their form is: &#x20;
 
 ```xquery
 $root.csvpaths.name_one.name_two
