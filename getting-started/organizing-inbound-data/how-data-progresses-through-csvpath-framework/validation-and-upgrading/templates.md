@@ -6,7 +6,7 @@ All run results go into the Archive. The Archive is the trusted publisher that d
 
 Let's quickly recap. A template is a path model. It is used to dynamically create a path for a file. The template model looks like:&#x20;
 
-```
+```applescript
 my-folder-name/:3/:0/another-folder/:run_dir/:1
 ```
 
@@ -27,12 +27,12 @@ This method stores the template in the named-paths group's optional `definition.
 
 If your named-path is already loaded and you don't want to reload it for some reason, you can do:&#x20;
 
-```
+```python
 from csvpath import CsvPaths
 CsvPaths().paths_manager.store_template_for_paths(name='orders', template='Acme/:1/orders/:0')
 ```
 
-You can also add a template, overriding any existing named-path group template, when you run a named-path group against one or more named-files.&#x20;
+You can also provide a template when you run a named-path group against one or more named-files, overriding any preexisting named-path group template.&#x20;
 
 ```python
 from csvpath import CsvPaths
