@@ -1,8 +1,10 @@
 # Validation and Upgrading
 
-Validation and upgrading is a core part of CsvPath Framework's mission. We're here to end garbage-in-garbage-out, at least in the data onboarding process. The Framework enables your validation and upgrading with CsvPath Validation Language. CsvPath Validation Language is a domain-specific validation language. It is purpose-built for evaluating if your data meets expectations, and if it doesn't, how to upgrade it.&#x20;
+Validation and upgrading is a core part of CsvPath Framework's mission. We're here to end garbage-in-garbage-out, at least in the data onboarding process.&#x20;
 
-You write CsvPath Validation Lanaguage in csvpath statements or scripts. One or more csvpath statement lives in a file. Groups of csvpath statements are executed in runs. A group of csvpath statements is called a named-paths group.&#x20;
+The Framework enables your validation and upgrading with CsvPath Validation Language. CsvPath Validation Language is a domain-specific validation language. It is purpose-built for evaluating if your data meets expectations, and if it doesn't, upgrading it or marking it invalid.&#x20;
+
+You write CsvPath Validation Language in csvpath statements or scripts. One or more csvpath statement lives in a file. Groups of csvpath statements are executed in runs. A group of csvpath statements is called a named-paths group.&#x20;
 
 The Framework stores named-paths groups in a validation assets area. By default, that is ./inputs/named\_paths, but it can be any location you like in any system CsvPath Framework has a backend for. Currently the backends are:&#x20;
 
