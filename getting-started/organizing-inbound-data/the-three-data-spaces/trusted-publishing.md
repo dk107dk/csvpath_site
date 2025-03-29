@@ -2,9 +2,9 @@
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-03-28 at 12.23.39 PM.png" alt="" width="563"><figcaption><p>The trusted publishing area is the most flexible and content rich</p></figcaption></figure>
 
-By default we refer to the trusted publishing space as the Archive. The Archive is the richest, most flexible, and most complex of the data file areas in CsvPath Framework.&#x20;
+We refer to the trusted publishing space as the Archive. By default the Archive is at `./archive`, but you can name it anything you like and house it on any of the backend storage systems CsvPath Framework supports. &#x20;
 
-&#x20;The Archive can be named anything you like. It is a kind of namespace. In large DataOps groups or companies with many data partners we would recommend using multiple archives in order to make your data estate more manageable. If you use multiple trusted publishing archives they can live together in one backend system or be split over multiple systems of different types.
+The Archive is the richest, most flexible, and most complex of the data file areas in CsvPath Framework. It is a kind of namespace. In large DataOps groups or companies with many data partners we would recommend using multiple archives in order to make your data estate more manageable. If you use multiple trusted publishing archives they can live together in one backend system or be split over multiple systems of different types.
 
 Within the Archive the first level is a list of named-results. A named-result takes the same name as the named-paths group that generated it. When you ask CsvPath Framework for the named-results using just the plain named-results name, it gives you the results from the most recent run.
 
