@@ -35,7 +35,7 @@ Looking at manifest.json, you can see that there isn't much going on in this sup
 
 <figure><img src="../../../../.gitbook/assets/Screenshot 2025-03-29 at 5.41.48 PM.png" alt=""><figcaption></figcaption></figure>
 
-Notice that the manifest is an array. Each time you load your `hello-world` named-paths group CsvPath Framework adds a new entry with the updated information. Unlike in the source files staging area we don't keep versions of csvpaths — you have Git or another source management system for that. Instead we capture identifying information:&#x20;
+Notice that the manifest is an array. Each time you load your `hello-world` named-paths group CsvPath Framework adds a new entry with the updated information. Unlike in the source files staging area we don't keep versions of csvpaths — you have Git or another source management system for that. Instead we just capture the identifying information:&#x20;
 
 * The SHA256 hash of the csvpaths in the group
 * A UUID that is passed along in every named-path group run
