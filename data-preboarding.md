@@ -31,7 +31,7 @@ CsvPath brings many capabilities to the table:&#x20;
 
 With CsvPath Framework you are signing up for a well-known pattern that settles the architecture and design questions up-front, leaving your team focused on data quality and accountability. And with CsvPath's the automation-forward approach, you can scale-down manual data quality efforts and scale up data throughput.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-02-09 at 8.32.52 PM.png" alt="A super high-level data flow diagram showing how data files and validation/upgrading files are combined to create known-good data for downstream data consumers." width="563"><figcaption><p>CsvPath is a pre-packaged automation-focused preboarding process.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-02-09 at 8.32.52 PM.png" alt="A super high-level data flow diagram showing how data files and validation/upgrading files are combined to create known-good data for downstream data consumers." width="563"><figcaption><p>CsvPath is a pre-packaged automation-focused preboarding process that ends garbage-in-garbage-out.</p></figcaption></figure>
 
 ## How to get started
 
