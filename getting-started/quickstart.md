@@ -22,7 +22,7 @@ cd <<your project name>>
 poetry add csvpath
 ```
 
-If you prefer Pip, install CsvPath Framework with one of:
+If you prefer Pip, install CsvPath Framework with:
 
 ```
 pip install csvpath
