@@ -2,7 +2,7 @@
 
 We construct a named-file's folder organization using templates. Templates are completely optional. Obviously, if you don't need them, so much the better, don't use them. Regardless, here's how they work.
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-03-28 at 3.35.17 PM.png" alt=""><figcaption><p>Named-file templates turn arrival paths into named-file paths</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-03-28 at 11.50.15 PM.png" alt=""><figcaption><p>Named-file templates turn arrival paths into named-file paths</p></figcaption></figure>
 
 Templates consist of:
 
@@ -18,4 +18,4 @@ In this example, our CsvPath Framework staging area is called `staging`. (This i
 
 For reasons that include keeping the file layout easy to read and easy for a Grafana system to monitor, we want a named-file organization that is a bit more than the default: `staging/Acme/<filenames>`.
 
-To do this we create a template that is stored in the named-file `manifest.json`. Templates can change. Each changed template is stored with the name-file update when a new file is registered. When a template is changed the layout of the named-file becomes more complex, so we would suggest using 0 or 1 templates, and definitely not many. Keep in mind that CsvPath Framework is for automation, so registering files with a single template should be a natural fit.
+To do this we create a template that is stored in the named-file `manifest.json`. Templates can change. Each changed template is stored with the name-file update when a new file is registered. When a template is changed the layout of the named-file becomes more complex, so we would suggest using 0 or 1 templates, and definitely not many. Keep in mind that CsvPath Framework is built for automation, so registering files with a single template should feel like a natural fit.
