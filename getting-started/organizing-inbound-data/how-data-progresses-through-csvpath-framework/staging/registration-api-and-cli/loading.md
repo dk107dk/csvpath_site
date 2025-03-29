@@ -6,12 +6,12 @@ Staging source data files is an easy task. You can register a single file name, 
 
 ```
 from csvpath import CsvPaths
-CsvPaths.file_manager.add_named_file( name="orders", path="./assets/files/orders.csv" )
+CsvPaths().file_manager.add_named_file( name="orders", path="./assets/files/orders.csv" )
 ```
 
 Loading your csvpaths in a named-paths group is similarly easy. And again the options are loading a file with any number of paths, a directory of .csvpath files, or a JSON file defining the named-paths group.
 
 ```
 from csvpath import CsvPaths
-CsvPaths.paths_manager.add_named_paths_from_file( name="invoices", file_path="./assets/monthly-invoice-validations.csvpaths )
+CsvPaths().paths_manager.add_named_paths_from_file( name="invoices", file_path="./assets/monthly-invoice-validations.csvpaths )
 ```
