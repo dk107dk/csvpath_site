@@ -38,12 +38,11 @@ Looking at manifest.json, you can see that there isn't much going on in this sup
 Notice that the manifest is an array. Each time you load your `hello-world` named-paths group CsvPath Framework adds a new entry with the updated information. Unlike in the source files staging area we don't keep versions of csvpaths — you have Git or another source management system for that. Instead we capture identifying information:&#x20;
 
 * The SHA256 hash of the csvpaths in the group
-* A UUID that is passed along in the named-path group runs
+* A UUID that is passed along in every named-path group run
 * An array of the statements in the group
 
 This information allows us to trace back to exactly what validation and upgrading was done to achieve a result dataset.&#x20;
 
-As you can imagine, including all the csvpaths in the group at every update has the potential to take a lot of space. Named-paths groups with tens to hundreds of csvpath statements are not uncommon. Nevertheless, we store and update the named-paths group frequently in development, but only rarely in production, so while the manifest may grow to a few kilobytes it is typically not huge. And since we only read the manifest at updates when we're tracking new information, as opposed to at named-path group run time,  performance is not a concern. &#x20;
+As you can imagine, including all the csvpaths in the group at every manifest update has the potential to take a lot of space. Named-paths groups with tens to hundreds of csvpath statements are not uncommon. Nevertheless, we store and update the named-paths group frequently in development, but only rarely in production, so while the manifest may grow to a few kilobytes it is typically not huge. And since we only read the manifest at updates when we're tracking new information, as opposed to at named-path group run time,  performance is not a concern. &#x20;
 
-
-
+Also note, if you configure CsvPath Framework to capture your updates to a database (today Sqlite, MySQL, or Postgres) the csvpath statements are not included — they only are copied into the manifest. That way you can query the database quickly without picking through potentially large numbers of csvpaths in the manifest, but turn to the manifest if you need to find the actual csvpaths loaded at a moment in time.
