@@ -2,7 +2,7 @@
 
 We construct a named-file's folder organization using templates. Templates are completely optional. Obviously, if you don't need them, so much the better, don't use them. Regardless, here's how they work.
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-03-28 at 11.50.15 PM.png" alt=""><figcaption><p>Named-file templates turn arrival paths into named-file paths</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-03-28 at 11.50.15 PM.png" alt="" width="563"><figcaption><p>Named-file templates turn arrival paths into named-file paths</p></figcaption></figure>
 
 Templates consist of:
 
