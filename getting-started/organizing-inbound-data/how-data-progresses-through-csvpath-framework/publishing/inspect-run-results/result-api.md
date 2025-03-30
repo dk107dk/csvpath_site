@@ -22,7 +22,7 @@ results:list[Result] = CsvPaths().results_manager.get_named_results("orders")
 
 The results returned are from the most recent run. Alternatively, you can get a specific run's results using a results reference:
 
-```
+```python
 results:list[Result] = CsvPaths().results_manager.get_named_results("$orders.results.2025-03-01_10:3")")
 ```
 
