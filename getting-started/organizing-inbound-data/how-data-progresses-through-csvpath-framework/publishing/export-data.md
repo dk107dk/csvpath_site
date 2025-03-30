@@ -11,3 +11,5 @@ CsvPath Framework enables you to publish data to its immutable archive. That's i
   * Google Cloud Storage
   * SFTP
   * And, of course, the local filesystem or mounted share
+
+And keep in mind, the CsvPath Framework's Archive is essentially a namespace. You can locate your archive anywhere. And you can run multiple archives to publish from multiple backends or in the same place, but under a different root directory.
