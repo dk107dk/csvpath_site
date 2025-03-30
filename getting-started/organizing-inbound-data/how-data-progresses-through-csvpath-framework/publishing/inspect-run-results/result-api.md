@@ -26,7 +26,7 @@ The results returned are from the most recent run. Alternatively, you can get a 
 results:list[Result] = CsvPaths().results_manager.get_named_results("$orders.results.2025-03-01_10:3")")
 ```
 
-In this case, we are pulling results for the `orders` run on March 1st, 2025 at or after 10:30 AM UTC.  If there are multiple `orders` runs on March 1st, 2025 at or after 10:30 AM UTC the reference is not specific enough so the method returns None.
+In this case, we are pulling results for the `orders` run on March 1st, 2025 at or after 10:30 AM UTC.  If there are multiple `orders` runs on March 1st, 2025 at or after 10:30 AM UTC the reference is not specific enough so the method returns None. If that were the case we would need to either use `:first`, `:last`, or an index pointer like `:3,` or we could use a more specific timestamp.
 
 #### Get a specific csvpath instance from a run
 
