@@ -1,6 +1,6 @@
 # Source Staging
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-03-28 at 2.19.56 PM.png" alt="" width="563"><figcaption><p>The source staging area is for named versions of raw inbound files</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-03-28 at 2.19.56 PM.png" alt="" width="375"><figcaption><p>The source staging area is for named versions of raw inbound files</p></figcaption></figure>
 
 CsvPath Framework collects all inbound files into a staging area. This area is:&#x20;
 

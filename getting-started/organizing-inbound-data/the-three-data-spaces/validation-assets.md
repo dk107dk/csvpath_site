@@ -1,6 +1,6 @@
 # Validation Assets
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-03-28 at 11.47.47 AM.png" alt="" width="375"><figcaption><p>CsvPath Framework keeps validation assets in a shallow directory tree</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-03-28 at 11.47.47 AM.png" alt="" width="188"><figcaption><p>CsvPath Framework keeps validation assets in a shallow directory tree</p></figcaption></figure>
 
 CsvPath Framework has delimited data validation and upgrading as a core feature.  CsvPath Validation Language statements are like SQL queries, XQuery statements or XPath paths. A Validation Language statement is called a csvpath.&#x20;
 

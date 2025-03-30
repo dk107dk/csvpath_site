@@ -1,6 +1,6 @@
 # Trusted Publishing
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-03-28 at 12.23.39 PM.png" alt="" width="563"><figcaption><p>The trusted publishing area is the most flexible and content rich</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-03-28 at 12.23.39 PM.png" alt="" width="375"><figcaption><p>The trusted publishing area is the most flexible and content rich</p></figcaption></figure>
 
 We refer to the trusted publishing space as the Archive. By default the Archive is at `./archive`, but you can name it anything you like and house it on any of the backend storage systems CsvPath Framework supports. &#x20;
 
