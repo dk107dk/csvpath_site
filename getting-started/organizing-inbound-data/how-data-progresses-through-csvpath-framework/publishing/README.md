@@ -4,7 +4,7 @@
 
 CsvPath Framework is the internal trusted publisher for your data lake, streaming infrastructure, data warehouse, applications, and/or other analytical processing.&#x20;
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2025-03-30 at 11.57.51 AM.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-03-30 at 11.59.50 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### What does that mean?&#x20;
 
