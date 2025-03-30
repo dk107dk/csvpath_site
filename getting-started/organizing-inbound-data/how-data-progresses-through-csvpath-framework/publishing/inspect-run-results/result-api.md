@@ -53,12 +53,40 @@ Equally, but less commonly, we can use the `#` character to add the instance nam
 
 ### Access the manifest of an individual csvpath within a run
 
-Runs have manfests containing metadata about the run. Each csvpath instance within a run has its own manifest with metadata specific to that particular csvpath within the context of the run.
+Runs have manifests containing metadata about the run. Each csvpath instance within a run has its own manifest with metadata specific to that particular csvpath within the context of the run.
 
 ```python
 result = paths.results_manager.get_named_results("$food.files.:today:last.candy check")
 mani = result.manifest
 ```
 
+### A few more important Result properties
 
+```python
+result = paths.results_manager.get_named_results("$food.files.:today:last.candy check")
+#
+# the identity of a csvpath is set in its external comments. if no identity is set 
+# we address it by its index within the named-paths group
+#
+result.identity_or_index
+result.errors
+result.variables
+result.metadata
+result.printouts
+```
 
+Errors, variables, and metadata are dicts\[str, Any]. Printouts are list\[list\[str]].&#x20;
+
+#### A csvpath's identity
+
+The identity of a csvpath is used in several places. You have seen how we use the identity in references. Identity is also important in the built-in error messages that CsvPath Validation Language emits when data is invalid or there is a mistake in the csvpath statement. You set a csvpath's identity in an external comment. An external comment is one that is outside the scanning and match instructions. They look like this:&#x20;
+
+```xquery
+~ 
+this is an external comment
+ID: this is my identity
+~
+$[*][ yes() ~ this is an internal comment ~ ]
+```
+
+You can set an identity using a comment metadata field — i.e. a word followed by a colon — where the metadata name is any of: ID, Id, id, NAME, Name, name. If no identity is found CsvPath Framework knows the csvpath by its index within its named-paths group.
