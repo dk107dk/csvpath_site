@@ -30,7 +30,7 @@
       * [Inspect Run Results](getting-started/organizing-inbound-data/how-data-progresses-through-csvpath-framework/publishing/inspect-run-results/README.md)
         * [Result API](getting-started/organizing-inbound-data/how-data-progresses-through-csvpath-framework/publishing/inspect-run-results/result-api.md)
         * [More Templates and References](getting-started/organizing-inbound-data/how-data-progresses-through-csvpath-framework/publishing/inspect-run-results/more-templates-and-references.md)
-      * [Export Data](getting-started/organizing-inbound-data/how-data-progresses-through-csvpath-framework/publishing/export-data.md)
+      * [Export Data and Metadata](getting-started/organizing-inbound-data/how-data-progresses-through-csvpath-framework/publishing/export-data-and-metadata.md)
 * [Csv and Excel Validation](getting-started/csv-and-excel-validation/README.md)
   * [Your First Validation, The Lazy Way](getting-started/csv-and-excel-validation/your-first-validation-the-lazy-way.md)
   * [Your First Validation, The Easy Way](getting-started/csv-and-excel-validation/your-first-validation-the-easy-way.md)
