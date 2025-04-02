@@ -6,7 +6,7 @@ description: >-
 
 # Organizing Inbound Data
 
-### Every data onboarding process starts with a data preboarding stage
+## Every data onboarding process starts with a data preboarding stage
 
 Preboarding is:&#x20;
 
@@ -29,7 +29,7 @@ Underinvestment in preboarding exposes your company to&#x20;
 * Rework by developers
 * Refunds to annoyed customers
 
-### So How Does Preboarding Work?
+## So How Does Preboarding Work?
 
 Files arrive through a Managed File Transfer process. MFT is a big topic. It includes:&#x20;
 
