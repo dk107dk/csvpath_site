@@ -56,6 +56,7 @@
   * [Setup notifications to Slack](getting-started/how-tos/setup-notifications-to-slack.md)
   * [Send run events to Sqlite](getting-started/how-tos/send-run-events-to-sqlite.md)
   * [Sending results by SFTP](getting-started/how-tos/sending-results-by-sftp.md)
+  * [Execute a script at the end of a run](getting-started/how-tos/execute-a-script-at-the-end-of-a-run.md)
   * [Working with error messages](getting-started/how-tos/working-with-error-messages.md)
   * [Sending results to CKAN](getting-started/how-tos/sending-results-to-ckan.md)
   * [Transfer a file out of CsvPath](getting-started/how-tos/transfer-a-file-out-of-csvpath.md)
