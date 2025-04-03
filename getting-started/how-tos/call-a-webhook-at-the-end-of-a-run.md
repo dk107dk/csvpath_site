@@ -8,7 +8,7 @@ description: >-
 
 Your named-paths groups can be configured to call up to four webhooks at the end of a run. You can use this capability to easily trigger workflows that send emails or load webapps or move files, and much more using webhook calls to any of the dozens of automation platforms like Zapier.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 1.53.25 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 2.06.23 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 The four types determine if a request is made to a particular hook. The types are:&#x20;
 
