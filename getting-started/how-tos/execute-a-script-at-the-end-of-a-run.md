@@ -105,5 +105,5 @@ When your named-paths group runs and the script type's condition is met, CsvPath
 
 And that's it.&#x20;
 
-The only caveat is that you cannot run scripts after named-paths group runs unless you are using the local filesystem backend — the default. If you are storing your archive in the cloud or on an SFTP server you will need to use another method to trigger actions. [A cloud function](csvpath-in-aws-lambda.md) would be one option. In a week or so from this writing we should also have a webhook caller that could do something similar using Zapier, FTTT, or another webhook savvy tool.
+The only caveat is that you cannot run scripts after named-paths group runs unless you are using the local filesystem backend — the default. If you are storing your archive in the cloud or on an SFTP server you will need to use another method to trigger actions. [A cloud function](csvpath-in-aws-lambda.md) would be one option. You can [use Zapier, FTTT, or another webhook savvy tool with a named-paths webhook call](call-a-webhook-at-the-end-of-a-run.md) to trigger actions and workflows in the cloud.
 
