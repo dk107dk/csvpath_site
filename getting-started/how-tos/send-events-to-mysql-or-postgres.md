@@ -12,8 +12,8 @@ CsvPath Framework is great for both individual developer users and large groups 
 
 There are three obvious reasons to consider setting up a database for CsvPath Framework:&#x20;
 
-* Querying SQL is much more productive for some purposes, compared to going through the manifest.json files. [Sqlite also solves for this locally.](send-run-events-to-sqlite.md)
-* A SQL database is an immutable record of changes; whereas, manifest.json files can be overwritten or deleted if the archive and staging areas are not protected
+* Querying SQL is much more productive for some purposes, compared to going through the `manifest.json` files. [Sqlite also solves for this locally.](send-run-events-to-sqlite.md)
+* A SQL database is an immutable record of changes; whereas, `manifest.json` files can be overwritten or deleted if the archive and staging areas are not protected
 * In some cases other applications can more easily use SQL to get CsvPath Framework data
 
 ## Filesystem overwrites and races
@@ -69,6 +69,8 @@ The `dialect` key value must be one of:&#x20;
 * `sqlite`
 
 Under the hood we're using [SQLAlchemy](https://www.sqlalchemy.org/), so you can [look here for the connection string formats](https://docs.sqlalchemy.org/en/20/core/engines.html#database-urls).
+
+As usual, you can use an ALL CAPS value to point to the environment var of that name. For e.g., `connection_string = CONNECTION_URI` would result in `connection_string` equaling the value of the `CONNECTION_URI` environment variable, if found.
 
 That's all the configuration needed.
 
