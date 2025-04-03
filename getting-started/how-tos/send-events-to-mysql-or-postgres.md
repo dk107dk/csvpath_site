@@ -4,7 +4,7 @@ description: Some multi-user archives may benefit from capturing events to the d
 
 # Send events to MySQL or Postgres
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 5.02.52 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 5.02.52 PM.png" alt="the logos of mysql, postgres, and sqlite"><figcaption></figcaption></figure>
 
 CsvPath Framework is great for both individual developer users and large groups of DataOps pros taking care of many data partnerships. The difference between these scenarios is important, however. You can read more about it here.
 
@@ -39,7 +39,7 @@ What you need is to make sure:
 
 Open `config/config.ini` and look for the `[listeners]` section. It should have the SQL listeners already. But if your config file is not newly generated, it might not. Copy the keys below into your file, if needed.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 4.28.00 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 4.28.00 PM.png" alt="what your config file should look like. same as the text below."><figcaption></figcaption></figure>
 
 ```python
 sql.file = from csvpath.managers.integrations.sql.sql_file_listener import SqlFileListener
@@ -54,7 +54,7 @@ Then look for the `groups` key in `[listeners]` and add `sql` to it, separating 
 
 Check for a `[sql]` section. If your `config.ini` isn't newly generated copy the `[sql]` section from below into your file.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 4.31.52 PM.png" alt=""><figcaption><p>You may already have this SQL section if you generated your config recently</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 4.31.52 PM.png" alt="screenshot of a config file, same as the text below"><figcaption><p>You may already have this SQL section if you generated your config recently</p></figcaption></figure>
 
 ```ini
 [sql]
@@ -81,7 +81,7 @@ Your data is now ready to flow into the database. CsvPath Framework will create 
 * `named_paths`
 * `named_paths_group_run`
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 4.40.25 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 4.40.25 PM.png" alt="screenshot of the mysql command line client" width="375"><figcaption></figcaption></figure>
 
 You are capturing:&#x20;
 
@@ -92,7 +92,7 @@ You are capturing:&#x20;
 
 The database is quite simple. It is nothing more than an immutable record (unless you mutate it outside of CsvPath) of the assets and runs your CsvPath Framework performs. That's all it needs to be.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 4.56.13 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 4.56.13 PM.png" alt="an ERD generated in Mysql Workbench showing the four tables."><figcaption></figcaption></figure>
 
 And there you have it. All your events captured to your favorite database.
 
