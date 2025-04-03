@@ -54,6 +54,7 @@
   * [Setup notifications to Slack](getting-started/how-tos/setup-notifications-to-slack.md)
   * [Send run events to Sqlite](getting-started/how-tos/send-run-events-to-sqlite.md)
   * [Execute a script at the end of a run](getting-started/how-tos/execute-a-script-at-the-end-of-a-run.md)
+  * [Send events to MySQL or Postgres](getting-started/how-tos/send-events-to-mysql-or-postgres.md)
   * [Sending results by SFTP](getting-started/how-tos/sending-results-by-sftp.md)
   * [Another (longer) Example](getting-started/how-tos/another-longer-example/README.md)
     * [Another Example, Part 1](getting-started/how-tos/another-longer-example/another-example-part-1.md)
