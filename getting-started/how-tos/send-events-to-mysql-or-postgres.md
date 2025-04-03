@@ -24,16 +24,16 @@ If you are working with your peers in a shared archive or a shared source file s
 
 However, CsvPath's filesystem data writes are necessarily not all atomic. In certain cases, there is a race condition around file system writes. That is typically not a consideration for automated runs. When CsvPath is automated typically there is a single Python process working on a particular run, not two Python processes competing over one run. Moreover, most CsvPath Framework automations will have their own protected area namespaced by named-paths name or archive name or both.&#x20;
 
-Still, in development environments and for some corner cases you might want your audit trail to have more immutability. For this the SQL databases have you covered. All metadata writes, whether to the manifest.json files in the file system, to a local Sqlite, or to a SQL database, are handled by event listeners. You've probably seen the many optional listeners in your `config/config.ini`. When you write to the file system you overwrite any existing file in the location. But when you write to SQL you are creating an immutable record that can disambiguate any cross-talk in the manifests due to a non-ideal setup of your automation jobs or a shared dev env without namespacing.&#x20;
+Still, in development environments and for some corner cases you might want your audit trail to have more immutability. For this the SQL databases have you covered. All metadata writes, whether to the `manifest.json` files in the file system, to a local Sqlite, or to a SQL database server, are handled by event listeners. You've probably seen the many optional listeners in your `config/config.ini`. When you write to the file system you overwrite any existing file in the location. But when your events go to SQL you are creating an even more immutable record that can disambiguate any cross-talk in the manifests due to a non-ideal setup of your automation jobs or a shared dev env without namespacing.&#x20;
 
 ## Setting up SQL databases
 
-Setting up SQL events is not hard at all. Still, as you can tell, we would only suggest it if the benefit is worth running a server, managing the four tables, and distributing credentials. If you're just in need of better layout of your archive and/or named-paths, obviously that's the even easier and more correct thing to focus on. For most folks, that's all you need. And if you're just in need of a way to query your results, [Sqlite may be a more lightweight solution](send-run-events-to-sqlite.md).&#x20;
+Setting up SQL events is not hard at all. Still, as you can tell, we would only suggest it if the benefit is worth running a server, managing the four tables, and distributing credentials. If you're just in need of better layout of your archive and/or named-paths, obviously that's the even easier and more correct thing to focus on. For most folks, that's all you need. And, if you're just in need of a way to query your results, [a local Sqlite may be a more lightweight solution](send-run-events-to-sqlite.md). As you can tell, we're all about a low-friction [DX](https://en.wikipedia.org/wiki/User_experience#Developer_experience).
 
-What you need is to make sure:
+Regardless, to configure for SQL what you need is:
 
-* The listeners are configured
-* Your database URL is in `config/config.ini`
+* The listeners are enabled
+* Your database URL is available in `config/config.ini`
 
 ### Configure the listeners
 
