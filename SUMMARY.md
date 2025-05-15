@@ -104,3 +104,7 @@
 * [Serial Or Breadth-first Runs?](topics/serial-or-breadth-first-runs.md)
 * [Namespacing With the Archive](topics/namespacing-with-the-archive.md)
 * [Glossary](topics/glossary.md)
+
+***
+
+* [Privacy Policy](privacy-policy.md)
