@@ -72,6 +72,7 @@
   * [Creating a derived file](getting-started/how-tos/creating-a-derived-file.md)
   * [Run CsvPath on Jenkins](getting-started/how-tos/run-csvpath-on-jenkins.md)
 * [A Helping Hand](getting-started/a-helping-hand.md)
+* [Get the FlightPath app](getting-started/get-the-flightpath-app.md)
 
 ## Topics
 
