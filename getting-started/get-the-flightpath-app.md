@@ -1,5 +1,7 @@
 ---
-description: FlightPath is a purpose-built data preboarding frontend to CsvPath Framework
+description: >-
+  FlightPath is a purpose-built CSV and Excel preboarding frontend to CsvPath
+  Framework
 ---
 
 # Get the FlightPath app
