@@ -11,6 +11,8 @@ coverY: 0
 
 ### Stop Manual CSV & Excel Data Validation - Automate Partner File Processing
 
+#### An open source framework that validates, cleans, and processes CSV/Excel files from data partners before they break your pipelines.
+
 The open source [CsvPath Framework](https://github.com/csvpath/csvpath) **makes robust DataOps at the parameter easy**. CsvPath Framework brings CSV, Excel, and other delimited and tabular data files to your data lake and applications as the **Trusted Publisher**. &#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
