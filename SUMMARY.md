@@ -77,6 +77,7 @@
   * [Preview the FlightPath Examples](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/README.md)
     * [Counting](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/counting.md)
     * [Duplicates](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/duplicates.md)
+    * [Headers](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/headers.md)
 
 ## Topics
 
