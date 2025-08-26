@@ -99,6 +99,7 @@ $[*][
 * **Data that looks fine but fails downstream validation** - Catch schema mismatches before they hit your database
 * **Inconsistent header names** - Map vendor variations to your standard field names
 * **Files that are sometimes empty or malformed** - Graceful error handling with detailed reporting
+* **Set up CsvPath projects for new data vendors in seconds** using the [FlightPath Data](getting-started/get-the-flightpath-app.md) app
 
 ### Every Week You Delay Costs More Manual Hours
 
@@ -108,8 +109,8 @@ Many data engineers spend 3-5 hours per week on CSV issues that CsvPath automate
 
 CsvPath Framework is trusted by data teams from startups to regulated organizations.
 
+* **Distributed via** [**PyPI**](https://pypi.org/project/csvpath/)**, the** [**Microsoft Store**](https://apps.microsoft.com/detail/9P9PBPKZ4JDF)**, and the** [**Apple MacOS App Store**](https://apps.apple.com/us/app/flightpath-data/id6745823097) - enterprise-ready
 * **150+ built-in validation functions** for common data quality checks
-* **Distributed via PyPI, Microsoft Store, and Apple App Store** - enterprise-ready
 * **Open source** - dig below the surface, it's all there
 * **Community and paid support** - get help when you need it
 
