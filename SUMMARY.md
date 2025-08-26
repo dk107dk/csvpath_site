@@ -78,6 +78,7 @@
     * [Counting](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/counting.md)
     * [Duplicates](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/duplicates.md)
     * [Headers](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/headers.md)
+    * [Math](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/math.md)
 
 ## Topics
 
