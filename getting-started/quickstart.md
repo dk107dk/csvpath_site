@@ -1,6 +1,18 @@
+---
+description: >-
+  Get started managing CSV/Excel file validation and ingestion with less manual
+  effort, lower risk, and greater predictability.
+---
+
 # Quickstart
 
-This page gives you all the information you need to get started validating your CSVs with CsvPath. It is super high-level and quick. You will want to go deeper on other pages later. We're going to do a trivial validation of a CSV file. Validating an Excel file would be essentially the same.
+This page gives you all the information you need to get started validating your CSVs with CsvPath Framework. It is super high-level and quick. You will want to go deeper on other pages later. We're going to do a trivial validation of a CSV file. Validating an Excel file would be essentially the same.
+
+{% hint style="warning" %}
+For an **even quicker start**, download the free **FlightPath Data** app from [Microsoft](https://apps.microsoft.com/detail/9P9PBPKZ4JDF) or [Apple](https://apps.apple.com/us/app/flightpath-data/id6745823097) or [Github](https://github.com/dk107dk/flightpath).&#x20;
+
+FlightPath is the open source frontend to CsvPath Framework. It is your CSV/Excel file feed development and operations cockpit. When you open FlightPath you will see [these examples that you can immediately run](get-the-flightpath-app/preview-the-flightpath-examples/).
+{% endhint %}
 
 {% hint style="info" %}
 If you need help getting started with Python, try [Python.org's intros](https://www.python.org/about/gettingstarted/). Starting with a project tool like [Poetry](https://python-poetry.org/docs/basic-usage/) or [Jupyter Notebooks](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/) can also help.
