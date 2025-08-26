@@ -16,7 +16,7 @@ description: >-
 * Supports you with a ton of in-context help and examples
 * Is a window into your immutable data staging and publishing areas
 
-FlightPath is a free download from the [Apple MacOS Store](https://apps.apple.com/us/app/flightpath-data/id6745823097) and the [Microsoft Store](https://apps.microsoft.com/detail/9p9pbpkz4jdf?hl=en-US\&gl=US). You can also get the code from [Github](https://github.com/dk107dk/flightpath/tree/main).
+FlightPath is a **free download** from the [Apple MacOS Store](https://apps.apple.com/us/app/flightpath-data/id6745823097) and the [Microsoft Store](https://apps.microsoft.com/detail/9p9pbpkz4jdf?hl=en-US\&gl=US). You can also get the code from [Github](https://github.com/dk107dk/flightpath/tree/main).
 
 <figure><img src="../.gitbook/assets/whole_screen.png" alt=""><figcaption></figcaption></figure>
 
