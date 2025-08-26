@@ -28,7 +28,7 @@ layout:
 
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 
-<h2 align="center">The Framework For Automated Data Preboarding</h2>
+<h2 align="center">Automated Data Preboarding</h2>
 
 ### Stop Manual CSV & Excel Data Validation - Automate Partner File Processing
 
