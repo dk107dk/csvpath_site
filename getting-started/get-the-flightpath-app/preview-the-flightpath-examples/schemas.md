@@ -4,6 +4,10 @@ description: Examples of using CsvPath Language schemas to validate CSV/Excel da
 
 # Schemas
 
+{% hint style="warning" %}
+## Download FlightPath Data from [Microsoft](https://apps.microsoft.com/detail/9P9PBPKZ4JDF) or [Apple](https://apps.apple.com/us/app/flightpath-data/id6745823097) or [Github](https://github.com/dk107dk/flightpath)
+{% endhint %}
+
 ## Making schemas for CSV and Excel
 
 CsvPath Framework supports data validation using schemas and rules. Both approaches have their own strengths.

@@ -22,9 +22,9 @@ layout:
 
 <figure><img src="../../../.gitbook/assets/logo-image-only.png" alt="" width="108"><figcaption></figcaption></figure>
 
-FlightPath Data comes with a set of CsvPath examples that can help you get started quickly. Each time you create a new project it comes with an Examples directory, so you always have ideas at hand.
+[FlightPath Data](../../get-the-flightpath-app.md) comes with a set of CsvPath examples that can help you get started quickly. Each time you create a new project it comes with an examples directory, so you always have ideas at hand.
 
-These pages are the READMEs and CsvPath Language files from the FlightPath examples. To see the full examples, with sample data, in a working environment, just [install FlightPath](https://www.flightpathdata.com/).&#x20;
+These pages are some of the READMEs and CsvPath Language files from the FlightPath examples. To see the full examples, with sample data, in a working environment, just [install FlightPath](https://www.flightpathdata.com/).&#x20;
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-08-26 at 11.47.31 AM.png" alt=""><figcaption></figcaption></figure>
 

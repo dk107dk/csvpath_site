@@ -4,6 +4,10 @@ description: CsvPath Language examples of handling duplicate CSV/Excel data
 
 # Duplicates
 
+{% hint style="warning" %}
+## Download FlightPath Data from [Microsoft](https://apps.microsoft.com/detail/9P9PBPKZ4JDF) or [Apple](https://apps.apple.com/us/app/flightpath-data/id6745823097) or [Github](https://github.com/dk107dk/flightpath)
+{% endhint %}
+
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-08-26 at 11.55.08 AM.png" alt=""><figcaption></figcaption></figure>
 
 ```clike

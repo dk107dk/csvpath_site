@@ -4,6 +4,10 @@ description: CsvPath Language examples of counting CSV data
 
 # Counting
 
+{% hint style="warning" %}
+## Download FlightPath Data from [Microsoft](https://apps.microsoft.com/detail/9P9PBPKZ4JDF) or [Apple](https://apps.apple.com/us/app/flightpath-data/id6745823097) or [Github](https://github.com/dk107dk/flightpath)
+{% endhint %}
+
 These examples show different ways to count lines and data.
 
 There are a number of ways to do similar counts that have separate purposes but which overlap. For example:
