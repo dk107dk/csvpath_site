@@ -1,9 +1,30 @@
 ---
+description: >-
+  Stop writing custom data import and validation scripts. CsvPath automates
+  CSV/Excel data ingestion and quality checks from vendor data partners. Open
+  source Python.
 cover: .gitbook/assets/Screenshot 2024-08-30 at 7.53.30 AM.png
 coverY: 0
+layout:
+  width: default
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: false
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
+  metadata:
+    visible: true
 ---
 
-# CsvPath
+# CsvPath - Automated CSV & Excel Ingestion and Validation for Data Engineers
 
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 

@@ -1,6 +1,6 @@
 # Table of contents
 
-* [CsvPath](README.md)
+* [CsvPath - Automated CSV & Excel Ingestion and Validation for Data Engineers](README.md)
 * [DATA PREBOARDING](data-preboarding.md)
 
 ## Getting Started
