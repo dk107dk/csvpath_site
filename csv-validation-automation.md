@@ -99,7 +99,7 @@ $[*][
 * **Data that looks fine but fails downstream validation** - Catch schema mismatches before they hit your database
 * **Inconsistent header names** - Map vendor variations to your standard field names
 * **Files that are sometimes empty or malformed** - Graceful error handling with detailed reporting
-* **Set up CsvPath projects for new data vendors in seconds** using the [FlightPath Data](getting-started/get-the-flightpath-app/) app
+* **Set up CsvPath projects for new data vendors in seconds** using the [FlightPath Data](getting-started/get-the-flightpath-app.md) app
 
 ### Every Week You Delay Costs More Manual Hours
 
@@ -116,7 +116,7 @@ CsvPath Framework is trusted by data teams from startups to regulated organizati
 
 ### Ready to Automate Your CSV Chaos?
 
-Try CsvPath Framework as a Python library or in the [FlightPath Data](getting-started/get-the-flightpath-app/) app for MacOS or Windows.
+Try CsvPath Framework as a Python library or in the [FlightPath Data](getting-started/get-the-flightpath-app.md) app for MacOS or Windows.
 
 **→ Try the 5-Minute** [**Quickstart**](getting-started/quickstart.md)&#x20;
 
