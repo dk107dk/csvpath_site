@@ -7,9 +7,9 @@ coverY: 0
 
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 
-## The Framework For Automated Data Preboarding
+<h2 align="center">The Framework For Automated Data Preboarding</h2>
 
-### Your inbound flat-files handled efficiently with automated quality.
+### Stop Manual CSV & Excel Data Validation - Automate Partner File Processing
 
 The open source [CsvPath Framework](https://github.com/csvpath/csvpath) **makes robust DataOps at the parameter easy**. CsvPath Framework brings CSV, Excel, and other delimited and tabular data files to your data lake and applications as the **Trusted Publisher**. &#x20;
 
