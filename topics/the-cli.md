@@ -10,6 +10,14 @@ CsvPath includes a CLI to help you iterate quickly on validation and canonicaliz
 The CLI supports development and triage activities. Ultimately, it is **a rough and ready and effective tool that includes just the minimum a DataOps person would need** to work with CsvPath. In the future there will likely be more capable and polished tools available. &#x20;
 {% endhint %}
 
+{% hint style="danger" %}
+Need the best possible CsvPath Framework dev and/or ops environment?  Try [**FlightPath Data**](../getting-started/get-the-flightpath-app.md)!&#x20;
+
+The CLI is still useful, but _the future has arrived_. In most cases FlightPath is the better tool for the job.
+
+With FlightPath's launch, the CLI will get updates only to fix problems or if someone finds an exceptionally cool way it can fill a gap.
+{% endhint %}
+
 <figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 3.09.17 PM.png" alt="The main menu of the CsvPath Framework&#x27;s command line app" width="375"><figcaption><p>Simple and effective!</p></figcaption></figure>
 
 ## Turn it on
