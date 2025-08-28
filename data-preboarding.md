@@ -12,7 +12,7 @@ Data preboarding is the receiving process for external batch data. It is the fir
 
 <figure><img src=".gitbook/assets/Screenshot 2025-02-10 at 11.10.16 AM.png" alt="A checklist of the capabilities of a preboarding architecture like CsvPath Framework: durable identification, validation, data upgrading, canonicalization, consistent immutable staging as a trusted publisher to downstream data users." width="375"><figcaption></figcaption></figure>
 
-Data preboarding may be a new term to you, or not; either way it is not a new concept. All data is preboarded on its way into the organization. The question is, how well does your onboarding process work? The experience of most companies is that the process is less reliable, holds more risk, and is much more expensive than is comfortable. **Manual and error prone preboarding commonly diverts more than 2% of revenues to overhead**. That's north of $20,000 per million or more than $20 million per billion in revenue. That adds up! &#x20;
+Data preboarding may be a new term to you, or not; either way it is not a new concept. All data is preboarded on its way into the organization. The question is, how well does your onboarding process work? The experience of most companies is that the process is less reliable, holds more risk, and is much more expensive than is comfortable. **Manual and error prone preboarding commonly diverts 2% to 10% of a revenue stream to overhead**. That's north of $20,000 per million or more than $20 million per billion in revenue. That adds up! &#x20;
 
 
 
@@ -35,7 +35,11 @@ With CsvPath Framework you are signing up for a well-known pattern that settles 
 
 ## How to get started
 
-If you are a developer, take a look at the [Quickstart ](getting-started/quickstart.md)and the [Your First Validation](getting-started/csv-and-excel-validation/your-first-validation-the-lazy-way.md) exercises. They will get you up and running and introduce the CLI, the fastest way to get started. Reading about [schemas vs. rules-based validation](topics/validation/schemas-or-rules.md) would be useful. Take a look the [How-tos](getting-started/how-tos/) and [DataOps integrations](getting-started/integrations/) sections. There is a [cheatsheet](topics/a-csvpath-cheatsheet.md) and [validation language basics](topics/language.md). And there is more information on the[ GitHub site](https://github.com/csvpath/csvpath).
+If you are a developer, take a look at the [Quickstart ](getting-started/quickstart.md)and the [Your First Validation](getting-started/csv-and-excel-validation/your-first-validation-the-lazy-way.md) exercises. They will get you up and running and introduce the CLI. Or try [FlightPath Data](https://www.flightpathdata.com/), the open source Windows and MacOS frontend to CsvPath Framework — available free in the Windows Store and Apple Mac Store. FlightPath is the fastest way to get started.&#x20;
+
+<figure><img src=".gitbook/assets/flightpath-logo-1.png" alt="" width="375"><figcaption></figcaption></figure>
+
+Reading about [schemas vs. rules-based validation](topics/validation/schemas-or-rules.md) would be useful. Take a look the [How-tos](getting-started/how-tos/) and [DataOps integrations](getting-started/integrations/) sections. There is a [cheatsheet](topics/a-csvpath-cheatsheet.md) and [validation language basics](topics/language.md). And there is more information on the[ GitHub site](https://github.com/csvpath/csvpath).
 
 For a higher-level view on the topics of edge governance and data preboarding, try the [atesta analytics  whitepapers](https://www.atestaanalytics.com/downloads). They are CsvPath focused, but speak to the overarching operational and organizational needs.
 
