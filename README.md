@@ -60,10 +60,14 @@ This data onboarding blindspot is a big deal. Think about it. If even 1 in 30 co
 
 Together CsvPath Framework and FlightPath Data can help you build leadership's confidence that your data governance doesn't turn a blind eye to your most unruly data.&#x20;
 
-Take a look through these pages and cruise over to the validation language [docs](https://github.com/csvpath/csvpath) on the [CsvPath Github](https://github.com/csvpath/csvpath) to see if open source CSV and Excel **data preboarding should be part of your DataOps toolkit**.
-
 
 
 <figure><img src=".gitbook/assets/integration_logos (8).png" alt="Logos of the many popular DataOps tools that are integrated with CsvPath Framework: aws s3, azure, slack, Excel, opentelemetry, sftp, ckan, pandas, openlineage, and more" width="563"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
+
+{% hint style="success" %}
+For more background on preboarding and the CsvPath and FlightPath architecture [check out the CsvPath blog](https://blog.csvpath.org/).&#x20;
+{% endhint %}
+
+
 
 {% embed url="https://github.com/csvpath/csvpath" %}
