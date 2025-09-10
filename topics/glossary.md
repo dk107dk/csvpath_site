@@ -57,7 +57,7 @@ This is not big transformation stuff. And it is not data mastering. Rather it ta
 
 ## Data Validation
 
-Validation is the act of making certain that an item of data meets expectations. That much is clear. But there are four important concepts that come under the heading of validation. [We talked about them here](validation/well-formed-valid-canonical-and-correct.md). In super brief terms:&#x20;
+Validation is the act of making certain that an item of data meets expectations. That much is clear. But there are four important concepts that come under the heading of validation. [We talked about them here](broken-reference). In super brief terms:&#x20;
 
 * Well-formedness — is the data machine-recognizable as what human judgement says it must be?
 * Valid — does the data follow expected rules for data of the purpose the data is intended fulfill?
