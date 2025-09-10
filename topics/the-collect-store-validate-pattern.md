@@ -1,5 +1,6 @@
 ---
 description: What is the best flat-file management solution for the CsvPath Language?
+hidden: true
 ---
 
 # The Collect, Store, Validate Pattern

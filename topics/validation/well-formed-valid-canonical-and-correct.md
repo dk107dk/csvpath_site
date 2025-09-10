@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Well-formed, Valid, Canonical, and Correct
 
 The world of data is messy. It's full of terms-of-art with squishy definitions. People use terms in ways that match their perspective or product, but may not be commonly accepted.&#x20;
