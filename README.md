@@ -32,7 +32,7 @@ layout:
 
 <h3 align="center">Stop Manual CSV &#x26; Excel Validation - Automate File Feed Ingestion</h3>
 
-#### CsvPath is an open source framework that validates, cleans, and processes CSV/Excel files from data partners before they break your pipelines.
+#### CsvPath is an open source framework that validates, cleans, and stages CSV/Excel files from data partners before they break your pipelines.
 
 The open source [CsvPath Framework](https://github.com/csvpath/csvpath) is a data quality shift-left that **enables you to control data entering the enterprise** with less manual effort, fewer ingestion failures, and more agile development using a straightforward preboarding pattern.  &#x20;
 
