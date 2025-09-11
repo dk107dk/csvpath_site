@@ -24,27 +24,27 @@ layout:
     visible: true
 ---
 
-# CsvPath - Automated CSV & Excel Ingestion and Validation for Data Engineers
+# CsvPath - Automated CSV & Excel Ingestion for Data Engineers
 
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 
 <h2 align="center">Automated Data Preboarding</h2>
 
-### Stop Manual CSV & Excel Data Validation - Automate Partner File Processing
+<h3 align="center">Stop Manual CSV &#x26; Excel Validation - Automate File Feed Ingestion</h3>
 
 #### CsvPath is an open source framework that validates, cleans, and processes CSV/Excel files from data partners before they break your pipelines.
 
-The open source [CsvPath Framework](https://github.com/csvpath/csvpath) **enables you to control data entering the enterprise** with less manual effort, fewer ingestion failures, and more agile development using a straightforward preboarding pattern.  &#x20;
+The open source [CsvPath Framework](https://github.com/csvpath/csvpath) is a data quality shift-left that **enables you to control data entering the enterprise** with less manual effort, fewer ingestion failures, and more agile development using a straightforward preboarding pattern.  &#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
 
 {% file src=".gitbook/assets/CsvPath - Data Onboarding Simplified.pdf" %}
 
-CSV and Excel validation is core to the Framework. **CsvPath Validation Language** is simple, easy to integrate, and flexible enough to handle the unexpected. Inspired by [Schematron](https://schematron.com/), [XPath](https://www.w3.org/TR/xpath-31/), and [the Collect, Store, Validate, Publish design pattern](broken-reference), CsvPath Validation Language brings powerful data validation to less structured data. Coming from the world of DDL, XSD, or JSON Schema? [Start here](topics/validation/schemas-or-rules.md).
+CSV and Excel validation is core to the Framework. **CsvPath Validation Language** is simple, easy to integrate, and flexible enough to handle the unexpected. Inspired by [Schematron](https://schematron.com/), [XPath](https://www.w3.org/TR/xpath-31/), and SQL, CsvPath Validation Language brings powerful data validation to less structured data. [Start here](topics/validation/schemas-or-rules.md).
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="broken-reference"><strong>Getting Started</strong></a></td><td>5-minutes to get the idea</td><td><a href=".gitbook/assets/how_to_start3.png">how_to_start3.png</a></td><td></td><td><a href="getting-started/quickstart.md">quickstart.md</a></td><td></td></tr><tr><td><a href="getting-started/getting-started-with-csvpath-+-openlineage.md"><strong>CsvPath + OpenLineage</strong></a></td><td>Get started with Edge Governance</td><td><a href=".gitbook/assets/ol-close-up (1).png">ol-close-up (1).png</a></td><td></td><td><a href="getting-started/csv-and-excel-validation/your-first-validation.md">your-first-validation.md</a></td><td><a href="getting-started/getting-started-with-csvpath-+-openlineage.md">getting-started-with-csvpath-+-openlineage.md</a></td></tr><tr><td><a href="getting-started/integrations/getting-started-with-csvpath-+-ckan.md"><strong>Easy dataset publishing to the leading data portal</strong></a></td><td></td><td><a href=".gitbook/assets/csvpath_plus_ckan-v2g (2).png">csvpath_plus_ckan-v2g (2).png</a></td><td></td><td></td><td></td></tr></tbody></table>
 
-The **CsvPath Framework** implements the [**Collect, Store, Validate Publish architectural pattern.** ](https://static1.squarespace.com/static/66df9d47982d0d40e1574327/t/6771fe6f63bbf5361725ad05/1735523953587/The+Collect+Store+Validate+Pattern+-+Atesta+Analytics.pdf)Data preboarding goes faster, is more cost-efficient, and more effective using a proven architecture. Why roll your own preboarding solution when there is a purpose-built option?
+The **CsvPath Framework** implements the [**Collect, Store, Validate Publish architectural pattern.** ](https://static1.squarespace.com/static/66df9d47982d0d40e1574327/t/6771fe6f63bbf5361725ad05/1735523953587/The+Collect+Store+Validate+Pattern+-+Atesta+Analytics.pdf)Data preboarding goes faster, is more cost-efficient, and is more effective using a proven architecture. Why roll your own preboarding solution when there is a purpose-built option?
 
 Out-of-the-box, CsvPath Framework is built to fill the blindspot between MFT (managed file transfer) and the data lake with a simple path to provably correct data.
 
