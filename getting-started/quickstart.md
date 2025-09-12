@@ -117,4 +117,4 @@ When you run your script you should see something like:
 
 Hello-world examples are never super impressive on their own. But you are now ready to dig in and see what CsvPath can really do.&#x20;
 
-Next, try [Your First Validation, the Lazy Way](csv-and-excel-validation/your-first-validation-the-lazy-way.md). Also check out the [How-tos section](how-tos/) for more use cases and examples. If you'd like a helping hand, [contact us](a-helping-hand.md)!
+Next, try [Your First Validation, the Lazy Way](csv-and-excel-validation/your-first-validation-the-lazy-way.md). Also check out the [How-tos section](../topics/how-tos/) for more use cases and examples. If you'd like a helping hand, [contact us](a-helping-hand.md)!

@@ -80,7 +80,7 @@ Each time you re-add your csvpaths under a named-paths name your CsvPaths instan
 
 You may also notice other JSON files called `definition.json` in the named-paths home directories. `definition.json` is captured when you use JSON to define your named-paths group(s). It is just a stright capture of the JSON copied and renamed `definition.json`, with no other modifications. That means if you have a JSON file that defines three named-paths groups each of the named-paths group home directories will have that same JSON file copied in as `definition.json`, and each copy will have the complete JSON for all three named-paths groups.&#x20;
 
-For example, a JSON named-paths definition from the [Another Example](../../getting-started/how-tos/another-longer-example/another-example-part-2.md) how-to article looked like:&#x20;
+For example, a JSON named-paths definition from the [Another Example](../how-tos/another-longer-example/another-example-part-2.md) how-to article looked like:&#x20;
 
 ```json
 {

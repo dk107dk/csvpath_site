@@ -30,7 +30,7 @@ Modes are only set in _external_ comments. External comments are comments that a
 
 ## Defaults
 
-When a mode is not explicitly set CsvPath uses sensible defaults. Some modes default to options set in `config/config.ini`. For example, `validation-mode` overrides `[errors] csvpath` in `config.ini`. ([Read here for more about the config file](../getting-started/how-tos/config-setup.md).) Other defaults are built-in, for instance, `logic-mode` overrides the library's built-in default matching using ANDed operations. The defaults are:&#x20;
+When a mode is not explicitly set CsvPath uses sensible defaults. Some modes default to options set in `config/config.ini`. For example, `validation-mode` overrides `[errors] csvpath` in `config.ini`. ([Read here for more about the config file](how-tos/config-setup.md).) Other defaults are built-in, for instance, `logic-mode` overrides the library's built-in default matching using ANDed operations. The defaults are:&#x20;
 
 * `error-mode`: defaults to `bare`, meaning `error()` and built-in errors are presented minimally
 * `explain-mode`: no explanations are logged when logging is set to `INFO`
@@ -128,7 +128,7 @@ Usually the data for a csvpath in a named-paths group comes from the data input 
 
 Keep in mind that `CsvPaths` instances' `_collects` methods and `_by_line` methods are [quite different in how they handle data sources](serial-or-breadth-first-runs.md). Source mode does not apply to by-lines runs—i.e. it is for linear, not breadth-first runs—because in a by-lines run each line is passed through each of the csvpaths in the named-paths group before the next line is considered. Csvpaths in a by-lines run can change data for downstream csvpaths in their named-paths group, and they can skip or advance the run in order to filter data so that downstream csvpaths don't have a chance at it. This just means that there are multiple ways of allowing earlier csvpaths to have an effect on later csvpaths.
 
-[Source mode has a lot to do with rewind/replay](../getting-started/how-tos/file-references-and-rewind-replay-how-tos/doing-rewind-replay-part-1.md), also [references between data sets](../getting-started/how-tos/file-references-and-rewind-replay-how-tos/replay-using-references.md), as well as [strategies for validation and canonicalization](validation/validation_strategies.md).
+[Source mode has a lot to do with rewind/replay](how-tos/file-references-and-rewind-replay-how-tos/doing-rewind-replay-part-1.md), also [references between data sets](how-tos/file-references-and-rewind-replay-how-tos/replay-using-references.md), as well as [strategies for validation and canonicalization](validation/validation_strategies.md).
 
 | Setting     |                                                                                                              |
 | ----------- | ------------------------------------------------------------------------------------------------------------ |
@@ -136,7 +136,7 @@ Keep in mind that `CsvPaths` instances' `_collects` methods and `_by_line` metho
 
 ### Transfer Mode
 
-`transfer-mode` let's you copy `data.csv` or `unmatched.csv` to an arbitrary location in the `transfers` directory. The `transfers` directory is configured in `config/config.ini` under `[results] transfers`. To use `transfer-mode` you use the form `data` | `unmatched` `>` _var-name_ where _var-name_ is the name of a variable that will be the relative path under the `transfer` directory to the data you are transferring. Note that `transfer-mode` has no effect on the original data, in keeping with CsvPath Library's copy-on-write semantics. You may have as many transfers as you like by separating them with commas. [Read more about using transfer-mode here](../getting-started/how-tos/transfer-a-file-out-of-csvpath.md).
+`transfer-mode` let's you copy `data.csv` or `unmatched.csv` to an arbitrary location in the `transfers` directory. The `transfers` directory is configured in `config/config.ini` under `[results] transfers`. To use `transfer-mode` you use the form `data` | `unmatched` `>` _var-name_ where _var-name_ is the name of a variable that will be the relative path under the `transfer` directory to the data you are transferring. Note that `transfer-mode` has no effect on the original data, in keeping with CsvPath Library's copy-on-write semantics. You may have as many transfers as you like by separating them with commas. [Read more about using transfer-mode here](how-tos/transfer-a-file-out-of-csvpath.md).
 
 <table><thead><tr><th width="209">Setting</th><th></th></tr></thead><tbody><tr><td><code>data</code> <code>></code> <em>var-name</em></td><td>Indicates you are transferring <code>data.csv</code> to the value of <em>var-name</em> as a relative path within the <code>transfer</code> directory</td></tr><tr><td><code>unmatched</code> <code>></code> <em>var-name</em></td><td>Indicates unmatched.csv to the value of var-name</td></tr></tbody></table>
 
