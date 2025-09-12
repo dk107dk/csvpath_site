@@ -17,7 +17,6 @@
   * [Getting Started with CsvPath + SFTPPlus](getting-started/integrations/getting-started-with-csvpath-+-sftpplus/README.md)
     * [SFTPPlus Implementation Checklist](getting-started/integrations/getting-started-with-csvpath-+-sftpplus/sftpplus-implementation-checklist.md)
   * [Getting Started with CsvPath + CKAN](getting-started/integrations/getting-started-with-csvpath-+-ckan.md)
-* [A Helping Hand](getting-started/a-helping-hand.md)
 * [Get the FlightPath app](getting-started/get-the-flightpath-app.md)
   * [Preview the FlightPath Examples](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/README.md)
     * [Counting](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/counting.md)
@@ -25,6 +24,7 @@
     * [Headers](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/headers.md)
     * [Math](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/math.md)
     * [Schemas](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/schemas.md)
+* [A Helping Hand](getting-started/a-helping-hand.md)
 
 ## Topics
 
