@@ -58,6 +58,7 @@
 
 ## Topics
 
+* [Language Basics](topics/language.md)
 * [Organizing Inbound Data](topics/organizing-inbound-data/README.md)
   * [Dataflow Diagram](topics/organizing-inbound-data/dataflow-diagram.md)
   * [The Three Data Spaces](topics/organizing-inbound-data/the-three-data-spaces/README.md)
@@ -92,15 +93,14 @@
 * [Validation](topics/validation/README.md)
   * [Schemas Or Rules?](topics/validation/schemas-or-rules.md)
   * [Validation Strategies](topics/validation/validation_strategies.md)
-* [Python](topics/python/README.md)
-  * [Python vs. CsvPath](topics/python/python-vs.-csvpath.md)
-  * [Python Starters](topics/python/python-starters.md)
 * [Data, Validation Files, and Storage](topics/data-validation-files-and-storage/README.md)
   * [Named Files and Paths](topics/data-validation-files-and-storage/named_files_and_paths.md)
   * [Where Do I Find Results?](topics/data-validation-files-and-storage/where-do-i-find-results.md)
   * [Storage Backends](topics/data-validation-files-and-storage/storage-backends.md)
   * [File Management](topics/data-validation-files-and-storage/file-management.md)
-* [Language Basics](topics/language.md)
+* [Python](topics/python/README.md)
+  * [Python vs. CsvPath](topics/python/python-vs.-csvpath.md)
+  * [Python Starters](topics/python/python-starters.md)
 * [A CsvPath Cheatsheet](topics/a-csvpath-cheatsheet.md)
 * [The Modes](topics/the-modes.md)
 * [The Reference Data Types](topics/the_reference_data_types.md)
