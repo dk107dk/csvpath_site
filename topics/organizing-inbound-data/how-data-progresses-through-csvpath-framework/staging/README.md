@@ -58,4 +58,4 @@ This flexibility in the publishing layout helps downstream users find data quick
 
 As you can see, CsvPath is both flexible and opinionated. The more you keep preboarding simple, the easier it is to run an efficient data onboarding process that is effective over the long term. However, most companies have an existing process they want to improve. They want to eliminate garbage-in-garbage-out without throwing the baby out with the bath water. CsvPath Framework gives you the flexibility to make those dramatic improvements with the minimum disruption to the way things work today.
 
-Give it a shot. [Reach out if you have questions](../../../a-helping-hand.md). We can help!
+Give it a shot. [Reach out if you have questions](../../../../getting-started/a-helping-hand.md). We can help!
