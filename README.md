@@ -6,7 +6,7 @@ description: >-
 cover: .gitbook/assets/Screenshot 2024-08-30 at 7.53.30 AM.png
 coverY: 0
 layout:
-  width: wide
+  width: default
   cover:
     visible: true
     size: full
