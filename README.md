@@ -1,20 +1,20 @@
 ---
 description: >-
-  Stop writing custom data import and validation scripts. CsvPath automates
-  CSV/Excel data ingestion and quality checks from vendor data partners. Open
-  source Python.
+  Stop writing custom data import and validation scripts. CsvPath automates CSV
+  and Excel data ingestion and quality checks from vendor data partners. Open
+  source. Python.
 cover: .gitbook/assets/Screenshot 2024-08-30 at 7.53.30 AM.png
 coverY: 0
 layout: landing
 ---
 
-# CsvPath - Automated CSV & Excel Ingestion for Data Engineers
+# CsvPath Framework - CSV & Excel Ingestion for Data Engineers
 
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 
 <h2 align="center">Automated Data Preboarding</h2>
 
-<h3 align="center">Stop Manual CSV &#x26; Excel Validation • Automate File Feed Ingestion</h3>
+<h3 align="center">Stop Manual Validation • Automate File Feed Ingestion</h3>
 
 #### CsvPath is an open source framework that registers, validates, upgrades, and stages CSV and Excel files from data partners before they break your pipelines.
 
@@ -48,7 +48,7 @@ CSV and Excel validation is core to the Framework. **CsvPath Validation Language
 
 Together CsvPath Framework and FlightPath Data can help you build leadership's confidence that your data governance doesn't turn a blind eye to your most unruly data.&#x20;
 
-{% file src=".gitbook/assets/CsvPath - Data Onboarding Simplified.pdf" %}
+### Integrated With Your Existing Tools
 
 <figure><img src=".gitbook/assets/integration_logos (8).png" alt="Logos of the many popular DataOps tools that are integrated with CsvPath Framework: aws s3, azure, slack, Excel, opentelemetry, sftp, ckan, pandas, openlineage, and more" width="563"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
 
@@ -56,6 +56,6 @@ Together CsvPath Framework and FlightPath Data can help you build leadership's c
 For more background on preboarding and the CsvPath and FlightPath architecture [check out the CsvPath blog](https://blog.csvpath.org/).&#x20;
 {% endhint %}
 
-
+{% file src=".gitbook/assets/CsvPath - Data Onboarding Simplified.pdf" %}
 
 {% embed url="https://github.com/csvpath/csvpath" %}
