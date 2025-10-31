@@ -1,8 +1,8 @@
 ---
 description: >-
-  Stop writing custom data import and validation scripts. CsvPath Framework
-  automates CSV and Excel data ingestion and quality checks from vendor data
-  partners. Open source. Python.
+  Stop writing custom import and validation scripts. CsvPath Framework automates
+  CSV and Excel data ingestion and quality checks from vendor data partners.
+  Open source. Python.
 cover: .gitbook/assets/Screenshot 2024-08-30 at 7.53.30 AM.png
 coverY: 0
 layout: landing
