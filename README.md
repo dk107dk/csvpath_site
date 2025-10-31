@@ -9,6 +9,8 @@ layout: landing
 
 # CSV & Excel Ingestion for Data Engineers
 
+&#x20;    &#x20;
+
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 
 <h2 align="center">Automated Data Preboarding</h2>
@@ -33,13 +35,15 @@ Available as a _free_ download from the [Microsoft Store](https://apps.microsoft
 
 ### The Architecture For Efficient Data File Feed Ingestion
 
-**CsvPath Framework** implements the [**Collect, Store, Validate Publish architectural pattern.** ](https://static1.squarespace.com/static/66df9d47982d0d40e1574327/t/6771fe6f63bbf5361725ad05/1735523953587/The+Collect+Store+Validate+Pattern+-+Atesta+Analytics.pdf)This data preboarding style of ingestion goes faster, is more cost-efficient, and is more effective. Why roll your own preboarding solution when there is a purpose-built option?
+**CsvPath Framework** implements the [**Collect, Store, Validate Publish architectural pattern.** ](https://static1.squarespace.com/static/66df9d47982d0d40e1574327/t/6771fe6f63bbf5361725ad05/1735523953587/The+Collect+Store+Validate+Pattern+-+Atesta+Analytics.pdf) Ingestion goes faster, is more cost-efficient, and more effective with a preboarding stage.&#x20;
 
-Out-of-the-box, CsvPath Framework is built to fill the blindspot between MFT (managed file transfer) and the data lake with a simple path to provably correct data.
+CsvPath Framework was built to fill the blindspot between MFT (managed file transfer) and the data lake with a simple path to provably correct data.
 
-This data onboarding blindspot is a big deal. Think about it. If even 1 in 30 companies depends heavily on CSV or Excel data, the _lack of **delimited file pre-boarding is a trillion-dollar problem**_. In our experience, 1 in 30 would be a low estimate.&#x20;
+This data preboarding blindspot is a big deal. Think about it. If even 1 in 30 companies depends heavily on CSV or Excel data, the _lack of **delimited file preboarding is a trillion-dollar problem**_.&#x20;
 
 <figure><img src=".gitbook/assets/data-flow.png" alt="A data flow diagram showing how CSV, Excel and other tabular data come into the organization through a preboarding process that acts as a Trusted Publisher to the data lake and applications."><figcaption></figcaption></figure>
+
+Why roll your own preboarding? CsvPath Framework is a purpose-built solution you can rollout now.
 
 ### Powerful CSV and Excel Validation
 
