@@ -1,6 +1,6 @@
 # Table of contents
 
-* [CsvPath Framework - CSV & Excel Ingestion for Data Engineers](README.md)
+* [CSV & Excel Ingestion for Data Engineers](README.md)
 * [CSV Validation Automation](csv-validation-automation.md)
 * [DATA PREBOARDING](data-preboarding.md)
 

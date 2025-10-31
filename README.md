@@ -1,24 +1,24 @@
 ---
 description: >-
-  Stop writing custom data import and validation scripts. CsvPath automates CSV
-  and Excel data ingestion and quality checks from vendor data partners. Open
-  source. Python.
+  Stop writing custom data import and validation scripts. CsvPath Framework
+  automates CSV and Excel data ingestion and quality checks from vendor data
+  partners. Open source. Python.
 cover: .gitbook/assets/Screenshot 2024-08-30 at 7.53.30 AM.png
 coverY: 0
 layout: landing
 ---
 
-# CsvPath Framework - CSV & Excel Ingestion for Data Engineers
+# CSV & Excel Ingestion for Data Engineers
 
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 
 <h2 align="center">Automated Data Preboarding</h2>
 
-<h3 align="center">Stop Manual Validation • Automate File Feed Ingestion</h3>
+<h3 align="center">End Manual Validation • Automate File Feed Ingestion</h3>
 
-#### CsvPath is an open source framework that registers, validates, upgrades, and stages CSV and Excel files from data partners before they break your pipelines.
+#### CsvPath Framework registers, validates, upgrades, and stages CSV and Excel files from data partners before they break your pipelines.
 
-[CsvPath Framework](https://github.com/csvpath/csvpath) is a data quality shift-left that enables you to control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using a straightforward data preboarding pattern.  &#x20;
+[CsvPath Framework](https://github.com/csvpath/csvpath) is an open source data quality shift-left. It enables you to control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using a straightforward data preboarding pattern.  &#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
 
