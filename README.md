@@ -19,7 +19,7 @@ layout: landing
 
 #### CsvPath Framework registers, validates, upgrades, and stages CSV and Excel files from data partners before they break your pipelines.
 
-[CsvPath Framework](https://github.com/csvpath/csvpath) is an open source data quality shift-left. It enables you to control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using a straightforward data preboarding pattern.  &#x20;
+[CsvPath Framework](https://github.com/csvpath/csvpath) is an open source data quality shift-left. It enables you to control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using a data preboarding pattern [you can try in minutes](broken-reference).  &#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
 
@@ -54,6 +54,13 @@ Together CsvPath Framework and FlightPath Data can help you build leadership's c
 ### Integrated With Your Existing Tools
 
 <figure><img src=".gitbook/assets/integration_logos (8).png" alt="Logos of the many popular DataOps tools that are integrated with CsvPath Framework: aws s3, azure, slack, Excel, opentelemetry, sftp, ckan, pandas, openlineage, and more" width="563"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
+
+### Give CsvPath Framework a Try
+
+* [Getting Started](broken-reference)
+* [How-tos](topics/how-tos/)
+* [DataOps Integrations](getting-started/integrations/)
+* [The FlightPath Examples](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/)
 
 {% hint style="success" %}
 For more background on preboarding and the CsvPath and FlightPath architecture [check out the CsvPath blog](https://blog.csvpath.org/).&#x20;
