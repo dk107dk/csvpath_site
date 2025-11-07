@@ -1,5 +1,9 @@
 # Position check
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
    Checking a header's position

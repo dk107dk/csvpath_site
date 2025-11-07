@@ -1,5 +1,9 @@
 # Three entity schema v4
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
    id: example four

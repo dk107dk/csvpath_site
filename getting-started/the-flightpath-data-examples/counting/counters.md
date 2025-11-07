@@ -1,5 +1,9 @@
 # Counters
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
   This csvpath uses a decimal counter value to create a score for a

@@ -1,5 +1,9 @@
 # Min and max
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
   This csvpath shows the min() and max() functions' potential to mirror the

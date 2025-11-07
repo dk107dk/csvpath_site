@@ -1,5 +1,9 @@
 # Three entity schema
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
    This schema shows a three-entity line structured as a person, their

@@ -1,5 +1,9 @@
 # Percents
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
    This csvpath checks if the % unique values is below 90% after at least 20% of years

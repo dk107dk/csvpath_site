@@ -1,5 +1,9 @@
 # Running median and average
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
   Here we have the running median and the running average. The end result in variables @a and

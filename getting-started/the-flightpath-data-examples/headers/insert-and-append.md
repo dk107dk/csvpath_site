@@ -1,5 +1,9 @@
 # Insert and append
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
    This csvpath updates the test file data to have a processing date at the 0th header

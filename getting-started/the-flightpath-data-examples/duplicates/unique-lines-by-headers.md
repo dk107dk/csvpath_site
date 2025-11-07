@@ -1,5 +1,9 @@
 # Unique lines by headers
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
    Find all the lines that don't have at least one other

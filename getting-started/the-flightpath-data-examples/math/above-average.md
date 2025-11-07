@@ -1,5 +1,9 @@
 # Above average
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
   These two csvpaths, when loaded into one named-paths group called 

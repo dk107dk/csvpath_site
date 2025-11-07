@@ -1,5 +1,9 @@
 # Tallying
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
   tally(), every(), and count() create the same counts in variables. However, they

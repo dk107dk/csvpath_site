@@ -1,5 +1,9 @@
 # More header checks
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
   We can check if a header is what we expect using the header_name() function

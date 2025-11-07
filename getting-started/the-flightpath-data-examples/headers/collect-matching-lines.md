@@ -1,5 +1,9 @@
 # Collect matching lines
 
+{% hint style="success" %}
+Run this example using its test data from within [FlightPath Data](https://www.flightpathdata.com/).
+{% endhint %}
+
 ```
 ~
    The collect() function selects headers to collect values from when lines match.
