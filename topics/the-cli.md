@@ -11,7 +11,7 @@ The CLI supports development and triage activities. Ultimately, it is **a rough 
 {% endhint %}
 
 {% hint style="danger" %}
-Need the best possible CsvPath Framework dev and/or ops environment?  Try [**FlightPath Data**](../getting-started/get-the-flightpath-data-app.md)!&#x20;
+Need the best possible CsvPath Framework dev and/or ops environment?  Try [**FlightPath Data**](../getting-started/get-the-flightpath-app.md)!&#x20;
 
 The CLI is still useful, but _the future has arrived_. In most cases FlightPath is the better tool for the job.
 

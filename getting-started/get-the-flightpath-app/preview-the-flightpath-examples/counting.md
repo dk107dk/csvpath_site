@@ -25,3 +25,8 @@ Likewise, summing offers options:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-08-26 at 11.49.46 AM.png" alt=""><figcaption></figcaption></figure>
 
+* [Track values](../../the-flightpath-data-examples/counting/track-values.md)
+* [Counters](../../the-flightpath-data-examples/counting/counters.md)
+* [Tallying](../../the-flightpath-data-examples/counting/tallying.md)
+* [Summing up](../../the-flightpath-data-examples/counting/summing-up.md)
+* [Thresholds](../../the-flightpath-data-examples/counting/thresholds.md)

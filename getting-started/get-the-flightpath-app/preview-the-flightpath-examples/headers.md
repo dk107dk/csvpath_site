@@ -18,37 +18,12 @@ These examples will help you start exploring the headers functions so you can st
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-08-26 at 11.58.18 AM.png" alt=""><figcaption></figcaption></figure>
 
-
-
-```clike
-
-
----- CSVPATH ----
-
-
-
----- CSVPATH ----
-
-~
-  The end() function returns the value of the last header. If you pass it an int N it will
-  return the value of the header at the index: count_headers_in_line() - 1 - N. (The minus 1
-  is because a count of the headers is 1-based; whereas, the index of a header is 0-based).
-
-  To make the example a bit more interesting, we add the onchange qualifier to the variable
-  assignment. That makes this variable assignment contribute a vote to matching lines. The
-  onchange qualifier's main function is to limit an action to when it sees new information.
-
-  Because we put onchange on the variable the Matches tab shows 9 lines. We could alternatively
-  have put onchange on the print() function so we print only when the data changes, but still
-  match every line.
-
-  id: last column
-  test-data: examples/headers/projects.csv
-~
-
-$[1*][
-    @last_header_value.onchange = end(6)
-
-    print.onmatch("$.variables.last_header_value")
-]
-```
+* [Collect matching lines](../../the-flightpath-data-examples/headers/collect-matching-lines.md)
+* [Replace values](../../the-flightpath-data-examples/headers/replace-values.md)
+* [Insert and append](../../the-flightpath-data-examples/headers/insert-and-append.md)
+* [No blanks](../../the-flightpath-data-examples/headers/no-blanks.md)
+* [Reset headers](../../the-flightpath-data-examples/headers/reset-headers.md)
+* [Name check](../../the-flightpath-data-examples/headers/name-check.md)
+* [Position check](../../the-flightpath-data-examples/headers/position-check.md)
+* [More header checks](../../the-flightpath-data-examples/headers/more-header-checks.md)
+* [End](../../the-flightpath-data-examples/headers/end.md)

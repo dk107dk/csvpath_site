@@ -4,7 +4,7 @@ description: >-
   Framework
 ---
 
-# Get the FlightPath app
+# Get the FlightPath Data app
 
 <figure><img src="../.gitbook/assets/flightpath-logo-1.png" alt="" width="563"><figcaption></figcaption></figure>
 
