@@ -1,5 +1,7 @@
 ---
-description: Examples of using CsvPath Language schemas to validate CSV/Excel data
+description: >-
+  Examples of using CsvPath Validation Language schemas to validate CSV and
+  Excel data
 ---
 
 # Schemas

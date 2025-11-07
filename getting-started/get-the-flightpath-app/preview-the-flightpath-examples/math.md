@@ -1,7 +1,7 @@
 ---
 description: >-
-  CsvPath Language examples of using math functions in processing CSV/Excel
-  files
+  CsvPath Validation Language examples of using math functions in processing
+  CSV/Excel files
 ---
 
 # Math
@@ -12,8 +12,7 @@ description: >-
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-11-07 at 1.46.20 PM.png" alt=""><figcaption></figcaption></figure>
 
-These examples focus on percents, averages, and summing. Most of the math functions are\
-easy enough to understand from their names.
+These examples focus on functions to find percents, averages, and sums in CSV and Excel files. Most of the math functions are easy enough to understand from their names. These csvpaths may give you ideas for your own validations and upgrading scripts.
 
 * [Averaging across groups](../../the-flightpath-data-examples/math/averaging-across-groups.md)
 * [Sum](../../the-flightpath-data-examples/math/sum.md)

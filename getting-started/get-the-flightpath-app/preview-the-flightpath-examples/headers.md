@@ -1,5 +1,5 @@
 ---
-description: CsvPath Language examples for managing CSV/Excel file headers
+description: CsvPath Validation Language examples for managing CSV/Excel file headers
 ---
 
 # Headers
@@ -14,7 +14,7 @@ Headers are the names of values in a CSV or Excel file. In a delimited file, any
 
 CsvPath Framework has many functions to help you work with headers. Most of the functions are oriented towards creating validation rules. Some of the header functions are quite unique. For example, in CsvPath Framework, you can reset the headers to the values of the current line at any time.
 
-These examples will help you start exploring the headers functions so you can start crafting your own rules.
+These examples will help you start validating and upgrading your CSV and Excel files using the header functions to create rules.
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-08-26 at 11.58.18 AM.png" alt=""><figcaption></figcaption></figure>
 
