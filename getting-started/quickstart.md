@@ -11,7 +11,7 @@ This page gives you all the information you need to get started validating your 
 {% hint style="warning" %}
 For an **even quicker start**, download the free **FlightPath Data** app from [Microsoft](https://apps.microsoft.com/detail/9P9PBPKZ4JDF) or [Apple](https://apps.apple.com/us/app/flightpath-data/id6745823097) or [Github](https://github.com/dk107dk/flightpath).&#x20;
 
-FlightPath is the open source frontend to CsvPath Framework. It is your CSV/Excel file feed development and operations cockpit. When you open FlightPath you will see [these examples that you can immediately run](get-the-flightpath-app/preview-the-flightpath-examples/).
+FlightPath is the open source frontend to CsvPath Framework. It is your CSV/Excel file feed development and operations cockpit. When you open FlightPath you will see [these examples that you can immediately run](the-flightpath-data-examples/).
 {% endhint %}
 
 {% hint style="info" %}

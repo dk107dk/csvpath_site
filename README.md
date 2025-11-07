@@ -60,7 +60,7 @@ Together CsvPath Framework and FlightPath Data can help you build leadership's c
 * [Getting Started](broken-reference)
 * [How-tos](topics/how-tos/)
 * [DataOps Integrations](getting-started/integrations/)
-* [The FlightPath Examples](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/)
+* [The FlightPath Examples](getting-started/the-flightpath-data-examples/)
 
 {% hint style="success" %}
 For more background on preboarding and the CsvPath and FlightPath architecture [check out the CsvPath blog](https://blog.csvpath.org/).&#x20;
