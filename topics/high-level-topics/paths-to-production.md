@@ -6,7 +6,7 @@ description: There are many paths. What's the simplest thing that could possibly
 
 <figure><img src="../../.gitbook/assets/code_green_buttons.png" alt="" width="371"><figcaption></figcaption></figure>
 
-As you saw in [Your First Validation](../../getting-started/csv-and-excel-validation/your-first-validation.md) and [Another Example Part 2](../how-tos/another-longer-example/another-example-part-1.md), there are two ways to use the CsvPath library.&#x20;
+As you saw in [Your First Validation](../../getting-started/more-csv-and-excel-validation/your-first-validation.md) and [Another Example Part 2](../how-tos/another-longer-example/another-example-part-1.md), there are two ways to use the CsvPath library.&#x20;
 
 * Single csvpath pointing to a single file, simple results
 * Multi-csvpath

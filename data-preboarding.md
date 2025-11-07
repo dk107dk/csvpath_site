@@ -35,7 +35,7 @@ With CsvPath Framework you are signing up for a well-known pattern that settles 
 
 ## How to get started
 
-If you are a developer, take a look at the [Quickstart ](getting-started/quickstart.md)and the [Your First Validation](getting-started/csv-and-excel-validation/your-first-validation-the-lazy-way.md) exercises. They will get you up and running and introduce the CLI. Or try [FlightPath Data](https://www.flightpathdata.com/), the open source Windows and MacOS frontend to CsvPath Framework — available free in the Windows Store and Apple Mac Store. FlightPath is the fastest way to get started.&#x20;
+If you are a developer, take a look at the [Quickstart ](getting-started/quickstart.md)and the [Your First Validation](getting-started/more-csv-and-excel-validation/your-first-validation-the-lazy-way.md) exercises. They will get you up and running and introduce the CLI. Or try [FlightPath Data](https://www.flightpathdata.com/), the open source Windows and MacOS frontend to CsvPath Framework — available free in the Windows Store and Apple Mac Store. FlightPath is the fastest way to get started.&#x20;
 
 <figure><img src=".gitbook/assets/flightpath-logo-1.png" alt="" width="375"><figcaption></figcaption></figure>
 

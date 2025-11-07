@@ -7,16 +7,6 @@
 ## Getting Started
 
 * [Quickstart](getting-started/quickstart.md)
-* [Csv and Excel Validation](getting-started/csv-and-excel-validation/README.md)
-  * [Your First Validation, The Lazy Way](getting-started/csv-and-excel-validation/your-first-validation-the-lazy-way.md)
-  * [Your First Validation, The Easy Way](getting-started/csv-and-excel-validation/your-first-validation-the-easy-way.md)
-  * [Your First Validation, The Hard Way](getting-started/csv-and-excel-validation/your-first-validation.md)
-* [DataOps Integrations](getting-started/integrations/README.md)
-  * [Getting Started with CsvPath + OpenTelemetry](getting-started/getting-started-with-csvpath-+-opentelemetry.md)
-  * [Getting Started With CsvPath + OpenLineage](getting-started/getting-started-with-csvpath-+-openlineage.md)
-  * [Getting Started with CsvPath + SFTPPlus](getting-started/integrations/getting-started-with-csvpath-+-sftpplus/README.md)
-    * [SFTPPlus Implementation Checklist](getting-started/integrations/getting-started-with-csvpath-+-sftpplus/sftpplus-implementation-checklist.md)
-  * [Getting Started with CsvPath + CKAN](getting-started/integrations/getting-started-with-csvpath-+-ckan.md)
 * [Get the FlightPath Data app](getting-started/get-the-flightpath-app.md)
 * [The FlightPath Data Examples](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/README.md)
   * [Counting](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/counting.md)
@@ -53,6 +43,16 @@
     * [Three entity schema v2](getting-started/the-flightpath-data-examples/schemas/three-entity-schema-v2.md)
     * [Three entity schema v3](getting-started/the-flightpath-data-examples/schemas/three-entity-schema-v3.md)
     * [Three entity schema v4](getting-started/the-flightpath-data-examples/schemas/three-entity-schema-v4.md)
+* [More Csv and Excel Validation](getting-started/more-csv-and-excel-validation/README.md)
+  * [Your First Validation, The Lazy Way](getting-started/more-csv-and-excel-validation/your-first-validation-the-lazy-way.md)
+  * [Your First Validation, The Easy Way](getting-started/more-csv-and-excel-validation/your-first-validation-the-easy-way.md)
+  * [Your First Validation, The Hard Way](getting-started/more-csv-and-excel-validation/your-first-validation.md)
+* [DataOps Integrations](getting-started/integrations/README.md)
+  * [Getting Started with CsvPath + OpenTelemetry](getting-started/getting-started-with-csvpath-+-opentelemetry.md)
+  * [Getting Started With CsvPath + OpenLineage](getting-started/getting-started-with-csvpath-+-openlineage.md)
+  * [Getting Started with CsvPath + SFTPPlus](getting-started/integrations/getting-started-with-csvpath-+-sftpplus/README.md)
+    * [SFTPPlus Implementation Checklist](getting-started/integrations/getting-started-with-csvpath-+-sftpplus/sftpplus-implementation-checklist.md)
+  * [Getting Started with CsvPath + CKAN](getting-started/integrations/getting-started-with-csvpath-+-ckan.md)
 * [A Helping Hand](getting-started/a-helping-hand.md)
 
 ## Topics

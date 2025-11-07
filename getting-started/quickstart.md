@@ -19,7 +19,7 @@ If you need help getting started with Python, try [Python.org's intros](https://
 {% endhint %}
 
 {% hint style="success" %}
-<mark style="color:green;">Feel like skipping the Python?</mark> [Watch these videos](https://www.youtube.com/@atesta-analytics) <mark style="color:red;">🎥</mark> or [try this Python-free CLI example](csv-and-excel-validation/your-first-validation-the-lazy-way.md)**.**
+<mark style="color:green;">Feel like skipping the Python?</mark> [Watch these videos](https://www.youtube.com/@atesta-analytics) <mark style="color:red;">🎥</mark> or [try this Python-free CLI example](more-csv-and-excel-validation/your-first-validation-the-lazy-way.md)**.**
 {% endhint %}
 
 ### PyPI and Github
@@ -52,7 +52,7 @@ The worker class in CsvPath is unsurprisingly called `CsvPath`. For simple valid
 For more complex situations and DataOps automation we use the manager class `CsvPaths`. But we'll come back to that in later pages. For now just know that it exists, has essentially the same API, and is equally lightweight to use.
 {% endhint %}
 
-The quickest way to bootstrap a CsvPath Framework project is the command line interface (CLI). The CLI is a super simple tool that is great for fast no-code development. To try the CLI, skip over to [Your First Validation, The Lazy Way](csv-and-excel-validation/your-first-validation-the-lazy-way.md).&#x20;
+The quickest way to bootstrap a CsvPath Framework project is the command line interface (CLI). The CLI is a super simple tool that is great for fast no-code development. To try the CLI, skip over to [Your First Validation, The Lazy Way](more-csv-and-excel-validation/your-first-validation-the-lazy-way.md).&#x20;
 
 To continue with the simplest possible Python, let's do a _hello world_.&#x20;
 
@@ -117,4 +117,4 @@ When you run your script you should see something like:
 
 Hello-world examples are never super impressive on their own. But you are now ready to dig in and see what CsvPath can really do.&#x20;
 
-Next, try [Your First Validation, the Lazy Way](csv-and-excel-validation/your-first-validation-the-lazy-way.md). Also check out the [How-tos section](../topics/how-tos/) for more use cases and examples. If you'd like a helping hand, [contact us](a-helping-hand.md)!
+Next, try [Your First Validation, the Lazy Way](more-csv-and-excel-validation/your-first-validation-the-lazy-way.md). Also check out the [How-tos section](../topics/how-tos/) for more use cases and examples. If you'd like a helping hand, [contact us](a-helping-hand.md)!

@@ -231,7 +231,7 @@ Well, done but for testing, of course. The two manual tests you need to see work
 * Add one or more csvpaths to a named-paths group using the `PathsManager.add_named_paths method` and see a transfer created for the data partner and a metadata file show up in the partner's `meta` directory.&#x20;
 * Drop a file in the partner's account and see it processed into the `handled` directory and its results show up in the CsvPath archive.
 
-You can use the CLI for the first test to make it quick and code-free. You can read an [example of how to do it here](../../csv-and-excel-validation/your-first-validation-the-lazy-way.md). Assuming your accounts are on the local server, you should see something like the below. In this case `tinpenny` is the data partner, `orders` is the named-file-name, and `sftpplus` is the named-paths group name:
+You can use the CLI for the first test to make it quick and code-free. You can read an [example of how to do it here](../../more-csv-and-excel-validation/your-first-validation-the-lazy-way.md). Assuming your accounts are on the local server, you should see something like the below. In this case `tinpenny` is the data partner, `orders` is the named-file-name, and `sftpplus` is the named-paths group name:
 
 <figure><img src="../../../.gitbook/assets/testing.png" alt="" width="375"><figcaption><p>After adding a named-paths group you should see something like this</p></figcaption></figure>
 
