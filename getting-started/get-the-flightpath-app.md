@@ -18,6 +18,10 @@ description: >-
 
 FlightPath is a **free download** from the [Apple MacOS Store](https://apps.apple.com/us/app/flightpath-data/id6745823097) and the [Microsoft Store](https://apps.microsoft.com/detail/9p9pbpkz4jdf?hl=en-US\&gl=US). You can also get the code from [Github](https://github.com/dk107dk/flightpath/tree/main).
 
+{% hint style="success" %}
+[FlightPath Server](https://www.flightpathdata.com/server.html) is bundled with FlightPath Data, giving you a complete automation architecture in an open and easy package.
+{% endhint %}
+
 <figure><img src="../.gitbook/assets/whole_screen.png" alt=""><figcaption></figcaption></figure>
 
 Take FlightPath out for a trial run and let us know what you think!&#x20;
