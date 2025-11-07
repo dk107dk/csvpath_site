@@ -22,7 +22,7 @@ layout:
 
 <figure><img src="../../../.gitbook/assets/logo-image-only.png" alt="" width="108"><figcaption></figcaption></figure>
 
-[FlightPath Data](../../get-the-flightpath-app.md) comes with a set of CsvPath examples that can help you get started quickly.&#x20;
+[FlightPath Data](../../get-the-flightpath-app.md) comes with a set of CsvPath examples that can help you get started validating and upgrading your CSV and Excel file feeds quickly.&#x20;
 
 Every new FlightPath Data project is created with an examples directory, so you always have ideas close at hand. The examples cover some common validation and upgrading activities. When you're done learning, feel free to delete the examples directory.
 
