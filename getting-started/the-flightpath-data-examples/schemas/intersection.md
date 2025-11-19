@@ -48,24 +48,27 @@ Run this example using its test data from within [FlightPath Data](https://www.f
    test-data: examples/schemas/shipping.csv
 ~
 $[1*][
-	line(
+  ~ we don't really need the two line() schemas, but for comparison 
+    to SQL we'll go ahead and create them ~
+    
+	line.shipping(
 	   blank(#0), ~ this blank() is a placeholder for the ID header ~
 	   string.notnone.addressee(#1),
 	   string.unit(#unit),
-            string.notnone.street(#street),
-            string.notnone.city(#city),
-            string.notnone.state(#state, 2, 2),
-            integer.notnone.postcode(#zip),
+     string.notnone.street(#street),
+     string.notnone.city(#city),
+     string.notnone.state(#state, 2, 2),
+     integer.notnone.postcode(#zip),
 	   wildcard()
 	)
-	line(
+	line.billing(
 	   wildcard(7),
 	   string.notnone.payee(#payee),
 	   string.unit(#unit),
-            string.notnone.street(#9),
-            string.notnone.city(#10),
-            string.notnone.state(#11, 2, 2),
-            integer.notnone.postcode(#12, 99999, 0)
+     string.notnone.street(#9),
+     string.notnone.city(#10),
+     string.notnone.state(#11, 2, 2),
+     integer.notnone.postcode(#12, 99999, 0)
 	)
 	#3 == #9
 	#4 == #10
