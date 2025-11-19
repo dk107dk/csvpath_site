@@ -26,8 +26,8 @@ Run this example using its test data from within [FlightPath Data](https://www.f
 	#4 == #10
 	collect(#street, #city)
 
-   This is not a very realistic case, but it is interesting to look for the 
-   comparison to SQL.
+   This is not a very realistic case, but it is interesting for the 
+   comparison to SQL. CSV and SQL schemas have many commonalities.
 
    In the second line() definition we use the header indexes rather than the 
    names. That is because we have conflicting header names. Header names are 
@@ -43,9 +43,15 @@ Run this example using its test data from within [FlightPath Data](https://www.f
    the second line() in line 4 because of the not-nones. The error messages 
    will be easier to understand if we add the names to the string()s. It is 
    optional, but definitely helps in some cases, like this one.
+ 
+   Note that for this to be a useful example we need validation-mode to be set
+   to no-raise, so the full run happens despite errors. And we gain easier
+   debugging errors messages and make the schemas self documenting by adding
+   the names shipping and billing to the line() functions.
 
    id: addresses
    test-data: examples/schemas/shipping.csv
+   validation-mode:print, no-raise
 ~
 $[1*][
   ~ we don't really need the two line() schemas, but for comparison 
