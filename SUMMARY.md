@@ -17,6 +17,7 @@
     * [Thresholds](getting-started/the-flightpath-data-examples/counting/thresholds.md)
   * [Duplicates](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/duplicates.md)
     * [Unique lines by headers](getting-started/the-flightpath-data-examples/duplicates/unique-lines-by-headers.md)
+    * [Last duplicate seen](getting-started/the-flightpath-data-examples/duplicates/last-duplicate-seen.md)
     * [Percent overlapping](getting-started/the-flightpath-data-examples/duplicates/percent-overlapping.md)
     * [Duplicate lines](getting-started/the-flightpath-data-examples/duplicates/duplicate-lines.md)
   * [Headers](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/headers.md)
