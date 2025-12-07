@@ -1,6 +1,6 @@
 # Release Notes
 
-### **0.0.576**&#x20;
+### **0.0.576 - 7 dec 2025**
 
 #### Major changes
 
