@@ -1,6 +1,6 @@
 # Table of contents
 
-* [CSV & Excel Ingestion for Data Engineers](README.md)
+* [CSV, Excel and JSONL Ingestion](README.md)
 * [CSV Validation Automation](csv-validation-automation.md)
 * [DATA PREBOARDING](data-preboarding.md)
 

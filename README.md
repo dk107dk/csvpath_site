@@ -4,22 +4,38 @@ description: >-
   CSV and Excel ingestion and data quality checks. Open source. Python.
 cover: .gitbook/assets/Screenshot 2024-08-30 at 7.53.30 AM.png
 coverY: 0
-layout: landing
+layout:
+  width: default
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: false
+  description:
+    visible: false
+  tableOfContents:
+    visible: false
+  outline:
+    visible: false
+  pagination:
+    visible: true
+  metadata:
+    visible: false
 ---
 
-# CSV & Excel Ingestion for Data Engineers
+# CSV, Excel and JSONL Ingestion
 
 &#x20;    &#x20;
 
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 
-<h2 align="center">Automated Data Preboarding</h2>
+<h2 align="center">Automate CSV, Excel, and JSONL Data Preboarding </h2>
 
 <h3 align="center">End Manual Validation • Automate File Feed Ingestion</h3>
 
-#### CsvPath Framework registers, validates, upgrades, and stages CSV and Excel files from data partners before they break your pipelines.
+#### CsvPath Framework registers, versions, validates, upgrades, and stages CSV, Excel, and JSONL files from data partners before they break your pipelines.
 
-[CsvPath Framework](https://github.com/csvpath/csvpath) is an open source data quality shift-left. It enables you to control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using a data preboarding pattern [you can try in minutes](broken-reference).  &#x20;
+[CsvPath Framework](https://github.com/csvpath/csvpath) is an open source data quality shift-left. It enables you to control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using a data preboarding pattern [you can try in minutes](/broken/pages/Zvukm7MAGL6ooitMTmpY).  &#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
 
@@ -57,7 +73,7 @@ Together CsvPath Framework and FlightPath Data can help you build leadership's c
 
 ### Give CsvPath Framework a Try
 
-* [Getting Started](broken-reference)
+* [Getting Started](/broken/pages/Zvukm7MAGL6ooitMTmpY)
 * [How-tos](topics/how-tos/)
 * [DataOps Integrations](getting-started/integrations/)
 * [The FlightPath Examples](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/)
