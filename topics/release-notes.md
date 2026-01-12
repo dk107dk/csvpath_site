@@ -34,7 +34,7 @@ Three qualifier changes:&#x20;
 
 Other functions changes:&#x20;
 
-* New markdown docs generated from functions. E.g. [https://github.com/csvpath/csvpath/blob/main/docs/func\_gen/advance.md](https://github.com/csvpath/csvpath/blob/main/docs/func_gen/advance.md). These docs are barebones, but always 100% up to date. The original function docs .md pages will be maintained but should not be considered the most current and/or correct.&#x20;
+* [New markdown docs](https://github.com/csvpath/csvpath/blob/main/docs/func_gen/index.md) generated from/by the functions. E.g. [https://github.com/csvpath/csvpath/blob/main/docs/func\_gen/advance.md](https://github.com/csvpath/csvpath/blob/main/docs/func_gen/advance.md). These docs are barebones, but always 100% up to date. The original function docs `.md` pages will be maintained but should not be considered the most current and/or correct.&#x20;
 * `blank(name|header)` and `wildcard()` support `Any` in actuals, including `None`&#x20;
 * `put()` support added for `dict`, `list`, `date`, `date` `time`, and `None`
 
