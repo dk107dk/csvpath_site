@@ -1,4 +1,44 @@
+---
+description: High-level descriptions of point releases
+---
+
 # Release Notes
+
+### **0.0.581 - 11 Jan 2026**
+
+#### **Major changes**
+
+When/do changes:&#x20;
+
+* When/do operator right-hand sides now contribute to matching&#x20;
+* When/do right-hand side now respects `nocontrib`
+
+Custom functions changes:&#x20;
+
+* External functions can be loaded from a file anywhere visible to the Python process&#x20;
+* Functions loaded from different `function.imports` files within the same Python process do not collide&#x20;
+* Multiple `functions.imports` will be loaded&#x20;
+* `FunctionFactory` supports reloadeding imports files
+
+Three new functions:&#x20;
+
+* Added `line_before()` to compare current line header value to last line header value&#x20;
+* Added `remove()` to drop one or more headers&#x20;
+* Set headers manually using `rename(@stack)` or `rename(“a”, “b”, “c”…)`
+
+Three qualifier changes:&#x20;
+
+* Support for name qualifiers in `error()` that are visibile in error events. E.g. `error.myname(“this is a msg”)` outputs: `2025-12-08 00h42m40s-886915:temps.txt:1:`:m:`myname[1]: this is a msg`&#x20;
+* Added `skipnone` qualifier primarily for `push()`. With `notnone` on `push()` `None` is flagged as an error; whereas, in some cases we just want to not push `None`s.&#x20;
+* Support for the `distinct` qualifier in `string()`, `integer()`, `decimal()`, `date()`, `datetime()`
+
+Other functions changes:&#x20;
+
+* New markdown docs generated from functions. E.g. [https://github.com/csvpath/csvpath/blob/main/docs/func\_gen/advance.md](https://github.com/csvpath/csvpath/blob/main/docs/func_gen/advance.md). These docs are barebones, but always 100% up to date. The original function docs .md pages will be maintained but should not be considered the most current and/or correct.&#x20;
+* `blank(name|header)` and `wildcard()` support `Any` in actuals, including `None`&#x20;
+* `put()` support added for `dict`, `list`, `date`, `date` `time`, and `None`
+
+Added `project` and `project_context` args to the `CsvPath` `__init__` in order to populate logger name fields.
 
 ### **0.0.576 - 7 dec 2025**
 
