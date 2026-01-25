@@ -4,6 +4,27 @@ description: High-level descriptions of point releases
 
 # Release Notes
 
+### Winter 2025-2026 FlightPath - v1.1.87
+
+* Comprises: CsvPath 0.0.591, FlightPath Server 0.1.27, FlightPath Data 0.1.28&#x20;
+* FlightPath changes:&#x20;
+  * Support for creating and editing JSONL
+  * Support for editing CSV and JSON in grid view
+  * New JSON text editing view
+  * Edit JSONL as JSON
+  * CSV and JSONL grid view editing, including copy-selected-to-new
+  * Support for custom functions in FlightPath Data and FlightPath Server
+  * Added `use-delimiter` and `use-quotechar` for FlightPath Data and FlightPath Server
+  * Added a config dialog to compare and sync config between projects in Data and Server
+  * Improved the env vars config dialog to act as a compare and sync, not just an upload, between projects in Data and Server
+  * Changed to a fixed width font in the printouts tab for better table printouts
+  * Many minor fixes and improvements
+
+### **0.0.591 - 25 Jan 2026**
+
+* Added `jsonpath()` function using jsonpath-ng
+* Dozens of minor fixes and improvements
+
 ### **0.0.581 - 11 Jan 2026**
 
 #### **Major changes**
