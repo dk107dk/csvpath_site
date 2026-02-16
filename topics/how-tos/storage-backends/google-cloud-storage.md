@@ -2,9 +2,9 @@
 description: Trusted publishing using Azure blobs is really quite straightforward.
 ---
 
-# Store source data and/or named-paths and/or the archive in Google Cloud Storage
+# Google Cloud Storage
 
-This page is really just here to point to [the S3 instructions](store-source-data-and-or-named-paths-and-or-the-archive-in-aws-s3.md) because everything is basically the same.&#x20;
+This page is really just here to point to [the S3 instructions](aws-s3.md) because everything is basically the same.&#x20;
 
 You need a `GCS_CREDENTIALS_PATH` environment variable. It points to the location of your service account JSON credentials file. Other than that, there's no additional setup — just use of gs`://` instead of `sftp://` or `s3://` in `config/config.ini` or when you add content with `FileManager` or `PathsManager`.&#x20;
 

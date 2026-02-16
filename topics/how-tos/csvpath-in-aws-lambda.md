@@ -15,7 +15,7 @@ AWS's parts bin may be the ultimate for DIY MFT. The components include:
 
 Of course there are many other services that might also come into play. AWS has more than everything you need. That said, some assembly is required and batteries are not included.&#x20;
 
-We can make setting up data onboarding a bit easier by showing how an automatically triggered lambda can enable CsvPath to pick up a newly arrived file for registration, validation, canonicalization, and publishing. When you have finished this page you will have a fully automated a file onboarding process. What we do on this page builds on the [description of CsvPath's S3 capabilities here](storage-backends/store-source-data-and-or-named-paths-and-or-the-archive-in-aws-s3.md).
+We can make setting up data onboarding a bit easier by showing how an automatically triggered lambda can enable CsvPath to pick up a newly arrived file for registration, validation, canonicalization, and publishing. When you have finished this page you will have a fully automated a file onboarding process. What we do on this page builds on the [description of CsvPath's S3 capabilities here](storage-backends/aws-s3.md).
 
 ## The steps we are about to take
 

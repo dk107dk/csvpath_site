@@ -2,9 +2,23 @@
 description: CsvPath's three file stores can be local or on S3. Mix and match!
 ---
 
-# Store source data and/or named-paths and/or the archive in AWS S3
+# AWS S3
 
 <figure><img src="../../../.gitbook/assets/s3_archive_view.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+All five backends work exactly the same. The main difference is in the protocol part of the URI:
+
+* azure://
+* sftp://
+* s3://
+* gs://
+* / or c:\\
+
+_(HTTP is read-only, so doesn't count as a storage backend. It is only for loading files.)_
+
+Each backend has its own way of storing credentials, of course. In the case of SFTP there is a form in the config panel's integrations tab. The three cloud stores use env vars that you can set in the OS, in FlightPath Data, or in a FlightPath Server project. &#x20;
+{% endhint %}
 
 There are three places CsvPath keeps files:&#x20;
 

@@ -1,4 +1,4 @@
-# Loading files from S3, SFTP, or Azure
+# Loading from S3, SFTP, or Azure
 
 Say you want to add a file currently sitting in S3 to CsvPath Framework as a named-file. That is to say, you want to give an easy name to a physical file and move it into CsvPath's inputs location from the bucket where it currently is in S3.
 
@@ -23,4 +23,4 @@ In the case of S3 and SFTP you also need credentials. That will require one of t
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-02-25 at 4.50.47 PM.png" alt="Moving csv or excel files into CsvPath Framework from S3 to SFTP"><figcaption><p>This is just an example. You can mix and match storage backends as you like. </p></figcaption></figure>
 
-That takes care of the left-hand side of this picture. As you may already know, the right-hand side is setup simply using the `[inputs]` section and the `flies` and `csvpaths` keys. You can [read more about that here](store-source-data-and-or-named-paths-and-or-the-archive-in-aws-s3.md).
+That takes care of the left-hand side of this picture. As you may already know, the right-hand side is setup simply using the `[inputs]` section and the `flies` and `csvpaths` keys. You can [read more about that here](aws-s3.md).
