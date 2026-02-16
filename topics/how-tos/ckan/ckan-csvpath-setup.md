@@ -2,13 +2,13 @@
 description: CsvPath is integrated with CKAN, the leading open source data portal.
 ---
 
-# CKAN
+# CKAN CsvPath Setup
 
 [CKAN](https://ckan.org/showcase) is a portal purpose-built for data discovery and distribution. It is backed by the [Open Knowledge Foundation](https://okfn.org/en/) and used by large-scale data publishers, from the US federal government's [data.gov](https://catalog.data.gov/dataset/) to LEGO.
 
 CKAN is integrated with CsvPath through the event listener mechanism. When named-paths groups run, CKAN is notified and receives content. The integration is standard and requires only two minor changes to `config.ini` to activate.
 
-See this page with [more step-by-step guidance on getting started with CKAN](../../getting-started/dataops-integrations/ckan.md).&#x20;
+See this page with [more step-by-step guidance on getting started with CKAN](./).&#x20;
 
 ## Setup the link to CKAN&#x20;
 
@@ -19,7 +19,7 @@ Open `config/config.ini` (or wherever your config file is). We have two changes 
 
 Look for the `[listeners]` section in `config.ini`. Make sure the `ckan.results` key has the name of the CKAN listener class. Second, add ckan to the list in the `groups` key. If there are other groups enabled put `ckan` at the end after a comma. Your file should look like this:&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-12-27 at 11.34.15 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-12-27 at 11.34.15 AM.png" alt=""><figcaption></figcaption></figure>
 
 Next, make sure you have a `[ckan]` section. It should have two keys:&#x20;
 
@@ -30,7 +30,7 @@ Next, make sure you have a `[ckan]` section. It should have two keys:&#x20;
 
 The `api_token` key takes your CKAN token. Log into CKAN and open your profile (see the link at the top right of every page). You should see three tabs. Click on the tab for API tokens and create one. Paste the value into your `config.ini` on the `api_token` key. Your `config.ini` should look like this:&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-12-27 at 11.34.30 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-12-27 at 11.34.30 AM.png" alt=""><figcaption></figcaption></figure>
 
 ## The directives
 
@@ -40,7 +40,7 @@ Publishing datasets to CKAN requires that you add directives to your csvpaths. T
 
 A set of directives might look like:&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-12-27 at 11.51.13 AM.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-12-27 at 11.51.13 AM.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Let's go through what these directives mean.&#x20;
 

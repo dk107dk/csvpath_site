@@ -54,9 +54,6 @@
 * [DataOps Integrations](getting-started/integrations/README.md)
   * [OpenTelemetry](getting-started/dataops-integrations/opentelemetry.md)
   * [OpenLineage](getting-started/dataops-integrations/openlineage.md)
-  * [SFTPPlus](getting-started/dataops-integrations/sftpplus/README.md)
-    * [SFTPPlus Implementation Checklist](getting-started/dataops-integrations/sftpplus/sftpplus-implementation-checklist.md)
-  * [CKAN](getting-started/dataops-integrations/ckan.md)
 * [A Helping Hand](getting-started/a-helping-hand.md)
 
 ## Topics
@@ -75,8 +72,11 @@
   * [Sqlite](topics/how-tos/send-run-events-to-sqlite.md)
   * [Scripts](topics/how-tos/execute-a-script-at-the-end-of-a-run.md)
   * [Postgres and MySQL](topics/how-tos/send-events-to-mysql-or-postgres.md)
-  * [SFTP export](topics/how-tos/sending-results-by-sftp.md)
-  * [CKAN](topics/how-tos/sending-results-to-ckan.md)
+  * [SFTP Export](topics/how-tos/sending-results-by-sftp.md)
+  * [SFTPPlus](topics/how-tos/sftpplus/README.md)
+    * [SFTPPlus Implementation Checklist](topics/how-tos/sftpplus/sftpplus-implementation-checklist.md)
+  * [CKAN](topics/how-tos/ckan/README.md)
+    * [CKAN CsvPath Setup](topics/how-tos/ckan/ckan-csvpath-setup.md)
   * [Jenkins](topics/how-tos/run-csvpath-on-jenkins.md)
   * [File System Transfers](topics/how-tos/transfer-a-file-out-of-csvpath.md)
   * [Rewind / Replay](topics/how-tos/file-references-and-rewind-replay-how-tos/README.md)
