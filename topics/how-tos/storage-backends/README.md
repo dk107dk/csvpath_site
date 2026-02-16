@@ -9,7 +9,7 @@
 Each of these areas can live in any of the five supported backends:&#x20;
 
 * File system
-* [SFTP](loading-from-s3-sftp-or-azure.md)
+* [SFTP](s3-sftp-google-cloud-or-azure.md)
 * [AWS S3](aws-s3.md)
 * [Azure](azure.md)
 * [Google Cloud Storage](google-cloud-storage.md)

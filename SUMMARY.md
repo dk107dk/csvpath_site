@@ -67,7 +67,7 @@
     * [Azure](topics/how-tos/storage-backends/azure.md)
     * [Google Cloud Storage](topics/how-tos/storage-backends/google-cloud-storage.md)
     * [HTTPS](topics/how-tos/storage-backends/https.md)
-    * [Loading from S3, SFTP, or Azure](topics/how-tos/storage-backends/loading-from-s3-sftp-or-azure.md)
+    * [S3, SFTP, Google Cloud, or Azure](topics/how-tos/storage-backends/s3-sftp-google-cloud-or-azure.md)
   * [AWS Lambda](topics/how-tos/csvpath-in-aws-lambda.md)
   * [Webhooks](topics/how-tos/call-a-webhook-at-the-end-of-a-run.md)
   * [Airflow](topics/how-tos/airflow.md)
