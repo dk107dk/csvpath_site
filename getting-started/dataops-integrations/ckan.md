@@ -2,7 +2,7 @@
 description: How to use CsvPath to publish data products to CKAN with confidence
 ---
 
-# Getting Started with CsvPath + CKAN
+# CKAN
 
 <figure><img src="../../.gitbook/assets/csvpath_plus_ckan (4).png" alt=""><figcaption></figcaption></figure>
 
@@ -69,7 +69,7 @@ CKAN isn't ugly, but it does look plain just out of the box. To see for yourself
 
 Next let's set up CsvPath to talk to CKAN. This part should be a snap, partly because it's simple and partly because you've probably done it already from other examples on this site.
 
-We'll use the example from [Another Example](../../topics/how-tos/another-longer-example/another-example-part-2.md). First create a Poetry project. You can use Pip or any tool you like, but we like Poetry. In the terminal do:
+We'll use the example from [Another Example](../../topics/how-tos/a-longer-example/another-example-part-2.md). First create a Poetry project. You can use Pip or any tool you like, but we like Poetry. In the terminal do:
 
 ```bash
 poetry new ckan
@@ -97,7 +97,7 @@ Package operations: 31 installs, 0 updates, 0 removals
 
 You'll see a few more dependencies installed than I'm pasting in here, but otherwise, that's it.
 
-Now we'll copy the files from the [Another Example](../../topics/how-tos/another-longer-example/another-example-part-2.md) pages. The ones attached here are slightly updated so use them, even if you did the example and have your own.&#x20;
+Now we'll copy the files from the [Another Example](../../topics/how-tos/a-longer-example/another-example-part-2.md) pages. The ones attached here are slightly updated so use them, even if you did the example and have your own.&#x20;
 
 Put the csv file in: `assets/csvs` and the csvpaths in `assets/csvpaths`. You _can_ put these files anywhere within the project, really, because we are going to use CsvPath's CLI to import them, but for now, still with those directories. Put the JSON file in the project root directory; again, it _could_ go anywhere you like within the project.
 
@@ -170,7 +170,7 @@ In this example `lunch-menu` starts a new metadata field because it has a colon.
 
 Metadata goes in external comments. An external comment is one that is outside the csvpath; above it or below.&#x20;
 
-Here are the possible directives with possible values and/or examples. You can [learn more about CKAN directives here](../../topics/how-tos/ckan.md).
+Here are the possible directives with possible values and/or examples. You can [learn more about CKAN directives here](../../topics/how-tos/sending-results-to-ckan.md).
 
 * `ckan-publish`: `always` | `on-valid` | `on-all-valid` | `never`&#x20;
 * `ckan-group`: `use-archive` | `use-named-results` | any alphanum string&#x20;
@@ -188,7 +188,7 @@ Here are the possible directives with possible values and/or examples. You can [
 * `ckan-errors-title`: e.g. `Orders`&#x20;
 * `ckan-split-printouts`: `split` | `no-split`
 
-Yes, that's a lot! You won't use them all, and very likely you will come to appreciate the flexibility. When you are first getting started you may want to have the [docs page](../../topics/how-tos/ckan.md) at hand.
+Yes, that's a lot! You won't use them all, and very likely you will come to appreciate the flexibility. When you are first getting started you may want to have the [docs page](../../topics/how-tos/sending-results-to-ckan.md) at hand.
 
 Here's how we updated the `sku_upc.csvpath` file with CKAN directives. You don't have to use all of these, but it doesn't hurt to try them.
 

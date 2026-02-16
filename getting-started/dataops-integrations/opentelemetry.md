@@ -2,9 +2,9 @@
 description: Observability for the masses
 ---
 
-# Getting Started with CsvPath + OpenTelemetry
+# OpenTelemetry
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-01-15 at 7.05.30 PM.png" alt="" width="375"><figcaption><p>CsvPath in Grafana</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-01-15 at 7.05.30 PM.png" alt="" width="375"><figcaption><p>CsvPath in Grafana</p></figcaption></figure>
 
 DataOps success demands a good understanding of what is happening on multiple levels moment-to-moment. You can't agile what you don't observe.&#x20;
 
@@ -12,7 +12,7 @@ OpenTelemetry is the standard way to collect indicators from systems into an obs
 
 Getting started with CsvPath + OpenTelemetry is drop-dead easy. Easier even than the other CsvPaths integrations, which are all pretty lightweight themselves. Here's what you do:&#x20;
 
-<figure><img src="../.gitbook/assets/otlp-config.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/otlp-config.png" alt=""><figcaption></figcaption></figure>
 
 1. Update to the latest point release
 2. Open `config/config.ini` and add otlp to the `[listeners] groups` list
@@ -28,7 +28,7 @@ otlp.results = from csvpath.managers.integrations.otlp.otlp_results_listener imp
 
 The env vars values are vender specific. Here's a screenshot of my Grafana Cloud setup. Yours will be similar, but different values. Check your vender's docs.
 
-<figure><img src="../.gitbook/assets/otlp_env_vars.png" alt=""><figcaption><p>OTPL env vars. Don't use these, though! Your observability tool vender will provide your values for your own use</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/otlp_env_vars.png" alt=""><figcaption><p>OTPL env vars. Don't use these, though! Your observability tool vender will provide your values for your own use</p></figcaption></figure>
 
 Once you've done those three things you're done. Run some named-paths groups and see your metrics flowing into your observability tool. Simple!
 

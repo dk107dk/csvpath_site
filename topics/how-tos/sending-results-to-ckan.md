@@ -2,13 +2,13 @@
 description: CsvPath is integrated with CKAN, the leading open source data portal.
 ---
 
-# Sending results to CKAN
+# CKAN
 
 [CKAN](https://ckan.org/showcase) is a portal purpose-built for data discovery and distribution. It is backed by the [Open Knowledge Foundation](https://okfn.org/en/) and used by large-scale data publishers, from the US federal government's [data.gov](https://catalog.data.gov/dataset/) to LEGO.
 
 CKAN is integrated with CsvPath through the event listener mechanism. When named-paths groups run, CKAN is notified and receives content. The integration is standard and requires only two minor changes to `config.ini` to activate.
 
-See this page with [more step-by-step guidance on getting started with CKAN](../../getting-started/integrations/getting-started-with-csvpath-+-ckan.md).&#x20;
+See this page with [more step-by-step guidance on getting started with CKAN](../../getting-started/dataops-integrations/ckan.md).&#x20;
 
 ## Setup the link to CKAN&#x20;
 

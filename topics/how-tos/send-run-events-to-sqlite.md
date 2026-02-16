@@ -2,7 +2,7 @@
 description: Capturing run events to Sqlite can make searching for answers faster
 ---
 
-# Send run events to Sqlite
+# Sqlite
 
 <figure><img src="../../.gitbook/assets/sqlite_logo.jpeg" alt=""><figcaption></figcaption></figure>
 

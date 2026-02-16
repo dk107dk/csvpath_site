@@ -4,7 +4,7 @@ description: >-
   way to integrate systems
 ---
 
-# Call a webhook at the end of a run
+# Webhooks
 
 Your named-paths groups can be configured to call up to four webhooks at the end of a run. You can use this capability to easily trigger workflows that send emails or load webapps or move files, and much more using webhook calls to any of the dozens of automation platforms like Zapier.
 

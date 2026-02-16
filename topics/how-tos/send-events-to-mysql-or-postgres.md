@@ -12,7 +12,7 @@ CsvPath Framework is great for both individual developer users and large groups 
 
 There are three obvious reasons to consider setting up a database for CsvPath Framework:&#x20;
 
-* Querying SQL is much more productive for some purposes, compared to going through the `manifest.json` files. [Sqlite also solves for this locally.](sqlite.md)
+* Querying SQL is much more productive for some purposes, compared to going through the `manifest.json` files. [Sqlite also solves for this locally.](send-run-events-to-sqlite.md)
 * A SQL database is an immutable record of changes; whereas, `manifest.json` files can be overwritten or deleted if the archive and staging areas are not protected
 * In some cases other applications can more easily use SQL to get CsvPath Framework data
 
@@ -28,7 +28,7 @@ Still, in development environments and for some corner cases you might want your
 
 ## Setting up SQL databases
 
-Setting up SQL events is not hard at all. Still, as you can tell, we would only suggest it if the benefit is worth running a server, managing the four tables, and distributing credentials. If you're just in need of better layout of your archive and/or named-paths, obviously that's the even easier and more correct thing to focus on. For most folks, that's all you need. And, if you're just in need of a way to query your results, [a local Sqlite may be a more lightweight solution](sqlite.md). As you can tell, we're all about a low-friction [DX](https://en.wikipedia.org/wiki/User_experience#Developer_experience).
+Setting up SQL events is not hard at all. Still, as you can tell, we would only suggest it if the benefit is worth running a server, managing the four tables, and distributing credentials. If you're just in need of better layout of your archive and/or named-paths, obviously that's the even easier and more correct thing to focus on. For most folks, that's all you need. And, if you're just in need of a way to query your results, [a local Sqlite may be a more lightweight solution](send-run-events-to-sqlite.md). As you can tell, we're all about a low-friction [DX](https://en.wikipedia.org/wiki/User_experience#Developer_experience).
 
 Regardless, to configure for SQL what you need is:
 

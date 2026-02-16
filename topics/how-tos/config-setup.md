@@ -5,7 +5,7 @@ description: >-
   test harness file and run it.
 ---
 
-# Config Setup
+# config.ini
 
 ```
 from csvpath import CsvPath

@@ -2,7 +2,7 @@
 description: An example of using a simple automation tool to feed data to CsvPath
 ---
 
-# Run CsvPath on Jenkins
+# Jenkins
 
 We run eight nightly builds testing CsvPath Framework with different storage backend and OS combinations using Jenkins. It occured to me that since using Jenkins is a good tool for automated CsvPath preboarding, our simple use case might make a good how-to.
 

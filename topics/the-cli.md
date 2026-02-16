@@ -135,7 +135,7 @@ A rewind/replay uses references, rather than just a named-file name and/or a nam
 * For data: `$named-results-name.results.run-datetime.csvpath-identity`&#x20;
 * For csvpaths: `$named-paths-name.csvpaths.csvpath-identity`
 
-There is more to it, of course. You can read about references and rewind/replay [here](how-tos/rewind-replay/replay-using-references.md), [here](how-tos/rewind-replay/doing-rewind-replay-part-1.md), and [here](the_reference_data_types.md) — and there is an example of doing rewind/replay specifically in the CLI [here](how-tos/rewind-replay/doing-rewind-replay-part-2.md), including a video of actually doing it.
+There is more to it, of course. You can read about references and rewind/replay [here](how-tos/file-references-and-rewind-replay-how-tos/replay-using-references.md), [here](how-tos/file-references-and-rewind-replay-how-tos/doing-rewind-replay-part-1.md), and [here](the_reference_data_types.md) — and there is an example of doing rewind/replay specifically in the CLI [here](how-tos/file-references-and-rewind-replay-how-tos/doing-rewind-replay-part-2.md), including a video of actually doing it.
 
 In the CLI, running a rewind/replay is easy. When you select `run` you are presented with a list of named-files. You can type `$` and hit return to switch to building a file reference. (It doesn't matter what named-file the cursor is next to when you hit `$`). Likewise, when you are asked to pick a named-paths name you can hit `$` and return to build a cvspaths reference. In both cases, just follow the CLI prompts.
 
@@ -163,7 +163,7 @@ The config dialog that opens lets you change these settings:
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-02-14 at 1.55.52 PM.png" alt="The debug config dialog"><figcaption></figcaption></figure>
 
-Error messages can be customized in the `[errors] pattern` key of `config/config.ini`. The fields are pretty straightforward. You can [read more here](practical-stuff/working-with-error-messages.md).
+Error messages can be customized in the `[errors] pattern` key of `config/config.ini`. The fields are pretty straightforward. You can [read more here](how-tos/working-with-error-messages.md).
 
 ## List functions
 
