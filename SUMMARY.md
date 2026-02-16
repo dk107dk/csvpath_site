@@ -142,6 +142,7 @@
 * [Namespacing With the Archive](topics/namespacing-with-the-archive.md)
 * [Glossary](topics/glossary.md)
 * [Release Notes](topics/release-notes.md)
+* [Airflow FlightPath Server Provider](topics/airflow-flightpath-server-provider.md)
 
 ***
 
