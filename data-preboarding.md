@@ -39,7 +39,7 @@ If you are a developer, take a look at the [Quickstart ](getting-started/quickst
 
 <figure><img src=".gitbook/assets/flightpath-logo-1.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Reading about [schemas vs. rules-based validation](topics/validation/schemas-or-rules.md) would be useful. Take a look the [How-tos](topics/how-tos/) and [DataOps integrations](getting-started/integrations/) sections. There is a [cheatsheet](topics/a-csvpath-cheatsheet.md) and [validation language basics](topics/language.md). And there is more information on the[ GitHub site](https://github.com/csvpath/csvpath).
+Reading about [schemas vs. rules-based validation](topics/higher-level-topics/validation/schemas-or-rules.md) would be useful. Take a look the [How-tos](topics/how-tos/) and [DataOps integrations](getting-started/integrations/) sections. There is a [cheatsheet](topics/practical-stuff/a-csvpath-cheatsheet.md) and [validation language basics](topics/practical-stuff/language.md). And there is more information on the[ GitHub site](https://github.com/csvpath/csvpath).
 
 For a higher-level view on the topics of edge governance and data preboarding, try the [atesta analytics  whitepapers](https://www.atestaanalytics.com/downloads). They are CsvPath focused, but speak to the overarching operational and organizational needs.
 

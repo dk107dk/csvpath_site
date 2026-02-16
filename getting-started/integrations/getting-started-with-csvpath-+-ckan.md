@@ -29,7 +29,7 @@ First, a screenshot of CKAN + CsvPath and a word about why are we doing this.
 
 **High quality data is useless unless it is known and accessible to solve high-value problems. Likewise, a high-value data portal connecting consumers to producers is useless if the data produced is untrustworthy.** Most organizations have piles of data. Many organizations have some form of a data lake. Regardless of tooling and investment, most data lakes quickly become a collection of messy, lossy, inexplicable silos. How can the right data get to the data portal in a validated, known-good form for clear presentation to consumers?  CsvPath can help. &#x20;
 
-Data products are an interface to a data operation. One of CsvPath's core use cases is in the automated validation, canonicalization, metadata management, and publishing of data products to data catalogs. It is the filter that guarantees that a known source presents known-good data in an expected form through a durable and explainable process. CsvPath does this by applying the [**Collect, Store, Validate Pattern**](broken-reference) to the challenge of data departure. Collect, Store, Validate centralizes operations, makes processes highly consistent, keeps records in the form of immutable intermediate products and metadata, and verifies that data matches a schema and/or set of business validation rules.&#x20;
+Data products are an interface to a data operation. One of CsvPath's core use cases is in the automated validation, canonicalization, metadata management, and publishing of data products to data catalogs. It is the filter that guarantees that a known source presents known-good data in an expected form through a durable and explainable process. CsvPath does this by applying the [**Collect, Store, Validate Pattern**](/broken/pages/OejPZGOrRCbYG54Vym2l) to the challenge of data departure. Collect, Store, Validate centralizes operations, makes processes highly consistent, keeps records in the form of immutable intermediate products and metadata, and verifies that data matches a schema and/or set of business validation rules.&#x20;
 
 The details of how CsvPath does this are on every page of this site, so here we'll just focus on linking up CsvPath and CKAN. Our goal here is to get CsvPath to post valid data to CKAN. It will look something like this screenshot of files that came from running a named-paths group.
 
@@ -159,7 +159,7 @@ Now CsvPath will send named-group run `results` events to the CKAN integration s
 
 ## Adding CKAN metadata directives
 
-The last part of connecting CKAN and CsvPath is to add instructions for how the events should be handled. The instructions will be in the form of metadata directives, similar to CsvPath's [modes settings](../../topics/the-modes.md). Metadata directives are instructions you put in the external comments of a csvpath. They are special metadata fields that the CKAN integration looks for. Metadata fields are created by keywords followed by colons, like:&#x20;
+The last part of connecting CKAN and CsvPath is to add instructions for how the events should be handled. The instructions will be in the form of metadata directives, similar to CsvPath's [modes settings](../../topics/practical-stuff/the-modes.md). Metadata directives are instructions you put in the external comments of a csvpath. They are special metadata fields that the CKAN integration looks for. Metadata fields are created by keywords followed by colons, like:&#x20;
 
 ```
 description: this is a user defined metadata field named description.

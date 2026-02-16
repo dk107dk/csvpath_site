@@ -4,23 +4,6 @@ description: >-
   CSV and Excel ingestion and data quality checks. Open source. Python.
 cover: .gitbook/assets/Screenshot 2024-08-30 at 7.53.30 AM.png
 coverY: 0
-layout:
-  width: default
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: false
-  description:
-    visible: false
-  tableOfContents:
-    visible: false
-  outline:
-    visible: false
-  pagination:
-    visible: true
-  metadata:
-    visible: false
 ---
 
 # CSV, Excel and JSONL Ingestion
@@ -63,7 +46,7 @@ Why roll your own preboarding? CsvPath Framework is a purpose-built solution you
 
 ### Powerful CSV and Excel Validation
 
-CSV and Excel validation is core to the Framework. **CsvPath Validation Language** is simple, easy to integrate, and flexible enough to handle the unexpected. Inspired by Schematron, XPath, and SQL, CsvPath Validation Language brings powerful data validation to less structured data. [Start here](topics/validation/schemas-or-rules.md).
+CSV and Excel validation is core to the Framework. **CsvPath Validation Language** is simple, easy to integrate, and flexible enough to handle the unexpected. Inspired by Schematron, XPath, and SQL, CsvPath Validation Language brings powerful data validation to less structured data. [Start here](topics/higher-level-topics/validation/schemas-or-rules.md).
 
 Together CsvPath Framework and FlightPath Data can help you build leadership's confidence that your data governance doesn't turn a blind eye to your most unruly data.&#x20;
 

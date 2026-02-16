@@ -18,7 +18,7 @@ You can read about using results and named-paths references in doing rewind/repl
 
 ## The file reference datatype
 
-References have types. You can [read about there here](../../../topics/the_reference_data_types.md). Named-file references look like:&#x20;
+References have types. You can [read about there here](../../practical-stuff/the_reference_data_types.md). Named-file references look like:&#x20;
 
 ```bash
 $new-arrivals.files.yesterday:last

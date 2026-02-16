@@ -1,6 +1,6 @@
 # Storage backend how-tos
 
-[As described here](../../organizing-inbound-data/the-three-data-spaces/), CsvPath Framework stores files in three protected spaces:&#x20;
+[As described here](../../higher-level-topics/organizing-inbound-data/the-three-data-spaces/), CsvPath Framework stores files in three protected spaces:&#x20;
 
 * Source file staging (a.k.a. the named-files area)
 * The csvpaths area (a.k.a. the named-paths area)
