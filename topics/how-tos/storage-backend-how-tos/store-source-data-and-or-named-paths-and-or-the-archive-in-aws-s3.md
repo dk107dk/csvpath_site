@@ -8,8 +8,8 @@ description: CsvPath's three file stores can be local or on S3. Mix and match!
 
 There are three places CsvPath keeps files:&#x20;
 
-* [The archive](../../practical-stuff/namespacing-with-the-archive.md) — the place where results live
-* [Inputs](../../higher-level-topics/data-validation-files-and-storage/named_files_and_paths.md):
+* [The archive](../../namespacing-with-the-archive.md) — the place where results live
+* [Inputs](../../data-validation-files-and-storage/named_files_and_paths.md):
   * Named files — all the source Excel and CSV data files
   * Named paths — your named groups of csvpaths
 
@@ -20,7 +20,7 @@ Each of these can be independently placed. By default Archive is the folder at `
 
 All of these locations and names can be changed. Keep in mind that the Archive takes its name from the last part of its path. That means that if you put your archive at `./this/is/my/stuff` your archive will be named `stuff`. In most cases that doesn't matter, but when we're tying into other systems, such as the CKAN or Marquez integrations, the archive name is meaningful.
 
-How do you set up the three file storage locations? Easy, just change [your settings](../config-setup.md). There are three settings in `config.ini`. By default config.ini is in `./config/config.ini`. The settings you need are in the `[results]` and `[inputs]` sections. Archive is set under `[results]` with the archive key. Named-files and named-paths are set under `[inputs]` using the `files` and `csvpaths` keys, respectively.
+How do you set up the three file storage locations? Easy, just change [your settings](../config.ini.md). There are three settings in `config.ini`. By default config.ini is in `./config/config.ini`. The settings you need are in the `[results]` and `[inputs]` sections. Archive is set under `[results]` with the archive key. Named-files and named-paths are set under `[inputs]` using the `files` and `csvpaths` keys, respectively.
 
 <figure><img src="../../../.gitbook/assets/files-settings.png" alt="" width="375"><figcaption></figcaption></figure>
 

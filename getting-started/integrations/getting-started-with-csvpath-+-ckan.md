@@ -159,7 +159,7 @@ Now CsvPath will send named-group run `results` events to the CKAN integration s
 
 ## Adding CKAN metadata directives
 
-The last part of connecting CKAN and CsvPath is to add instructions for how the events should be handled. The instructions will be in the form of metadata directives, similar to CsvPath's [modes settings](../../topics/practical-stuff/the-modes.md). Metadata directives are instructions you put in the external comments of a csvpath. They are special metadata fields that the CKAN integration looks for. Metadata fields are created by keywords followed by colons, like:&#x20;
+The last part of connecting CKAN and CsvPath is to add instructions for how the events should be handled. The instructions will be in the form of metadata directives, similar to CsvPath's [modes settings](../../topics/the-modes.md). Metadata directives are instructions you put in the external comments of a csvpath. They are special metadata fields that the CKAN integration looks for. Metadata fields are created by keywords followed by colons, like:&#x20;
 
 ```
 description: this is a user defined metadata field named description.
@@ -170,7 +170,7 @@ In this example `lunch-menu` starts a new metadata field because it has a colon.
 
 Metadata goes in external comments. An external comment is one that is outside the csvpath; above it or below.&#x20;
 
-Here are the possible directives with possible values and/or examples. You can [learn more about CKAN directives here](../../topics/how-tos/sending-results-to-ckan.md).
+Here are the possible directives with possible values and/or examples. You can [learn more about CKAN directives here](../../topics/how-tos/ckan.md).
 
 * `ckan-publish`: `always` | `on-valid` | `on-all-valid` | `never`&#x20;
 * `ckan-group`: `use-archive` | `use-named-results` | any alphanum string&#x20;
@@ -188,7 +188,7 @@ Here are the possible directives with possible values and/or examples. You can [
 * `ckan-errors-title`: e.g. `Orders`&#x20;
 * `ckan-split-printouts`: `split` | `no-split`
 
-Yes, that's a lot! You won't use them all, and very likely you will come to appreciate the flexibility. When you are first getting started you may want to have the [docs page](../../topics/how-tos/sending-results-to-ckan.md) at hand.
+Yes, that's a lot! You won't use them all, and very likely you will come to appreciate the flexibility. When you are first getting started you may want to have the [docs page](../../topics/how-tos/ckan.md) at hand.
 
 Here's how we updated the `sku_upc.csvpath` file with CKAN directives. You don't have to use all of these, but it doesn't hurt to try them.
 

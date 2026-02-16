@@ -139,7 +139,7 @@ There is a good amount of metadata in meta.json. If you open that file you shoul
 
 <figure><img src="../../.gitbook/assets/first-example-meta-json.png" alt=""><figcaption></figcaption></figure>
 
-On line 16 you can see what file we used. It is the one you imported earlier. You can [learn more about how the CsvPath Library manages files here](../../topics/higher-level-topics/data-validation-files-and-storage/file-management.md). And read this page for more information about [named-paths group validation results](../../topics/higher-level-topics/data-validation-files-and-storage/where-do-i-find-results.md).
+On line 16 you can see what file we used. It is the one you imported earlier. You can [learn more about how the CsvPath Library manages files here](../../topics/data-validation-files-and-storage/file-management.md). And read this page for more information about [named-paths group validation results](../../topics/data-validation-files-and-storage/where-do-i-find-results.md).
 
 And that's it. Your first validation. Simplified and no Python code involved. Not bad!
 

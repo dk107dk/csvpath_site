@@ -11,7 +11,7 @@ In this example, you will see more functions, headers, qualifiers, and reference
 * [Functions](https://github.com/dk107dk/csvpath/blob/main/docs/functions.md), including the list of all built-in functions
 * [Qualifiers](https://github.com/dk107dk/csvpath/blob/main/docs/qualifiers.md)
 * [Headers](https://github.com/dk107dk/csvpath/blob/main/docs/headers.md)
-* [References](https://github.com/dk107dk/csvpath/blob/main/docs/references.md) and [the reference data types](../../practical-stuff/the_reference_data_types.md)
+* [References](https://github.com/dk107dk/csvpath/blob/main/docs/references.md) and [the reference data types](../../the_reference_data_types.md)
 
 And, for a general overview of the match components, [start here](https://github.com/dk107dk/csvpath/tree/main?tab=readme-ov-file#components).
 
@@ -76,7 +76,7 @@ Variables are new; we haven't seen them in the previous examples. Everytime you 
 * Runtime stats
 * Variables
 
-You can [read about these types of data here](../../practical-stuff/the_reference_data_types.md). Variables are like session variables in web development. They come in three flavors:&#x20;
+You can [read about these types of data here](../../the_reference_data_types.md). Variables are like session variables in web development. They come in three flavors:&#x20;
 
 * Strings or numbers
 * Dictionaries of named "tracking values"
