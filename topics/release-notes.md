@@ -4,6 +4,29 @@ description: High-level descriptions of point releases
 
 # Release Notes
 
+### 0.0.598 - 11 March 2026
+
+#### Major changes
+
+* Support CsvPath-to-Parquet schemas and Parquet file output
+* Addition of a `definition.json` and `README.md` to named-files
+* Added a configuration to automatically trigger runs on file registration
+* Added a configuration to automatically use a default named-file path template for registrations
+* Update to both `transfer-mode` and the SFTP integration to allow sending any/all files generated in a run
+* Fix for a problem where delimiter and quotechar choices were not being applied to output files
+* Substantially improved validation error reporting, including:&#x20;
+  * Deduplication of similar errors
+  * Improved descriptions
+  * Providing more complete error information
+  * Improving ID chains to better identify error sources within csvpaths
+* Fix for a problem where CsvPaths run methods would act on only the first file returned by a reference, rather than all results found by the reference.
+* Eight function improvements including the following new functions:&#x20;
+  * **`parquet()`** - a specialization of line() that uses its schema to create a parquet file of all matching data
+  * **`sort()`** a stack var
+  * **`slice()`** a stack var
+  * **`percent_matching(header, value|stack)`**
+  * **matches()** - the same capability to indicate matching lines as the `onmatch` qualifier, but in the form of a function suitable for use cases where a function test is needed
+
 ### Winter 2025-2026 FlightPath - v1.1.87
 
 * Comprises: CsvPath 0.0.591, FlightPath Server 0.1.27, FlightPath Data 0.1.28&#x20;
