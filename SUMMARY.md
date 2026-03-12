@@ -74,6 +74,7 @@
   * [Airflow](topics/how-tos/airflow.md)
   * [Slack](topics/how-tos/setup-notifications-to-slack.md)
   * [Scripts](topics/how-tos/execute-a-script-at-the-end-of-a-run.md)
+  * [File Arrival Activation](topics/how-tos/file-arrival-activation.md)
   * [Rewind / Replay](topics/how-tos/file-references-and-rewind-replay-how-tos/README.md)
     * [Replay Using References](topics/how-tos/file-references-and-rewind-replay-how-tos/replay-using-references.md)
     * [Doing rewind / replay, part 1](topics/how-tos/file-references-and-rewind-replay-how-tos/doing-rewind-replay-part-1.md)
