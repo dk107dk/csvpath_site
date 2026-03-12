@@ -8,7 +8,7 @@ description: High-level descriptions of point releases
 
 #### Major changes
 
-* Support CsvPath-to-Parquet schemas and Parquet file output
+* Support CsvPath-to-Parquet schemas and [Parquet file output](how-tos/parquet.md)
 * Addition of a `definition.json` and `README.md` to named-files
 * Added a configuration to automatically trigger runs on file registration
 * Added a configuration to automatically use a default named-file path template for registrations
