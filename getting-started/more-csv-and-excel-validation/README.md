@@ -2,14 +2,14 @@
 description: Preboarding without validation is like pizza without cheese
 ---
 
-# Csv and Excel Validation
+# More CSV and Excel Validation
 
-CsvPath Framework includes a robust delimited data validation framework that makes validating CSV, Excel, data frames, and other tabular formats a snap. The CsvPath Validation Language:
+CsvPath Framework includes a robust delimited data validation framework that makes validating CSV, Excel, JSONL, data frames, and other tabular formats a snap. The CsvPath Validation Language:
 
 * Is declarative
 * Provides powerful rules-based validation
 * Provides schema-based validation&#x20;
-* Has over 150 validation functions and allows user-defined custom functions
+* Has over 200 validation functions and allows user-defined custom functions
 * Supports data upgrading and canonicalization
 * Streams data to handle large files
 * Provides metadata, variables, reporting, and error handling options
