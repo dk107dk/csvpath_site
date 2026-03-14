@@ -1,13 +1,25 @@
-# File system transfers
+---
+description: Exporting files from CsvPath Framework runs to other filesystem locations
+---
 
-Files in the Archive are intended to stay put until they age out or are otherwise administratively handled. A csvpath writer or DataOps engineer shouldn't be expecting to move files from the Archive to somewhere else. There are two main ways to handle this expectation:
+# File System Transfers
 
-* Copy files from the Archive using some automation, leaving the originals in place
-* Use CsvPath's transfer function to direct a copy of a data file to an external location&#x20;
+{% hint style="info" %}
+As of 0.0.598, transfer-mode can export any of the run results files. Previously it only handled `data.csv` and `unmatched.csv`. Now you can transfer _(i.e. copy)_ your `printouts.txt`, `errors.json`, `.parquet` files, and any of the other data and metadata created.
+{% endhint %}
 
-&#x20;Both approaches are fine, of course. This how-to is about the second one.&#x20;
+Files in the Archive are intended to stay put until they age out or are otherwise administratively handled. A csvpath writer or DataOps engineer shouldn't be expecting to move files from the Archive to somewhere else — the Archive is immutable.&#x20;
 
-A transfer copies a `data.csv` or `unmatched.csv` to a dynamically chosen location. These are the only files you can transfer. When you transfer a file you are copying the contents to another location, not moving it. The original file always stays where it is created in the run.
+Nevertheless, the need is common. There are four ways to get your run outputs to a certain location:
+
+* Copy files from the Archive using some automation, leaving the originals in place — this might mean configuring your named-paths group to run scripts or call external webhooks
+* Use CsvPath's transfer function, `transfer-mode`, to direct a copy of a data file to an external location&#x20;
+* Change your archive backend and/or use templates to land the data in the right place in the right system
+* Use the SFTP integration to export _(again, meaning copy)_ the files by SFTP
+
+&#x20;Any of these approaches is fine, of course. This how-to is about the second one: `transfer-mode`.&#x20;
+
+A transfer copies a `data.csv` or `unmatched.csv` or another run-generated artifact to a dynamically chosen location. When you transfer a file you are copying the contents to another location, not moving it. The original file always stays where it is created in the run.
 
 The way you do a transfer involves [setting a mode](../the-modes.md): `transfer-mode`. That's right, you set up transfers on a csvpath-by-csvpath basis. Transfer mode is like any of the modes. It is set in an external comment. An external comment is a comment that is above or below the csvpath, not within the match part of the path. Setting transfer mode looks like:
 
@@ -61,8 +73,7 @@ Files that are transferred can append an existing file. This can be useful if yo
 
 Let me sum up a few things to remember about `tranfer-mode`:
 
-* It is a mode set in an external comment as `transfer-mode:`
-* Transfer mode only handles `data.csv` and `unmatched.csv` — the data files — not any of the other printouts, errors, metadata, etc. files
+* It is a mode set in an external comment as `transfer-mode:`&#x20;
 * Transfer mode copies content to another file, it doesn't move the original
 * The copy goes to a file under the transfer directory pointed to by the `transfers` key in `config/config.ini`
 * Transfer mode supports all the storage backends &#x20;
