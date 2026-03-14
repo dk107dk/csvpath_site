@@ -35,7 +35,7 @@ When we apply this version of our schema to our data file, any lines that match 
 ```
 ~ id: person ~
 $[*][
-   line.person(
+   parquet.person(
       string.firstname(#0),
       string.lastname.notnone(#1)
    )]
