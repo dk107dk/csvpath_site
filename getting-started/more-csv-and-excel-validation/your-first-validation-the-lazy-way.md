@@ -7,7 +7,7 @@ description: Start here if you want a code-free introduction!
 {% hint style="info" %}
 This example uses the built-in CLI. The CLI is so 2025. For a more powerful, yet even easier, experience, try the [**FlightPath Data** app](https://www.flightpathdata.com/).&#x20;
 
-FlightPath Data is a free and open cross-platform operations and development tool that makes getting started with CsvPath Framework easy. It is bundled with **FlightPath Server**, a no-code/low-code integration API.&#x20;
+FlightPath Data is a free and open cross-platform operations and development tool that makes getting started with CsvPath Framework easy. It is bundled with **FlightPath Server**, a no-code/low-code integration and automation API.&#x20;
 
 You can read more about [FlightPath Data here](https://www.flightpathdata.com/flightpath.html) and [here](../get-the-flightpath-app/preview-the-flightpath-examples/). Or just download it from [Microsoft](https://apps.microsoft.com/detail/9P9PBPKZ4JDF) or [Apple](https://apps.apple.com/us/app/flightpath-data/id6745823097?mt=12) and read the in-context help and examples.&#x20;
 {% endhint %}
