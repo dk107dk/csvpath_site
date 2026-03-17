@@ -14,11 +14,11 @@ coverY: 0
 
 <h2 align="center">Automate CSV, Excel, and JSONL Data Preboarding </h2>
 
-<h3 align="center">End Manual Validation • Automate File Feed Ingestion</h3>
+<h3 align="center">End Manual File-by-file Validation!</h3>
 
 #### CsvPath Framework registers, versions, validates, upgrades, and stages CSV, Excel, and JSONL files from data partners before they break your pipelines.
 
-[CsvPath Framework](https://github.com/csvpath/csvpath) is an open source data quality shift-left. It enables you to control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using a data preboarding pattern [you can try in minutes](/broken/pages/Zvukm7MAGL6ooitMTmpY).  &#x20;
+[CsvPath Framework](https://github.com/csvpath/csvpath) is open source data quality. Shift-left. Control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using consistent data preboarding [you can try in minutes](/broken/pages/Zvukm7MAGL6ooitMTmpY).  &#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
 
