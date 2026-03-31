@@ -4,6 +4,12 @@ description: High-level descriptions of point releases
 
 # Release Notes
 
+### 0.0.599 - 31 March 2026
+
+* Config variables are parsed for braces-bracketed substitution text. A OS or env.json variable in the form `"This is {who} variable"` will be rendered as `"This is my variable"` if there is another variable `who` with the value `"my"`.
+* `transfer-mode` configuration also follows the braces-bracketed interpolation on the transfer-to path, enabling destinations like `sftp://{SFTP_SERVER}:{SFTP_PORT}/my/destination`.&#x20;
+* The new `sql_in()` function is a SQL column analog to the existing `in()` function. `sql_in()` enables live or cached presence tests against a column from a table in Postgres, MySQL, or Sqlite.
+
 ### 0.0.598 - 11 March 2026
 
 #### Major changes
