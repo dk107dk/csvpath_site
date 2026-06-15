@@ -4,7 +4,7 @@ description: High-level descriptions of CsvPath Framework and FlightPath Data re
 
 # Release Notes
 
-### 0.0.612 - 11 June 2026
+### 0.0.612 - 14 June 2026
 
 * Generate multiple printout files by printer name using `print-mode:separate`&#x20;
 * Transfers improvements encapsulated in the named-paths definition.json descriptor (csvpath statement `transfer-mode:` directives continue to exist as a simpler option):
