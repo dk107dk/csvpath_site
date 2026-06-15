@@ -1,5 +1,5 @@
 ---
-description: High-level descriptions of point releases
+description: High-level descriptions of CsvPath Framework and FlightPath Data releases
 ---
 
 # Release Notes
