@@ -41,6 +41,47 @@ description: High-level descriptions of point releases
   * `named-paths`
   * `named-file`<br>
 
+### Spring 2026 FlightPath - v1.1.88
+
+#### **AI-Assisted Authoring**
+
+FlightPath’s sidebar AI assistant helps developers and BizOps team members with four core authoring tasks:
+
+* **Generate validations from requirements**: describe a data contract in plain language and get a working CsvPath script as a starting point
+* **Explain validation scripts**: Get a complete plain-English rule-by-rule walkthrough of what an existing script does
+* **Create test data**: Generate sample files that exercise your validation logic before real data arrives
+* **Refactor validation scripts**: Clean up, reorganize, or modernize existing CsvPath code without rewriting from scratch
+
+#### **Autonomous workflows**
+
+Three new operational capabilities reduce manual intervention in day-to-day data operations:
+
+* **Arrival activations**: Automatically trigger runs when data files arrive — no scheduling, no polling, no manual handoff
+* **Async job control**: Full visibility into running jobs: status, metrics, and results accessible at any point, with clean access to results when a run completes
+* **No-code webhooks**: Fire automatically based on run outcome criteria, keeping downstream consumers, monitoring tools, and notification systems informed without anyone in the middle. The original webhooks integration can still be used csvpath-statement-by-csvpath-statement, using both capabilities at the same time is fine.
+
+#### Config variable interpolation
+
+Variable swapping support is significantly expanded. Projects can use OS-level or project-specific environment variables interchangeably. Config values written in ALL CAPS are automatically resolved against the environment. Config values can contain {...} replacement tokens that pull from OS or project environment variables. Resolved values can themselves can point to further environment variables, keeping credentials separated from runtime configuration.
+
+#### Registration path templates
+
+Templates can now be set as a default directly in the named-file definition. Previously, the same template had to be passed explicitly on every registration.
+
+#### Post-Run transfers&#x20;
+
+Transfers now support all files generated during a run, not just the primary output. Transfers work across all configured storage backends.
+
+#### Parquet output generation&#x20;
+
+Parquet output is based on a data schema defined using the `parquet()` function. `parquet()` is like <sub>`line()`</sub>, FlightPath’s structural schema function. Multiple `parquet()` functions can be active simultaneously, each generating its own Parquet file. This makes it possible to decompose a flat CSV into separate relational entities in a single pass.
+
+#### Other improvements
+
+* 10 new analytical and transformation functions
+* Grid View for run metadata
+* Default Markdown documentation Files generated in named-paths groups and named-files
+
 ### 0.0.599 - 31 March 2026
 
 * Config variables are parsed for braces-bracketed substitution text. A OS or env.json variable in the form `"This is {who} variable"` will be rendered as `"This is my variable"` if there is another variable `who` with the value `"my"`.
