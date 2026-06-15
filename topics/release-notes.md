@@ -4,6 +4,43 @@ description: High-level descriptions of point releases
 
 # Release Notes
 
+### 0.0.612 - 11 June 2026
+
+* Generate multiple printout files by printer name using `print-mode:separate`&#x20;
+* Transfers improvements encapsulated in the named-paths definition.json descriptor (csvpath statement `transfer-mode:` directives continue to exist as a simpler option):
+  * Multiple transfers per csvpath statement
+  * Transfers within csvpaths grouped by run state: all runs, valid, invalid, and runs with errors
+  * Ability to transfer original source file, as well as any result file
+  * Transfers can be sent to any backend
+  * Multiple transfers-only SFTP servers can be configured, allowing you to use SFTP destinations that are not configured as a CsvPath Framework project backend
+  * All files in the results directory can be transferred, including the new arbitrarily named printouts files that can be created by print(), error(), and jinja() using `print-mode:separate`
+* Registration of all files in a directory can be filtered by a regex
+* SFTP improvements:
+  * Multiple SFTP source locations can be configured on a named file. This allows registering from SFTP servers that are not acting as the project's backend.
+  * Multiple SFTP destination locations can be configured on a named-paths group. This allows SFTP transfers to go to SFTP servers that are not acting as the project's backend.
+* New functions:&#x20;
+  * `runtime()` — provides access to the runtime variables already available to `print()`, `error()`, and `jinja()`
+  * `metadata()` — provides access to the user defined metadata fields in a csvpath statement's leading comment, as well as modes configurations
+  * `env()` — provides access to the environment variables available to the project; either OS env variables or the variables in the project's env.json.
+  * `uuid()` — a schema type for line() schemas that also generates UUIDs to populate variables
+  * `select()` — selects a column of data from a SQL database into a stack variable&#x20;
+* New `.tmp` qualifier to limit the data stored permanently in `vars.json` at the end of a run
+* Date-time tokens in templates:
+  * `:day`
+  * `:month`
+  * `:month_name`&#x20;
+  * `:year`&#x20;
+  * `:hour_24`&#x20;
+  * `:hour`
+  * `:minute`&#x20;
+  * `:second`
+* Additional fields in runtime metadata (print(), error(), jinja() and captured to meta.json):&#x20;
+  * The datetime fields: `day`, `day_of_week`, `month`, `month_of_year`, `hour`, `hour_of_day`, `minute`, `second`
+  * `run_dir`
+  * The run's `reference`
+  * `named-paths`
+  * `named-file`<br>
+
 ### 0.0.599 - 31 March 2026
 
 * Config variables are parsed for braces-bracketed substitution text. A OS or env.json variable in the form `"This is {who} variable"` will be rendered as `"This is my variable"` if there is another variable `who` with the value `"my"`.
