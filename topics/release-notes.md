@@ -4,7 +4,7 @@ description: High-level descriptions of CsvPath Framework and FlightPath Data re
 
 # Release Notes
 
-### 0.0.612 - 14 June 2026
+### 0.0.614 - 17 June 2026
 
 * Generate multiple printout files by printer name using `print-mode:separate`&#x20;
 * Transfers improvements encapsulated in the named-paths definition.json descriptor (csvpath statement `transfer-mode:` directives continue to exist as a simpler option):
@@ -18,6 +18,8 @@ description: High-level descriptions of CsvPath Framework and FlightPath Data re
 * SFTP improvements:
   * Multiple SFTP source locations can be configured on a named file. This allows registering from SFTP servers that are not acting as the project's backend.
   * Multiple SFTP destination locations can be configured on a named-paths group. This allows SFTP transfers to go to SFTP servers that are not acting as the project's backend.
+* Pass UUID into file registrations to enable retrieving the exact-match named-file reference when registering asynchronously
+* Pass arbitrary metadata into run. Metadata is a `dict[str,str]` and stored in: `<run_dir>/_extra_data/extra.json` . This capability allows run lookup by inspecting metadata, and also creates a space available for integration listeners' use.
 * New functions:&#x20;
   * `runtime()` — provides access to the runtime variables already available to `print()`, `error()`, and `jinja()`
   * `metadata()` — provides access to the user defined metadata fields in a csvpath statement's leading comment, as well as modes configurations
