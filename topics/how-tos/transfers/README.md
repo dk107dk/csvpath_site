@@ -110,7 +110,7 @@ Transfer paths are the same as the paths you use to configure backends. I.e. you
 
 S3, Azure, and GCS rely on your backend-configured accounts.&#x20;
 
-SFTP is more interesting. As usual, we match on the server address and port configured in the Config > Integrations > SFTP form. But if we don't have a match there, we look in the named-paths group's definition.json for any SFTP servers that are configured there specifically for transfers. To set those up, right-click your named-paths group and select `Set SFTP sources`.&#x20;
+SFTP is more interesting. As usual, we match on the server address and port configured in the Config > Integrations > SFTP form in FlightPath Data or `[sftp]` in `config.ini`. But if we don't have a match there, we look in the named-paths group's definition.json for any SFTP servers that are configured there specifically for transfers. To set those up, right-click your named-paths group and select `Set SFTP sources`.&#x20;
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2026-07-16 at 3.33.30 PM.png" alt="" width="292"><figcaption></figcaption></figure>
 

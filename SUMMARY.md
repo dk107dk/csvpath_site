@@ -85,6 +85,7 @@
     * [SFTP Export](topics/how-tos/sftp/sftp-export.md)
     * [SFTPPlus](topics/how-tos/sftp/sftpplus/README.md)
       * [SFTPPlus Implementation Checklist](topics/how-tos/sftp/sftpplus/sftpplus-implementation-checklist.md)
+    * [Registering Files From SFTP](topics/how-tos/sftp/registering-files-from-sftp.md)
   * [CKAN](topics/how-tos/ckan/README.md)
     * [CKAN CsvPath Setup](topics/how-tos/ckan/ckan-csvpath-setup.md)
   * [Jenkins](topics/how-tos/run-csvpath-on-jenkins.md)
