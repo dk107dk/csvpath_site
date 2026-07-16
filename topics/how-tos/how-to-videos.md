@@ -6,7 +6,7 @@ hidden: true
 
 <figure><img src="../../.gitbook/assets/logo-wordmark-black-trimmed.png" alt="" width="293"><figcaption></figcaption></figure>
 
-There is a small but growing collection of very short how-to videos on Atesta's YouTube. Simple, practical stuff. Take a look.
+There is a small but growing collection of very short how-to videos on Atesta's YouTube. Simple, practical stuff. The videos are focused on FlightPath Data. But they are also great illustrations and how-tos for CsvPath Framework itself. Take a look.&#x20;
 
 {% embed url="https://www.youtube.com/@atesta-analytics" %}
 
