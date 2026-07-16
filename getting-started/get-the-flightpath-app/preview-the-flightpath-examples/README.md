@@ -2,6 +2,24 @@
 description: >-
   The built-in examples that ship with FlightPath Data to help you start
   processing your CSV/Excel files fast.
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
 ---
 
 # The FlightPath Data Examples

@@ -4,7 +4,60 @@ description: High-level descriptions of CsvPath Framework and FlightPath Data re
 
 # Release Notes
 
-### 0.0.614 - 17 June 2026
+### Summer 2026 FlightPath - v1.1.89
+
+#### Transfers and Multiple SFTP servers
+
+* Transfers can now be defined on a named-paths group (the old csvpath-by-csvpath method continues to be available) using a form
+  * Csvpath statements can have any number of transfers triggered by csvpath end-state: valid, invalid, errors, all
+  * All files can be transferred, including named printouts, `jinja()` output, and parquet files
+  * Source data (from named-files) can be transferred, even though it is not a run result
+  * Transfers can be sent to any location in S3, SFTP, Azure Blob, or Google Cloud Storage
+* Any number of SFTP servers can be added to named-files and named-paths definitions for import registrations and results transfers, respectively, using a form
+
+#### FlightPath Server v2
+
+* HTTP methods, error codes, and endpoints follow REST conventions
+* Asynchronous end points for file registration and named-paths group runs
+* Improvements to admin endpoints and API version support settable in server config
+
+#### Improvements
+
+* Viewing and editing XLSX worksheets is supported with a right-click to select. Edited worksheets must be saved as individual CSV files.
+* The Find Data Dialog displays registration or run date-times with the paths of the files found
+* Generate multiple printout files by printer name using `print-mode:separate`&#x20;
+* When registering files in a directory, files can be selected by a regex
+* Ability to pass UUIDs into file registrations to enable retrieving the exact-match named-file reference when registering asynchronously
+* Pass arbitrary metadata into run to be stored with run results
+* `tmp` qualifier to limit the data stored in `vars.json`
+
+#### New Functions, Tokens, and Fields
+
+* New functions:
+  * `runtime()` — accesses runtime variables already available to print(), error(), and jinja()
+  * `metadata()` — accesses user-defined csvpath metadata fields
+  * `env()` — accesses environment variables available to the project, env.json or OS
+  * `uuid()` — schema type for line() schemas&#x20;
+  * `select()` — selects a column of data from a SQL database
+* Date-time tokens in registration and run templates:
+  * `:day`&#x20;
+  * `:month` and `:month_name`
+  * `:year`
+  * `:hour_24` and `:hour`
+  * `:minute`&#x20;
+  * `:second`
+* Additional fields available in runtime metadata, `meta.json`, `print()`, etc.:
+  * `day`, `day_of_week`, `month`, `month_of_year`, `hour`, `hour_of_day`, `minute`, `second`
+  * `run_dir` and the run's `reference`
+  * `named-paths` and `named-file`&#x20;
+
+Other Changes:
+
+* Bug fixes and minor enhancements
+* More than 1000 new unit and integration tests
+* Legacy SFTPPlus integration removed in favor of no-code integration using webhooks, transfers, and FlightPath Server. See [https://www.flightpathdata.com/data/videos.html](https://www.flightpathdata.com/data/videos.html) for an SFTPPlus how-to.
+
+### CsvPath Framework 0.0.614 - 17 June 2026
 
 * Generate multiple printout files by printer name using `print-mode:separate`&#x20;
 * Transfers improvements encapsulated in the named-paths definition.json descriptor (csvpath statement `transfer-mode:` directives continue to exist as a simpler option):
@@ -84,13 +137,13 @@ Parquet output is based on a data schema defined using the `parquet()` function.
 * Grid View for run metadata
 * Default Markdown documentation Files generated in named-paths groups and named-files
 
-### 0.0.599 - 31 March 2026
+### CsvPath Framework 0.0.599 - 31 March 2026
 
 * Config variables are parsed for braces-bracketed substitution text. A OS or env.json variable in the form `"This is {who} variable"` will be rendered as `"This is my variable"` if there is another variable `who` with the value `"my"`.
 * `transfer-mode` configuration also follows the braces-bracketed interpolation on the transfer-to path, enabling destinations like `sftp://{SFTP_SERVER}:{SFTP_PORT}/my/destination`.&#x20;
 * The new `sql_in()` function is a SQL column analog to the existing `in()` function. `sql_in()` enables live or cached presence tests against a column from a table in Postgres, MySQL, or Sqlite.
 
-### 0.0.598 - 11 March 2026
+### CsvPath Framework 0.0.598 - 11 March 2026
 
 #### Major changes
 
@@ -129,12 +182,12 @@ Parquet output is based on a data schema defined using the `parquet()` function.
   * Changed to a fixed width font in the printouts tab for better table printouts
   * Many minor fixes and improvements
 
-### **0.0.591 - 25 Jan 2026**
+### CsvPath Framework **0.0.591 - 25 Jan 2026**
 
 * Added `jsonpath()` function using jsonpath-ng
 * Dozens of minor fixes and improvements
 
-### **0.0.581 - 11 Jan 2026**
+### CsvPath Framework **0.0.581 - 11 Jan 2026**
 
 #### **Major changes**
 
@@ -170,7 +223,7 @@ Other functions changes:&#x20;
 
 Added `project` and `project_context` args to the `CsvPath` `__init__` in order to populate logger name fields.
 
-### **0.0.576 - 7 dec 2025**
+### CsvPath Framework **0.0.576 - 7 dec 2025**
 
 #### Major changes
 

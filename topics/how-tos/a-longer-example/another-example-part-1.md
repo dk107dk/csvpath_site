@@ -1,3 +1,24 @@
+---
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+---
+
 # Another Example, Part 1
 
 In the first example we created validation rules for a straightforward file. In this next example we'll take on a harder format, handle more rules, and set ourselves up for production use. Let's dive in!

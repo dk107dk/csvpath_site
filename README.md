@@ -4,6 +4,28 @@ description: >-
   CSV and Excel ingestion and data quality checks. Open source. Python.
 cover: .gitbook/assets/Screenshot 2024-08-30 at 7.53.30 AM.png
 coverY: 0
+layout:
+  width: default
+  cover:
+    visible: true
+    size: full
+    mask: none
+  title:
+    visible: false
+  description:
+    visible: false
+  tableOfContents:
+    visible: false
+  outline:
+    visible: false
+  pagination:
+    visible: true
+  metadata:
+    visible: false
+  tags:
+    visible: true
+  actions:
+    visible: true
 ---
 
 # CSV, Excel and JSONL Ingestion
@@ -18,7 +40,7 @@ coverY: 0
 
 #### CsvPath Framework registers, versions, validates, upgrades, and stages CSV, Excel, and JSONL files from data partners before they break your pipelines.
 
-[CsvPath Framework](https://github.com/csvpath/csvpath) is open source data quality. Shift-left. Control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using consistent data preboarding [you can try in minutes](/broken/pages/Zvukm7MAGL6ooitMTmpY).  &#x20;
+[CsvPath Framework](https://github.com/csvpath/csvpath) is open source data quality. Shift-left. Control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using consistent data preboarding [you can try in minutes](https://app.gitbook.com/s/6wzqgDHj9mZbFxabiEbc/getting-started).  &#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
 
@@ -58,7 +80,7 @@ Together CsvPath Framework and FlightPath Data can help you build leadership's c
 
 ### Give CsvPath Framework a Try
 
-* [Getting Started](/broken/pages/Zvukm7MAGL6ooitMTmpY)
+* [Getting Started](https://app.gitbook.com/s/6wzqgDHj9mZbFxabiEbc/getting-started)
 * [How-tos](topics/how-tos/)
 * [DataOps Integrations](getting-started/integrations/)
 * [The FlightPath Examples](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/)
