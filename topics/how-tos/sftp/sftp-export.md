@@ -2,9 +2,9 @@
 description: Forward your results from CsvPath's archive to an SFTP account
 ---
 
-# SFTP export
+# SFTP Export
 
-<figure><img src="../../.gitbook/assets/sftp.png" alt="" width="100"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/sftp.png" alt="" width="100"><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 This page is about sending files to an SFTP after a run completes. It is not about using SFTP as a storage backend for staging and runs to operate on. You can both use the SFTP backend and export files to an SFTP server at the same time.
@@ -20,12 +20,12 @@ To start sending results by SFTP you simply:
 The process is the same as for the other integrations. You will, of course, also need to have an SFTP account.&#x20;
 
 {% hint style="success" %}
-Sending results by SFTP as this page describes is not the same as using the SFTP backend. You have the option to [configure your archive, named-files, or named-paths storage areas to be in an SFTP server](../data-validation-files-and-storage/storage-backends.md). Doing that applies to all work in your CsvPath Framework project; whereas, sending results files the way this page describes is something you set up for an individual csvpath.
+Sending results by SFTP as this page describes is not the same as using the SFTP backend. You have the option to [configure your archive, named-files, or named-paths storage areas to be in an SFTP server](../../data-validation-files-and-storage/storage-backends.md). Doing that applies to all work in your CsvPath Framework project; whereas, sending results files the way this page describes is something you set up for an individual csvpath.
 {% endhint %}
 
 Here is the `config.ini` change:&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-01-08 at 9.16.41 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-01-08 at 9.16.41 PM.png" alt=""><figcaption></figcaption></figure>
 
 If your project is new and you let `CsvPaths` generate it for you you just need to uncomment the `sftp.results` key and add `sftp` to the `groups` key. If you don't have the `sftp.results` key already, just paste in:
 
@@ -58,7 +58,7 @@ Next the metadata directives:
 
 You can use these in external comments. External comments are ones that are above or below your csvpath, but not within the csvpath. Comments are delimited with the `~`. Obviously some of these values are required. Server, port, user, password, and sftp-files are mandatory.&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-01-10 at 3.34.59 PM.png" alt=""><figcaption><p>Notice the ALL CAPS env references and var|variable dynamic substitutions.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-01-10 at 3.34.59 PM.png" alt=""><figcaption><p>Notice the ALL CAPS env references and var|variable dynamic substitutions.</p></figcaption></figure>
 
 | Setting              | Description                                                                                                                                                                                                                                                                 | Example                                                         |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |

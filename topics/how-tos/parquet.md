@@ -55,7 +55,7 @@ SELECT * FROM parquet_table
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-03-11 at 7.55.22 PM.png" alt="" width="563"><figcaption></figcaption></figure>
 
-You can use as many `parquet()` entities as you like in a csvpath statement. And you can move Parquet files using [`transfer-mode`](../the-modes.md) or the [SFTP integration](sending-results-by-sftp.md), just like any run-generated file.
+You can use as many `parquet()` entities as you like in a csvpath statement. And you can move Parquet files using [`transfer-mode`](../the-modes.md) or the [SFTP integration](sftp/sftp-export.md), just like any run-generated file.
 
 As said above, the data captured is more specific than what is collected into data.csv. If you want to capture matching data irrespective of if a line matches, you can use the `nocontrib` qualifier. In this case, `nocontrib` is building a wall between a `parquet()` entity and the contributions of other match components, so that you capture matching data to Parquet, even if it comes from a line that won't get captured to `data.csv`.&#x20;
 

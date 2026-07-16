@@ -34,9 +34,9 @@ Defining transfers at the named-paths group gives you a bit more. There, you can
 
 As usual, remember that a valid run can have errors and an invalid run may have no errors. Errors and validity are separate concepts in CsvPath Framework for good reasons covered elsewhere.
 
-Configuration Is Simple, Really!
+#### The Configuration Is Simple, Really!
 
-While the definition.json file has increasingly many capabilities, and despite transfers being a flexible feature, the configuration is relatively simple. The overall look of the file follows this example:
+While the `definition.json` file has increasingly many capabilities, and despite transfers being a flexible feature, the configuration is relatively simple. The overall look of the file follows this example:
 
 ```json
 {
@@ -117,10 +117,4 @@ SFTP is more interesting. As usual, we match on the server address and port conf
 As with `transfer-mode:`, we use variables, rather than hard-coded paths. This lets the csvpath writer, or the data source, determine where the files land. And that brings us back to the top. Why do we transfer, when we have a versioned, immutable results repository with a REST API access?&#x20;
 
 The main reason to transfer is because most companies have a pre-existing file handling solution. It may not be the ideal solution — else why would you be looking at CsvPath Framework? — but the components of the solution are looking for files in a certain place, so it would be nice if they found them there. Moreover, pushing result files to a mutable working directory location helps further separate CsvPath Framework's Archive from day-to-day file wrangling.
-
-
-
-
-
-
 
