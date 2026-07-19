@@ -96,6 +96,7 @@
     * [Another Example, Part 1](topics/how-tos/a-longer-example/another-example-part-1.md)
     * [Another Example, Part 2](topics/how-tos/a-longer-example/another-example-part-2.md)
   * [How-to videos](topics/how-tos/how-to-videos.md)
+  * [Creating a Custom Listener](topics/how-tos/creating-a-custom-listener.md)
 * [Practical Stuff](topics/practical-stuff/README.md)
   * [Language Basics](topics/language.md)
   * [CsvPath Framework Cheatsheet](topics/practical-stuff/csvpath-framework-cheatsheet.md)
