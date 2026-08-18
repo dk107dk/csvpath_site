@@ -34,13 +34,13 @@ layout:
 
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 
-<h2 align="center">Automate CSV, Excel, NDJSON, and JSONL </h2>
+<h2 align="center">Automate CSV, Excel, and JSONL/NDJSON </h2>
 
 <h3 align="center">End Manual Data Validation</h3>
 
-#### CsvPath Framework data preboarding registers, versions, validates, upgrades, and stages CSV, Excel, and JSONL files from data partners before they break your pipelines.
+#### CsvPath Framework data preboarding registers, versions, validates, upgrades, and stages CSV, Excel, JSONL files and data frames from data partners before they break your pipelines.
 
-[CsvPath Framework](https://github.com/csvpath/csvpath) is the open source way to shift-left data quality. Control data entering the enterprise with **less manual effort, fewer ingestion failures, and more agile development** using consistent data preboarding tools [you can try in minutes](https://app.gitbook.com/s/6wzqgDHj9mZbFxabiEbc/getting-started).  &#x20;
+[CsvPath Framework](https://github.com/csvpath/csvpath) is the open source way to shift-left data quality. Enforce data contracts as data enters the organization with **less manual effort, fewer ingestion failures, and more agile development** using consistent data preboarding tools [you can try in minutes](https://app.gitbook.com/s/6wzqgDHj9mZbFxabiEbc/getting-started).  &#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
 
