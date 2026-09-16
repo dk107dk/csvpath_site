@@ -4,6 +4,14 @@ description: High-level descriptions of CsvPath Framework and FlightPath Data re
 
 # Release Notes
 
+### CsvPath Framework 0.0.61 - 15 September 2026
+
+Adds the ability to run [JSON Schema](https://json-schema.org/) and [XML Schema Definition language](https://en.wikipedia.org/wiki/XML_Schema_\(W3C\)) validation within CsvPath Framework.&#x20;
+
+Outputs are entirely consistent with CsvPath Validation Language. Both ad hoc or programmatic runs using `CsvPath` and `CsvPaths` instances are supported.&#x20;
+
+JSON Schema and XSD are first-class citizens of the Framework. When run through a `CsvPaths` instance, using registered files and named-paths validation groups, all the expected files are generated.&#x20;
+
 ### Summer 2026 FlightPath - v1.1.89
 
 #### Transfers and Multiple SFTP servers
