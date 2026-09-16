@@ -6,7 +6,7 @@ description: Using JSON Schema in CsvPath Framework
 
 <figure><img src="../../.gitbook/assets/json.png" alt="" width="188"><figcaption></figcaption></figure>
 
-JSON documents are everywhere, from FHIR to GeoJSON to Sellers.json. When you need to validate JSON documents you need JSON Schema.&#x20;
+JSON documents are everywhere, from FHIR to GeoJSON to Sellers.json. When you need to validate JSON documents you need [JSON Schema](https://json-schema.org/).&#x20;
 
 {% hint style="info" %}
 _On the other hand, if you have relatively flat JSONL you may want to stick with CsvPath Validation Language — now you have options!_
@@ -31,7 +31,7 @@ Voila, you get the same validation outputs as you would from any CsvPath Framewo
 
 ### A Simple Example
 
-First, the CsvPath Language driver. Only lines 4-6 are actually required.&#x20;
+First, the CsvPath Language driver. **Only lines 4, 5, and 6 are actually required**.&#x20;
 
 Lines 1-3 configure a specific set of actions (or non-actions) to take when errors are found in the data. Here we're going to fail the run on error, print the error message, and suppress exceptions so the run completes without interruption, even if there is an error.
 
@@ -46,6 +46,8 @@ You can do this in [FlightPath Data](https://www.flightpathdata.com/) without an
 Add a simple JSON Schema to verify our file of import/export automobile data meets expectations.
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/Screenshot 2026-09-15 at 6.18.11 PM.png" alt=""><figcaption></figcaption></figure></div>
+
+The JSON Schema is stored in the named-paths group, along with the csvpath driver statement, configuration files, and the README.md.
 
 And here is the result of the run.&#x20;
 
