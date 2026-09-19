@@ -46,7 +46,7 @@ layout:
 
 If your MFT or REST API drives external data directly into the data lake or database the damage is already done.&#x20;
 
-[CsvPath Framework](https://github.com/csvpath/csvpath) is the open source way to shift-left data quality. Enforce data contracts as data enters the organization with **less manual effort, fewer ingestion failures, and more agile development** using consistent data preboarding tools [you can try in minutes](https://app.gitbook.com/s/6wzqgDHj9mZbFxabiEbc/getting-started).  &#x20;
+[CsvPath Framework](https://github.com/csvpath/csvpath) is the open source way to shift-left data quality. Enforce data contracts at the edge with **less manual effort, fewer ingestion failures, and more agile development** using consistent data preboarding tools [you can try in minutes](https://app.gitbook.com/s/6wzqgDHj9mZbFxabiEbc/getting-started).  &#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
 
@@ -58,9 +58,9 @@ If your MFT or REST API drives external data directly into the data lake or data
 
 <figure><img src=".gitbook/assets/flightpath-logo-1-sm.png" alt=""><figcaption></figcaption></figure>
 
-[**FlightPath Data** is a powerful frontend to CsvPath Framework](https://www.flightpathdata.com/). Go beyond CsvPath Framework's built-in CLI. Get up and running faster with a purpose-built preboarding development and operations console. FlightPath Data gives you all the help and examples you need move quickly.&#x20;
+[**FlightPath Data** is a powerful frontend to CsvPath Framework](https://www.flightpathdata.com/). Go beyond CsvPath Framework's built-in CLI. Get up and running faster with a purpose-built data preboarding development and operations console. FlightPath Data gives you all the help and examples you need move quickly.&#x20;
 
-FlightPath Data is bundled with **FlightPath Server**, the no-code/low-code automation REST API connecting your existing infrastructure to data preboarding.&#x20;
+FlightPath Data is bundled with **FlightPath Server**, the no-code/low-code automation REST API connecting your existing infrastructure to robust edge data goveranance.&#x20;
 
 Available as a _free_ download from the [Microsoft Store](https://apps.microsoft.com/detail/9p9pbpkz4jdf?hl=en-US\&gl=US) and the [Apple MacOS Store](https://apps.apple.com/us/app/flightpath-data/id6745823097).
 
@@ -68,27 +68,27 @@ Available as a _free_ download from the [Microsoft Store](https://apps.microsoft
 
 
 
-<h3 align="center">The Architecture For Efficient Data File Feed Ingestion</h3>
+<h3 align="center">The Architecture For Efficient Edge Data Ingestion</h3>
 
-**CsvPath Framework** implements the [**Collect, Store, Validate Publish architectural pattern.** ](https://static1.squarespace.com/static/66df9d47982d0d40e1574327/t/6771fe6f63bbf5361725ad05/1735523953587/The+Collect+Store+Validate+Pattern+-+Atesta+Analytics.pdf) Ingestion goes faster, is more cost-efficient, and more effective with a preboarding stage.&#x20;
+**CsvPath Framework** implements the [**Collect, Store, Validate Publish architectural pattern.** ](https://static1.squarespace.com/static/66df9d47982d0d40e1574327/t/6771fe6f63bbf5361725ad05/1735523953587/The+Collect+Store+Validate+Pattern+-+Atesta+Analytics.pdf) Ingestion goes faster, is more cost-efficient, and more effective with a data preboarding stage.&#x20;
 
 CsvPath Framework was built to fill the blindspot between the edge and downstream data systems with a simple path to provably correct data.
 
-This Data Preboarding blindspot is a big deal. Think about it. If even 1 in 30 companies depends existentially on CSV, JSON, XML, or Excel files or JSON streaming data from external data partners, _**the lack of edge data preboarding is a trillion-dollar problem.**_&#x20;
+This Data Preboarding blindspot is a big deal. Think about it. If even 1 in 30 companies depends existentially on CSV, JSON, XML, or Excel files or JSON streaming data from external data partners, _**the lack of edge data preboarding is a trillion-dollar problem waiting to happen.**_&#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2026-09-19 at 12.52.30 AM.png" alt="A data flow diagram showing how CSV, Excel and other tabular data come into the organization through a preboarding process that acts as a Trusted Publisher to the data lake and applications."><figcaption></figcaption></figure>
 
-Why roll your own preboarding tool chain? CsvPath Framework is a purpose-built off-the-shelf solution you can rollout now.
+Why roll your own data preboarding tool chain? CsvPath Framework is a purpose-built off-the-shelf solution you can rollout now.
 
 
 
 
 
-<h3 align="center">Powerful Tabular Validation</h3>
+<h3 align="center">Powerful Validation For Batch Files and Real-time Data</h3>
 
-CSV, Excel, NDJSON, and JSONL validation has never been as sophisticated as JSONQuery and XSD — until now. **CsvPath Validation Language** is simple, easy to integrate, and flexible enough to handle the unexpected. Inspired by Schematron, XPath, and SQL, CsvPath Validation Language brings powerful data validation to tabular and JSON Lines structured data. [Start here](topics/validation/schemas-or-rules.md).
+CSV, Excel, NDJSON, and JSONL validation has never been as sophisticated as JSONQuery and XSD — until now. **CsvPath Validation Language** is simple, easy to integrate, and flexible enough to handle the unexpected. Inspired by Schematron, XPath, and SQL, CsvPath Validation Language brings powerful data validation to tabular and JSON Lines structured data. Together, JSON Schema, XSD, and CsvPath Validation Language are unstoppable. [Start here](topics/validation/schemas-or-rules.md).
 
-Together CsvPath Framework and FlightPath Data can help you build your organization's confidence that data governance doesn't turn a blind eye to its most unruly data.&#x20;
+Running CsvPath Framework and FlightPath Data can help you build your organization's confidence that your data governance doesn't turn a blind eye to its most unruly data.&#x20;
 
 
 
