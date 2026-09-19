@@ -4,13 +4,29 @@ description: High-level descriptions of CsvPath Framework and FlightPath Data re
 
 # Release Notes
 
-### CsvPath Framework 0.0.61 - 15 September 2026
+### CsvPath Framework 0.0.62 - 18 September 2026
 
-Adds the ability to run [JSON Schema](https://json-schema.org/) and [XML Schema Definition language](https://en.wikipedia.org/wiki/XML_Schema_\(W3C\)) validation within CsvPath Framework.&#x20;
+* **Support for** [**JSON Schema**](https://json-schema.org/)&#x20;
+* **Support for** [**XML Schema Definition language**](https://en.wikipedia.org/wiki/XML_Schema_\(W3C\)) &#x20;
 
-Outputs are entirely consistent with CsvPath Validation Language. Both ad hoc or programmatic runs using `CsvPath` and `CsvPaths` instances are supported.&#x20;
+JSON Schema and XSD are now first-class validation languages within CsvPath Framework. Both ad hoc or programmatic runs using `CsvPath` and `CsvPaths` instances are supported. JSON Schema and XSD are peers to CsvPath Validation Language. Each of the three has primacy in its space, respectively, JSON documents, XML documents, and tabular data in CSV, JSONL, and Excel. When run through a `CsvPaths` instance, using registered files and named-paths validation groups, all the languages generate the same expected files.&#x20;
 
-JSON Schema and XSD are first-class citizens of the Framework. When run through a `CsvPaths` instance, using registered files and named-paths validation groups, all the expected files are generated.&#x20;
+* **Ad hoc dynamic Validation of JSON**
+
+The same method of validation supported for ad hoc validation of data frames using CsvPath Validation Language is expanded to cover JSONL and JSON. JSON can also be validated using JSON Schema as the validation language. Ad-hoc validation runs are output-lite programmatic validations that are quick to create, but are not tied into the full Framework lifecycle. Bolting validation into a workflow job, API, Jypter notebook is quick and effective, and leverages the same tool chain as more formal uses of the Framework.&#x20;
+
+* **Full Collect-Store-Validate-Publish lifecycle for dynamic API-driven and message JSON**
+
+This feature ties the new validation languages and the expanded dynamic object validation capabilities into the larger governance framework using two new run methods:&#x20;
+
+* `collect_dynamic` — peer to `collect_paths` and `collect_by_line`
+* `fast_forward_dynamic` — peer to `fast_forward_paths` and `fast_forward_by_line`
+
+In each case, the use pattern is to assign live Python objects to the run when it is triggered. Developers treat data as JSON, JSONL, and microbatched sequences of JSON objects.
+
+Registration of live data in named-files is optional and happens automatically, if requested; otherwise, the data remains uncaptured. Data contracts for dynamic data are created and applied as named-paths groups using CsvPath Validation Language and/or JSON Schema and/or XSD in exactly the same way as for data files. Run results flow into run directories within the archive, as usual. &#x20;
+
+Using `fast_forward_dynamic` allows you to run without capturing primary data in results. The Framework's other many config combinations and validation strategies allow you to tailor rules and contracts to the scale and velocity requirements of real-time systems.&#x20;
 
 ### Summer 2026 FlightPath - v1.1.89
 

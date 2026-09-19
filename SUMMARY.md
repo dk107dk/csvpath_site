@@ -65,6 +65,7 @@
     * [Google Cloud Storage](topics/how-tos/storage-backends/google-cloud-storage.md)
     * [HTTPS](topics/how-tos/storage-backends/https.md)
     * [S3, SFTP, Google Cloud, or Azure](topics/how-tos/storage-backends/s3-sftp-google-cloud-or-azure.md)
+  * [Validating JSON objects](topics/how-tos/validating-json-objects.md)
   * [Validating JSON Documents](topics/how-tos/validating-json-documents.md)
   * [Parquet](topics/how-tos/parquet.md)
   * [Sqlite](topics/how-tos/send-run-events-to-sqlite.md)
