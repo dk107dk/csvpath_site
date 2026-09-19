@@ -16,6 +16,8 @@ Everywhere data ingress hits the enterprise there is heightened risk and cost. S
 
 You need Edge Data Governance guarding and facilitating all three channels so that BizOps can be low cost and highly effective. CsvPath Framework provides that unified control plane.
 
+<figure><img src="../../.gitbook/assets/Screenshot 2026-09-19 at 1.54.59 PM.png" alt="" width="563"><figcaption></figcaption></figure>
+
 Let's look at how an API or message stream consumer can lean on the same CsvPath Framework project setup that a file feed would.
 
 ### Some decisions&#x20;
@@ -103,7 +105,7 @@ from csvpath import CsvPaths
 CsvPaths().paths_manager.add_named_paths(name="dynamic", from_file=CONTRACT)
 ```
 
-Where CONTRACT is a fully qualified path to a file of one or more CsvPath Validation Language statements, like the one above. As you can see a bit further up the page, to apply this contract to live data is easy enough. And inspecting the output is straightforward.&#x20;
+Where `CONTRACT` is a fully qualified path to a file of one or more CsvPath Validation Language statements, like the one above. As you can see a bit further up the page, to apply this contract to live data is easy enough. And inspecting the output is straightforward.&#x20;
 
 We can get the results from the `ResultsManager` using the reference(s) our `CsvPaths` object gave us to track our validation. In a dynamic data situation like we are demoing here, there will only be one reference in the list we receive back from `CsvPaths`. That is because we're not giving `CsvPaths` a query-like pointer to one or more files, but rather simply handing live data over to be validated. Likewise, there is only one `Result` object in the list of results because we only have one validation statement in our named-paths group.
 
@@ -115,4 +117,4 @@ assert results[0].is_valid
 
 ### Mission Accomplished
 
-And that's pretty much it. Well, actually, there is much more you can do both tactically and strategically. But what you see here is a powerful start that works for most general requirements. And keep in mind that you can do similar things with live data frames and other shapes of JSON.&#x20;
+And that's pretty much it. Well, actually, there is much more you can do both tactically and strategically. But what you see here is a powerful start that works for most general edge data governance requirements. More importantly, everything we did here works essentially the same when we shift our attention to files, rather than APIs. And keep in mind that you can do similar things with live data frames as well. The point is, CsvPath Framework gives you a unified edge data governance control plane based on robust data preboarding no matter what kind of data processing pipeline your data flows through.
