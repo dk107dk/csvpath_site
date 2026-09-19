@@ -67,6 +67,7 @@
     * [S3, SFTP, Google Cloud, or Azure](topics/how-tos/storage-backends/s3-sftp-google-cloud-or-azure.md)
   * [Validating JSON objects](topics/how-tos/validating-json-objects.md)
   * [Validating JSON Documents](topics/how-tos/validating-json-documents.md)
+  * [Dynamic JSON Preboarding](topics/how-tos/dynamic-json-preboarding.md)
   * [Parquet](topics/how-tos/parquet.md)
   * [Sqlite](topics/how-tos/send-run-events-to-sqlite.md)
   * [Postgres and MySQL](topics/how-tos/send-events-to-mysql-or-postgres.md)
