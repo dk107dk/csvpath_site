@@ -32,15 +32,7 @@ layout:
 
 # CSV, Excel and JSONL Ingestion
 
-<h4 align="center">End Manual Data Validation With Data Contracts</h4>
-
-<figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
-
-<h2 align="center"><strong>Edge Data Governance</strong> </h2>
-
-<h2 align="center">For JSON, CSV, Excel, XML, data frames, and JSONL </h2>
-
-
+<figure><img src=".gitbook/assets/Screenshot 2026-09-19 at 1.33.20 AM.png" alt="" width="563"><figcaption></figcaption></figure>
 
 
 
