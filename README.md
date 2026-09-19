@@ -32,13 +32,15 @@ layout:
 
 # CSV, Excel and JSONL Ingestion
 
+<h4 align="center">End Manual Data Validation With Data Contracts</h4>
+
 <figure><img src=".gitbook/assets/logo-wordmark-200dpi-428x105.png" alt="Logo for the CsvPath Framework" width="321"><figcaption></figcaption></figure>
 
-<h2 align="center">Edge Data Governance For</h2>
+<h2 align="center"><strong>Edge Data Governance</strong> </h2>
 
-<h2 align="center">JSON, CSV, Excel, XML, data frames, and JSONL </h2>
+<h2 align="center">For JSON, CSV, Excel, XML, data frames, and JSONL </h2>
 
-<h3 align="center">End Manual Data Validation With Data Contracts</h3>
+
 
 
 
@@ -60,7 +62,7 @@ If your MFT or REST API drives external data directly into the data lake or data
 
 [**FlightPath Data** is a powerful frontend to CsvPath Framework](https://www.flightpathdata.com/). Go beyond CsvPath Framework's built-in CLI. Get up and running faster with a purpose-built data preboarding development and operations console. FlightPath Data gives you all the help and examples you need move quickly.&#x20;
 
-FlightPath Data is bundled with **FlightPath Server**, the no-code/low-code automation REST API connecting your existing infrastructure to robust edge data goveranance.&#x20;
+FlightPath Data is bundled with **FlightPath Server**, the no-code/low-code automation REST API connecting your existing infrastructure to robust edge data governance.&#x20;
 
 Available as a _free_ download from the [Microsoft Store](https://apps.microsoft.com/detail/9p9pbpkz4jdf?hl=en-US\&gl=US) and the [Apple MacOS Store](https://apps.apple.com/us/app/flightpath-data/id6745823097).
 
@@ -76,7 +78,7 @@ CsvPath Framework was built to fill the blindspot between the edge and downstrea
 
 This Data Preboarding blindspot is a big deal. Think about it. If even 1 in 30 companies depends existentially on CSV, JSON, XML, or Excel files or JSON streaming data from external data partners, _**the lack of edge data preboarding is a trillion-dollar problem waiting to happen.**_&#x20;
 
-<figure><img src=".gitbook/assets/Screenshot 2026-09-19 at 12.52.30 AM.png" alt="A data flow diagram showing how CSV, Excel and other tabular data come into the organization through a preboarding process that acts as a Trusted Publisher to the data lake and applications."><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/govern.png" alt="A data flow diagram showing how CSV, Excel and other tabular data come into the organization through a preboarding process that acts as a Trusted Publisher to the data lake and applications."><figcaption></figcaption></figure>
 
 Why roll your own data preboarding tool chain? CsvPath Framework is a purpose-built off-the-shelf solution you can rollout now.
 
@@ -96,7 +98,7 @@ Running CsvPath Framework and FlightPath Data can help you build your organizati
 
 <h3 align="center">Integrated With Your Existing Tools</h3>
 
-<figure><img src=".gitbook/assets/integration_logos (8).png" alt="Logos of the many popular DataOps tools that are integrated with CsvPath Framework: aws s3, azure, slack, Excel, opentelemetry, sftp, ckan, pandas, openlineage, and more" width="563"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
+<figure><img src=".gitbook/assets/integration_logos (8).png" alt="Logos of the many popular DataOps tools that are integrated with CsvPath Framework: aws s3, azure, slack, Excel, opentelemetry, sftp, ckan, pandas, openlineage, and more" width="563"><figcaption><p>CsvPath has many built-in integrations. Suggest more!</p></figcaption></figure>
 
 [JSON Schema](https://json-schema.org/) / [Parquet](topics/how-tos/parquet.md) / [Sqlite](topics/how-tos/send-run-events-to-sqlite.md) / [S3](topics/how-tos/storage-backends/aws-s3.md) / [OpenLineage](getting-started/dataops-integrations/openlineage.md) / [OpenTelemetry](getting-started/dataops-integrations/opentelemetry.md) / [Slack](topics/how-tos/setup-notifications-to-slack.md) / [Postgres](topics/how-tos/send-events-to-mysql-or-postgres.md) / [MySQL](topics/how-tos/send-events-to-mysql-or-postgres.md) / [Azure](topics/how-tos/storage-backends/azure.md) / [Pandas](https://pandas.pydata.org/) / [Google Cloud Storage](topics/how-tos/storage-backends/google-cloud-storage.md) / [Webhooks](topics/how-tos/call-a-webhook-at-the-end-of-a-run.md) / [JSONPath](https://github.com/csvpath/csvpath/blob/main/docs/func_gen/jsonpath.md) / [XSD](https://en.wikipedia.org/wiki/XML_Schema_\(W3C\)) / [XPath](https://github.com/csvpath/csvpath/blob/main/docs/func_gen/xpath.md) / [Airflow](topics/how-tos/airflow.md) / [CKAN](https://ckan.org/) and more.
 
