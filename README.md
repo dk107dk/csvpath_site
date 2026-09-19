@@ -36,13 +36,15 @@ layout:
 
 <h2 align="center">Edge Data Governance For</h2>
 
-<h2 align="center">JSON, CSV, Excel, XML, and JSONL </h2>
+<h2 align="center">JSON, CSV, Excel, XML, data frames, and JSONL </h2>
 
 <h3 align="center">End Manual Data Validation With Data Contracts</h3>
 
 
 
-#### CsvPath Framework's data preboarding registers, versions, validates, upgrades, and stages CSV, JSON, XML, Excel, JSONL files and data frames from data partners _before_ they break your pipelines.&#x20;
+#### CsvPath Framework's data preboarding registers, versions, validates, upgrades, and stages CSV, JSON, XML, Excel, JSONL and data frames from data partners _before_ they break your pipelines.&#x20;
+
+If your MFT or REST API pushes external data directly into the data lake or databases the damage is already done.&#x20;
 
 [CsvPath Framework](https://github.com/csvpath/csvpath) is the open source way to shift-left data quality. Enforce data contracts as data enters the organization with **less manual effort, fewer ingestion failures, and more agile development** using consistent data preboarding tools [you can try in minutes](https://app.gitbook.com/s/6wzqgDHj9mZbFxabiEbc/getting-started).  &#x20;
 
@@ -66,9 +68,9 @@ Available as a _free_ download from the [Microsoft Store](https://apps.microsoft
 
 **CsvPath Framework** implements the [**Collect, Store, Validate Publish architectural pattern.** ](https://static1.squarespace.com/static/66df9d47982d0d40e1574327/t/6771fe6f63bbf5361725ad05/1735523953587/The+Collect+Store+Validate+Pattern+-+Atesta+Analytics.pdf) Ingestion goes faster, is more cost-efficient, and more effective with a preboarding stage.&#x20;
 
-CsvPath Framework was built to fill the blindspot between MFT (managed file transfer) and the data lake with a simple path to provably correct data.
+CsvPath Framework was built to fill the blindspot between the edge and downstream data systems with a simple path to provably correct data.
 
-This data preboarding blindspot is a big deal. Think about it. If even 1 in 30 companies depends heavily on CSV, JSON, XML, or Excel files to exchange data, the _lack of **edge data preboarding is a trillion-dollar problem**_.&#x20;
+This Data Preboarding blindspot is a big deal. Think about it. If even 1 in 30 companies depends existentially on CSV, JSON, XML, or Excel files or JSON streaming data from external data partners, _**the lack of edge data preboarding is a trillion-dollar problem.**_&#x20;
 
 <figure><img src=".gitbook/assets/data-flow.png" alt="A data flow diagram showing how CSV, Excel and other tabular data come into the organization through a preboarding process that acts as a Trusted Publisher to the data lake and applications."><figcaption></figcaption></figure>
 
@@ -88,7 +90,7 @@ Together CsvPath Framework and FlightPath Data can help you build your organizat
 
 <figure><img src=".gitbook/assets/integration_logos (8).png" alt="Logos of the many popular DataOps tools that are integrated with CsvPath Framework: aws s3, azure, slack, Excel, opentelemetry, sftp, ckan, pandas, openlineage, and more" width="563"><figcaption><p>CsvPath has a bunch of built-in integrations. Suggest more!</p></figcaption></figure>
 
-[Parquet](topics/how-tos/parquet.md) / [Sqlite](topics/how-tos/send-run-events-to-sqlite.md) / [S3](topics/how-tos/storage-backends/aws-s3.md) / [OpenLineage](getting-started/dataops-integrations/openlineage.md) / [OpenTelemetry](getting-started/dataops-integrations/opentelemetry.md) / [Slack](topics/how-tos/setup-notifications-to-slack.md) / [Postgres](topics/how-tos/send-events-to-mysql-or-postgres.md) / [MySQL](topics/how-tos/send-events-to-mysql-or-postgres.md) / [Azure](topics/how-tos/storage-backends/azure.md) / [Google Cloud Storage](topics/how-tos/storage-backends/google-cloud-storage.md) / [Webhooks](topics/how-tos/call-a-webhook-at-the-end-of-a-run.md) / [JSONPath](https://github.com/csvpath/csvpath/blob/main/docs/func_gen/jsonpath.md) / [XPath](https://github.com/csvpath/csvpath/blob/main/docs/func_gen/xpath.md) / [Airflow](topics/how-tos/airflow.md) and more.
+[JSON Schema](https://json-schema.org/) / [Parquet](topics/how-tos/parquet.md) / [Sqlite](topics/how-tos/send-run-events-to-sqlite.md) / [S3](topics/how-tos/storage-backends/aws-s3.md) / [OpenLineage](getting-started/dataops-integrations/openlineage.md) / [OpenTelemetry](getting-started/dataops-integrations/opentelemetry.md) / [Slack](topics/how-tos/setup-notifications-to-slack.md) / [Postgres](topics/how-tos/send-events-to-mysql-or-postgres.md) / [MySQL](topics/how-tos/send-events-to-mysql-or-postgres.md) / [Azure](topics/how-tos/storage-backends/azure.md) / [Pandas](https://pandas.pydata.org/) / [Google Cloud Storage](topics/how-tos/storage-backends/google-cloud-storage.md) / [Webhooks](topics/how-tos/call-a-webhook-at-the-end-of-a-run.md) / [JSONPath](https://github.com/csvpath/csvpath/blob/main/docs/func_gen/jsonpath.md) / [XSD](https://en.wikipedia.org/wiki/XML_Schema_\(W3C\)) / [XPath](https://github.com/csvpath/csvpath/blob/main/docs/func_gen/xpath.md) / [Airflow](topics/how-tos/airflow.md) / [CKAN](https://ckan.org/) and more.
 
 
 
