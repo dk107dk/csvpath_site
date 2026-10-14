@@ -7,11 +7,11 @@
 ## Getting Started
 
 * [Quickstart](getting-started/quickstart.md)
-* [Get the FlightPath Data app](getting-started/get-the-flightpath-app.md)
 * [Data Contracts and Validation](getting-started/data-contracts-and-validation.md)
 * [Observability Integrations](getting-started/observability-integrations/README.md)
   * [OpenTelemetry](getting-started/observability-integrations/opentelemetry.md)
   * [OpenLineage](getting-started/observability-integrations/openlineage.md)
+* [Get the FlightPath Data app](getting-started/get-the-flightpath-app.md)
 * [A Helping Hand](getting-started/a-helping-hand.md)
 
 ## Topics
