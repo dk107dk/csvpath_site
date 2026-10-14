@@ -9,7 +9,7 @@ This example uses the built-in CLI. The CLI is so 2025. For a more powerful, yet
 
 FlightPath Data is a free and open cross-platform operations and development tool that makes getting started with CsvPath Framework easy. It is bundled with **FlightPath Server**, a no-code/low-code integration and automation API.&#x20;
 
-You can read more about [FlightPath Data here](https://www.flightpathdata.com/flightpath.html) and [here](../../../getting-started/get-the-flightpath-app/preview-the-flightpath-examples/). Or just download it from [Microsoft](https://apps.microsoft.com/detail/9P9PBPKZ4JDF) or [Apple](https://apps.apple.com/us/app/flightpath-data/id6745823097?mt=12) and read the in-context help and examples.&#x20;
+You can read more about [FlightPath Data here](https://www.flightpathdata.com/flightpath.html) and [here](the-flightpath-data-examples/). Or just download it from [Microsoft](https://apps.microsoft.com/detail/9P9PBPKZ4JDF) or [Apple](https://apps.apple.com/us/app/flightpath-data/id6745823097?mt=12) and read the in-context help and examples.&#x20;
 {% endhint %}
 
 This page gives one way to do the **Your First Validation** exercise. In the other approaches to our [super-simple first validation exercise](your-first-validation-the-easy-way.md) the focus is on the CsvPath Language, but there was also a little Python to drive it. We can do it without the Python by using the CLI that comes with the CsvPath Library. Here's how.

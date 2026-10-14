@@ -8,7 +8,7 @@ These example csvpaths create an index of zipcodes by city and perform lookups a
 
 The data comes from [data.gov](https://data.gov): `catalog.data.gov/dataset/boundaries-us-zip-codes`. The extensive geo-coding data was removed for brevity.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-11-17 at 8.54.52 AM.png" alt="" width="317"><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-11-17 at 8.54.52 AM.png" alt="" width="317"><figcaption></figcaption></figure>
 
 To run this example:
 

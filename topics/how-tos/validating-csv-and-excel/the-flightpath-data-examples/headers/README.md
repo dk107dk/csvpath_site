@@ -16,14 +16,14 @@ CsvPath Framework has many functions to help you work with headers. Most of the 
 
 These examples will help you start validating and upgrading your CSV and Excel files using the header functions to create rules.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-08-26 at 11.58.18 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-08-26 at 11.58.18 AM.png" alt=""><figcaption></figcaption></figure>
 
-* [Collect matching lines](../../the-flightpath-data-examples/headers/collect-matching-lines.md)
-* [Replace values](../../the-flightpath-data-examples/headers/replace-values.md)
-* [Insert and append](../../the-flightpath-data-examples/headers/insert-and-append.md)
-* [No blanks](../../the-flightpath-data-examples/headers/no-blanks.md)
-* [Reset headers](../../the-flightpath-data-examples/headers/reset-headers.md)
-* [Name check](../../the-flightpath-data-examples/headers/name-check.md)
-* [Position check](../../the-flightpath-data-examples/headers/position-check.md)
-* [More header checks](../../the-flightpath-data-examples/headers/more-header-checks.md)
-* [End](../../the-flightpath-data-examples/headers/end.md)
+* [Collect matching lines](collect-matching-lines.md)
+* [Replace values](replace-values.md)
+* [Insert and append](insert-and-append.md)
+* [No blanks](no-blanks.md)
+* [Reset headers](reset-headers.md)
+* [Name check](name-check.md)
+* [Position check](position-check.md)
+* [More header checks](more-header-checks.md)
+* [End](end.md)

@@ -8,7 +8,7 @@ description: How to use CsvPath Framework to output Parquet files
 
 CsvPath Framework can create Parquet files for schema entities in tabular data files. _(I.e., CSV, Excel, JSONL, and data frames)._ Parquet files are created in addition to the usual CsvPaths run output files.
 
-To output to Parquet you create a schema entity. This is similar to defining a table in SQL. Usually when we create CsvPath Language schemas we use the `line()` function. (Read [more about `line()` entities here](../validation/schemas-or-rules.md) and also [see these examples](../../getting-started/get-the-flightpath-app/preview-the-flightpath-examples/schemas.md)).&#x20;
+To output to Parquet you create a schema entity. This is similar to defining a table in SQL. Usually when we create CsvPath Language schemas we use the `line()` function. (Read [more about `line()` entities here](../validation/schemas-or-rules.md) and also [see these examples](validating-csv-and-excel/the-flightpath-data-examples/schemas/)).&#x20;
 
 Instead of `line()` we're going to use `parquet()` for the same entity creation, but this time with `.parquet` file output. For example, let's start with a `person` entity like this:
 

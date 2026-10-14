@@ -20,13 +20,15 @@ layout:
     visible: true
   actions:
     visible: true
+  anchors:
+    visible: true
 ---
 
 # The FlightPath Data Examples
 
-<figure><img src="../../../.gitbook/assets/logo-image-only.png" alt="" width="108"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/logo-image-only.png" alt="" width="108"><figcaption></figcaption></figure>
 
-[FlightPath Data](../../get-the-flightpath-app.md) comes with a set of CsvPath examples that can help you get started validating and upgrading your CSV and Excel file feeds quickly.&#x20;
+[FlightPath Data](../../../../getting-started/get-the-flightpath-app.md) comes with a set of CsvPath examples that can help you get started validating and upgrading your CSV and Excel file feeds quickly.&#x20;
 
 Every new FlightPath Data project is created with an examples directory, so you always have ideas close at hand. The examples cover some common validation and upgrading activities. When you're done learning, feel free to delete the examples directory.
 
@@ -36,4 +38,4 @@ Every new FlightPath Data project is created with an examples directory, so you 
 
 These pages present some of the READMEs and CsvPath Language files from the FlightPath examples. To see the full examples, with syntax highlighting, documentation, and sample CSV and Excel data, all in a working environment, just [install FlightPath](https://www.flightpathdata.com/).&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-08-26 at 11.47.31 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-08-26 at 11.47.31 AM.png" alt=""><figcaption></figcaption></figure>

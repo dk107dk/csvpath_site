@@ -82,7 +82,9 @@ Why roll your own data preboarding tool chain? CsvPath Framework is a purpose-bu
 
 <h3 align="center">Powerful Validation For Batch Files and Real-time Data</h3>
 
-CSV, Excel, NDJSON, and JSONL validation has never been as sophisticated as JSONQuery and XSD — until now. **CsvPath Validation Language** is simple, easy to integrate, and flexible enough to handle the unexpected. Inspired by Schematron, XPath, and SQL, CsvPath Validation Language brings powerful data validation to tabular and JSON Lines structured data. Together, JSON Schema, XSD, and CsvPath Validation Language are unstoppable. [Start here](topics/validation/schemas-or-rules.md).
+CSV, Excel, NDJSON, and JSONL validation has never been as sophisticated as JSON Schema and XSD — until now. **CsvPath Validation Language** is simple, easy to integrate, and flexible enough to handle the unexpected. Inspired by Schematron, XPath, and SQL, CsvPath Validation Language brings powerful data validation to tabular and JSON Lines structured data.&#x20;
+
+CsvPath Framework supports four schema languages: ODCS, JSON Schema, XSD, and CsvPath Validation Language. Working together they are unstoppable. [Start here](getting-started/data-contracts-and-validation.md).
 
 Running CsvPath Framework and FlightPath Data can help you build your organization's confidence that your data governance doesn't turn a blind eye to its most unruly data.&#x20;
 
@@ -105,7 +107,7 @@ Running CsvPath Framework and FlightPath Data can help you build your organizati
 * [Getting Started](https://app.gitbook.com/s/6wzqgDHj9mZbFxabiEbc/getting-started)
 * [How-tos](topics/how-tos/)
 * [DataOps Integrations](getting-started/observability-integrations/)
-* [The FlightPath Examples](getting-started/get-the-flightpath-app/preview-the-flightpath-examples/)
+* [The FlightPath Examples](topics/how-tos/validating-csv-and-excel/the-flightpath-data-examples/)
 
 {% hint style="success" %}
 For more background on preboarding and the CsvPath and FlightPath architecture [check out the CsvPath blog](https://blog.csvpath.org/).&#x20;

@@ -23,10 +23,10 @@ Likewise, summing offers options:
 * `subtotal()` tracks the running sum of a header for each value in another header
 * `tally()` tracks counts of the values seen in headers or combinations of headers
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-08-26 at 11.49.46 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-08-26 at 11.49.46 AM.png" alt=""><figcaption></figcaption></figure>
 
-* [Track values](../../the-flightpath-data-examples/counting/track-values.md)
-* [Counters](../../the-flightpath-data-examples/counting/counters.md)
-* [Tallying](../../the-flightpath-data-examples/counting/tallying.md)
-* [Summing up](../../the-flightpath-data-examples/counting/summing-up.md)
-* [Thresholds](../../the-flightpath-data-examples/counting/thresholds.md)
+* [Track values](track-values.md)
+* [Counters](counters.md)
+* [Tallying](tallying.md)
+* [Summing up](summing-up.md)
+* [Thresholds](thresholds.md)
