@@ -40,6 +40,10 @@ There are of course differences between CSV/JSONL/XLSX files and SQL databases. 
 
 XPath and JSONPath can now be written against the whole XML or JSON document, not just individual headers. This allows a Schematron-like validation by path rules approach.
 
+* **New function: `collect_original()`**
+
+`collect_original()` copies the registered source document verbatim to the run results. The copied file is named original._\<ext>_ where _\<ext>_ is `.xml`, `.json`, `.csv`, etc.
+
 ### CsvPath Framework 0.0.622 - 18 September 2026
 
 * **Support for** [**JSON Schema**](https://json-schema.org/)&#x20;
