@@ -1,11 +1,12 @@
 ---
-description: >-
-  As has been said on other pages, in technology there are always multiple ways
-  to get to a result. So why should you use CsvPath when there are other
-  options?
+description: Why should you use CsvPath when there are other options?
 ---
 
 # Why CsvPath?
+
+{% hint style="warning" %}
+This page is quite old. CsvPath Framework now supports four validation languages: JSON Schema, ODCS, XSD, and CsvPath Validation Language. And it supports more file types than in the past: JSON, JSONL, CSV, Excel, and XML. And furthermore, it supports validation and preboarding of live JSON objects and DataFrames. This page will be updated or retired soon.
+{% endhint %}
 
 CsvPath has the benefit of being simple and quick enough for technically savvy non-developers, as well for as developers who would rather spend their time on other things. Because CsvPath is purpose-built for CSV validation, it is not hard to use well and doesn't tempt you to treat it as a Swiss Army knife.&#x20;
 
@@ -33,7 +34,7 @@ For the comparison with CsvPath, though, the important thing is that Schematron 
 
 ### SQL
 
-SQL is probably the answer to beat. (Apologies to the Pandas and Polars crowd). Most often your CSV data is going to end up in a SQL database, anyway. We think data validation and QC during ETL/ELT and in the database is a great idea. Everyone should be doing it! However, there is room for a function-specific validation tool that sits up front of the ETL and downstream of the database.&#x20;
+SQL is probably the answer to beat. Most often your CSV data is going to end up in a SQL database. We think data validation and QC during ETL/ELT and in the database is a great idea. Everyone should be doing it! However, there is a need for a function-specific data firewall that sits ahead of ETL and the database.&#x20;
 
 You want to check your data as early and as late as possible. On the inbound side, keeping your data lake clean and your business processes and business partner relationships as simple as possible means checking validity ASAP. And on the downstream side, you know your data better than any one of your business partners, so you can be more through in your QC and do it in the last mile, just before you hand off your data. In short, SQL isn't the answer to beat, CsvPath is SQL's +1.
 

@@ -4,7 +4,7 @@ description: Check your objects on the fly. No file needed.
 
 # Validating JSON objects
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-09-18 at 10.59.21 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2026-09-18 at 10.59.21 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Adding data validation to your REST API or Dagster or Airflow jobs should be a snap. With CsvPath Framework, it is.&#x20;
 

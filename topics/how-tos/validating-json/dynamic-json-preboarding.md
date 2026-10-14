@@ -6,7 +6,7 @@ description: Wire your REST API or message stream into unified Edge Data Governa
 
 
 
-<div align="center"><figure><img src="../../.gitbook/assets/Screenshot 2026-09-19 at 12.18.49 PM.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="center"><figure><img src="../../../.gitbook/assets/Screenshot 2026-09-19 at 12.18.49 PM.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 Everywhere data ingress hits the enterprise there is heightened risk and cost. Structured data flows into the organization in three main channels:
 
@@ -16,7 +16,7 @@ Everywhere data ingress hits the enterprise there is heightened risk and cost. S
 
 You need Edge Data Governance guarding and facilitating all three channels so that BizOps can be low cost and highly effective. CsvPath Framework provides that unified control plane.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-09-19 at 1.54.59 PM.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2026-09-19 at 1.54.59 PM.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Let's look at how an API or message stream consumer can lean on the same CsvPath Framework project setup that a file feed would.
 

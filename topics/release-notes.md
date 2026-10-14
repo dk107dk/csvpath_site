@@ -4,7 +4,43 @@ description: High-level descriptions of CsvPath Framework and FlightPath Data re
 
 # Release Notes
 
-### CsvPath Framework 0.0.62 - 18 September 2026
+### CsvPath Framework 0.0.630 - 14 October 2026
+
+* **OpenLineage v2 event producer**
+
+The v2 of CsvPath's OpenLineage support is a configurable option. It is the default for new CsvPath Framework project `config.ini` files going forward. Compared to v1:&#x20;
+
+&#x20;      ◦ Namespacing and names configuration to satisfy DataOps scale or consumer requirements
+
+&#x20;      ◦ Greatly increased metadata coverage in standard and custom facets
+
+&#x20;      ◦ Tighter and more up to date spec conformance
+
+&#x20;      ◦ A framework for simpler versions, in case we ever go for a v3
+
+&#x20;      ◦ More interoperability testing, including DataHub and DataDog, and of course Marquez
+
+* **ODCS validation support**&#x20;
+
+ODCS data contracts join XSD, JSON Schema, and CsvPath Validation Language as the fourth 1st-class validation standard. Supported ODCS versions: v3.0.x, v3.1.0, v3.2.0.&#x20;
+
+To validate tabular data against an ODCS contract just load the contract in the same way you would load a csvpath statement.&#x20;
+
+&#x20;      ◦ The ODCS is translated and stored in your group.csvpath file
+
+&#x20;      ◦ The rules in the contract are what validates your data.&#x20;
+
+&#x20;      ◦ Complete context and business info is available in the contract file and every run's meta.json
+
+&#x20;      ◦ An ODCS file is copied to a run's results dir and can be transferred anywhere, like any result file
+
+There are of course differences between CSV/JSONL/XLSX files and SQL databases. For example, relationships don't work the same. But overall, the fit is remarkably good and very effective. &#x20;
+
+* **XPath and JSONPath against whole documents**
+
+XPath and JSONPath can now be written against the whole XML or JSON document, not just individual headers. This allows a Schematron-like validation by path rules approach.
+
+### CsvPath Framework 0.0.622 - 18 September 2026
 
 * **Support for** [**JSON Schema**](https://json-schema.org/)&#x20;
 * **Support for** [**XML Schema Definition language**](https://en.wikipedia.org/wiki/XML_Schema_\(W3C\)) &#x20;

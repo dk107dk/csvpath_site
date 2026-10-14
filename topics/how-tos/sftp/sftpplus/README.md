@@ -231,7 +231,7 @@ Well, done but for testing, of course. The two manual tests you need to see work
 * Add one or more csvpaths to a named-paths group using the `PathsManager.add_named_paths method` and see a transfer created for the data partner and a metadata file show up in the partner's `meta` directory.&#x20;
 * Drop a file in the partner's account and see it processed into the `handled` directory and its results show up in the CsvPath archive.
 
-You can use the CLI for the first test to make it quick and code-free. You can read an [example of how to do it here](../../../../getting-started/more-csv-and-excel-validation/your-first-validation-the-lazy-way.md). Assuming your accounts are on the local server, you should see something like the below. In this case `tinpenny` is the data partner, `orders` is the named-file-name, and `sftpplus` is the named-paths group name:
+You can use the CLI for the first test to make it quick and code-free. You can read an [example of how to do it here](../../validating-csv-and-excel/your-first-validation-the-lazy-way.md). Assuming your accounts are on the local server, you should see something like the below. In this case `tinpenny` is the data partner, `orders` is the named-file-name, and `sftpplus` is the named-paths group name:
 
 <figure><img src="../../../../.gitbook/assets/testing.png" alt="" width="375"><figcaption><p>After adding a named-paths group you should see something like this</p></figcaption></figure>
 
@@ -256,8 +256,8 @@ The DevOps person needs to know the data partner's information so they can creat
 Great question. There are several ways to make sure things are going well.&#x20;
 
 * [Add a Slack notification](../../setup-notifications-to-slack.md) to your csvpath so that you can see the processing happen when files arrive
-* Use [Marquez or another OpenLineage server](../../../../getting-started/dataops-integrations/openlineage.md) to track file arrival events
-* Use an observability tool like [Grafana, New Relic, or another OpenTelemetry system](../../../../getting-started/dataops-integrations/opentelemetry.md) to see the arrivals
+* Use [Marquez or another OpenLineage server](../../../../getting-started/observability-integrations/openlineage.md) to track file arrival events
+* Use an observability tool like [Grafana, New Relic, or another OpenTelemetry system](../../../../getting-started/observability-integrations/opentelemetry.md) to see the arrivals
 * If you have access to the SFTPPlus event log you will see the transfer creation and all its activity there
 * SFTPPlus allows you to set up email alerts that can help you understand when server actions happen.
 * Using an SFTP client you can easily watch the metadata file land in the mailbox and see the data partner's named-file directory, with its meta and handled subdirectories. Watching that progression and then sending a file and watching it be processed can take just a few seconds.
