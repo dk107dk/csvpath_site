@@ -46,6 +46,8 @@ There are two version of OpenLineage support in CsvPath. Version 1 works well wi
 * More facets and better use of the standard facets&#x20;
 * Support for transfers as first-class output datasets
 
+New projects should always use the v2 support. This page is only about v2. The v1 page is [here](openlineage-with-marquez-v1-2024.md).
+
 To chose the version set the version key in the config.ini openlineage section:&#x20;
 
 ```ini
