@@ -4,15 +4,19 @@ description: CsvPath Framework stretches OpenLineage all the way from edge to co
 
 # OpenLineage
 
+
+
 OpenLineage producers capture lineage events as they happen and send them to OpenLineage Consumers, like [DataHub](https://datahub.com/), [DataDog](https://www.datadoghq.com/dg/monitor/data-streams-monitoring/), [Marquez](https://marquezproject.ai/), among others. While manual or generated documentation of lineage patterns is valuable, OpenLineage events are ground-truth about how data is produced and consumed.
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2026-10-10 at 2.03.52 AM.png" alt="A simple csvpath pipeline in Marquez"><figcaption></figcaption></figure>
 
+{% hint style="success" %}
+The interoperability of CsvPath Framework events is tested against DataHub, Marquez, DataDog and a few others. For more screenshots from some of these tools [check below](./#screenshots-of-openlineage).
+{% endhint %}
 
+&#x20;
 
-CsvPath Framework is an OpenLineage producer. The interoperability of its events is tested against DataHub, Marquez, DataDog and a few others. For more screenshots from some of these tools [check below](./#screenshots-of-openlineage).
-
-CsvPath Framework fires OpenLineage events from built-in event handlers that you run by setting your `config.ini` file's `[listeners] group` to include `openlineage`.&#x20;
+CsvPath Framework is an OpenLineage producer. The Framework fires OpenLineage events from built-in event handlers that you run by setting your `config.ini` file's `[listeners] group` to include `openlineage`.&#x20;
 
 ```
 [listeners]
