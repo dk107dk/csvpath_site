@@ -256,7 +256,7 @@ The DevOps person needs to know the data partner's information so they can creat
 Great question. There are several ways to make sure things are going well.&#x20;
 
 * [Add a Slack notification](../../setup-notifications-to-slack.md) to your csvpath so that you can see the processing happen when files arrive
-* Use [Marquez or another OpenLineage server](../../../../getting-started/observability-integrations/openlineage.md) to track file arrival events
+* Use [Marquez or another OpenLineage server](../../../../getting-started/observability-integrations/openlineage/openlineage-with-marquez-v1-2024.md) to track file arrival events
 * Use an observability tool like [Grafana, New Relic, or another OpenTelemetry system](../../../../getting-started/observability-integrations/opentelemetry.md) to see the arrivals
 * If you have access to the SFTPPlus event log you will see the transfer creation and all its activity there
 * SFTPPlus allows you to set up email alerts that can help you understand when server actions happen.

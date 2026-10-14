@@ -10,7 +10,8 @@
 * [Data Contracts and Validation](getting-started/data-contracts-and-validation.md)
 * [Observability Integrations](getting-started/observability-integrations/README.md)
   * [OpenTelemetry](getting-started/observability-integrations/opentelemetry.md)
-  * [OpenLineage](getting-started/observability-integrations/openlineage.md)
+  * [OpenLineage](getting-started/observability-integrations/openlineage/README.md)
+    * [OpenLineage With Marquez (v1 2024)](getting-started/observability-integrations/openlineage/openlineage-with-marquez-v1-2024.md)
 * [Get the FlightPath Data app](getting-started/get-the-flightpath-app.md)
 * [A Helping Hand](getting-started/a-helping-hand.md)
 
