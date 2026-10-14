@@ -31,7 +31,52 @@ The former is ideal for API backends, DataFrames, and scripted validations that 
 
 ### First, standalone
 
-The basic pattern is like this:
+Let's take a basic ODCS contract and run it in standalone mode.
+
+```yaml
+apiVersion: v3.2.0
+kind: DataContract
+id: orders-contract
+version: 1.0.0
+status: active
+name: Orders
+schema:
+  - name: orders
+    logicalType: object
+    properties:
+      - name: order_id
+        logicalType: string
+        required: true
+        unique: true
+        logicalTypeOptions:
+          pattern: "^ORD-[0-9]{6}$"
+      - name: customer_email
+        logicalType: string
+        logicalTypeOptions:
+          format: email
+      - name: quantity
+        logicalType: integer
+        required: true
+        logicalTypeOptions:
+          minimum: 1
+          maximum: 999
+      - name: status
+        logicalType: string
+        enum:
+          - value: open
+          - value: shipped
+          - value: cancelled
+      - name: order_date
+        logicalType: date
+        required: true
+        logicalTypeOptions:
+          format: yyyy-MM-dd
+    quality:
+      - metric: rowCount
+        mustBeGreaterThan: 0
+```
+
+To validate data with this contract in CsvPath Framework, the basic pattern is:
 
 ```python
 from csvpath import CsvPath
@@ -45,7 +90,7 @@ def run():
     assert path.is_valid
 ```
 
-* `odcs` is the contract structure
+* `odcs` is the contract structure, shown in the ODCS doc above
 * `conversion` is the contract converted to the engine's format, a csvpath statement. In a standalone run the ODCS should have only one contract (in a full data preboarding run you may have any number of contracts in the file)
 * `orders.csv` is the data. Using live objects, a JSONL, etc. is also straightforward.
 * `lines` are the matching lines, i.e. the lines that are valid according to the ODCS contract
