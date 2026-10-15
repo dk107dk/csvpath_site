@@ -33,7 +33,7 @@ When you add the `openlineage` group you activate the following event handlers:
 The listeners are configured by default. You simply add the `openlineage` group to switch them on.&#x20;
 
 {% hint style="info" %}
-If you use FlightPath Data, open the Config Panel by clicking the config button at the bottom left. Then click on Integrations in the vertial tabs. In the Integrations tab click the OpenLineage link and see that the openlineage group is added to the groups.
+If you use FlightPath Data, open the Config Panel by clicking the config button at the bottom left. Then click on `Integrations` in the vertical tabs. In the Integrations tab click the `OpenLineage` link and see that the `openlineage` group is added to the groups.&#x20;
 {% endhint %}
 
 ### Configuration
