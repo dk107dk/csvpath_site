@@ -1,12 +1,13 @@
 ---
 description: >-
-  Get started managing CSV/Excel file validation and ingestion with less manual
-  effort, lower risk, and greater predictability.
+  Get started managing CSV, JSON, Excel, XML, and JSONL file validation and live
+  objects and DataFrames ingestion with less manual effort, lower risk, and
+  greater predictability.
 ---
 
 # Quickstart
 
-This page gives you all the information you need to get started validating your CSVs with CsvPath Framework. It is super high-level and quick. You will want to go deeper on other pages later. We're going to do a trivial validation of a CSV file. Validating an Excel file would be essentially the same.
+This page gives you all the information you need to get started doing simple validations of CSV files with the Framework. It is super high-level and quick. You will want to go deeper on other pages later. We're going to do a trivial validation — the simplest possible thing that gives you a sense.
 
 {% hint style="warning" %}
 For an **even quicker start**, download the free **FlightPath Data** app from [Microsoft](https://apps.microsoft.com/detail/9P9PBPKZ4JDF) or [Apple](https://apps.apple.com/us/app/flightpath-data/id6745823097) or [Github](https://github.com/dk107dk/flightpath).&#x20;
