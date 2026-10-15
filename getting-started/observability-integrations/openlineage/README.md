@@ -25,7 +25,7 @@ groups = openlineage
 
 When you add the `openlineage` group you activate the following event handlers:
 
-* **file** — fires when data is registered under a named-file
+* **file** — fires when data is registered under a named-file (this includes live object data, if you are capturing, not only static inbound data files)
 * **paths** — fired when a CsvPath Validation Language or ODCS file is loaded to a named-paths group
 * **results** — fired by running a named-paths group against a registered data item
 * **result** — fires once for each validation rule in the named-paths group&#x20;
