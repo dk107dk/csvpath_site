@@ -107,17 +107,25 @@ job_run_instance_manifest = {entity}{sep}{instance}{sep}manifest
 
 ### Namespace Pattern
 
-The namespace pattern determines how CsvPath Framework OpenLineage events are namespaced. It is a literal string with interpolated variables wrapped in braces. A namespace is required, but what it is is up to you. The available variables are:&#x20;
+The namespace pattern determines how CsvPath Framework OpenLineage events are namespaced. It is a literal string with interpolated variables wrapped in braces.&#x20;
 
-* prefix
-* root\_path
-* protocol\_root\_path
-* root\_path\_separated
-* root\_name
+```ini
+namespace_prefix = csvpath
+namespace_pattern = {prefix}.{root_path_separated}
+path_separator = .
+```
 
-The prefix is usually a system or environment indicator. "csvpath", "edge", or "test" are all reasonable prefixes.&#x20;
+A namespace is required, but what it is is up to you. The available variables are:&#x20;
 
-The root that is the basis for root\_path, protocol\_root\_path, root\_path\_separated, and root\_name is the named-entity root set in your config.ini.  I.e. it is one of:
+* `prefix`
+* `root_path`
+* `protocol_root_path`
+* `root_path_separated`
+* `root_name`
+
+The prefix is usually a system or environment indicator. `csvpath`, `edge`, or `test` would all be reasonable prefixes. Prefixes are optional.
+
+The root variables, `root_path`, `protocol_root_path`, `root_path_separated`, and `root_name`, will be the named-entity root set in your config.ini.  I.e. the root, based on the job that is being observed, is one of:
 
 ```ini
 [inputs]
@@ -128,7 +136,7 @@ csvpaths = s3://rules_bucket/my/s3/valiations
 archive = sftp://mft.acme.com/my/published/data
 ```
 
-Obviously, the URIs are up to you. These are your root paths. Data that is registered goes in the `files` root. Validations in the form of csvpath statements and ODCS schemas are loaded into the `[inputs] csvpaths` root. And the `[results] archive` is where clean data and metadata live.  &#x20;
+Obviously, the URIs above are up to you. These are your project's root paths. When data is registered it goes in the `files` root and OpenLineage events are built with that destination in the namespace. `csvpaths` is the root when you load validations in the form of csvpath statements and ODCS schemas. And the `[results] archive` is where clean data and metadata land at the end of runs.  &#x20;
 
 The permutations of these roots are:
 
@@ -139,7 +147,7 @@ The permutations of these roots are:
 
 ### Verbs
 
-In order to make a meaningful job name that indicates both what happened and to whom, we can add a verb. These verbs can be whatever makes sense to you. And you don't have to use them in your names, as we'll discuss below.
+In order to make a meaningful job name that indicates both what happened and to whom, we can add a verb. These verbs can be whatever makes sense to you. They are optional, as we'll discuss below.
 
 ```ini
 job_register_verb = register
@@ -148,11 +156,11 @@ job_run_verb = run_group
 job_run_instance_verb = run_instance
 ```
 
-Generally we talk about data being registered so register is the default job\_register\_verb. Likewise we talk about schemas and validation rules being loaded so they can be applied. The default job\_load\_verb is simply load.
+Generally we talk about data being registered so register is the default `job_register_verb`. Likewise we talk about schemas and validation rules being loaded so they can be applied. The default `job_load_verb` is simply load.
 
-Run jobs kickoff a job for each of their component csvpath statements. (An XSD, ODCS, or JSON Schema has a csvpath statement, even if it is trivial). Since the main run is applying a named-paths group to some registered data, the default is run\_group.&#x20;
+Run jobs kickoff a job for each of their component csvpath statements. (An XSD, ODCS, or JSON Schema has a csvpath statement, even if it is trivial). Since the main run is applying a named-paths group to some registered data, the default is `run_group`.&#x20;
 
-We call the component csvpath statements within a named-paths group instances. The job\_run\_instance\_verb uses run\_instance to make it clear the the context is a run, but the event is from a specific csvpath statement instance.
+We call the component csvpath statements within a named-paths group instances. The `job_run_instance_verb` uses `run_instance` to make it clear the the context is a run, but the event is from a specific csvpath statement instance.
 
 ### Names
 
