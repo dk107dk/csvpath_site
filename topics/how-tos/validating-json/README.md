@@ -5,8 +5,9 @@ CsvPath Framework validation JSON in a few different ways, depending on your use
 * You chose standalone validation or full data preboarding workflows
 * Your validation is on "live" objects or on files on disk
 * You can validate:&#x20;
-  * JSONL&#x20;
-  * JSON documents
+  * [JSONL](validating-jsonl-with-jsonpath.md)&#x20;
+  * [JSON documents](validating-json-documents.md)
+  * [JSON objects](validating-json-objects.md)
   * JSON documents in an array
   * JSON embedded within CSV headers
   * You can validate JSON documents using one or more JSONPath rules
