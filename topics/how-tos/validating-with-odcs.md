@@ -8,7 +8,7 @@ description: ODCS contract enforcement lets the edge speak downstream's language
 
 ODCS sits alongside JSON Schema, XSD, and CsvPath Validation Language as a first-class option for validating your data at the ingress point. While more commonly used with relational databases, ODCS's broader fit with tabular data sets is good. In many cases ODCS contracts are an excellent choice for edge data governance.&#x20;
 
-Each validation language has its strengths and weaknesses. At a high level, here's the breakdown for ODCS:
+Each validation language has its strengths and weaknesses for the ingress-point. At a high level, here's the breakdown for using ODCS in the Framework:
 
 | Strengths                                                                                                                          | Not intended for                                                                                                                                                                                   |
 | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -18,7 +18,9 @@ Each validation language has its strengths and weaknesses. At a high level, here
 | Good format for sharing data contracts with external partners                                                                      | Does not support multiple entities defined in a single tabular structure when used in standalone validations. Used in the full preboarding workflow, multiple contracts per ODCS file are allowed. |
 | Covers CSV, JSONL, DataFrames, and Excel data                                                                                      |                                                                                                                                                                                                    |
 
-As you would expect, validating data with ODCS requires a driver and engine. We use the CsvPath Validation Language engine to interpret and enforce a contract. That gives you all the data preboarding workflow automation the Framework offers in a data firewall stance. It does not offer validation of deeply hierarchical JSON or XML, at this time, but it does support JSONL, as well as other tabular formats and DataFrames.&#x20;
+As you would expect, validating data with ODCS requires a driver and engine. We use the CsvPath Validation Language engine to interpret and enforce contracts. That gives you all the data preboarding workflow automation the Framework offers in a data firewall stance.&#x20;
+
+ODCS support does not offer validation of deeply hierarchical JSON or XML, at this time, but it does support JSONL, as well as other tabular formats and DataFrames.&#x20;
 
 ODCS is about more than validation, of course. The non-technical data contract fields are preserved and propagated downstream through runs. ODCS properties become user-defined (or in this case, standard-defined) metadata fields. They are available in meta.json, along with the runtime metrics, as usual. The ODCS file itself will also follow the results downstream into the results directories. For a standalone validation you can find this metadata in the `CsvPath` instance's `metadata` property.
 
