@@ -24,12 +24,16 @@ ODCS support does not offer validation of deeply hierarchical JSON or XML, at th
 
 ODCS is about more than validation, of course. The non-technical data contract fields are preserved and propagated downstream through runs. ODCS properties become user-defined (or in this case, standard-defined) metadata fields. They are available in meta.json, along with the runtime metrics, as usual. The ODCS file itself will also follow the results downstream into the results directories. For a standalone validation you can find this metadata in the `CsvPath` instance's `metadata` property.
 
-Let's see ODCS in action. There are two possible modes, same as with any use of CsvPath Framework:
+### See ODCS in action
 
-* Standalone, validating just the data passed in and skipping the data preboarding workflow
-* As part of a complete workflow, starting with a named-paths group and resulting in the full set of results assets
+There are two possible modes, same as with any use of CsvPath Framework:
 
-The former is ideal for API backends, DataFrames, and scripted validations that need an immediate answer, without the need to capture the full set of versioned, immutable result metadata. The latter is the way to go if longitudinal metrics, lineage, support, no-code integration, or data forensics-friendly history are requirements.&#x20;
+* **Standalone**: validating just the data passed in and skipping the data preboarding workflow
+* **Preboarding**: as part of a complete workflow, starting with a named-paths group and resulting in the full set of results assets
+
+The former is ideal for API backends, DataFrames, and scripted validations that need an immediate answer, without the need to capture the full set of versioned, immutable result metadata.&#x20;
+
+The latter is the way to go if longitudinal metrics, lineage, support, no-code integration, or data forensics-friendly history are requirements. Because it has an event driven workflow, preboarding supports OpenLineage, as well as OpenTelemetry; whereas, standalone has only limited OpenTelemetry support.
 
 ### First, standalone
 
