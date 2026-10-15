@@ -160,7 +160,8 @@
     * [Python vs. CsvPath](topics/python/python-vs.-csvpath.md)
     * [Python Starters](topics/python/python-starters.md)
 * [Glossary](topics/glossary.md)
-* [Release Notes](topics/release-notes.md)
+* [Release Notes](topics/release-notes/README.md)
+  * [0.0.630 Errata](topics/release-notes/0.0.630-errata.md)
 
 ***
 
