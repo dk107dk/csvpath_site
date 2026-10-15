@@ -34,7 +34,7 @@ To validate tabular data against an ODCS contract just [load the contract in the
 
 &#x20;      ◦ An ODCS file is copied to a run's results dir and can be transferred anywhere, like any result file
 
-There are of course differences between CSV/JSONL/XLSX files and SQL databases. For example, relationships don't work the same. But overall, the fit is remarkably good and very effective. &#x20;
+There are of course differences between CSV/JSONL/XLSX files or live data objects vs. SQL databases. For example, relationships don't work the same. But overall, the fit is remarkably good and very effective. &#x20;
 
 * **XPath and JSONPath against whole documents**
 
