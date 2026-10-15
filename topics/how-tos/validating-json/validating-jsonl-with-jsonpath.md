@@ -4,7 +4,9 @@ description: JSONL validation is supported as tabular data
 
 # Validating JSONL With JSONPath
 
-JSONL is essentially a tabular format, and a very interesting one. Especially when compared to CSV or Excel, the two file-based tabular formats CsvPath Framework supports. JSONL is even quite different from DataFrames validation, despite both being Python objects.&#x20;
+
+
+JSONL is essentially a tabular format, and a very interesting one. It is quite different from CSV and Excel documents, and even in object form JSONL is distinctly different from validating DataFrames.&#x20;
 
 With JSONL we have:&#x20;
 
@@ -13,14 +15,14 @@ With JSONL we have:&#x20;
 * More likelihood of nested data
 * No delimiter or quotechar needed
 
-Those set aside, JSONL is perfectly tabular.
+All those and other quirks set aside, JSONL is perfectly tabular.
 
 There are two main validation language options for JSONL:
 
 * CsvPath Validation Language (CVL)
 * JSONPath
 
-If you have simple JSONL, with no nesting, or vary shallow nesting, you can stick with strightup CVL. You'll find that is the faster and more understandable choice. But if you have nested data, where headers key complex objects, not scalars, JSONPath may be the way to go.&#x20;
+If you have simple JSONL, with no nesting, or very shallow nesting, you can stick with straight CVL. You'll find that is the faster and more understandable choice. But if you have nested data, where headers key complex objects, not scalars, JSONPath may be the way to go.&#x20;
 
 Since in other respects CVL handles JSONL beautifully, and largely the same as it does CSV or Excel, we'll do an example using JSONPath to make things more interesting.
 
@@ -111,6 +113,8 @@ $my_jsonl[*][
 ```
 
 That's about it. If you are coming from XPath, XQuery, or Schematron, JSONPath may require some experimentation time. But if you have JSONL or JSONL-like objects with nesting, JSONPath is worth learning.
+
+&#x20;
 
 ***
 
