@@ -1,6 +1,6 @@
 # Table of contents
 
-* [CSV, Excel and JSONL Ingestion](README.md)
+* [Ingest JSON, XML, CSV, & DataFrames](README.md)
 * [CSV Validation Automation](csv-validation-automation.md)
 * [DATA PREBOARDING](data-preboarding.md)
 
