@@ -8,7 +8,7 @@ description: High-level descriptions of CsvPath Framework and FlightPath Data re
 
 * **OpenLineage v2 event producer**
 
-The v2 of CsvPath's OpenLineage support is a configurable option. It is the default for new CsvPath Framework project `config.ini` files going forward. Compared to v1:&#x20;
+The v2 of [CsvPath's OpenLineage support](../getting-started/observability-integrations/openlineage/) is a configurable option. It is the default for new CsvPath Framework project `config.ini` files going forward. Compared to v1:&#x20;
 
 &#x20;      ◦ Namespacing and names configuration to satisfy DataOps scale or consumer requirements
 
@@ -24,7 +24,7 @@ The v2 of CsvPath's OpenLineage support is a configurable option. It is the defa
 
 ODCS data contracts join XSD, JSON Schema, and CsvPath Validation Language as the fourth 1st-class validation standard. Supported ODCS versions: v3.0.x, v3.1.0, v3.2.0.&#x20;
 
-To validate tabular data against an ODCS contract just load the contract in the same way you would load a csvpath statement.&#x20;
+To validate tabular data against an ODCS contract just [load the contract in the same way you would load a csvpath statement](how-tos/validating-with-odcs.md).&#x20;
 
 &#x20;      ◦ The ODCS is translated and stored in your group.csvpath file
 
@@ -38,7 +38,7 @@ There are of course differences between CSV/JSONL/XLSX files and SQL databases. 
 
 * **XPath and JSONPath against whole documents**
 
-XPath and JSONPath can now be written against the whole XML or JSON document, not just individual headers. This allows a Schematron-like validation by path rules approach.
+XPath and JSONPath can now be written against the whole XML or JSON document, not just individual headers. This allows a [Schematron-like validation by path rules](how-tos/validating-xml/validating-xml-using-xpath.md) approach.
 
 * **New function: `collect_original()`**
 
