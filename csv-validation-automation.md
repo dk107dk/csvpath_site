@@ -39,11 +39,11 @@ CsvPath Framework reduces the overall CSV, JSON, JSONL, Excel, XML and DataFrame
 * Easy to troubleshoot
 * And able to prevent bad data getting downstream&#x20;
 
-Here's how it works:
+That's a data firewall that makes a difference. Here's how it works:
 
 ### Stop Writing Custom Validation Scripts
 
-**Before CsvPath (the old way):**
+**Before CsvPath** _(the old way)_**:**
 
 ```python
 # 47 lines of custom validation code for each vendor
@@ -84,7 +84,7 @@ def validate_vendor_a_csv(file_path):
     return df
 ```
 
-**With CsvPath (the new way):**
+**With CsvPath** _(the new way)_**:**
 
 ```python
 # 3 lines that work for any vendor
