@@ -30,6 +30,7 @@
     * [Dynamic JSON Preboarding](topics/how-tos/validating-json/dynamic-json-preboarding.md)
     * [Validating JSONL With JSONPath](topics/how-tos/validating-json/validating-jsonl-with-jsonpath.md)
   * [Validating With ODCS](topics/how-tos/validating-with-odcs.md)
+  * [Validating DataFrames](topics/how-tos/validating-dataframes.md)
   * [Validating CSV and Excel](topics/how-tos/validating-csv-and-excel/README.md)
     * [Your First Validation, The Lazy Way](topics/how-tos/validating-csv-and-excel/your-first-validation-the-lazy-way.md)
     * [Your First Validation, The Easy Way](topics/how-tos/validating-csv-and-excel/your-first-validation-the-easy-way.md)
