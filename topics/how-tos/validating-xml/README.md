@@ -9,6 +9,15 @@ CsvPath Framework supports XML as:
 * Single XML document per file
 * Inline XML embedded within a CSV or JSONL file (flattened into a string within a header)
 
+{% hint style="info" %}
+When you apply XSD or XPath (the `xsd()` and `xpath()`, respectively) to whole documents, you only do one pass. It wouldn't make sense to iterate line by line so you just run one line. The best way to set that up is to explicitly do:&#x20;
+
+* A one-line scanning instruction like `[3]`
+* An all lines scanning instruction (`[*]`) combined with `stop()` as the last line of the csvpath driver&#x20;
+
+The second approach is more robust to skipped blank lines. E.g. if you do `[0]` but have one or more skipped blank lines you won't get your single pass through the doc because the scanning instruction hits a line that doesn't trigger matching evaluation. For this reason it much better to use `[*]` with `stop()` as the last line of the csvpath.
+{% endhint %}
+
 When you validate XML you have three choices:
 
 * You can use XSD ([XML Schema Definition language](https://www.w3.org/TR/xmlschema11-1/))

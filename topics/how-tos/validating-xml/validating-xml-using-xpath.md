@@ -14,6 +14,15 @@ The practical difference of using a CsvPath Validation Language driver is that:
 
 What you give up is the ability to output validation reports in HTML, FO, or other complex formats. At least today, CsvPath Framework's reporting, while quite powerful and flexible, is text only. (Markdown is easy, creating HTML is not so easy). For many purposes, though, that is a good tradeoff.
 
+{% hint style="info" %}
+Remember that XPath (and XSD) applied against whole documents results in a one-pass validation, not line-by-line. You must achieve that by either:&#x20;
+
+* A 1-line scanning instruction like `[0]`
+* Or a multi-line scanning instruction like `[*]` combined with the `stop()` function as the last line of the csvpath
+
+The latter is more robust to blank lines. If you know for sure the first line will have content, as in a test or demo situation, `[0]` is fine. But in general `[*]` + `stop()` is more robust and deterministic.
+{% endhint %}
+
 ### Examples
 
 Let's look at a few simple examples.
