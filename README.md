@@ -42,7 +42,7 @@ If your MFT or REST API drives external data directly into the data lake or data
 
 [CsvPath Framework](https://github.com/csvpath/csvpath) is the open source way to shift-left data quality. Enforce clear data contracts at the edge with **less manual effort, fewer ingestion failures, and more agile development** using consistent data preboarding tools [you can try in minutes](https://app.gitbook.com/s/6wzqgDHj9mZbFxabiEbc/getting-started). &#x20;
 
-Support for data contracts and schemas written in **ODCS**, **XSD**, **JSON Schema**, and **CsvPath Validation Language**. Or use **XPath** or **JSONPath** for rules-based validation. All validation options are embedded in the preboarding workflow of a simple, efficient, open, and standards-based data firewall.&#x20;
+Support for data contracts and schemas written in **ODCS**, **XSD**, **JSON Schema**, and **CsvPath Validation Language**. Or use **XPath** or **JSONPath** for rules-based validation. All validation options are embedded in the preboarding workflow of a simple, efficient, open, and **standards-based data firewall**.&#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-03-09 at 6.45.40 PM.png" alt="" width="375"><figcaption><p>Your data lake deserves a data publisher it can trust!</p></figcaption></figure>
 
