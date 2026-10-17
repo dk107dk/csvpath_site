@@ -47,13 +47,17 @@ Have a look at the [Github project](https://github.com/dk107dk/csvpath) for more
 
 ### Let's run something!
 
-The worker class in CsvPath is unsurprisingly called `CsvPath`. For simple validation, it is all you need. &#x20;
+The worker class in CsvPath Framework is unsurprisingly called `CsvPath`. A `CsvPath` instance handles a single validation statement. For simple validations, it is all you need. &#x20;
 
 {% hint style="warning" %}
-For more complex situations and DataOps automation we use the manager class `CsvPaths`. But we'll come back to that in later pages. For now just know that it exists, has essentially the same API, and is equally lightweight to use.
+For more complex situations and DataOps automation we use the manager class `CsvPaths`. (Note the plural form). But we'll come back to that in later pages. For now just know that it exists, has essentially the same API, and is equally lightweight to use.
 {% endhint %}
 
 The quickest way to bootstrap a CsvPath Framework project is the command line interface (CLI). The CLI is a super simple tool that is great for fast no-code development. To try the CLI, skip over to [Your First Validation, The Lazy Way](../topics/how-tos/validating-csv-and-excel/your-first-validation-the-lazy-way.md).&#x20;
+
+{% hint style="info" %}
+While we still find the CLI useful for simple stuff, the [**FlightPath Data**](https://www.flightpathdata.com/) app is vastly superior in all kinds of ways. Starting with the CLI makes sense for a first look. But also check out FlightPath Data — it's free, open, all-platforms, and awesome.&#x20;
+{% endhint %}
 
 To continue with the simplest possible Python, let's do a _hello world_.&#x20;
 
@@ -71,7 +75,7 @@ Create a test CSV file. Save it as trivial.csv or whatever name you like.
 
 {% file src="../.gitbook/assets/trivial.csv" %}
 
-Make a csvpath. Also a trivial one, just to keep it simple.
+Make a csvpath statement in CsvPath Validation Language (CVL). Just a trivial one to keep it simple.
 
 <figure><img src="../.gitbook/assets/trivial-csvpath.png" alt="A trivial CsvPath Language validation statement. This statement can validate a CSV or Excel file." width="563"><figcaption></figcaption></figure>
 
@@ -107,8 +111,8 @@ else:
 
 What does this script do?
 
-* **Line 1:** imports CsvPath so we can use it
-* **Line 3:** is our csvpath that we'll use to validate our test file, `trivial.csv`
+* **Line 1:** imports `CsvPath` so we can use it
+* **Line 3:** is our CVL statement that we'll use to validate our test file, `trivial.csv`
 * **Line 6:** fast-forwards though the CSV file's lines. We could also step through them one by one, if we wanted to.&#x20;
 * **Line 8:** checks if we consider the file valid. If the file didn't meet expectations our csvpath would have declared the file invalid using the `fail()` function.&#x20;
 
@@ -116,6 +120,6 @@ When you run your script you should see something like:
 
 <figure><img src="../.gitbook/assets/result.png" alt="A screenshot of what you should see when you run your validation." width="324"><figcaption></figcaption></figure>
 
-Hello-world examples are never super impressive on their own. But you are now ready to dig in and see what CsvPath can really do.&#x20;
+Hello-world examples are never super impressive on their own. But you are now ready to dig in and see what CsvPath Framework can really do.&#x20;
 
-Next, try [Your First Validation, the Lazy Way](../topics/how-tos/validating-csv-and-excel/your-first-validation-the-lazy-way.md). Also check out the [How-tos section](../topics/how-tos/) for more use cases and examples. If you'd like a helping hand, [contact us](a-helping-hand.md)!
+Next, try [Your First Validation, the Lazy Way](../topics/how-tos/validating-csv-and-excel/your-first-validation-the-lazy-way.md). Also check out the [How-tos section](../topics/how-tos/) for more detailed use cases using ODCS, JSON, and much more. If you'd like a helping hand, [contact us](a-helping-hand.md)!
