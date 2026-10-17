@@ -81,7 +81,7 @@ This internal publisher has the responsibility for regulating the flow of data a
 
 A validation language is not quite the same as a data contract or a schema language, though all overlap. A validation language answers the question: is this correct according to rules for correctness.&#x20;
 
-|                     |                                                                                                                                                |                                                                                                         |
+| Type of language    | What question it answers                                                                                                                       | Most common variants                                                                                    |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Schema Language     | Does this data have the form and types expected?                                                                                               | <ul><li>DDL</li><li>XSD</li><li>JSON Schema</li><li>CsvPath Validation Language (CVL)</li></ul>         |
 | Validation Language | Is this data considered acceptable by some set of rules?                                                                                       | <ul><li>All of the above</li><li>Schematron</li><li>Unstandardized programming, including SQL</li></ul> |
