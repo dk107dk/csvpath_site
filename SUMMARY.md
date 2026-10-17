@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Ingest JSON, XML, CSV & DataFrames](README.md)
-* [CSV Validation Automation](csv-validation-automation.md)
+* [Data Ingress Validation Automation](data-ingress-validation-automation.md)
 * [DATA PREBOARDING](data-preboarding.md)
 
 ## Getting Started
