@@ -7,7 +7,7 @@ description: >-
 
 # Quickstart
 
-This page gives you all the information you need to get started doing simple validations of CSV files with the Framework. It is super high-level and quick. You will want to go deeper on other pages later. We're going to do a trivial validation — the simplest possible thing that gives you a sense.
+This page gives you all the information you need to get started doing simple validations. For a fast start we'll simply validate a CSV file. The basic pattern is the same for JSON, DataFrames, using ODCS, etc. You will want to go deeper on [other pages](../topics/how-tos/). Here we're just doing the simplest possible thing that gives you a taste.
 
 {% hint style="warning" %}
 For an **even quicker start**, download the free **FlightPath Data** app from [Microsoft](https://apps.microsoft.com/detail/9P9PBPKZ4JDF) or [Apple](https://apps.apple.com/us/app/flightpath-data/id6745823097) or [Github](https://github.com/dk107dk/flightpath).&#x20;
@@ -41,7 +41,15 @@ If you prefer Pip, install CsvPath Framework with:
 pip install csvpath
 ```
 
-Have a look at the [Github project](https://github.com/dk107dk/csvpath) for more details. You can read that site in parallel to this one.
+Note that DataFrames support requires installing the Framework with the `pandas` extra.&#x20;
+
+{% code lineNumbers="true" %}
+```python
+pip install 'csvpath[pandas]'
+```
+{% endcode %}
+
+Have a look at the [Github project](https://github.com/dk107dk/csvpath) for more details. That site focuses mainly on CsvPath Validation Language (CVL) and more getting started examples.
 
 <div data-full-width="false"><figure><img src="../.gitbook/assets/github-home.png" alt="Screenshot of the open source CsvPath Framework&#x27;s GitHub page" width="375"><figcaption></figcaption></figure></div>
 
