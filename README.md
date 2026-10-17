@@ -30,13 +30,13 @@ layout:
     visible: false
 ---
 
-# CSV, Excel and JSONL Ingestion
+# Ingest JSON, XML, CSV & DataFrames
 
 <figure><img src=".gitbook/assets/Screenshot 2026-09-19 at 1.33.20 AM.png" alt="CsvPath Framework enables Data Contracts for Edge Data Governance of JSON, XML, and tabular data coming from external partners in files, API calls, or streaming messages. " width="563"><figcaption></figcaption></figure>
 
 
 
-#### CsvPath Framework registers, versions, validates, upgrades, and stages CSV, JSON, XML, Excel, JSONL and data frames from data partners _before_ your pipelines break.&#x20;
+#### CsvPath Framework registers, versions, validates, upgrades, and stages CSV, JSON, XML, Excel, JSONL and DataFrames from data partners _before_ your pipelines break.&#x20;
 
 If your MFT or REST API drives external data directly into the data lake or database the damage is already done.&#x20;
 
