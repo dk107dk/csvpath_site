@@ -16,6 +16,7 @@ Buzzwords are fun. When they actually mean something they are a way to communica
 * [Data Validation](glossary.md#data-validation)
 * [Edge Governance](glossary.md#edge-governance)
 * [Trusted Publisher](glossary.md#trusted-publisher)
+* [Validation Language](glossary.md#validation-language)
 
 ## Architectural Pattern
 
@@ -75,3 +76,19 @@ While we most often focus on inbound data flows, edge governance is also applica
 In DataOps, the question of who to trust and how much is fraught. There are few natural controls on external publishers and transparency is typically poor. Not trusting data partners completely, while pragmatic, can be costly. One of the best ways to deal with the data-not-under-your-control problem is to put a trusted publisher between the external partner and the operational data stores and applications.&#x20;
 
 This internal publisher has the responsibility for regulating the flow of data and assuring it meets a standard of quality and traceability that allows the operational systems to operate with high-trust. The high-trust data environment allows the applications and analytics to focus more effort on the business the data supports and less on being data-defensive. In custom applications and analytics in particular, this separation of focus — preboarding as the trust-building publisher, applications being fully business focused — leads to higher productivity for all.
+
+## Validation Language
+
+A validation language is not quite the same as a data contract or a schema language, though all overlap. A validation language answers the question: is this correct according to rules for correctness.&#x20;
+
+|                     |                                                                                                                                                |                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Schema Language     | Does this data have the form and types expected?                                                                                               | <ul><li>DDL</li><li>XSD</li><li>JSON Schema</li><li>CsvPath Validation Language (CVL)</li></ul>         |
+| Validation Language | Is this data considered acceptable by some set of rules?                                                                                       | <ul><li>All of the above</li><li>Schematron</li><li>Unstandardized programming, including SQL</li></ul> |
+| Data Contract       | Does the data conform to technical and business rules for what good data looks like, and is it's management, ownership, lifecycle, etc. known? | <ul><li>ODCS</li><li>Unstandardized documentation</li></ul>                                             |
+
+We call CsvPath Validation Language (CVL) a validation language because it is targeted towards providing both schemas and complex validation-specific rules (rules that may be independent of a schema) as first-class goals, within a structured validation context.&#x20;
+
+Because CVL can include structured user-defined metadata and named-paths groups and named-files include markdown readme files, we can say that CVL is a data contract language. That capability and tooling goes beyond what XSD or DDL provides. But CVL is not purpose built for data contracts, in that the metadata fields (other than [CVL's modes](the-modes.md)) are defined by the user, not by a data contracts standard. CVL extracts ODCS metadata and adds it as CVL metadata fields, but it would be fair to argue that without its own data contract metadata standard CVL isn't quite a data contract language. Fair, but arguable both ways.
+
+To summarize, then. Rules (optionally) within a schema is like XSD. Rules without a schema is like Schematron. Rules collaborating (optionally) with one or more schemas is CVL or SQL's DDL+DQL. And unstandardized validation is just throwing Python or SQL at the data in whatever ad hoc query or script gets the immediate job done.   &#x20;
