@@ -4,6 +4,8 @@ description: Going beyond plain text output with Jinja
 
 # Jinja Reporting
 
+<figure><img src="../../.gitbook/assets/jinja.jpeg" alt="" width="177"><figcaption></figcaption></figure>
+
 CsvPath Framework has excellent support for generating output text during a run. Some of the features available include:&#x20;
 
 * Print to multiple named printstreams
@@ -11,16 +13,18 @@ CsvPath Framework has excellent support for generating output text during a run.
 * Use table functions to output runtime variables and other indicators
 * Separate and transfer printstream files as high-level logs or reports
 
-However, the `print()` and `error()` functions don't write HTML reports on runs. There are times when the ability to create more polished presentation is helpful. And yet, the Framework doesn't want to make assumptions about what data and what form you may need.&#x20;
+However, the `print()` and `error()` functions don't write HTML reports summarizing runs. There are times when the ability to create more polished presentation is helpful. And yet, the Framework doesn't want to make assumptions about what data and what form you may need.&#x20;
 
-The answer is that you have the option to create report outputs using Jinja templates. This gives you additional flexibility to create output that works for the people who will recieve it.
+The answer is that you have the option to create report outputs using Jinja templates. This gives you additional flexibility to create output that works for the people who will receive it.
 
 ### How Does Jinja in CsvPath Framework Work?
 
-The `jinja()` takes a source Jinja template, an output filename, and, optionally, a reference to additional metadata to add to the run that is proceeding at that moment. The function has some limitations, currently planned for upgrade in Q4 2026, that you should bear in mind:
+The `jinja()` takes a source Jinja template, an output filename, and, optionally, a reference to additional metadata from a prior run to add to that of the run that is proceeding at that moment.&#x20;
 
-* jinja requires a `CsvPaths` instance. As you will see below, that's not a big limitation, but for some simple use cases it is an additional one line of code you might not have expected.
-* The input and output paths must be on the local filesystem. This is the big one. In FlightPath server filesystem access is locked down to a large degree. Jinja isn't a good fit for that environment until the upgrade mentioned above.&#x20;
+The function has some limitations, currently planned for upgrade in Q4 2026, that you should bear in mind:
+
+* `jinja()` requires a `CsvPaths` instance. As you will see below, that's not a big limitation, but for some simple use cases it is an additional one line of code you might not have expected.
+* The input and output paths must be on the local filesystem. This is the big one. In FlightPath Server filesystem access is locked down to a large degree. `jinja()` isn't a good fit for that environment until the upgrade mentioned above is released.&#x20;
 * The Jinja template doesn't live in the named-paths group. If you only want to use Jinja in a "one-off" programmatic way, for e.g. in a pipeline or the script below, this is not a big problem. But in a server environment, or any full preboarding workflow, it would be much better and simpler to have the template in the named-paths group. And this improvement is also planned for the next release.
 
 You can see more information on [`jinja()` in the repo docs](https://github.com/csvpath/csvpath/blob/main/docs/functions/jinja.md). You can also check out the functions look up in the CLI or the Help tab on the right-hand side of FlightPath Data.
