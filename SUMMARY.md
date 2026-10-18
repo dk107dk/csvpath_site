@@ -78,6 +78,7 @@
     * [HTTPS](topics/how-tos/storage-backends/https.md)
     * [S3, SFTP, Google Cloud, or Azure](topics/how-tos/storage-backends/s3-sftp-google-cloud-or-azure.md)
   * [Parquet](topics/how-tos/parquet.md)
+  * [Jinja Reporting](topics/how-tos/jinja-reporting.md)
   * [Sqlite](topics/how-tos/send-run-events-to-sqlite.md)
   * [Postgres and MySQL](topics/how-tos/send-events-to-mysql-or-postgres.md)
   * [Transfers](topics/how-tos/transfers/README.md)
