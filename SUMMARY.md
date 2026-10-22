@@ -77,6 +77,7 @@
     * [Google Cloud Storage](topics/how-tos/storage-backends/google-cloud-storage.md)
     * [HTTPS](topics/how-tos/storage-backends/https.md)
     * [S3, SFTP, Google Cloud, or Azure](topics/how-tos/storage-backends/s3-sftp-google-cloud-or-azure.md)
+  * [Exploring Data With CRL](topics/how-tos/exploring-data-with-crl.md)
   * [Parquet](topics/how-tos/parquet.md)
   * [Jinja Reporting](topics/how-tos/jinja-reporting.md)
   * [Sqlite](topics/how-tos/send-run-events-to-sqlite.md)
