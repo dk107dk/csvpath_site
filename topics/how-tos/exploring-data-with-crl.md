@@ -50,11 +50,12 @@ CRL is based on references v2. It adds functions, interpolated strings, variable
 A CRL statement has the following parts:&#x20;
 
 * `$` — the root of the statement
-* A named-entity type: `files`, `csvpaths`, `results`
 * A named-entity name — this is `acme` in the example above
-* A named-entity sub-part — this is a version of a file, an individual csvpath in a named-paths group, or the results of an individual csvpath statement within a named-paths group run results
+* A named-entity type: `files`, `csvpaths`, `results`&#x20;
+* A template path — this value uses the path within the named-entity to select a certain registered file or run. While it is primarily a path, ordinal, date, and other function types can also be used here.
+* A named-entity sub-part — this is a version of a file, an individual csvpath in a named-paths group, or the results of an individual csvpath statement within a named-paths group's run results
 
-The last of these is optional.
+The last of these bullets is optional. Summing up, the form is `$name.type.template-path.sub`.
 
 CRL references can also be linked together as CRL expressions using three set operations:&#x20;
 
@@ -62,5 +63,9 @@ CRL references can also be linked together as CRL expressions using three set op
 * `INTERSECT`  — returns those items common to two sets resulting from two references
 * `SUBTRACT` — Subtracts the right-hand reference results from the left-hand reference results
 
+### Why Another Little Language?
 
+Domain Specific Languages (DSL) or "little languages" are tightly bound to their narrow context and offer concise and consistent solutions that a general purpose programming language (e.g. Python) or query language (e.g. SQL) would not. That consistency and specialized semantic meaning is important to CsvPath Framework because the Framework is a) opinionated, having a very specific and controlled structure, and b) offers uniform workflow as a key way to deliver low-code value to data engineering teams.&#x20;
+
+Moreover, a language that is semantically fully focused on data preboarding is easier to use for purpose, particularly for AI agents. Unlocking agent autonomy and creativity is key to the value CsvPath Framework seeks to deliver. Using language to empower agents plays to LLMs' obvious strenths in language-based tasks. And tieing activity to a powerful semantic language significantly reduces the number of tools and other context inputs required. Fewer tools and simpler context engineering means more robust agent harnesses, fewer tokens spent, and more ability to enlist more sub-agents in solving a challenge while keeping explainability high.&#x20;
 
