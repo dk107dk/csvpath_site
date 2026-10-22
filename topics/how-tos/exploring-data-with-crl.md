@@ -12,7 +12,7 @@ CRL (CsvPath Reference Language) is the third version of references in CsvPath F
 
 At this time, v3 is only used for users' data exploration and AI automated status reporting and triage. It is a power user tool, and is completely optional for most users of the Framework.&#x20;
 
-For clarity, when we use the term CRL or reference expressions we're talking about v3. When we simply say references we maybe referring to the current v2 references or v3, depending on context.
+For clarity, when we use the term "CRL" or "reference expressions" we're talking about v3. When we simply say "references" we maybe referring to the current v2 references or v3, depending on context.
 {% endhint %}
 
 CsvPath Framework has two powerful DSLs:&#x20;
