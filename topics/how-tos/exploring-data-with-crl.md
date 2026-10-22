@@ -8,9 +8,11 @@ hidden: true
 # Exploring Data With CRL
 
 {% hint style="warning" %}
-CRL (CsvPath Reference Language) is the third version of references in CsvPath Framework. It is a complete break from v2, though they clearly have a family resemblance. The v2 references that CsvPaths objects return when you kick off a run, and the rewind/replay use of v2 references is exactly the same.&#x20;
+CRL (CsvPath Reference Language) is the third version of references in CsvPath Framework. It is a complete break from v2, though they clearly have a family resemblance. The v2 references that `CsvPaths` objects return when you kick off a run, and the rewind/replay use of v2 references is exactly the same.&#x20;
 
 At this time, v3 is only used for users' data exploration and AI automated status reporting and triage. It is a power user tool, and is completely optional for most users of the Framework.&#x20;
+
+For clarity, when we use the term CRL or reference expressions we're talking about v3. When we simply say references we maybe referring to the current v2 references or v3, depending on context.
 {% endhint %}
 
 CsvPath Framework has two powerful DSLs:&#x20;
