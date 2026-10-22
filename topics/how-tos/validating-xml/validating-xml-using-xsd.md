@@ -101,20 +101,23 @@ With those inputs, the Python required looks like this: &#x20;
     def valdiate(self) -> None:
         paths = CsvPaths()
         name = "autos"
-        
-        ~ load the named-entities ~
+        #
+        # load the named-entities 
+        #
         paths.paths_manager.add_named_paths(name=name, from_file="autos.csvpaths")
         paths.file_manager.add_named_file(name=name, path="autos.xml")
-
-        ~ add the XSD to the named-paths group. 
-          DataFileReader can read from any Framework backend. ~
+        #
+        # add the XSD to the named-paths group. 
+        # DataFileReader can read from any Framework backend. 
+        #
         with DataFileReader(XSD) as reader:
             text = reader.source.read()
             paths.paths_manager.asset_manager.store_asset_file(
                 name=name, filename="automobiles.xsd", contents=text
             )
-
-        ~ do the run and check the results using the run reference ~        
+        #
+        # do the run and check the results using the run reference        
+        #
         ref = paths.collect_paths(pathsname=name, filename=name)
         results = paths.results_manager.get_named_results(ref)        
         assert results[0].csvpath.is_valid

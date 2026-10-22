@@ -49,31 +49,37 @@ JSONL = [
 ]
 
 def run(path:CsvPath=None, jsonl:list=None):
-    """ we could pass a JSONL structure in but we'll just use the
-      prepared demo data """
+    #
+    # we could pass a JSONL structure in but we'll just use the
+    # prepared demo data 
+    #
     jsonl = jsonl if jsonl else JSONL
-    
-    """ if we were rerunning lots of dataframes with the same validation
-      we could save reparsing by just rewinding the CsvPath instance. """
+    #
+    # if we were rerunning lots of dataframes with the same validation
+    # we could save reparsing by just rewinding the CsvPath instance. 
+    #
     if path:
         path.rewind()
     else:
         path = CsvPath()
-    
-    """ load our JSONL objects into a dataframe. obviously this data could
-      come from a file, but not in this example """
+    #
+    # load our JSONL objects into a dataframe. obviously this data could
+    #  come from a file, but not in this example 
+    #
     df = pd.DataFrame(jsonl)
-    
-    """ register the data so the CsvPath instance can find it. Note that 
-      this is not data preboarding registration, we're just making the
-      the data available for a moment, not capturing it in a versioned]
-      immutable store with metadata production and lineage events. that
-      is a whole different thing that you can definitely do, but not in
-      this example. """
+    #
+    # register the data so the CsvPath instance can find it. Note that 
+    # this is not data preboarding registration, we're just making the
+    # the data available for a moment, not capturing it in a versioned]
+    # immutable store with metadata production and lineage events. that
+    # is a whole different thing that you can definitely do, but not in
+    # this example. 
+    #
     DataFileReader.register_data(path="my_df", data=df, shape="jsonl")
-
-    """ we're going to use CVL + JSONPath for this example. ODCS is an 
-      equally straightforward option. """
+    #
+    # we're going to use CVL + JSONPath for this example. ODCS is an 
+    # equally straightforward option. 
+    #
     statement = """
         ~validation-mode:print, raise~
         $my_df[*][
@@ -83,11 +89,13 @@ def run(path:CsvPath=None, jsonl:list=None):
             exists(@fish) -> print("fish exists! $.variables.fish")
             exists(@fish)
         ]"""
-        
-    """ here's the validation run """
+    # 
+    # here's the validation run 
+    #
     lines = path.collect(statement)
-
-    """ and here we check if we got what we were looking for """
+    #
+    # and here we check if we got what we were looking for 
+    #
     if len(lines) == 1:
         print("There are fish.")
     elif len(lines) < 1:
