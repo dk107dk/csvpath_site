@@ -8,6 +8,10 @@ description: Capturing run events to Sqlite can make searching for answers faste
 
 You can easily send your runs metadata to Sqlite as well as to `manifest.json` files. Why might you want to do that? Sqlite gives you the ability to quickly search for runs that match certain characteristics. It contains most of the data in the results and result events so you can more easily query at multiple levels across runs.
 
+{% hint style="warning" %}
+While the Sqlite integration continues to be supported, the [SQL integration ](send-events-to-mysql-or-postgres.md)also supports Sqlite and has more capabilities. New projects should use the SQL integration, using Sqlite or any supported database. New development will done on the SQL integration, not the Sqlite integration.&#x20;
+{% endhint %}
+
 Turning on the Sqlite backend is simple. It is pre-configured in your generated `config/config.ini`, when you create a new project. To add Sqlite to an existing project, pickup the latest version of CsvPath Framework from Pypi and add these to the `[listeners]` section of your `config.ini`:
 
 ```ini

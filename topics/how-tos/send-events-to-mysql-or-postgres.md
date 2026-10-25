@@ -1,5 +1,5 @@
 ---
-description: Some multi-user archives may benefit from capturing events to the database
+description: Multi-user archives may benefit from capturing events to the database
 ---
 
 # Postgres and MySQL
@@ -7,6 +7,15 @@ description: Some multi-user archives may benefit from capturing events to the d
 <figure><img src="../../.gitbook/assets/Screenshot 2025-04-03 at 5.02.52 PM.png" alt="the logos of mysql, postgres, and sqlite"><figcaption></figcaption></figure>
 
 CsvPath Framework is great for both individual developer users and large groups of DataOps pros taking care of many data partnerships. The difference between these scenarios is important, however. You can read more about it here.
+
+{% hint style="info" %}
+This page is about the **SQL Integration**. In `config/config.ini` the SQL integration is:&#x20;
+
+* The `sql` group in `[listeners] groups`
+* The `[sql]` section keys
+
+New projects should use the SQL integration, not the Sqlite integration. Sqlite is supported by both, but only the SQL Integration is actively maintained and improved. The sunsetted Sqlite Integration is the group `sqlite` and the section `[sqlite]`.
+{% endhint %}
 
 ## Why go with SQL?
 
@@ -68,7 +77,7 @@ The `dialect` key value must be one of:&#x20;
 * `postgres`
 * `sqlite`
 
-Under the hood we're using [SQLAlchemy](https://www.sqlalchemy.org/), so you can [look here for the connection string formats](https://docs.sqlalchemy.org/en/20/core/engines.html#database-urls).
+Under the hood we're using [SQLAlchemy](https://www.sqlalchemy.org/), so you can [look here for the connection string formats](https://docs.sqlalchemy.org/en/20/core/engines.html#database-urls). At this time using other SQLAlchemy supported databases, not listed above, is untested and unsupported.
 
 As usual, you can use an ALL CAPS value to point to the environment var of that name. For e.g., `connection_string = CONNECTION_URI` would result in `connection_string` equaling the value of the `CONNECTION_URI` environment variable, if found.
 
